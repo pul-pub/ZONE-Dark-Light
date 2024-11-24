@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 7e4b804ab9cf4134b9f94806dd0f9580
+guid: 64bb61dd5628741448bdd9b4191e0f2c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9200760095537918847
-    second: GUI_Input_Icons_0
-  - first:
-      213: -1492231612479648181
-    second: GUI_Input_Icons_1
-  - first:
-      213: 7271036897732707083
-    second: GUI_Input_Icons_2
-  - first:
-      213: 2550148554572776971
-    second: GUI_Input_Icons_3
+      213: -234087676215203049
+    second: GUI_Buttons_Outline_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GUI_Input_Icons_0
+      name: GUI_Buttons_Outline_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f1eac65224ecd2240bbd6f910af254cb
-      internalID: 1260094569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_Input_Icons_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b5bce2d657496c499178d8fe6910b15
-      internalID: -236231510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_Input_Icons_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97026c412b3a9f343a9017599c9cddf8
-      internalID: 1925570465
+      spriteID: 71b65ecaf7a50ccf0800000000000000
+      internalID: -234087676215203049
       vertices: []
       indices: 
       edges: []
@@ -191,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0370449ac88775547ba54f8001ab6669
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -201,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GUI_Input_Icons_0: 1260094569
-      GUI_Input_Icons_1: -236231510
-      GUI_Input_Icons_2: 1925570465
+      GUI_Buttons_Outline_0: -234087676215203049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

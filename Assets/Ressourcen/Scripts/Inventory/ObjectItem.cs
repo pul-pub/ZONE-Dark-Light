@@ -7,8 +7,6 @@ using static UnityEditor.Progress;
 
 public class ObjectItem : EventTrigger
 {
-    public event Action<ObjectItem, int> OnEndDragItem;
-
     public Item item { get; private set; }
     public int count = 0;
     public int[] cellsId = new int[2];
@@ -42,6 +40,15 @@ public class ObjectItem : EventTrigger
             transform.position = _pos;
 
         UpdateValue();
+    }
+
+    public void UpdateValue()
+    {
+        GetComponentsInChildren<Image>()[1].sprite = item.img;
+        if (count > 1)
+            _tmp.text = count.ToString();
+        else
+            _tmp.text = "";
     }
 
     public override void OnBeginDrag(PointerEventData data)
@@ -125,7 +132,7 @@ public class ObjectItem : EventTrigger
                         _currentCells[0] = int.Parse(_to.name);
                         _currentCells[1] = int.Parse(_to.name) + 1;
                     }
-                    else if (_ii_1 == _ii_2 && _ii_1.item == item)
+                    else if (_ii_1 == _ii_2 && _ii_1.item == item && item.type != TypeItem.Weapon)
                     {
                         if (_inventory.CalculatedCountItems(_ii_1, this) > 0)
                         {
@@ -138,10 +145,70 @@ public class ObjectItem : EventTrigger
                         }
                     }
                 }
+
+                if (_currentCells[0] > 100)
+                    _inventory.ChengeOutfit();
             }
             else if (_cell > 100 && _cell < 120)
             {
+                ObjectItem _ii_1 = _inventory.CheckCell(_cell);
 
+                if (_cell == 101 && item.type == TypeItem.Weapon && item.countCell == 2)
+                {
+                    ObjectItem _ii_2 = _inventory.CheckCell(_cell + 1);
+
+                    if (_ii_1 != null && _ii_2 != null)
+                    {
+                        _ii_1.cellsId[0] = _currentCells[0];
+                        _ii_1.cellsId[1] = _currentCells[1];
+
+                        _ii_1.transform.position = objectStartPos;
+                    }
+
+                    objectStartPos = _to.transform.position + new Vector3(85, 0);
+                    _currentCells[0] = int.Parse(_to.name);
+                    _currentCells[1] = int.Parse(_to.name) + 1;
+                    _inventory.ChengeOutfit();
+                }
+                else if (_cell == 103 && item.type == TypeItem.Weapon && item.countCell == 1)
+                {
+                    if (_ii_1 != null)
+                    {
+                        _ii_1.cellsId[0] = _currentCells[0];
+
+                        _ii_1.transform.position = objectStartPos;
+                    }
+
+                    objectStartPos = _to.transform.position;
+                    _currentCells[0] = int.Parse(_to.name);
+                    _inventory.ChengeOutfit();
+                }
+                else if (_cell == 104 && item.type == TypeItem.Armor)
+                {
+                    if (_ii_1 != null)
+                    {
+                        _ii_1.cellsId[0] = _currentCells[0];
+
+                        _ii_1.transform.position = objectStartPos;
+                    }
+
+                    objectStartPos = _to.transform.position;
+                    _currentCells[0] = int.Parse(_to.name);
+                    _inventory.ChengeOutfit();
+                }
+                else if (_cell == 105 && item.type == TypeItem.Backpack)
+                {
+                    if (_ii_1 != null)
+                    {
+                        _ii_1.cellsId[0] = _currentCells[0];
+
+                        _ii_1.transform.position = objectStartPos;
+                    }
+
+                    objectStartPos = _to.transform.position;
+                    _currentCells[0] = int.Parse(_to.name);
+                    _inventory.ChengeOutfit();
+                }
             }
         }
 
@@ -149,14 +216,5 @@ public class ObjectItem : EventTrigger
         cellsId = _currentCells;
         isDragging = false;
         _to = null;
-    }
-
-    public void UpdateValue()
-    {
-        GetComponentsInChildren<Image>()[1].sprite = item.img;
-        if (count > 1)
-            _tmp.text = count.ToString();
-        else
-            _tmp.text = "";
     }
 }

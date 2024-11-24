@@ -6,6 +6,8 @@ public enum TypeReturn { TRUE, FALSE, DELETE };
 
 public class Inventory : MonoBehaviour
 {
+    public event System.Action OnChangeOutfit;
+
     [SerializeField] private DataBase inventoryData;
     [SerializeField] private int coutCells = 49;
     [Header("Objects Item")]
@@ -24,6 +26,8 @@ public class Inventory : MonoBehaviour
         {
             AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 10));
         }
+
+        ChengeOutfit();
     }
 
     public int CalculatedCountItems(ObjectItem _currentItem, ObjectItem _targetItem)
@@ -61,7 +65,7 @@ public class Inventory : MonoBehaviour
             int _res = FindNullCell(true);
             int[] _cells = new int[2] { _res, _res + 1 };
 
-            _gObj.GetComponent<ObjectItem>().Initialization(_item, _cells, FindCellPosition(_cells[0]), this, _count);
+            _gObj.GetComponent<ObjectItem>().Initialization(_item, _cells, FindCellPosition(_cells[0]), this, 1);
 
             _items.Add(_gObj.GetComponent<ObjectItem>());
         }
@@ -118,6 +122,15 @@ public class Inventory : MonoBehaviour
         return -1;
     }
 
+    public Item FindItemCell(int _cell)
+    {
+        foreach (ObjectItem _item in _items)
+            if (_item.cellsId[0] == _cell)
+                return _item.item;
+
+        return null;
+    }
+
     private Vector3 FindCellPosition(int _cell)
     {
         foreach (ObjectCell _cellObj in _cellObjs)
@@ -125,15 +138,6 @@ public class Inventory : MonoBehaviour
                 return _cellObj.gameObject.transform.position;
 
         return Vector3.zero;
-    }
-
-    private ObjectCell FindCell(int _cell)
-    {
-        foreach (ObjectCell _cellObj in _cellObjs)
-            if (_cellObj.cellID == _cell)
-                return _cellObj;
-
-        return null;
     }
 
     public ObjectItem CheckCell(int _cellID)
@@ -157,5 +161,11 @@ public class Inventory : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void ChengeOutfit()
+    {
+        if (OnChangeOutfit != null)
+            OnChangeOutfit.Invoke();
     }
 }

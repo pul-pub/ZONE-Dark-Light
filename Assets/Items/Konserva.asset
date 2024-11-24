@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
-  m_Name: Arm-2 6
+  m_Name: Konserva
   m_EditorClassIdentifier: 
-  id: 2
+  id: 3
   Name: 
+  type: 0
   price: 0
   countCell: 1
   maxCount: 32
-  img: {fileID: -7855203551248514480, guid: 5367007ff32f09c4592f1c3c884e91ad, type: 3}
+  img: {fileID: -3004918560657441691, guid: 5367007ff32f09c4592f1c3c884e91ad, type: 3}

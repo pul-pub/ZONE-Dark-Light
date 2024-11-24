@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
-  m_Name: Arm-2 8
+  m_Name: PM
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4
   Name: 
+  type: 0
   price: 0
-  countCell: 2
+  countCell: 1
   maxCount: 32
-  img: {fileID: -1496922236697126485, guid: 64c1d7053ff5aa746a0c7743c1451810, type: 3}
+  img: {fileID: 722975880, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
