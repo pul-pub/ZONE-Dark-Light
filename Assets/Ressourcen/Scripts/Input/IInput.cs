@@ -1,0 +1,16 @@
+using System;
+using UnityEngine;
+
+public interface IInput
+{
+    public event Action<Vector2> OnMove;
+
+    public event Action<bool> OnShoot;
+    public event Action OnRload;
+    public event Action<int> OnSetNumWeapon;
+
+    public void ReadMovement();
+    public void ReadButton(string _type);
+    public void ReadButtonShoot(bool _isActiv);
+    public void ReadNumWeapon(int _num);
+}

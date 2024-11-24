@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Item
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - NPC
+  - Player
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG_Sky
+    uniqueID: 2567607999
+    locked: 0
+  - name: BG_Tree
+    uniqueID: 3323362263
+    locked: 0
+  - name: BG_Ground
+    uniqueID: 3491920627
+    locked: 0
+  - name: BG_OnGround
+    uniqueID: 2690595393
+    locked: 0
+  - name: NPC
+    uniqueID: 1202709575
+    locked: 0
+  - name: Player
+    uniqueID: 1321242855
+    locked: 0
+  - name: Anomaly
+    uniqueID: 3965245311
+    locked: 0
+  - name: FG_OnGround
+    uniqueID: 4118059989
+    locked: 0
+  m_RenderingLayers:
+  - Default
