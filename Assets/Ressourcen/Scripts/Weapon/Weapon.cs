@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : ScriptableObject
+public abstract class Weapon : ScriptableObject
 {
     [Header("Base")]
     public string Name;

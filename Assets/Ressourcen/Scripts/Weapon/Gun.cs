@@ -3,8 +3,12 @@ using UnityEngine;
 
 public enum TypeAmmo { NULL, Shotgun_12, s5x45 };
 
+[CreateAssetMenu(menuName = "Gun", fileName = "Null")]
 public class Gun : Weapon
 {
+    [Header("Grafics")]
+    public Sprite imgBoxGun;
+    public Sprite imgStor;
     [Header("Audio")]
     public AudioClip soundShoot;
     public AudioClip soundSpusk;
@@ -75,8 +79,12 @@ public class Gun : Weapon
         _new.dm = dm;
         _new.startTimeBtwShot = startTimeBtwShot;
 
+        _new.imgBoxGun = imgBoxGun;
+        _new.imgStor = imgStor;
+
         _new.soundShoot = soundShoot;
         _new.soundSpusk = soundSpusk;
+
         _new.typeAmmo = typeAmmo;
         _new.ammo = ammo;
         _new.force = force;

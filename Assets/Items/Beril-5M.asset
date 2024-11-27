@@ -18,4 +18,4 @@ MonoBehaviour:
   price: 0
   countCell: 1
   maxCount: 32
-  img: {fileID: 7183617622495930205, guid: 62609790bb4ac5d4e8c663524b001383, type: 3}
+  img: {fileID: 6133383699264790170, guid: 979078d4944d9fa4391adad7ac03aaa0, type: 3}

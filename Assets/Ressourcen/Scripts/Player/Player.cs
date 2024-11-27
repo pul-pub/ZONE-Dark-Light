@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
         {
             handlerGUI.input.OnMove += movement.Move;
             handlerGUI.input.OnShoot += weaponManager.SetIsShoot;
+            handlerGUI.input.OnSetNumWeapon += weaponManager.SetNumberWeapon;
+            handlerGUI.input.OnResetOutfit += weaponManager.SetGunList;
         }  
     }
 
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour
         {
             handlerGUI.input.OnMove += movement.Move;
             handlerGUI.input.OnShoot += weaponManager.SetIsShoot;
+            handlerGUI.input.OnSetNumWeapon += weaponManager.SetNumberWeapon;
+            handlerGUI.input.OnResetOutfit += weaponManager.SetGunList;
         }    
     }
 
@@ -30,6 +34,8 @@ public class Player : MonoBehaviour
         {
             handlerGUI.input.OnMove -= movement.Move;
             handlerGUI.input.OnShoot -= weaponManager.SetIsShoot;
+            handlerGUI.input.OnSetNumWeapon -= weaponManager.SetNumberWeapon;
+            handlerGUI.input.OnResetOutfit -= weaponManager.SetGunList;
         }    
     }
 }

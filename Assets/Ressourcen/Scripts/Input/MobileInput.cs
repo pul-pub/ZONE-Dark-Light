@@ -9,6 +9,8 @@ public class MobileInput : IInput
     public event Action OnRload;
     public event Action<int> OnSetNumWeapon;
 
+    public event Action<Item[]> OnResetOutfit;
+
     private FixedJoystick _fixedJoystick;
 
     public MobileInput(FixedJoystick _fixedJoystick)
@@ -43,5 +45,11 @@ public class MobileInput : IInput
     {
         if (OnSetNumWeapon != null)
             OnSetNumWeapon.Invoke(_num);
+    }
+
+    public void ReadResetOutfit(Item[] _items)
+    {
+        if (OnResetOutfit != null)
+            OnResetOutfit.Invoke(_items);
     }
 }

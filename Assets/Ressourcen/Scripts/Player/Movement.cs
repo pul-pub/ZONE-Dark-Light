@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
 
     private bool Jamp()
     {
-        bool isGrounded = Physics2D.BoxCast(transform.position, new Vector3(1, 3, 0), 0f, new Vector3(), 0f, layerMask);
+        bool isGrounded = Physics2D.BoxCast(transform.position, new Vector3(1, 2.8f, 0), 0f, new Vector3(), 0f, layerMask);
         if (isGrounded)
         {
             _rb.linearVelocityY = ForceJamp;

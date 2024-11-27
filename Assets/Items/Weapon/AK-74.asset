@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
-  m_Name: PP-19-01
+  m_Name: AK-74
   m_EditorClassIdentifier: 
-  id: 5
+  id: 150
   Name: 
   type: 0
   price: 0
   countCell: 2
   maxCount: 32
-  img: {fileID: 460368407, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
+  img: {fileID: -806811087, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
