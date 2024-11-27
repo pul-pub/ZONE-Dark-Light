@@ -1,64 +1,79 @@
 fileFormatVersion: 2
-guid: 6aa12e4116556f24f9778f4ac965b5b8
+guid: 59da459cce458b745b105a97ecae6d56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4520652771039419950
-    second: TailMap1_0
+      213: -222963235948450098
+    second: Armor_Camo_0
   - first:
-      213: 37129970461706202
-    second: TailMap1_1
+      213: 6731180897105138514
+    second: Armor_Camo_1
   - first:
-      213: 783366632000194295
-    second: TailMap1_2
+      213: -906823529338260356
+    second: Armor_Camo_2
   - first:
-      213: 5178316094232574408
-    second: TailMap1_3
+      213: 3877399898354296637
+    second: Armor_Camo_3
   - first:
-      213: -2116606993495797314
-    second: TailMap1_4
+      213: -8468473030389373866
+    second: Armor_Camo_4
   - first:
-      213: -5966215102153526921
-    second: TailMap1_5
+      213: -3990182049700349748
+    second: Armor_Camo_5
   - first:
-      213: -6285876551422314296
-    second: TailMap1_6
+      213: -655531603158324817
+    second: Armor_Camo_6
   - first:
-      213: 3610334859284898714
-    second: TailMap1_7
+      213: -6420702553395105182
+    second: Armor_Camo_7
   - first:
-      213: 8442940513359247712
-    second: TailMap1_8
+      213: -1890298148548145999
+    second: Armor_Camo_8
   - first:
-      213: 1207578390004304483
-    second: TailMap1_9
+      213: -2186046183162513144
+    second: Armor_Camo_9
   - first:
-      213: -2518918825651310150
-    second: TailMap1_10
+      213: 8501074062646956506
+    second: Armor_Camo_10
   - first:
-      213: -4352500968845769470
-    second: TailMap1_11
+      213: -1910286264605748617
+    second: Armor_Camo_11
   - first:
-      213: 3526140406233954917
-    second: TailMap1_12
+      213: 5970567481833816891
+    second: Armor_Camo_12
   - first:
-      213: 3125418194199017998
-    second: TailMap1_13
+      213: 2226078090625409762
+    second: Armor_Camo_13
   - first:
-      213: -7501634093084692749
-    second: TailMap1_14
+      213: 6168059259420084047
+    second: Armor_Camo_14
   - first:
-      213: 3841129662223411794
-    second: TailMap1_15
+      213: -6475361585512874571
+    second: Armor_Camo_15
   - first:
-      213: -4758381069538989713
-    second: TailMap1_16
+      213: -457768016130130476
+    second: Armor_Camo_16
   - first:
-      213: -5463432092544923864
-    second: TailMap1_17
+      213: 5267265894722195673
+    second: Armor_Camo_17
   - first:
-      213: 7322358566313356475
-    second: TailMap1_18
+      213: -5440747771082198238
+    second: Armor_Camo_18
+  - first:
+      213: 1270227120874177517
+    second: Armor_Camo_19
+  - first:
+      213: 5091825133246724992
+    second: Armor_Camo_20
+  - first:
+      213: -8782347007171064166
+    second: Armor_Camo_21
+  - first:
+      213: -310030222094212192
+    second: Armor_Camo_22
+  - first:
+      213: 8708354206046442757
+    second: Armor_Camo_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -167,419 +182,529 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TailMap1_0
+      name: Armor_Camo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.81}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52d22dad0993b447a254a2094e73a28
+      internalID: -66581045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b310269b2a583b24a8a07b18b0bda774
+      internalID: 1239415580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a4920c31f8d62d45ba7c43dad465228
+      internalID: -770730594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac486f77d34e4334dab88e5471e8de07
+      internalID: 860788177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0199e9cd6e9f4b14aa795b61ff0555af
+      internalID: -363601925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed27cce52b9e0f4e8e1ef50df727164
+      internalID: 1618559160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14cce9dfd9e18e144a200c733c434763
+      internalID: -429333529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34247583921f55e45b153a0934cafa14
+      internalID: 1813559332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcffc88eba91604fbd9150ae643d671
+      internalID: 1500490200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27a195bb374b9845bd6c9bda2586c85
+      internalID: -1118132036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591f6f84a6e75a145a982e8ba579c976
+      internalID: 1177532936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_11
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e2e90ba6eb59cbe30800000000000000
-      internalID: 4520652771039419950
+      spriteID: 4d8cfd1df34055f43a35725f56916175
+      internalID: 1009515145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_1
+      name: Armor_Camo_12
       rect:
         serializedVersion: 2
-        x: 16
+        x: 64
         y: 64
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d1ef13cb9664d941a0aad3b52e25367
-      internalID: 37129970461706202
+      spriteID: 8270192dd4b6125468655edbb82beb47
+      internalID: -310383920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_2
+      name: Armor_Camo_13
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 64
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38febff5f5c30f44a94f2b68bf44b51
-      internalID: 783366632000194295
+      spriteID: 4340014ee66aa4c4287134b8059be7a2
+      internalID: 874644624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_3
+      name: Armor_Camo_14
       rect:
         serializedVersion: 2
-        x: 48
+        x: 192
         y: 64
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1937a83f41ba1f488e2cbbec6f4408c
-      internalID: 5178316094232574408
+      spriteID: 57f9c9bda2f938f45822613bb04bc0ac
+      internalID: -1243695911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_4
+      name: Armor_Camo_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63503b6a1fff96d498eaecc8785813f7
-      internalID: -2116606993495797314
+      spriteID: 304eea373abbb31479c6bcea19288de7
+      internalID: 320973654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_5
+      name: Armor_Camo_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 320
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 487beec4cbf435a4b851e2b94c60560f
-      internalID: -5966215102153526921
+      spriteID: c484f8645c8eac743971c559de5468a2
+      internalID: -1444953933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 687a82c8f1aeb274b88543d8b351568c
-      internalID: -6285876551422314296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bfcb97a26a4062469a1e07888edfee4
-      internalID: 3610334859284898714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06ea212f8f4c0b248a061449bb0e5af5
-      internalID: 8442940513359247712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_9
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54a2fe0af728312489023f3399888154
-      internalID: 1207578390004304483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0920ba360a4791e488d7108ad0224030
-      internalID: -2518918825651310150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f86ffd493337a994b98c537d977f4289
-      internalID: -4352500968845769470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b58100a895091c4193f7b18f4e80318
-      internalID: 3526140406233954917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_13
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c7c12f58517d4e49bc8bedfe9ec165b
-      internalID: 3125418194199017998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_14
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c04304696b4d8a64fab7c2a2f4f83fee
-      internalID: -7501634093084692749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_15
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1075c5b92640764cafa87cfb986962a
-      internalID: 3841129662223411794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TailMap1_16
+      name: Armor_Camo_17
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9df81a8b01766804583512c004615fab
-      internalID: -4758381069538989713
+      spriteID: 520cf95fe48cd784f85ac93486ec3aa5
+      internalID: 733923604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_17
+      name: Armor_Camo_18
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff74a43a1d60bcb4d8b403d012492eb3
-      internalID: -5463432092544923864
+      spriteID: d40e0f0a9e19a194aafbba96a21732db
+      internalID: -814038776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TailMap1_18
+      name: Armor_Camo_19
       rect:
         serializedVersion: 2
-        x: 48
+        x: 128
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5df236d3e6d90b43b8e5b7d9dc489e2
-      internalID: 7322358566313356475
+      spriteID: 1bf04883889638d458023e325847f17c
+      internalID: -956114335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c19668ba6d93a74abdfe284ee3d6af0
+      internalID: -134719530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2986284eb8cc61d47b75fe7124b627f5
+      internalID: 691646416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6942989a3e390354e8218d218d9565ab
+      internalID: -130376397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Camo_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5beed0809fb986747a2e06ee48563b59
+      internalID: -1261464377
       vertices: []
       indices: 
       edges: []
@@ -588,7 +713,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 39c5939952b580c4d825289211b4a45d
+    spriteID: a38442143e75b744d9a3b7167f63662e
     internalID: 0
     vertices: []
     indices: 
@@ -598,25 +723,30 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TailMap1_0: 4520652771039419950
-      TailMap1_1: 37129970461706202
-      TailMap1_10: -2518918825651310150
-      TailMap1_11: -4352500968845769470
-      TailMap1_12: 3526140406233954917
-      TailMap1_13: 3125418194199017998
-      TailMap1_14: -7501634093084692749
-      TailMap1_15: 3841129662223411794
-      TailMap1_16: -4758381069538989713
-      TailMap1_17: -5463432092544923864
-      TailMap1_18: 7322358566313356475
-      TailMap1_2: 783366632000194295
-      TailMap1_3: 5178316094232574408
-      TailMap1_4: -2116606993495797314
-      TailMap1_5: -5966215102153526921
-      TailMap1_6: -6285876551422314296
-      TailMap1_7: 3610334859284898714
-      TailMap1_8: 8442940513359247712
-      TailMap1_9: 1207578390004304483
+      Armor_Camo_0: -66581045
+      Armor_Camo_1: 1239415580
+      Armor_Camo_10: 1177532936
+      Armor_Camo_11: 1009515145
+      Armor_Camo_12: -310383920
+      Armor_Camo_13: 874644624
+      Armor_Camo_14: -1243695911
+      Armor_Camo_15: 320973654
+      Armor_Camo_16: -1444953933
+      Armor_Camo_17: 733923604
+      Armor_Camo_18: -814038776
+      Armor_Camo_19: -956114335
+      Armor_Camo_2: -770730594
+      Armor_Camo_20: -134719530
+      Armor_Camo_21: 691646416
+      Armor_Camo_22: -130376397
+      Armor_Camo_23: -1261464377
+      Armor_Camo_3: 860788177
+      Armor_Camo_4: -363601925
+      Armor_Camo_5: 1618559160
+      Armor_Camo_6: -429333529
+      Armor_Camo_7: 1813559332
+      Armor_Camo_8: 1500490200
+      Armor_Camo_9: -1118132036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

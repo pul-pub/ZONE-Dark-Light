@@ -128,12 +128,12 @@ TextureImporter:
       name: Stor_Weapon_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 23
-        width: 18
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Stor_Weapon_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 19
-        width: 18
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: Stor_Weapon_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 23
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: Stor_Weapon_3
       rect:
         serializedVersion: 2
-        x: 211
-        y: 23
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: Stor_Weapon_4
       rect:
         serializedVersion: 2
-        x: 283
-        y: 27
-        width: 14
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3ceac505b2430214d94324b0b77ec33b
     internalID: 0
     vertices: []
     indices: 

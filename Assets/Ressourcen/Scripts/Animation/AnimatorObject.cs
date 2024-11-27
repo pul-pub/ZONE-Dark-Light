@@ -9,11 +9,23 @@ public class AnimatorObject
         {
             if (_animation[i].position != default)
             {
-                while (IsTargetValue(_animation[i].tr.position, _animation[i].position, true, _animation[i].accuracy))
+                if (_animation[i].tr == null)
                 {
-                    _animation[i].tr.position = Vector2.MoveTowards(_animation[i].tr.position, _animation[i].position, _animation[i].speed * Time.deltaTime);
+                    while (IsTargetValue(_animation[i].tr.position, _animation[i].position, true, _animation[i].accuracy))
+                    {
+                        _animation[i].tr.position = Vector2.MoveTowards(_animation[i].tr.position, _animation[i].position, _animation[i].speed * Time.deltaTime);
 
-                    yield return new WaitForEndOfFrame();
+                        yield return new WaitForEndOfFrame();
+                    }
+                }
+                else
+                {
+                    while (IsTargetValue(_animation[i].tr.position, _animation[i].position, true, _animation[i].accuracy))
+                    {
+                        _animation[i].tr.position = Vector2.MoveTowards(_animation[i].tr.position, _animation[i].position, _animation[i].speed * Time.deltaTime);
+
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
             }
         }

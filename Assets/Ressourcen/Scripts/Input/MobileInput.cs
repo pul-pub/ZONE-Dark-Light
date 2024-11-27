@@ -20,7 +20,7 @@ public class MobileInput : IInput
     {
         if (OnMove != null)
         {
-            if (_fixedJoystick.Vertical >= 0.7)
+            if (_fixedJoystick.Vertical >= 0.7f || _fixedJoystick.Vertical <= -0.5f)
                 OnMove.Invoke(new Vector2(_fixedJoystick.Horizontal, _fixedJoystick.Vertical));
             else
                 OnMove.Invoke(new Vector2(_fixedJoystick.Horizontal, 0));
