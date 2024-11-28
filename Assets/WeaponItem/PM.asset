@@ -17,6 +17,7 @@ MonoBehaviour:
   dm: 20
   startTimeBtwShot: 0.09
   imgBoxGun: {fileID: 6879118450950661895, guid: 903b8687658953f46aa850495715249f, type: 3}
+  isStorUp: 0
   imgStor: {fileID: 667543371971535990, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
   soundShoot: {fileID: 0}
   soundSpusk: {fileID: 0}

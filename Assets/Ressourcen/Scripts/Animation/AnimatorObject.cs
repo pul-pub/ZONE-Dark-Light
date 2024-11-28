@@ -38,18 +38,12 @@ public class AnimatorObject
     {
         for (int i = 0; i < _animation.Length; i++)
         {
-            if (_animation[i].rotation != default)
+            while (IsTargetValue(_animation[i].tr.localEulerAngles, _animation[i].rotation, true))
             {
-                if (_animation[i].tr != null)
-                {
-                    while (IsTargetValue(_animation[i].tr.localEulerAngles, _animation[i].rotation, true))
-                    {
-                        //_animation[i].tr.position = Vector2.MoveTowards(_animation[i].tr.position, _animation[i].position, _animation[i].speed * Time.deltaTime);
-                        _animation[i].tr.localEulerAngles = _animation[i].rotation.normalized * (_animation[i].speed * Time.deltaTime);
-
-                        yield return new WaitForEndOfFrame();
-                    }
-                }
+                //_animation[i].tr.position = Vector2.MoveTowards(_animation[i].tr.position, _animation[i].position, _animation[i].speed * Time.deltaTime);
+                _animation[i].tr.localEulerAngles = _animation[i].rotation.normalized * (_animation[i].speed * Time.deltaTime);
+                Debug.Log(_animation[i].tr.localEulerAngles);
+                yield return new WaitForEndOfFrame();
             }
         }
 

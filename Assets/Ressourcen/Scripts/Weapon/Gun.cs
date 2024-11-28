@@ -8,6 +8,7 @@ public class Gun : Weapon
 {
     [Header("Grafics")]
     public Sprite imgBoxGun;
+    public bool isStorUp = true;
     public Sprite imgStor;
     [Header("Audio")]
     public AudioClip soundShoot;
@@ -80,6 +81,7 @@ public class Gun : Weapon
         _new.startTimeBtwShot = startTimeBtwShot;
 
         _new.imgBoxGun = imgBoxGun;
+        _new.isStorUp = isStorUp;
         _new.imgStor = imgStor;
 
         _new.soundShoot = soundShoot;
