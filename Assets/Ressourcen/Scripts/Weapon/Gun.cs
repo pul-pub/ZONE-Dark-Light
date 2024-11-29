@@ -21,13 +21,13 @@ public class Gun : Weapon
 
     public int currentAmmos { private set; get; } = 0;
 
-    public bool Shoot(Object bullet, Transform parent, GameObject _pointStart)
+    public bool Shoot(Object bullet, Transform parent, Transform _pointStart)
     {
         if (typeAmmo == TypeAmmo.Shotgun_12)
         {
             for (int i = 0; i < 5; i++)
             {
-                GameObject obj = Object.Instantiate(bullet, _pointStart.transform.position, _pointStart.transform.rotation, parent) as GameObject;
+                GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
 
                 Bullet _bullet = obj.GetComponent<Bullet>();
 
@@ -39,7 +39,7 @@ public class Gun : Weapon
         }
         else
         {
-            GameObject obj = Object.Instantiate(bullet, _pointStart.transform.position, _pointStart.transform.rotation, parent) as GameObject;
+            GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
 
             Bullet _bullet = obj.GetComponent<Bullet>();
 

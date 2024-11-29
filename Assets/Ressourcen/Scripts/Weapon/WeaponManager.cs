@@ -6,7 +6,12 @@ public class WeaponManager : MonoBehaviour
     [Header("Weapon Grafics")]
     [SerializeField] private SpriteRenderer[] spRenderHead;
     [SerializeField] private SpriteRenderer[] spRenderBack;
+    [Header("Animation")]
     [SerializeField] private Animator anim;
+    [Header("SHooting")]
+    [SerializeField] private Transform pointBullet;
+    [SerializeField] private Object objBullet;
+    [SerializeField] private Transform parent;
 
     private float _timer = 0;
 
@@ -15,6 +20,7 @@ public class WeaponManager : MonoBehaviour
 
     private int _numWeapon = 0;
     private bool _flagWeapon = false;
+    private bool _isReload = false;
 
     private void Update()
     {
@@ -29,15 +35,28 @@ public class WeaponManager : MonoBehaviour
     {
         if (_timer <= 0)
         {
-            if (_numWeapon < 3)
+            if (_numWeapon <= 1)
             {
-                _timer = 0.1f;
+                if (_flagWeapon && _guns[_numWeapon] != null && _guns[_numWeapon].currentAmmos >= 1 && !_isReload)
+                {
+                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet))
+                    {
+                        Debug.Log("F"); 
+                    }
+
+                    _timer = _guns[_numWeapon].startTimeBtwShot;
+                }
             }
             else
             {
                 _timer = 0.1f;
             }
         }
+    }
+
+    public void StartReload()
+    {
+
     }
 
     public void SetNumberWeapon(int _num)
@@ -55,7 +74,7 @@ public class WeaponManager : MonoBehaviour
         if (_num < 2)
             if (_guns[_num] == null)
                 _flagWeapon = false;
-        Debug.Log(_flagWeapon + " >>> " + _numWeapon);
+        
         UpdateWeapon();
     }
 
@@ -82,6 +101,8 @@ public class WeaponManager : MonoBehaviour
             {
                 if (_flagWeapon)
                 {
+                    _guns[_numWeapon].Reload(100);
+
                     for (int j = 0; j < 2; j++)
                         spRenderHead[j].gameObject.SetActive(true);
 

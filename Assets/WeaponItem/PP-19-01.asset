@@ -22,6 +22,6 @@ MonoBehaviour:
   soundShoot: {fileID: 0}
   soundSpusk: {fileID: 0}
   typeAmmo: 1
-  ammo: 30
+  ammo: 25
   force: 15
   verticalRecoil: 0.5

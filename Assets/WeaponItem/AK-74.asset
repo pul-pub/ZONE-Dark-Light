@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: AK-74
   Id: 150
   dm: 20
-  startTimeBtwShot: 0.09
+  startTimeBtwShot: 0.2
   imgBoxGun: {fileID: -5737340078313841079, guid: 903b8687658953f46aa850495715249f, type: 3}
   isStorUp: 1
   imgStor: {fileID: -926233432920583627, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
