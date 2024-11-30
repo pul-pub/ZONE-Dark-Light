@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnShoot += weaponManager.SetIsShoot;
             handlerGUI.input.OnSetNumWeapon += weaponManager.SetNumberWeapon;
             handlerGUI.input.OnResetOutfit += weaponManager.SetGunList;
+            handlerGUI.input.OnRload += weaponManager.StartReload;
         }  
     }
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnShoot += weaponManager.SetIsShoot;
             handlerGUI.input.OnSetNumWeapon += weaponManager.SetNumberWeapon;
             handlerGUI.input.OnResetOutfit += weaponManager.SetGunList;
+            handlerGUI.input.OnRload += weaponManager.StartReload;
         }    
     }
 
@@ -36,6 +38,15 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnShoot -= weaponManager.SetIsShoot;
             handlerGUI.input.OnSetNumWeapon -= weaponManager.SetNumberWeapon;
             handlerGUI.input.OnResetOutfit -= weaponManager.SetGunList;
+            handlerGUI.input.OnRload -= weaponManager.StartReload;
         }    
+    }
+
+    private void Update()
+    {
+        if (weaponManager._guns[weaponManager._numWeapon] != null && weaponManager._flagWeapon)
+            handlerGUI.UpdateAmmos(100, weaponManager._guns[weaponManager._numWeapon].currentAmmos);
+        else
+            handlerGUI.UpdateAmmos(-1, -1);
     }
 }

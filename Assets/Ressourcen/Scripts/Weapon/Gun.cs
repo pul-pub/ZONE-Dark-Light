@@ -49,7 +49,7 @@ public class Gun : Weapon
 
         currentAmmos -= 1;
 
-        return false;
+        return true;
     }
 
     public int Reload(int _ammos)

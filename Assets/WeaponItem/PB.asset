@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e176f0bd381953f48ae9ac5ae7f14201, type: 3}
-  m_Name: PP-19-01
+  m_Name: PB
   m_EditorClassIdentifier: 
   Name: AK-74
-  Id: 151
-  dm: 17
-  startTimeBtwShot: 0.1
-  imgBoxGun: {fileID: -1898065178660533048, guid: 903b8687658953f46aa850495715249f, type: 3}
-  isStorUp: 1
-  imgStor: {fileID: 2953913038379304728, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
+  Id: 161
+  dm: 20
+  startTimeBtwShot: 0.3
+  imgBoxGun: {fileID: -1276914977702293978, guid: 903b8687658953f46aa850495715249f, type: 3}
+  isStorUp: 0
+  imgStor: {fileID: 667543371971535990, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
   soundShoot: {fileID: 0}
   soundSpusk: {fileID: 0}
   typeAmmo: 2
-  ammo: 25
-  force: 15
-  verticalRecoil: 0.5
+  ammo: 8
+  force: 20
+  verticalRecoil: 1

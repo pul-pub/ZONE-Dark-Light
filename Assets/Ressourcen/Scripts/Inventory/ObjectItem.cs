@@ -104,7 +104,7 @@ public class ObjectItem : EventTrigger
                     if (_ii == null)
                     {
                         objectStartPos = _to.transform.position;
-
+                        
                         _currentCells[0] = int.Parse(_to.name);
                         UpdateValue();
                     }
@@ -116,6 +116,9 @@ public class ObjectItem : EventTrigger
                         }
                         else
                         {
+                            if (item.id > 100)
+                                _inventory.ChengeOutfit();
+
                             _ii.UpdateValue();
                             Destroy(gameObject);
                         }
@@ -140,6 +143,9 @@ public class ObjectItem : EventTrigger
                         }
                         else
                         {
+                            if (item.id > 100)
+                                _inventory.ChengeOutfit();
+
                             _ii_1.UpdateValue();
                             Destroy(gameObject);
                         }
@@ -211,6 +217,9 @@ public class ObjectItem : EventTrigger
                 }
             }
         }
+
+        if (item.id > 100)
+            _inventory.ChengeOutfit();
 
         transform.position = objectStartPos;
         cellsId = _currentCells;

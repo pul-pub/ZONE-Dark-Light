@@ -41,6 +41,12 @@ public class MobileInput : IInput
             OnShoot.Invoke(_isActiv);
     }
 
+    public void ReadButtonReload()
+    {
+        if (OnRload != null)
+            OnRload.Invoke();
+    }
+
     public void ReadNumWeapon(int _num)
     {
         if (OnSetNumWeapon != null)

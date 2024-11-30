@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private FixedJoystick fixedJoystick;
     [SerializeField] private Image[] imgSetNumWeapon;
+    [SerializeField] private TextMeshProUGUI[] textAmmo;
 
     public IInput input;
 
@@ -35,6 +37,7 @@ public class GUIHandler : MonoBehaviour
     }
 
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
+    public void SetReload() => input.ReadButtonReload();
     public void SetNumWeapon(int _num) => input.ReadNumWeapon(_num);
     public void SetActivInv(bool _is) => inventoryObject.SetActive(_is);
 
@@ -66,5 +69,19 @@ public class GUIHandler : MonoBehaviour
         _items[3] = inventory.FindItemCell(105);
 
         input.ReadResetOutfit(_items);
+    }
+
+    public void UpdateAmmos(int _allAmmos, int _ammo)
+    {
+        if (_ammo != -1)
+        {
+            textAmmo[0].text = _ammo.ToString();
+            textAmmo[1].text = _allAmmos.ToString();
+        }
+        else
+        {
+            textAmmo[0].text = "--";
+            textAmmo[1].text = "--";
+        }
     }
 }

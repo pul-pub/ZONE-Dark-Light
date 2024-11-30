@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -10,17 +11,20 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Animator anim;
     [Header("SHooting")]
     [SerializeField] private Transform pointBullet;
+    [SerializeField] private Transform pointGilz;
     [SerializeField] private Object objBullet;
+    [SerializeField] private Object objGilz;
+    [SerializeField] private Object objFire;
     [SerializeField] private Transform parent;
 
     private float _timer = 0;
 
     public bool IsShoot { private set; get; } = false;
-    private Gun[] _guns = new Gun[2];
+    public Gun[] _guns { private set; get; } = new Gun[2];
 
-    private int _numWeapon = 0;
-    private bool _flagWeapon = false;
-    private bool _isReload = false;
+    public int _numWeapon { private set; get; } = 0;
+    public bool _flagWeapon { private set; get; } = false;
+    public bool _isReload { private set; get; } = false;
 
     private void Update()
     {
@@ -41,7 +45,10 @@ public class WeaponManager : MonoBehaviour
                 {
                     if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet))
                     {
-                        Debug.Log("F"); 
+                        GameObject _gObj = Instantiate(objGilz, pointGilz.position, pointGilz.rotation, parent) as GameObject;
+                        Instantiate(objFire, pointBullet.position, pointBullet.rotation, parent);
+
+                        _gObj.GetComponent<Rigidbody2D>().AddForce(-_gObj.transform.right * 5, ForceMode2D.Impulse);
                     }
 
                     _timer = _guns[_numWeapon].startTimeBtwShot;
@@ -56,7 +63,17 @@ public class WeaponManager : MonoBehaviour
 
     public void StartReload()
     {
+        if (_flagWeapon && _guns[_numWeapon] != null && _guns[_numWeapon].currentAmmos < _guns[_numWeapon].ammo && !_isReload)
+        {
+            _isReload = true;
+            anim.SetTrigger("Reload");
+        }
+    }
 
+    public void EndReload()
+    {
+        _isReload = false;
+        _guns[_numWeapon].Reload(100);
     }
 
     public void SetNumberWeapon(int _num)
@@ -101,8 +118,6 @@ public class WeaponManager : MonoBehaviour
             {
                 if (_flagWeapon)
                 {
-                    _guns[_numWeapon].Reload(100);
-
                     for (int j = 0; j < 2; j++)
                         spRenderHead[j].gameObject.SetActive(true);
 
@@ -111,6 +126,7 @@ public class WeaponManager : MonoBehaviour
 
                     spRenderHead[0].sprite = _guns[_numWeapon].imgBoxGun;
                     spRenderHead[1].sprite = _guns[_numWeapon].imgStor;
+                    spRenderHead[2].sprite = _guns[_numWeapon].imgStor;
                 }
                 else
                 {

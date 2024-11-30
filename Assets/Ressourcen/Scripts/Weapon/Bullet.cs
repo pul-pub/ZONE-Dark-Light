@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
                 
             }
         }
-        transform.Translate(Vector2.up * force * Time.deltaTime);
+        transform.Translate(Vector2.right * force * Time.deltaTime);
 
         if (transform.position.x - _stratPosition.x < maxDistanc * -1 || transform.position.x - _stratPosition.x > maxDistanc)
             Destroy(gameObject);
