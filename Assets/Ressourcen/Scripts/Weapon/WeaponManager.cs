@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public Inventory inv;
+
     [SerializeField] private DataBase data;
     [Header("Weapon Grafics")]
     [SerializeField] private SpriteRenderer[] spRenderHead;
@@ -31,7 +33,7 @@ public class WeaponManager : MonoBehaviour
         if (_timer >= 0)
             _timer -= Time.deltaTime;
 
-        if (IsShoot)
+        if (IsShoot && _numWeapon <= 1)
             Shoot();
     }
 
@@ -56,7 +58,7 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                _timer = 0.1f;
+                anim.SetTrigger("Attack");
             }
         }
     }
@@ -73,7 +75,7 @@ public class WeaponManager : MonoBehaviour
     public void EndReload()
     {
         _isReload = false;
-        _guns[_numWeapon].Reload(100);
+        inv.SetCountAmmo(_guns[_numWeapon].Reload(inv.GetCountAmmos(_guns[_numWeapon])));
     }
 
     public void SetNumberWeapon(int _num)
@@ -95,68 +97,83 @@ public class WeaponManager : MonoBehaviour
         UpdateWeapon();
     }
 
-    public void SetIsShoot(bool _isShoot) => IsShoot = _isShoot;
+    public void SetIsShoot(bool _isShoot) 
+    {
+        if (_numWeapon <= 1)
+            IsShoot = _isShoot;
+        else if (_isShoot)
+            Shoot();
+    }
 
     public void SetGunList(Item[] _items)
     {
         for (int i = 0; i < 2; i++)
         {
             if (_items[i] != null)
-                _guns[i] = data.GetGun(_items[i].id).Clone();
+                _guns[i] = _items[i].gunObject;
             else
                 _guns[i] = null;
         }
 
+        SetNumberWeapon(_numWeapon);
         UpdateWeapon();
     }
 
     private void UpdateWeapon()
     {
-        for (int i = 0; i < 2; i++)
+        if (_numWeapon <= 1)
         {
-            if (_guns[i] != null)
+            for (int i = 0; i < 2; i++)
             {
-                if (_flagWeapon)
+                if (_guns[i] != null)
                 {
-                    for (int j = 0; j < 2; j++)
-                        spRenderHead[j].gameObject.SetActive(true);
+                    if (_flagWeapon)
+                    {
+                        for (int j = 0; j < 2; j++)
+                            spRenderHead[j].gameObject.SetActive(true);
 
-                    if (!_guns[_numWeapon].isStorUp)
-                        spRenderHead[1].gameObject.SetActive(false);
+                        if (!_guns[_numWeapon].isStorUp)
+                            spRenderHead[1].gameObject.SetActive(false);
 
-                    spRenderHead[0].sprite = _guns[_numWeapon].imgBoxGun;
-                    spRenderHead[1].sprite = _guns[_numWeapon].imgStor;
-                    spRenderHead[2].sprite = _guns[_numWeapon].imgStor;
-                }
-                else
-                {
-                    for (int j = 0; j < 2; j++)
-                        spRenderHead[j].gameObject.SetActive(false);
-                }
+                        spRenderHead[0].sprite = _guns[_numWeapon].imgBoxGun;
+                        spRenderHead[1].sprite = _guns[_numWeapon].imgStor;
+                        spRenderHead[2].sprite = _guns[_numWeapon].imgStor;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < 2; j++)
+                            spRenderHead[j].gameObject.SetActive(false);
+                    }
 
-                if (_guns[0] != null && _numWeapon != 0)
-                {
-                    for (int j = 0; j < 2; j++)
-                        spRenderBack[j].gameObject.SetActive(true);
+                    if (_guns[0] != null && _numWeapon != 0)
+                    {
+                        for (int j = 0; j < 2; j++)
+                            spRenderBack[j].gameObject.SetActive(true);
 
-                    spRenderBack[0].sprite = _guns[0].imgBoxGun;
-                    spRenderBack[1].sprite = _guns[0].imgStor;
-                }
-                else if (_guns[0] != null && _numWeapon == 0 && !_flagWeapon)
-                {
-                    for (int j = 0; j < 2; j++)
-                        spRenderBack[j].gameObject.SetActive(true);
+                        spRenderBack[0].sprite = _guns[0].imgBoxGun;
+                        spRenderBack[1].sprite = _guns[0].imgStor;
+                    }
+                    else if (_guns[0] != null && _numWeapon == 0 && !_flagWeapon)
+                    {
+                        for (int j = 0; j < 2; j++)
+                            spRenderBack[j].gameObject.SetActive(true);
 
-                    spRenderBack[0].sprite = _guns[0].imgBoxGun;
-                    spRenderBack[1].sprite = _guns[0].imgStor;
-                }
-                else
-                {
-                    for (int j = 0; j < 2; j++)
-                        spRenderBack[j].gameObject.SetActive(false);
+                        spRenderBack[0].sprite = _guns[0].imgBoxGun;
+                        spRenderBack[1].sprite = _guns[0].imgStor;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < 2; j++)
+                            spRenderBack[j].gameObject.SetActive(false);
+                    }
                 }
             }
-        } 
+        }
+        else
+        {
+            for (int j = 0; j < 2; j++)
+                spRenderHead[j].gameObject.SetActive(false);
+        }
 
         anim.SetBool("IsUp", _flagWeapon);
         anim.SetInteger("Type", _numWeapon);

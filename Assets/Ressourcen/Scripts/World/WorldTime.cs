@@ -3,11 +3,13 @@ using UnityEngine.Rendering.Universal;
 
 public class WorldTime : MonoBehaviour
 {
-    [SerializeField] private float speedTime = 1.5f;
-    [SerializeField] private bool IsSetGragics = true;
+    public float speedTime = 1.5f;
+    public bool IsSetGragics = true;
+
     [SerializeField] private Transform sky;
     [SerializeField] private GameObject rain;
     [SerializeField] private Light2D light2D;
+
     private float timer;
 
     void Awake()

@@ -15,16 +15,23 @@ public class ObjectItem : EventTrigger
     private bool isDragging = false;
 
     private Inventory _inventory;
+    private Transform _baseParent;
+    private Transform _dragParent;
     private RectTransform _rt;
     private TextMeshProUGUI _tmp;
 
     private GameObject _to;
     private int[] _currentCells = new int[2];
 
-    public void Initialization(Item _item, int[] _cells, Vector3 _pos, Inventory _inv, int _count)
+    public void Initialization(Item _item, int[] _cells, Vector3 _pos, Inventory _inv, int _count, Transform _base, Transform _drag)
     {
         _rt = GetComponent<RectTransform>();
         _tmp = GetComponentInChildren<TextMeshProUGUI>();
+
+        _baseParent = _base;
+        _dragParent = _drag;
+
+        transform.parent = _baseParent;
 
         count = _count;
         item = _item;
@@ -55,6 +62,7 @@ public class ObjectItem : EventTrigger
     {
         isDragging = true;
         objectStartPos = transform.position;
+        transform.parent = _dragParent;
     }
 
     public override void OnDrag(PointerEventData data) => transform.position = new Vector3(data.position.x, data.position.y, 5);
@@ -89,6 +97,8 @@ public class ObjectItem : EventTrigger
             else
                 transform.position = objectStartPos;
         }
+
+        transform.parent = _baseParent;
     }
 
     private void OnDrop(int _cell)
@@ -189,20 +199,10 @@ public class ObjectItem : EventTrigger
                     _currentCells[0] = int.Parse(_to.name);
                     _inventory.ChengeOutfit();
                 }
-                else if (_cell == 104 && item.type == TypeItem.Armor)
-                {
-                    if (_ii_1 != null)
-                    {
-                        _ii_1.cellsId[0] = _currentCells[0];
-
-                        _ii_1.transform.position = objectStartPos;
-                    }
-
-                    objectStartPos = _to.transform.position;
-                    _currentCells[0] = int.Parse(_to.name);
-                    _inventory.ChengeOutfit();
-                }
-                else if (_cell == 105 && item.type == TypeItem.Backpack)
+                else if ((_cell == 104 && item.type == TypeItem.Armor) ||
+                         (_cell == 105 && item.type == TypeItem.Backpack) ||
+                         (_cell == 106 && item.type == TypeItem.PNV) ||
+                         (_cell == 107 && item.type == TypeItem.HeadArmor) )
                 {
                     if (_ii_1 != null)
                     {

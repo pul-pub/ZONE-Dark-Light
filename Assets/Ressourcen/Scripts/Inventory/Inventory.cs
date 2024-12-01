@@ -16,9 +16,12 @@ public class Inventory : MonoBehaviour
     [Header("Parebts Item")]
     [SerializeField] private Transform parentBG;
     [SerializeField] private Transform parentObjectItem;
+    [SerializeField] private Transform parentObjectItem_DRAG;
 
     public List<ObjectItem> _items = new List<ObjectItem>();
     public List<ObjectCell> _cellObjs = new List<ObjectCell>();
+
+    private int[] _indexAmmo = new int[50];
 
     public void CreateList()
     {
@@ -54,7 +57,13 @@ public class Inventory : MonoBehaviour
 
             int[] _cells = new int[1] { FindNullCell() };
 
-            _gObj.GetComponent<ObjectItem>().Initialization(_item, _cells, FindCellPosition(_cells[0]), this, _count);
+            _gObj.GetComponent<ObjectItem>().Initialization(
+                _item.Clone(),
+                _cells, FindCellPosition(_cells[0]),
+                this,
+                _count < _item.maxCount ? _count : _item.maxCount,
+                parentObjectItem,
+                parentObjectItem_DRAG);
             
             _items.Add(_gObj.GetComponent<ObjectItem>());
         }
@@ -65,7 +74,13 @@ public class Inventory : MonoBehaviour
             int _res = FindNullCell(true);
             int[] _cells = new int[2] { _res, _res + 1 };
 
-            _gObj.GetComponent<ObjectItem>().Initialization(_item, _cells, FindCellPosition(_cells[0]), this, 1);
+            _gObj.GetComponent<ObjectItem>().Initialization(
+                _item.Clone(),
+                _cells, FindCellPosition(_cells[0]),
+                this,
+                _count < _item.maxCount ? _count : _item.maxCount,
+                parentObjectItem,
+                parentObjectItem_DRAG);
 
             _items.Add(_gObj.GetComponent<ObjectItem>());
         }
@@ -129,6 +144,67 @@ public class Inventory : MonoBehaviour
                 return _item.item;
 
         return null;
+    }
+
+    public int GetCountAmmos(Gun _gun)
+    {
+        _indexAmmo = new int[50];
+        for (int i = 0; i < _indexAmmo.Length; i++)
+            _indexAmmo[i] = -1;
+
+        int ammos = 0;
+
+        foreach (ObjectItem item in _items)
+        {
+            if (item.item.typeAmmo == _gun.typeAmmo && item.item.type == TypeItem.Ammo)
+            {
+                ammos += item.count;
+
+                for (int i = 0; i < _indexAmmo.Length; i++)
+                {
+                    if (_indexAmmo[i] == -1)
+                    {
+                        _indexAmmo[i] = item.cellsId[0];
+                        break;
+                    }
+                }
+            }
+        }
+
+        return ammos;
+    }
+
+    public void SetCountAmmo(int _ammoForReload)
+    {
+        int _ammos = _ammoForReload;
+        for (int i = 0; i < _indexAmmo.Length; i++)
+        {
+            if (_indexAmmo[i] != -1)
+            {
+                ObjectItem _i = CheckCell(_indexAmmo[i]);
+
+                if (_i != null) 
+                {
+                    if (_items[_indexAmmo[i]].count == _ammos)
+                    {
+                        _items.Remove(_i);
+                        Destroy(_i.gameObject);
+                        break;
+                    }
+                    else if (_items[_indexAmmo[i]].count < _ammos)
+                    {
+                        _ammos -= _items[_indexAmmo[i]].count;
+                        _items.Remove(_i);
+                        Destroy(_i.gameObject);
+                    }
+                    else if (_items[_indexAmmo[i]].count > _ammos)
+                    {
+                        _i.count = _items[_indexAmmo[i]].count - _ammos;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private Vector3 FindCellPosition(int _cell)

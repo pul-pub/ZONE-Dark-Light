@@ -6,7 +6,7 @@ public enum TypeButton { Shoot, Reload, SetWeapon };
 
 public class GUIHandler : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    [SerializeField] public Inventory inventory;
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private FixedJoystick fixedJoystick;
     [SerializeField] private Image[] imgSetNumWeapon;
@@ -38,6 +38,7 @@ public class GUIHandler : MonoBehaviour
 
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
     public void SetReload() => input.ReadButtonReload();
+    public void SetLight() => input.ReadButtonLight();
     public void SetNumWeapon(int _num) => input.ReadNumWeapon(_num);
     public void SetActivInv(bool _is) => inventoryObject.SetActive(_is);
 
@@ -61,12 +62,14 @@ public class GUIHandler : MonoBehaviour
         else
             imgSetNumWeapon[1].color = new Color(1, 1, 1, 0);
 
-        Item[] _items = new Item[4];
+        Item[] _items = new Item[6];
 
         _items[0] = inventory.FindItemCell(101);
         _items[1] = inventory.FindItemCell(103);
         _items[2] = inventory.FindItemCell(104);
         _items[3] = inventory.FindItemCell(105);
+        _items[4] = inventory.FindItemCell(106);
+        _items[5] = inventory.FindItemCell(107);
 
         input.ReadResetOutfit(_items);
     }

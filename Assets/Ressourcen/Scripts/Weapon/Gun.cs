@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public enum TypeAmmo { NULL, Shotgun_12, s5x45 };
+public enum TypeAmmo { NULL, x5x45, x7x62, x5x56, x9x19, Shotgun_12_20, Shotgun_12_10, Shotgun_12_1 };
 
 [CreateAssetMenu(menuName = "Gun", fileName = "Null")]
 public class Gun : Weapon
@@ -23,7 +23,9 @@ public class Gun : Weapon
 
     public bool Shoot(Object bullet, Transform parent, Transform _pointStart)
     {
-        if (typeAmmo == TypeAmmo.Shotgun_12)
+        if (typeAmmo == TypeAmmo.Shotgun_12_20 ||
+            typeAmmo == TypeAmmo.Shotgun_12_10 ||
+            typeAmmo == TypeAmmo.Shotgun_12_1)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -77,6 +79,7 @@ public class Gun : Weapon
 
         _new.Name = Name;
         _new.Id = Id;
+        _new.condition = condition;
         _new.dm = dm;
         _new.startTimeBtwShot = startTimeBtwShot;
 
