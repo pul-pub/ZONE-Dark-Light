@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     public float ForceJamp = 5f;
 
     public bool toRight = true;
-    private int isMove = 0;
+
+    public float _debufSpeed = 0f;
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Animator animator;
@@ -57,7 +58,7 @@ public class Movement : MonoBehaviour
             }
         }
             
-        _rb.linearVelocityX = _vec.x * Speed;
+        _rb.linearVelocityX = (_vec.x != 0 ? _vec.x * Speed - _debufSpeed : 0);
             
         if (!toRight && _vec.x > 0)
             Flip();

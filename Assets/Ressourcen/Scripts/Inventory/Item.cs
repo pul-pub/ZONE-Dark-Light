@@ -14,6 +14,7 @@ public class Item : ScriptableObject
     [Space]
     public int countCell = 1;
     public int maxCount= 32;
+    public float weight = 0.1f;
     [Space]
     [SerializeField] private Gun gun;
     [SerializeField] private LightObject light;

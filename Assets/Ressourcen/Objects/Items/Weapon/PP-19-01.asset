@@ -18,7 +18,9 @@ MonoBehaviour:
   typeAmmo: 0
   price: 0
   countCell: 2
-  maxCount: 32
+  maxCount: 1
+  weight: 2.9
   gun: {fileID: 11400000, guid: c790a83490b9de6479203a34c1289f10, type: 2}
   light: {fileID: 0}
+  backpack: {fileID: 0}
   img: {fileID: 460368407, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}

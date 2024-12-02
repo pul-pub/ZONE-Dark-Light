@@ -5245,6 +5245,9 @@ MonoBehaviour:
   textAmmo:
   - {fileID: 340884747}
   - {fileID: 222235511}
+  textMass:
+  - {fileID: 1326429438}
+  - {fileID: 609667257}
 --- !u!114 &540157121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5319,6 +5322,7 @@ MonoBehaviour:
   - {fileID: 1556607618}
   - {fileID: 1303862871}
   - {fileID: 52641391}
+  allMass: 0
 --- !u!114 &540157122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8857,6 +8861,7 @@ GameObject:
   - component: {fileID: 960928181}
   - component: {fileID: 960928179}
   - component: {fileID: 960928182}
+  - component: {fileID: 960928183}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -8945,6 +8950,7 @@ MonoBehaviour:
   movement: {fileID: 960928179}
   weaponManager: {fileID: 1392380467}
   lightManager: {fileID: 960928182}
+  outfit: {fileID: 960928183}
 --- !u!114 &960928182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8964,6 +8970,18 @@ MonoBehaviour:
   volume: {fileID: 964006251}
   baseProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
   baseIsGrafic: 1
+--- !u!114 &960928183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960928177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0605c4b155bd4824f800899238743f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964006250
 GameObject:
   m_ObjectHideFlags: 0

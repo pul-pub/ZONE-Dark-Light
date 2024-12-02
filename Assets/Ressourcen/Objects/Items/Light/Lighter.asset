@@ -19,6 +19,8 @@ MonoBehaviour:
   price: 400
   countCell: 1
   maxCount: 1
+  weight: 0.3
   gun: {fileID: 0}
   light: {fileID: 11400000, guid: 180d91947ad77664daf39312328e37fb, type: 2}
+  backpack: {fileID: 0}
   img: {fileID: 3583360828792222621, guid: a5cd92b88c3f84b42aedc132f4a093a4, type: 3}

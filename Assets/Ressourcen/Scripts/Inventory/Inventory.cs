@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public enum TypeInventory { INVENTORY, STOR };
 public enum TypeReturn { TRUE, FALSE, DELETE };
@@ -21,13 +22,14 @@ public class Inventory : MonoBehaviour
     public List<ObjectItem> _items = new List<ObjectItem>();
     public List<ObjectCell> _cellObjs = new List<ObjectCell>();
 
-    private int[] _indexAmmo = new int[50];
+    private List<ObjectItem> _ammo = new List<ObjectItem>();
+    public float allMass = 0;
 
     public void CreateList()
     {
         for (int i = 0; i < 20; i++)
         {
-            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 10));
+            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 128));
         }
 
         ChengeOutfit();
@@ -84,6 +86,9 @@ public class Inventory : MonoBehaviour
 
             _items.Add(_gObj.GetComponent<ObjectItem>());
         }
+
+        CalculatedMass();
+
         return true;
     }
 
@@ -148,10 +153,7 @@ public class Inventory : MonoBehaviour
 
     public int GetCountAmmos(Gun _gun)
     {
-        _indexAmmo = new int[50];
-        for (int i = 0; i < _indexAmmo.Length; i++)
-            _indexAmmo[i] = -1;
-
+        _ammo.Clear();
         int ammos = 0;
 
         foreach (ObjectItem item in _items)
@@ -160,14 +162,7 @@ public class Inventory : MonoBehaviour
             {
                 ammos += item.count;
 
-                for (int i = 0; i < _indexAmmo.Length; i++)
-                {
-                    if (_indexAmmo[i] == -1)
-                    {
-                        _indexAmmo[i] = item.cellsId[0];
-                        break;
-                    }
-                }
+                _ammo.Add(item);
             }
         }
 
@@ -177,34 +172,32 @@ public class Inventory : MonoBehaviour
     public void SetCountAmmo(int _ammoForReload)
     {
         int _ammos = _ammoForReload;
-        for (int i = 0; i < _indexAmmo.Length; i++)
+        for (int i = 0; i < _ammo.Count; i++)
         {
-            if (_indexAmmo[i] != -1)
+            if (_ammo[i] != null)
             {
-                ObjectItem _i = CheckCell(_indexAmmo[i]);
-
-                if (_i != null) 
+                if (_ammo[i].count == _ammos)
                 {
-                    if (_items[_indexAmmo[i]].count == _ammos)
-                    {
-                        _items.Remove(_i);
-                        Destroy(_i.gameObject);
-                        break;
-                    }
-                    else if (_items[_indexAmmo[i]].count < _ammos)
-                    {
-                        _ammos -= _items[_indexAmmo[i]].count;
-                        _items.Remove(_i);
-                        Destroy(_i.gameObject);
-                    }
-                    else if (_items[_indexAmmo[i]].count > _ammos)
-                    {
-                        _i.count = _items[_indexAmmo[i]].count - _ammos;
-                        break;
-                    }
+                    _items.Remove(_ammo[i]);
+                    Destroy(_ammo[i].gameObject);
+                    break;
+                }
+                else if (_ammo[i].count < _ammos)
+                {
+                    _ammos -= _ammo[i].count;
+                    _items.Remove(_ammo[i]);
+                    Destroy(_ammo[i].gameObject);
+                }
+                else if (_ammo[i].count > _ammos)
+                {
+                    _ammo[i].count = _ammo[i].count - _ammos;
+                    _ammo[i].UpdateValue();
+                    break;
                 }
             }
         }
+
+        CalculatedMass();
     }
 
     private Vector3 FindCellPosition(int _cell)
@@ -243,5 +236,14 @@ public class Inventory : MonoBehaviour
     {
         if (OnChangeOutfit != null)
             OnChangeOutfit.Invoke();
+    }
+
+    private void CalculatedMass()
+    {
+        allMass = 0;
+
+        foreach (ObjectItem _itemObj in _items)
+            if (_itemObj != null)
+                allMass += _itemObj.item.weight * _itemObj.count;
     }
 }

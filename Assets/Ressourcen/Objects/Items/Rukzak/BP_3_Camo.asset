@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
   m_Name: BP_3_Camo
   m_EditorClassIdentifier: 
-  id: 22
+  id: 122
   Name: 
   type: 5
   typeAmmo: 0
   price: 2600
   countCell: 1
   maxCount: 1
+  weight: 2
   gun: {fileID: 0}
   light: {fileID: 0}
   backpack: {fileID: 11400000, guid: 04c783998a4606c4bbccf8ae51fae3a5, type: 2}

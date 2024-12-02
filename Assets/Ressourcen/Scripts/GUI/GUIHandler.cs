@@ -11,6 +11,7 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private FixedJoystick fixedJoystick;
     [SerializeField] private Image[] imgSetNumWeapon;
     [SerializeField] private TextMeshProUGUI[] textAmmo;
+    [SerializeField] private TextMeshProUGUI[] textMass;
 
     public IInput input;
 
@@ -86,5 +87,21 @@ public class GUIHandler : MonoBehaviour
             textAmmo[0].text = "--";
             textAmmo[1].text = "--";
         }
+    }
+
+    public void UpdateMass(int _maxMass, float _mass)
+    {
+        string _massOld = _mass.ToString();
+        string _massNew;
+
+        if (_massOld.Length > 5)
+        {
+            _massNew = _massOld[0].ToString() + _massOld[1].ToString() + _massOld[2].ToString() + _massOld[3].ToString() + _massOld[4].ToString();
+        }
+        else
+            _massNew = _massOld;
+
+        textMass[0].text = _massNew;
+        textMass[1].text = "/ " + _maxMass.ToString();
     }
 }

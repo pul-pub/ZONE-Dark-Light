@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GUIHandler handlerGUI;
-    [SerializeField] private Movement movement;
-    [SerializeField] private WeaponManager weaponManager;
-    [SerializeField] private LightManager lightManager;
+    [SerializeField] public GUIHandler handlerGUI;
+    [SerializeField] public Movement movement;
+    [SerializeField] public WeaponManager weaponManager;
+    [SerializeField] public LightManager lightManager;
+    [SerializeField] public OutFitManager outfit;
 
     public void Initialization()
     {
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit += lightManager.OnResetOutfit;
             handlerGUI.input.OnLight += lightManager.OnSetLight;
+
+            handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
         }  
     }
 
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit += lightManager.OnResetOutfit;
             handlerGUI.input.OnLight += lightManager.OnSetLight;
+
+            handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
         }    
     }
 
@@ -54,6 +59,8 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit -= lightManager.OnResetOutfit;
             handlerGUI.input.OnLight -= lightManager.OnSetLight;
+
+            handlerGUI.input.OnResetOutfit -= outfit.OnResetOutfit;
         }    
     }
 
@@ -64,5 +71,13 @@ public class Player : MonoBehaviour
                                                                       weaponManager._guns[weaponManager._numWeapon].currentAmmos);
         else
             handlerGUI.UpdateAmmos(-1, -1);
+
+        float reason;
+
+        handlerGUI.UpdateMass(outfit.MaxMass, handlerGUI.inventory.allMass);
+        if ((reason = handlerGUI.inventory.allMass - outfit.MaxMass) > 0)
+            movement._debufSpeed = reason / 10;
+        else
+            movement._debufSpeed = 0;
     }
 }
