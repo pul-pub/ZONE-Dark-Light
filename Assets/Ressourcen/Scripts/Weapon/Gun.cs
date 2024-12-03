@@ -21,7 +21,7 @@ public class Gun : Weapon
 
     public int currentAmmos { private set; get; } = 0;
 
-    public bool Shoot(Object bullet, Transform parent, Transform _pointStart)
+    public bool Shoot(Object bullet, Transform parent, Transform _pointStart, int _flipX)
     {
         if (typeAmmo == TypeAmmo.Shotgun_12_20 ||
             typeAmmo == TypeAmmo.Shotgun_12_10 ||

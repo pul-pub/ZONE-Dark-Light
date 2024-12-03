@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] public WeaponManager weaponManager;
     [SerializeField] public LightManager lightManager;
     [SerializeField] public OutFitManager outfit;
+    [SerializeField] public Health health;
+    [SerializeField] public Energy energy;
 
     public void Initialization()
     {
@@ -76,8 +78,11 @@ public class Player : MonoBehaviour
 
         handlerGUI.UpdateMass(outfit.MaxMass, handlerGUI.inventory.allMass);
         if ((reason = handlerGUI.inventory.allMass - outfit.MaxMass) > 0)
-            movement._debufSpeed = reason / 10;
+            movement.debufSpeed = reason / 10;
         else
-            movement._debufSpeed = 0;
+            movement.debufSpeed = 0;
+
+        handlerGUI.UpdateHealth(health.health);
+        handlerGUI.UpdateEnergy(energy.energy);
     }
 }

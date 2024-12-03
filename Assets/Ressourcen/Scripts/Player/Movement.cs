@@ -8,12 +8,15 @@ public class Movement : MonoBehaviour
 
     public bool toRight = true;
 
-    public float _debufSpeed = 0f;
+    public float debufSpeed = 0f;
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Animator animator;
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private Energy energy;
 
     private Rigidbody2D _rb;
+    private float _LocalDebufSpeed = 0f;
 
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("IsGo", false);
             animator.SetBool("IsSquat", false);
+            col.offset = Vector2.zero;
             animator.speed = 1;
         }
         else
@@ -38,6 +42,7 @@ public class Movement : MonoBehaviour
                 if (!animator.GetBool("IsSquat"))
                     animator.SetBool("IsSquat", true);
 
+                col.offset = new Vector2(0, 0.125f);
                 animator.speed = Math.Abs(_vec.x) * 1.5f;
             }
             else if (_vec.y <= 0.7f)
@@ -46,6 +51,7 @@ public class Movement : MonoBehaviour
                 if (!animator.GetBool("IsGo") && !animator.GetBool("IsSquat"))
                     animator.SetBool("IsGo", true);
 
+                col.offset = Vector2.zero;
                 animator.speed = Math.Abs(_vec.x);
             }
             else
@@ -53,13 +59,24 @@ public class Movement : MonoBehaviour
                 if (Jamp())
                 {
                     animator.SetTrigger("Jump");
+                    col.offset = Vector2.zero;
                     animator.speed = 1;
                 }
             }
         }
-            
-        _rb.linearVelocityX = (_vec.x != 0 ? _vec.x * Speed - _debufSpeed : 0);
-            
+
+        if (energy != null)
+        {
+            if (_vec.x != 0)
+                energy.SetDownEnergy(Math.Abs(_vec.x) / 100);
+            else
+                energy.SetUpEnergy();
+
+            _LocalDebufSpeed = energy.energy <= 10 ? 3 : 0;
+        }
+
+        _rb.linearVelocityX = (_vec.x != 0 ? _vec.x * (Speed - debufSpeed - _LocalDebufSpeed) : 0);
+
         if (!toRight && _vec.x > 0)
             Flip();
         else if (toRight && _vec.x < 0)

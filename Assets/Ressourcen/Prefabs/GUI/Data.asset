@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55ad15332e1a89542b28cd50c8e91a05, type: 2}
   - {fileID: 11400000, guid: 44e4d8e1433199a48af37aeace9770c8, type: 2}
   - {fileID: 11400000, guid: 1419b2270d326ad46be209d9886ab9e7, type: 2}
+  - {fileID: 11400000, guid: 51485c9163490ef40b52f75524b6f7dd, type: 2}
   - {fileID: 11400000, guid: 96a5f0ee5bc7e7149b14b027fd7f88d7, type: 2}
   - {fileID: 11400000, guid: 1caac7bcef4c3b04b94aac7b87703df5, type: 2}
   - {fileID: 11400000, guid: 033ba796c86a741409caf967618fe1c2, type: 2}
@@ -36,8 +37,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38c01d52e374bf34daa44ce63f41f3fc, type: 2}
   - {fileID: 11400000, guid: e7e25d782fe95b44c80a46fe4c0b6d11, type: 2}
   - {fileID: 11400000, guid: 45023d9ba162bf540b26768eceeb3120, type: 2}
-  guns:
-  - {fileID: 11400000, guid: 8492a6b5262d16f4092028c88fc8771f, type: 2}
-  - {fileID: 11400000, guid: c790a83490b9de6479203a34c1289f10, type: 2}
-  - {fileID: 11400000, guid: 323f900c9c61f9e4aba72096cf61eee5, type: 2}
-  - {fileID: 11400000, guid: d7ed45cf62504ce4ea5a580a309eb5de, type: 2}
+  guns: []
+  lights: []

@@ -9,9 +9,17 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] public Inventory inventory;
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private FixedJoystick fixedJoystick;
+    [Header("Weapon")]
     [SerializeField] private Image[] imgSetNumWeapon;
     [SerializeField] private TextMeshProUGUI[] textAmmo;
+    [Header("Mass")]
     [SerializeField] private TextMeshProUGUI[] textMass;
+    [Header("Health")]
+    [SerializeField] private TextMeshProUGUI textHealth;
+    [SerializeField] private Slider sliderHealth;
+    [Header("Energy")]
+    [SerializeField] private TextMeshProUGUI textEnergy;
+    [SerializeField] private Slider sliderEnergy;
 
     public IInput input;
 
@@ -103,5 +111,17 @@ public class GUIHandler : MonoBehaviour
 
         textMass[0].text = _massNew;
         textMass[1].text = "/ " + _maxMass.ToString();
+    }
+
+    public void UpdateHealth(float _health)
+    {
+        textHealth.text = ((int)_health).ToString();
+        sliderHealth.value = ((int)_health);
+    }
+
+    public void UpdateEnergy(float _energy)
+    {
+        textEnergy.text = ((int)_energy).ToString();
+        sliderEnergy.value = ((int)_energy);
     }
 }

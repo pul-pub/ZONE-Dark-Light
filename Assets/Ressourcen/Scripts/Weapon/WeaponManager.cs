@@ -45,7 +45,7 @@ public class WeaponManager : MonoBehaviour
             {
                 if (_flagWeapon && _guns[_numWeapon] != null && _guns[_numWeapon].currentAmmos >= 1 && !_isReload)
                 {
-                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet))
+                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet, (int)transform.parent.localScale.x))
                     {
                         GameObject _gObj = Instantiate(objGilz, pointGilz.position, pointGilz.rotation, parent) as GameObject;
                         Instantiate(objFire, pointBullet.position, pointBullet.rotation, parent);

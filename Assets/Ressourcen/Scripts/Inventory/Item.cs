@@ -19,9 +19,11 @@ public class Item : ScriptableObject
     [SerializeField] private Gun gun;
     [SerializeField] private LightObject light;
     [SerializeField] private BackpackObject backpack;
+    [SerializeField] private ArmorObject armor;
     [NonSerialized] public Gun gunObject;
     [NonSerialized] public LightObject lightObject;
     [NonSerialized] public BackpackObject backpackObject;
+    [NonSerialized] public ArmorObject armorObject;
     [Space]
     public Sprite img;
 
@@ -30,7 +32,8 @@ public class Item : ScriptableObject
         gunObject = gun != null ? gun.Clone() : null;
         lightObject = light != null ? light.Clone() : null;
         backpackObject = backpack != null ? backpack.Clone() : null;
-
+        armorObject = armor != null ? armor.Clone() : null;
+        
         Item _new = new Item();
 
         _new.id = id;
@@ -45,6 +48,7 @@ public class Item : ScriptableObject
         _new.gunObject = gunObject;
         _new.lightObject = lightObject;
         _new.backpackObject = backpackObject;
+        _new.armorObject = armorObject;
 
         _new.img = img;
 
