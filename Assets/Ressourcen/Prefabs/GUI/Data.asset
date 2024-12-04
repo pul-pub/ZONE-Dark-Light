@@ -37,5 +37,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38c01d52e374bf34daa44ce63f41f3fc, type: 2}
   - {fileID: 11400000, guid: e7e25d782fe95b44c80a46fe4c0b6d11, type: 2}
   - {fileID: 11400000, guid: 45023d9ba162bf540b26768eceeb3120, type: 2}
+  - {fileID: 11400000, guid: e29525c9b0854284d933b8eb26f21535, type: 2}
   guns: []
   lights: []

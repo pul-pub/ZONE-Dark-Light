@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
                 if (!animator.GetBool("IsSquat"))
                     animator.SetBool("IsSquat", true);
 
-                col.offset = new Vector2(0, 0.125f);
+                col.offset = new Vector2(0, 0.25f); //0.125
                 animator.speed = Math.Abs(_vec.x) * 1.5f;
             }
             else if (_vec.y <= 0.7f)

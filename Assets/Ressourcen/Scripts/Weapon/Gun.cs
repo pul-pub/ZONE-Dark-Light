@@ -27,9 +27,10 @@ public class Gun : Weapon
             typeAmmo == TypeAmmo.Shotgun_12_10 ||
             typeAmmo == TypeAmmo.Shotgun_12_1)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < (typeAmmo == TypeAmmo.Shotgun_12_20 ? 20 : 10); i++)
             {
                 GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
+                obj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
 
                 Bullet _bullet = obj.GetComponent<Bullet>();
 
@@ -42,6 +43,7 @@ public class Gun : Weapon
         else
         {
             GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
+            obj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
 
             Bullet _bullet = obj.GetComponent<Bullet>();
 

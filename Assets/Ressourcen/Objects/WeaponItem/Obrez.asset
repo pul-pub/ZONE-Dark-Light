@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e176f0bd381953f48ae9ac5ae7f14201, type: 3}
-  m_Name: PP-19-01
+  m_Name: Obrez
   m_EditorClassIdentifier: 
-  Name: AK-74
-  Id: 151
+  Name: 
+  Id: 170
   condition: 100
-  dm: 17
-  startTimeBtwShot: 0.1
-  imgBoxGun: {fileID: -1898065178660533048, guid: 903b8687658953f46aa850495715249f, type: 3}
-  isStorUp: 1
-  imgStor: {fileID: 2953913038379304728, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
+  dm: 90
+  startTimeBtwShot: 1
+  imgBoxGun: {fileID: 6214890466697876401, guid: 903b8687658953f46aa850495715249f, type: 3}
+  isStorUp: 0
+  imgStor: {fileID: -4093744732583307702, guid: a5cd92b88c3f84b42aedc132f4a093a4, type: 3}
   soundShoot: {fileID: 0}
   soundSpusk: {fileID: 0}
-  typeAmmo: 4
-  ammo: 25
-  force: 35
-  verticalRecoil: 0.5
+  typeAmmo: 5
+  ammo: 2
+  force: 20
+  verticalRecoil: 5

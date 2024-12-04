@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: AK-74
   Id: 161
+  condition: 100
   dm: 20
   startTimeBtwShot: 0.3
   imgBoxGun: {fileID: -1276914977702293978, guid: 903b8687658953f46aa850495715249f, type: 3}
@@ -23,5 +24,5 @@ MonoBehaviour:
   soundSpusk: {fileID: 0}
   typeAmmo: 4
   ammo: 8
-  force: 20
+  force: 30
   verticalRecoil: 1

@@ -5,7 +5,6 @@ public class WeaponManager : MonoBehaviour
 {
     public Inventory inv;
 
-    [SerializeField] private DataBase data;
     [Header("Weapon Grafics")]
     [SerializeField] private SpriteRenderer[] spRenderHead;
     [SerializeField] private SpriteRenderer[] spRenderBack;
@@ -18,6 +17,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Object objGilz;
     [SerializeField] private Object objFire;
     [SerializeField] private Transform parent;
+    [Space]
+    [SerializeField] private LayerMask knifeLayer;
+    [SerializeField] private KnifeObject knife;
 
     private float _timer = 0;
 
@@ -37,7 +39,7 @@ public class WeaponManager : MonoBehaviour
             Shoot();
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         if (_timer <= 0)
         {
@@ -45,12 +47,16 @@ public class WeaponManager : MonoBehaviour
             {
                 if (_flagWeapon && _guns[_numWeapon] != null && _guns[_numWeapon].currentAmmos >= 1 && !_isReload)
                 {
-                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet, (int)transform.parent.localScale.x))
+                    int _flipX = (int)transform.parent.localScale.x;
+                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet, _flipX))
                     {
                         GameObject _gObj = Instantiate(objGilz, pointGilz.position, pointGilz.rotation, parent) as GameObject;
-                        Instantiate(objFire, pointBullet.position, pointBullet.rotation, parent);
+                        _gObj.GetComponent<Rigidbody2D>().AddForce(
+                            (_flipX > 0 ? -_gObj.transform.right : _gObj.transform.right) * 5, ForceMode2D.Impulse);
 
-                        _gObj.GetComponent<Rigidbody2D>().AddForce(-_gObj.transform.right * 5, ForceMode2D.Impulse);
+                        _gObj = Instantiate(objFire, pointBullet.position, pointBullet.rotation, parent) as GameObject;
+                        _gObj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
+
                     }
 
                     _timer = _guns[_numWeapon].startTimeBtwShot;
@@ -59,6 +65,19 @@ public class WeaponManager : MonoBehaviour
             else
             {
                 anim.SetTrigger("Attack");
+
+                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, knife.distantAttack, 0f, Vector2.zero, 0f, knifeLayer);
+                if (hitInfo.collider != null)
+                {
+                    Health[] _helath = hitInfo.collider.gameObject.GetComponentsInParent<Health>();
+
+                    if (_helath.Length > 0)
+                    {
+                        _helath[0].ApplyDamage(knife.dm);
+                    }
+                }
+
+                _timer = knife.startTimeBtwShot;
             }
         }
     }
@@ -171,8 +190,9 @@ public class WeaponManager : MonoBehaviour
         }
         else
         {
-            for (int j = 0; j < 2; j++)
-                spRenderHead[j].gameObject.SetActive(false);
+            if (spRenderHead.Length > 0)
+                for (int j = 0; j < 2; j++)
+                    spRenderHead[j].gameObject.SetActive(false);
         }
 
         anim.SetBool("IsUp", _flagWeapon);

@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
             if (_helath.Length > 0)
             {
-                
+                _helath[0].ApplyDamage(dm);
             }
         }
         transform.Translate(Vector2.right * force * Time.deltaTime);
