@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
 
 public class NPC : NpcAI 
 {
+    [Header("NPC")]
+    [NonSerialized] public NPCBackpack backpack;
+    [SerializeField] private NPCBackpack backpackObject;
+
     [SerializeField] private Movement movement;
     [SerializeField] private Health health;
     [SerializeField] private WeaponManager weapon;
@@ -30,7 +35,12 @@ public class NPC : NpcAI
 
     private void OnDide()
     {
-        Destroy(gameObject);
+        movement.Dide();
+        backpack = backpackObject.Clone();
+        backpack.OnNullBackpack += delegate { Destroy(gameObject); };
+
+        OnMove -= movement.Move;
+        OnAttack -= Shoot;
     }
 
     private void Shoot() => weapon.Shoot();

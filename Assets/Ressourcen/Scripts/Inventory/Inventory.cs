@@ -12,14 +12,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private DataBase inventoryData;
     [SerializeField] private int coutCells = 49;
     [Header("Objects Item")]
-    [SerializeField] private Object itemBG;
     [SerializeField] private Object objectItem;
     [Header("Parebts Item")]
-    [SerializeField] private Transform parentBG;
-    [SerializeField] private Transform parentObjectItem;
-    [SerializeField] private Transform parentObjectItem_DRAG;
+    [SerializeField] private Transform[] parentObjectItem;
+    [SerializeField] private Transform[] parentObjectItem_DRAG;
 
     public List<ObjectItem> _items = new List<ObjectItem>();
+    public List<ObjectItem> _itemsNPC = new List<ObjectItem>();
     public List<ObjectCell> _cellObjs = new List<ObjectCell>();
 
     private List<ObjectItem> _ammo = new List<ObjectItem>();
@@ -29,7 +28,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 128));
+            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 128), _items);
         }
 
         ChengeOutfit();
@@ -51,13 +50,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private bool AddItem(Item _item, int _count)
+    private bool AddItem(Item _item, int _count, List<ObjectItem> _list, bool _npc = false)
     {
         if (_item.countCell == 1)
         {
-            GameObject _gObj = Instantiate(objectItem, parentObjectItem) as GameObject;
+            GameObject _gObj = Instantiate(objectItem, parentObjectItem[_npc ? 1 : 0]) as GameObject;
 
-            int[] _cells = new int[1] { FindNullCell() };
+            int[] _cells = new int[1] { FindNullCell(false, _npc) };
 
             _gObj.GetComponent<ObjectItem>().Initialization(
                 _item.Clone(),
@@ -66,14 +65,14 @@ public class Inventory : MonoBehaviour
                 _count < _item.maxCount ? _count : _item.maxCount,
                 parentObjectItem,
                 parentObjectItem_DRAG);
-            
-            _items.Add(_gObj.GetComponent<ObjectItem>());
+
+            _list.Add(_gObj.GetComponent<ObjectItem>());
         }
         else
         {
-            GameObject _gObj = Instantiate(objectItem, parentObjectItem) as GameObject;
+            GameObject _gObj = Instantiate(objectItem, parentObjectItem[_npc ? 1 : 0]) as GameObject;
 
-            int _res = FindNullCell(true);
+            int _res = FindNullCell(true, _npc);
             int[] _cells = new int[2] { _res, _res + 1 };
 
             _gObj.GetComponent<ObjectItem>().Initialization(
@@ -84,7 +83,7 @@ public class Inventory : MonoBehaviour
                 parentObjectItem,
                 parentObjectItem_DRAG);
 
-            _items.Add(_gObj.GetComponent<ObjectItem>());
+            _list.Add(_gObj.GetComponent<ObjectItem>());
         }
 
         CalculatedMass();
@@ -92,16 +91,16 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    private int FindNullCell(bool _duble = false)
+    private int FindNullCell(bool _duble = false, bool _npcBackpack = false)
     {
-        int _cell = 0;
+        int _cell = (_npcBackpack ? 500 : 0);
 
         if (_items.Count == 0)
             return _cell;
         
         if (_duble)
         {
-            while (_cell < coutCells - 1)
+            while (_cell < (_npcBackpack ? 500 + coutCells : coutCells) - 1)
             {
                 if ((_cell + 1) % 7 != 0)
                 {
@@ -122,7 +121,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            while (_cell < coutCells)
+            while (_cell < (_npcBackpack ? 500 + coutCells : coutCells))
             {
                 bool _is = false;
 
@@ -230,6 +229,20 @@ public class Inventory : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void OnBackpackNPC(NPCBackpack _npc)
+    {
+        for (int i = 0; i < _itemsNPC.Count; i++)
+            Destroy(_itemsNPC[i]);
+
+        _itemsNPC.Clear();
+
+        for (int i = 0; i < _npc.items.Count; i++)
+        {
+            if (_npc.items[i] != null)
+                AddItem(_npc.items[i], _npc.count[i], _itemsNPC, true);
+        }
     }
 
     public void ChengeOutfit()

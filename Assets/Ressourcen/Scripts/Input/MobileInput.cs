@@ -10,6 +10,8 @@ public class MobileInput : IInput
     public event Action<int> OnSetNumWeapon;
 
     public event Action OnLight;
+    public event Action OnPressMultiButton;
+    public event Action<NPCBackpack> OnInteractionPack;
 
     public event Action<Item[]> OnResetOutfit;
 
@@ -47,6 +49,21 @@ public class MobileInput : IInput
     {
         if (OnRload != null)
             OnRload.Invoke();
+    }
+
+    public void ReadStartInteraction(TypeInteraction _type, NPCBackpack _npc)
+    {
+        if (_type == TypeInteraction.TackeBackpack)
+        {
+            if (OnInteractionPack != null && _npc != null)
+                OnInteractionPack.Invoke(_npc);
+        }
+    }
+
+    public void ReadPressMultiButton()
+    {
+        if (OnPressMultiButton != null)
+            OnPressMultiButton.Invoke();
     }
 
     public void ReadButtonLight()

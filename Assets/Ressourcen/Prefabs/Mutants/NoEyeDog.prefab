@@ -87,6 +87,7 @@ MonoBehaviour:
   SizeCheckMove: 10
   SizeCheckAttack: 1
   SizeCheckObject: 1.5
+  backpack: {fileID: 11400000, guid: df99f17dcabc0bd43b6e6273c67a2e23, type: 2}
   movement: {fileID: 6071247897996710094}
   health: {fileID: 2347083287329202389}
   weapon: {fileID: 4379391845735089576}
@@ -112,7 +113,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   animator: {fileID: 1468451526933532075}
-  col: {fileID: 5673269596772748946}
+  col: {fileID: 4137895121949478890}
   energy: {fileID: 0}
 --- !u!114 &2347083287329202389
 MonoBehaviour:
@@ -163,7 +164,6 @@ GameObject:
   - component: {fileID: 4133879242704234354}
   - component: {fileID: 7231592100362329640}
   - component: {fileID: 1468451526933532075}
-  - component: {fileID: 5673269596772748946}
   m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
@@ -183,7 +183,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1220123965939801219}
   m_Father: {fileID: 1469351177321633301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7231592100362329640
@@ -263,13 +264,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &5673269596772748946
+--- !u!1 &6685242987929083688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220123965939801219}
+  - component: {fileID: 4137895121949478890}
+  m_Layer: 7
+  m_Name: COl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1220123965939801219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685242987929083688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.053, y: -0.233, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4133879242704234354}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4137895121949478890
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315747208318087995}
+  m_GameObject: {fileID: 6685242987929083688}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -307,5 +340,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8}
   m_EdgeRadius: 0

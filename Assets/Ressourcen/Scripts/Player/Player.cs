@@ -1,7 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
+    [Header("Button F")]
+    [SerializeField] private int sizeCheck;
+    [SerializeField] private LayerMask layer;
+    [Header("Inital")]
     [SerializeField] public GUIHandler handlerGUI;
     [SerializeField] public Movement movement;
     [SerializeField] public WeaponManager weaponManager;
@@ -27,6 +33,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnLight += lightManager.OnSetLight;
 
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
+
+            handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
         }  
     }
 
@@ -45,6 +53,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnLight += lightManager.OnSetLight;
 
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
+
+            handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
         }    
     }
 
@@ -63,6 +73,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnLight -= lightManager.OnSetLight;
 
             handlerGUI.input.OnResetOutfit -= outfit.OnResetOutfit;
+
+            handlerGUI.input.OnPressMultiButton -= OnTouchMultiButton;
         }    
     }
 
@@ -84,5 +96,24 @@ public class Player : MonoBehaviour
 
         handlerGUI.UpdateHealth(health.health);
         handlerGUI.UpdateEnergy(energy.energy);
+    }
+
+    private void OnTouchMultiButton()
+    {
+        Collider2D[] _list = Physics2D.OverlapCircleAll(transform.position, sizeCheck, layer);
+
+        if (_list.Length > 0)
+        {
+            foreach (Collider2D col in _list)
+            {
+                NPC _npc = col.gameObject.GetComponentInParent<NPC>();
+
+                if (_npc != null)
+                {
+                    if (_npc.backpack != null)
+                        handlerGUI.input.ReadStartInteraction(TypeInteraction.TackeBackpack, _npc.backpack);
+                }
+            }
+        }
     }
 }

@@ -83,6 +83,13 @@ public class Movement : MonoBehaviour
             Flip();
     }
 
+    public void Dide()
+    {
+        Move(Vector2.zero);
+        transform.eulerAngles = new Vector3(0, 0, 180);
+        col.offset = new Vector2(0, -1f);
+    }
+
     private bool Jamp()
     {
         bool isGrounded = Physics2D.BoxCast(transform.position, new Vector3(1, 2.8f, 0), 0f, new Vector3(), 0f, layerMask);

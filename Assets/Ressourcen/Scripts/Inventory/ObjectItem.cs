@@ -15,28 +15,28 @@ public class ObjectItem : EventTrigger
     private bool isDragging = false;
 
     private Inventory _inventory;
-    private Transform _baseParent;
-    private Transform _dragParent;
+    private Transform[] _baseParent;
+    private Transform[] _dragParent;
     private RectTransform _rt;
     private TextMeshProUGUI _tmp;
 
     private GameObject _to;
     private int[] _currentCells = new int[2];
 
-    public void Initialization(Item _item, int[] _cells, Vector3 _pos, Inventory _inv, int _count, Transform _base, Transform _drag)
+    public void Initialization(Item _item, int[] _cells, Vector3 _pos, Inventory _inv, int _count, Transform[] _base, Transform[] _drag)
     {
         _rt = GetComponent<RectTransform>();
         _tmp = GetComponentInChildren<TextMeshProUGUI>();
 
         _baseParent = _base;
-        _dragParent = _drag;
-
-        transform.parent = _baseParent;
+        _dragParent = _drag;   
 
         count = _count;
         item = _item;
         cellsId = _cells;
         _inventory = _inv;
+
+        transform.parent = _baseParent[cellsId[0] < 500 ? 0 : 1];
 
         if (item.countCell != 1)
         {
@@ -62,7 +62,7 @@ public class ObjectItem : EventTrigger
     {
         isDragging = true;
         objectStartPos = transform.position;
-        transform.parent = _dragParent;
+        transform.parent = _dragParent[cellsId[0] < 500 ? 0 : 1];
     }
 
     public override void OnDrag(PointerEventData data) => transform.position = new Vector3(data.position.x, data.position.y, 5);
@@ -98,7 +98,7 @@ public class ObjectItem : EventTrigger
                 transform.position = objectStartPos;
         }
 
-        transform.parent = _baseParent;
+        transform.parent = _baseParent[cellsId[0] < 500 ? 0 : 1];
     }
 
     private void OnDrop(int _cell)

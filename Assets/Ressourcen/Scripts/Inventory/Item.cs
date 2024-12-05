@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum TypeItem { Weapon, Cartridge, Armor, Ammo, Medicine, Backpack, NVG, Food, Water, PNV, Detector, HeadArmor, Quest };
+public enum TypeItem { Weapon, Cartridge, Armor, Ammo, Medicine, Backpack, NVG, Food, Water, PNV, Detector, HeadArmor, Habar, Quest };
 
 [CreateAssetMenu(menuName = "Item", fileName = "NULL")]
 public class Item : ScriptableObject

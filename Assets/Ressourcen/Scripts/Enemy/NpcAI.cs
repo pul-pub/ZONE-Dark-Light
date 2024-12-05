@@ -71,7 +71,7 @@ public class NpcAI : MonoBehaviour
     {
         Vector3 _target = new Vector3(UnityEngine.Random.Range(freeArea.x, freeArea.y), 0);
         Vector2 _vec = _target - transform.position;
-        Debug.Log(_target.x + ">>>" + _vec.x);
+        
         while (IsTargetValue(transform.position, _target, true))
         {
             OnMove.Invoke(new Vector2(

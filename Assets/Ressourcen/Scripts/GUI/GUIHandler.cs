@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class GUIHandler : MonoBehaviour
 {
     [SerializeField] public Inventory inventory;
     [SerializeField] private GameObject inventoryObject;
+    [SerializeField] private GameObject otfitObject;
+    [SerializeField] private GameObject npcObject;
     [SerializeField] private FixedJoystick fixedJoystick;
     [Header("Weapon")]
     [SerializeField] private Image[] imgSetNumWeapon;
@@ -25,17 +28,31 @@ public class GUIHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        inventory.OnChangeOutfit += OnSetItemOutfit;
+        if (input != null)
+        {
+            inventory.OnChangeOutfit += OnSetItemOutfit;
+            input.OnInteractionPack += inventory.OnBackpackNPC;
+            input.OnInteractionPack += OpenNPCPack;
+        }
     }
 
     private void OnDisable()
     {
-        inventory.OnChangeOutfit -= OnSetItemOutfit;
+        if (input != null)
+        {
+            inventory.OnChangeOutfit -= OnSetItemOutfit;
+            input.OnInteractionPack -= inventory.OnBackpackNPC;
+            input.OnInteractionPack -= OpenNPCPack;
+        }
     }
 
     public void Initialization()
     {
         input = new MobileInput(fixedJoystick);
+
+        inventory.OnChangeOutfit += OnSetItemOutfit;
+        input.OnInteractionPack += inventory.OnBackpackNPC;
+        input.OnInteractionPack += OpenNPCPack;
 
         inventory.CreateList();
     }
@@ -49,7 +66,20 @@ public class GUIHandler : MonoBehaviour
     public void SetReload() => input.ReadButtonReload();
     public void SetLight() => input.ReadButtonLight();
     public void SetNumWeapon(int _num) => input.ReadNumWeapon(_num);
-    public void SetActivInv(bool _is) => inventoryObject.SetActive(_is);
+    public void SetActivInv(bool _is)
+    {
+        inventoryObject.SetActive(_is);
+        otfitObject.SetActive(_is);
+        npcObject.SetActive(false);
+    }
+    public void SetPressMultiButton() => input.ReadPressMultiButton();
+    public void OpenNPCPack(NPCBackpack _pack)
+    {
+        inventoryObject.SetActive(true);
+        otfitObject.SetActive(false);
+        npcObject.SetActive(true);
+    }
+
 
     public void OnSetItemOutfit()
     {
