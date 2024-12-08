@@ -20,6 +20,7 @@ MonoBehaviour:
   imgBoxGun: {fileID: -1276914977702293978, guid: 903b8687658953f46aa850495715249f, type: 3}
   isStorUp: 0
   imgStor: {fileID: 667543371971535990, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
+  pointFire: {x: 0.65, y: 0.115}
   soundShoot: {fileID: 0}
   soundSpusk: {fileID: 0}
   typeAmmo: 4

@@ -19,8 +19,14 @@ public class NPCBackpack : ScriptableObject
     [SerializeField] private List<Item> itemsStatic = new List<Item>(10);
     [SerializeField] private List<int> countStatic = new List<int>(10);
 
-    [NonSerialized] public List<Item> items;
-    [NonSerialized] public List<int> count;
+    [NonSerialized] public List<Item> items = new List<Item>(10);
+    [NonSerialized] public List<int> count = new List<int>(10);
+
+    public void NullCountPack()
+    {
+        if (OnNullBackpack != null)
+            OnNullBackpack.Invoke();
+    }
 
     public NPCBackpack Clone()
     {
@@ -46,8 +52,12 @@ public class NPCBackpack : ScriptableObject
         _new.Id = Id;
         _new.condition = condition;
 
-        _new.items = items;
-        _new.count = count;
+        _new.items = new List<Item>(items.Count);
+        foreach (Item _item in items)
+            _new.items.Add(_item);
+        _new.count = new List<int>(count.Count);
+        foreach (int _i in count)
+            _new.count.Add(_i);
 
         return _new;
     }

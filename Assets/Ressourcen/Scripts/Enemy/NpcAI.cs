@@ -19,47 +19,19 @@ public class NpcAI : MonoBehaviour
 
     private float _timer = 1;
     private Coroutine _freeMove;
+    private Coroutine _read;
 
-    private Collider2D[] _listMove;
-    private Collider2D[] _listAttack;
-    private Collider2D[] _listJump;
+    private RaycastHit2D _listMove;
+    private RaycastHit2D _listAttack;
+    private RaycastHit2D _listJump;
 
     public void Update()
     {
         if (_timer >= 0)
             _timer -= Time.deltaTime;
 
-        _listMove = Physics2D.OverlapCircleAll(transform.position, SizeCheckMove, Layer);
-        _listAttack = Physics2D.OverlapCircleAll(transform.position, SizeCheckAttack, Layer);
-        _listJump = Physics2D.OverlapCircleAll(transform.position, SizeCheckObject, LayerObject);
-
-        if (_listMove.Length > 0 || _listAttack.Length > 0)
-        {
-            if (_freeMove != null)
-            {
-                StopCoroutine(_freeMove);
-                _freeMove = null;
-            }
-
-            if (_listAttack.Length > 0)
-            {
-                if (OnAttack != null)
-                    OnAttack.Invoke();
-
-                if (IsFreePerson && OnMove != null)
-                    OnMove.Invoke(Vector2.zero);
-            }
-            else
-                if (IsFreePerson && OnMove != null)
-                    OnMove.Invoke(new Vector2(
-                        (_listMove[0].transform.position - transform.position).normalized.x,
-                        _listJump.Length > 0 ? 1 : 0));
-        }
-        else
-        {
-            if (IsFreePerson && _timer <= 0 && _freeMove == null && OnMove != null)
-                _freeMove = StartCoroutine(RandomMove());
-        }
+        if (_read == null)
+            _read = StartCoroutine(ReadCollision());
     }
 
     private void OnEndCorutline()
@@ -75,15 +47,55 @@ public class NpcAI : MonoBehaviour
         while (IsTargetValue(transform.position, _target, true))
         {
             OnMove.Invoke(new Vector2(
-                        0.5f * _vec.normalized.x,
-                        _listJump.Length > 0 ? 1 : 0));
+                        0.25f * _vec.normalized.x,
+                        _listJump ? 1 : 0));
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.1f);
         }
 
         OnMove.Invoke(Vector2.zero);
         _timer = UnityEngine.Random.Range(5, 10);
         OnEndCorutline();
+    }
+
+    IEnumerator ReadCollision()
+    {
+        while (true)
+        {
+            _listMove = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckMove, 0.25f), 0f, Vector2.zero, 0f, Layer);
+            yield return new WaitForEndOfFrame();
+            _listJump = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckObject, 2), 0f, Vector2.zero, 0f, LayerObject);
+            yield return new WaitForEndOfFrame();
+            _listAttack = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckAttack, 0.25f), 0f, Vector2.zero, 0f, Layer);
+
+            if (_listMove || _listAttack)
+            {
+                if (_freeMove != null)
+                {
+                    StopCoroutine(_freeMove);
+                    _freeMove = null;
+                }
+
+                if (_listAttack)
+                {
+                    if (OnAttack != null)
+                        OnAttack.Invoke();
+
+                    if (IsFreePerson && OnMove != null)
+                        OnMove.Invoke(new Vector2((_listMove.collider.transform.position - transform.position).x > 0 ? 0.0001f: -0.0001f, 0));
+                }
+                else
+                    if (IsFreePerson && OnMove != null)
+                    OnMove.Invoke(new Vector2(
+                        (_listMove.collider.transform.position - transform.position).normalized.x,
+                        _listJump ? 1 : 0));
+            }
+            else
+            {
+                if (IsFreePerson && _timer <= 0 && _freeMove == null && OnMove != null)
+                    _freeMove = StartCoroutine(RandomMove());
+            }
+        }
     }
 
     public bool IsTargetValue(Vector2 current, Vector2 target, bool invers = false, float range = 0.1f)

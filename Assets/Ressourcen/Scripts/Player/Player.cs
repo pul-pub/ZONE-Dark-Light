@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -35,6 +33,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
 
             handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
+
+            handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
         }  
     }
 
@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
 
             handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
+
+            handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
         }    
     }
 
@@ -75,6 +77,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnResetOutfit -= outfit.OnResetOutfit;
 
             handlerGUI.input.OnPressMultiButton -= OnTouchMultiButton;
+
+            handlerGUI.input.OnCastBolt -= weaponManager.OnCastBolt;
         }    
     }
 
@@ -111,7 +115,12 @@ public class Player : MonoBehaviour
                 if (_npc != null)
                 {
                     if (_npc.backpack != null)
-                        handlerGUI.input.ReadStartInteraction(TypeInteraction.TackeBackpack, _npc.backpack);
+                    {
+                        handlerGUI.OpenNPCPack(null);
+                        handlerGUI.inventory.OnBackpackNPC(_npc);
+                    }
+                        
+                        //handlerGUI.input.ReadStartInteraction(TypeInteraction.TackeBackpack, _npc.backpack);
                 }
             }
         }

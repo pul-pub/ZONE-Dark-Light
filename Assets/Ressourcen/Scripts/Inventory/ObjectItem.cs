@@ -35,7 +35,7 @@ public class ObjectItem : EventTrigger
         item = _item;
         cellsId = _cells;
         _inventory = _inv;
-
+        
         transform.parent = _baseParent[cellsId[0] < 500 ? 0 : 1];
 
         if (item.countCell != 1)
@@ -90,6 +90,7 @@ public class ObjectItem : EventTrigger
                         }
 
                         _to = _hit.collider.gameObject;
+                        
                         OnDrop(int.Parse(_to.name));
                     }
                 }
@@ -114,11 +115,11 @@ public class ObjectItem : EventTrigger
                     if (_ii == null)
                     {
                         objectStartPos = _to.transform.position;
-                        
+
                         _currentCells[0] = int.Parse(_to.name);
                         UpdateValue();
                     }
-                    else if (_ii.item == item)
+                    else if (_ii.item.id == item.id)
                     {
                         if (_inventory.CalculatedCountItems(_ii, this) > 0)
                         {
@@ -142,10 +143,11 @@ public class ObjectItem : EventTrigger
                     if (_ii_1 == null && _ii_2 == null)
                     {
                         objectStartPos = _to.transform.position + new Vector3(75, 0);
+
                         _currentCells[0] = int.Parse(_to.name);
                         _currentCells[1] = int.Parse(_to.name) + 1;
                     }
-                    else if (_ii_1 == _ii_2 && _ii_1.item == item && item.type != TypeItem.Weapon)
+                    else if (_ii_1 == _ii_2 && _ii_1.item.id == item.id && item.type != TypeItem.Weapon)
                     {
                         if (_inventory.CalculatedCountItems(_ii_1, this) > 0)
                         {
@@ -218,6 +220,8 @@ public class ObjectItem : EventTrigger
             }
         }
 
+        if (item.id >= 80 && item.id <= 90)
+            _inventory.ChengeNPCBackpack();
         if (item.id > 100)
             _inventory.ChengeOutfit();
 

@@ -18,11 +18,12 @@ public class Bullet : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, sizeRay, 0f, Vector2.zero, 0f, layerMask);
         if (hitInfo.collider != null)
         {
-            Health[] _helath = hitInfo.collider.gameObject.GetComponentsInChildren<Health>();
+            Health[] _helath = hitInfo.collider.gameObject.GetComponentsInParent<Health>();
 
             if (_helath.Length > 0)
             {
                 _helath[0].ApplyDamage(dm);
+                Destroy(gameObject);
             }
         }
         transform.Translate(Vector2.right * force * Time.deltaTime);

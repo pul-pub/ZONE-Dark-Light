@@ -87,12 +87,14 @@ MonoBehaviour:
   SizeCheckMove: 10
   SizeCheckAttack: 1
   SizeCheckObject: 1.5
-  backpack: {fileID: 11400000, guid: df99f17dcabc0bd43b6e6273c67a2e23, type: 2}
+  backpackObject: {fileID: 11400000, guid: df99f17dcabc0bd43b6e6273c67a2e23, type: 2}
   movement: {fileID: 6071247897996710094}
   health: {fileID: 2347083287329202389}
+  weapons: []
   weapon: {fileID: 4379391845735089576}
   numberWeapon: 2
   flagWeapon: 1
+  dideAngel: {x: 0, y: 0, z: 180}
 --- !u!114 &6071247897996710094
 MonoBehaviour:
   m_ObjectHideFlags: 0

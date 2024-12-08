@@ -83,10 +83,10 @@ public class Movement : MonoBehaviour
             Flip();
     }
 
-    public void Dide()
+    public void Dide(Vector3 _dideAngel)
     {
         Move(Vector2.zero);
-        transform.eulerAngles = new Vector3(0, 0, 180);
+        transform.eulerAngles = _dideAngel;
         col.offset = new Vector2(0, -1f);
     }
 

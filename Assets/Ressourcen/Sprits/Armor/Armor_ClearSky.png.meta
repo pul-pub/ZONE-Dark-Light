@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 7e4b804ab9cf4134b9f94806dd0f9580
+guid: c6aaed85897ae87469a316ed09e5247d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9200760095537918847
-    second: GUI_Input_Icons_0
+      213: -6942699886862100040
+    second: Armor_ClearSky_0
   - first:
-      213: -1492231612479648181
-    second: GUI_Input_Icons_1
+      213: -2006894615186906663
+    second: Armor_ClearSky_1
   - first:
-      213: 7271036897732707083
-    second: GUI_Input_Icons_2
+      213: 1170279811631365745
+    second: Armor_ClearSky_2
   - first:
-      213: 2550148554572776971
-    second: GUI_Input_Icons_3
+      213: -2233365974467470936
+    second: Armor_ClearSky_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GUI_Input_Icons_0
+      name: Armor_ClearSky_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1eac65224ecd2240bbd6f910af254cb
-      internalID: 1260094569
+      spriteID: ab312dd7ceefb6545ba2733278ff2ef9
+      internalID: -612922864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_Input_Icons_1
+      name: Armor_ClearSky_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f50b6655c3a194195baaf264796288
+      internalID: 781690384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
-        width: 128
-        height: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b5bce2d657496c499178d8fe6910b15
-      internalID: -236231510
+      spriteID: d34329c2dba408844b55da2510e9678b
+      internalID: 1875577057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_Input_Icons_2
+      name: Armor_ClearSky_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,30 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97026c412b3a9f343a9017599c9cddf8
-      internalID: 1925570465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_Input_Icons_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3425c08de0d38a842aa4c1df424f8629
-      internalID: -1165470161
+      spriteID: ff5d4e845ff5d91469828b5849e7ce48
+      internalID: -1891782420
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0370449ac88775547ba54f8001ab6669
+    spriteID: a2ebfb95da367f34f93603e648eb6b3f
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GUI_Input_Icons_0: 1260094569
-      GUI_Input_Icons_1: -236231510
-      GUI_Input_Icons_2: 1925570465
-      GUI_Input_Icons_3: -1165470161
+      Armor_ClearSky_0: -612922864
+      Armor_ClearSky_1: 781690384
+      Armor_ClearSky_2: 1875577057
+      Armor_ClearSky_3: -1891782420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

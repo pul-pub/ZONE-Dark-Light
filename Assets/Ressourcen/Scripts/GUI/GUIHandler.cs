@@ -12,6 +12,7 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private GameObject otfitObject;
     [SerializeField] private GameObject npcObject;
     [SerializeField] private FixedJoystick fixedJoystick;
+    [SerializeField] private FixedJoystick bolt;
     [Header("Weapon")]
     [SerializeField] private Image[] imgSetNumWeapon;
     [SerializeField] private TextMeshProUGUI[] textAmmo;
@@ -31,8 +32,9 @@ public class GUIHandler : MonoBehaviour
         if (input != null)
         {
             inventory.OnChangeOutfit += OnSetItemOutfit;
-            input.OnInteractionPack += inventory.OnBackpackNPC;
             input.OnInteractionPack += OpenNPCPack;
+
+            bolt.OnEndDown += input.ReadOnCastBolt;
         }
     }
 
@@ -41,8 +43,9 @@ public class GUIHandler : MonoBehaviour
         if (input != null)
         {
             inventory.OnChangeOutfit -= OnSetItemOutfit;
-            input.OnInteractionPack -= inventory.OnBackpackNPC;
             input.OnInteractionPack -= OpenNPCPack;
+
+            bolt.OnEndDown -= input.ReadOnCastBolt;
         }
     }
 
@@ -51,8 +54,9 @@ public class GUIHandler : MonoBehaviour
         input = new MobileInput(fixedJoystick);
 
         inventory.OnChangeOutfit += OnSetItemOutfit;
-        input.OnInteractionPack += inventory.OnBackpackNPC;
         input.OnInteractionPack += OpenNPCPack;
+
+        bolt.OnEndDown += input.ReadOnCastBolt;
 
         inventory.CreateList();
     }
@@ -71,6 +75,7 @@ public class GUIHandler : MonoBehaviour
         inventoryObject.SetActive(_is);
         otfitObject.SetActive(_is);
         npcObject.SetActive(false);
+        inventory.SetActivOutfit(_is);
     }
     public void SetPressMultiButton() => input.ReadPressMultiButton();
     public void OpenNPCPack(NPCBackpack _pack)

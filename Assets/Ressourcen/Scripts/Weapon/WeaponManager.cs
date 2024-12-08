@@ -1,4 +1,4 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -22,6 +22,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private KnifeObject knife;
 
     private float _timer = 0;
+    public float ForceBolt { private set; get; } = 5f;
 
     public bool IsShoot { private set; get; } = false;
     public Gun[] _guns { private set; get; } = new Gun[2];
@@ -56,7 +57,6 @@ public class WeaponManager : MonoBehaviour
 
                         _gObj = Instantiate(objFire, pointBullet.position, pointBullet.rotation, parent) as GameObject;
                         _gObj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
-
                     }
 
                     _timer = _guns[_numWeapon].startTimeBtwShot;
@@ -80,6 +80,12 @@ public class WeaponManager : MonoBehaviour
                 _timer = knife.startTimeBtwShot;
             }
         }
+    }
+
+    public void OnCastBolt(float _force)
+    {
+        ForceBolt = _force * 6;
+        anim.SetTrigger("Bolt");
     }
 
     public void StartReload()
@@ -118,6 +124,7 @@ public class WeaponManager : MonoBehaviour
 
     public void SetIsShoot(bool _isShoot) 
     {
+
         if (_numWeapon <= 1)
             IsShoot = _isShoot;
         else if (_isShoot)
@@ -157,6 +164,8 @@ public class WeaponManager : MonoBehaviour
                         spRenderHead[0].sprite = _guns[_numWeapon].imgBoxGun;
                         spRenderHead[1].sprite = _guns[_numWeapon].imgStor;
                         spRenderHead[2].sprite = _guns[_numWeapon].imgStor;
+
+                        pointBullet.localPosition = _guns[_numWeapon].pointFire;
                     }
                     else
                     {

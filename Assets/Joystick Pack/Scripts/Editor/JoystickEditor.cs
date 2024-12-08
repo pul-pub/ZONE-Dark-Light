@@ -11,6 +11,7 @@ public class JoystickEditor : Editor
     private SerializedProperty axisOptions;
     private SerializedProperty snapX;
     private SerializedProperty snapY;
+    protected SerializedProperty board;
     protected SerializedProperty background;
     private SerializedProperty handle;
 
@@ -23,6 +24,7 @@ public class JoystickEditor : Editor
         axisOptions = serializedObject.FindProperty("axisOptions");
         snapX = serializedObject.FindProperty("snapX");
         snapY = serializedObject.FindProperty("snapY");
+        board = serializedObject.FindProperty("board");
         background = serializedObject.FindProperty("background");
         handle = serializedObject.FindProperty("handle");
     }

@@ -10,9 +10,10 @@ public class MobileInput : IInput
     public event Action<int> OnSetNumWeapon;
 
     public event Action OnLight;
+    public event Action<float> OnCastBolt;
     public event Action OnPressMultiButton;
-    public event Action<NPCBackpack> OnInteractionPack;
 
+    public event Action<NPCBackpack> OnInteractionPack;
     public event Action<Item[]> OnResetOutfit;
 
     private FixedJoystick _fixedJoystick;
@@ -33,23 +34,17 @@ public class MobileInput : IInput
         }
     }
 
-    public void ReadButton(string _type)
-    {
-        if (OnRload != null && _type == "reload")
-            OnRload.Invoke();
-    }
+    public void ReadButtonShoot(bool _isActiv) => OnShoot?.Invoke(_isActiv);
 
-    public void ReadButtonShoot(bool _isActiv)
-    {
-        if (OnShoot != null)
-            OnShoot.Invoke(_isActiv);
-    }
+    public void ReadPressMultiButton() => OnPressMultiButton?.Invoke();
 
-    public void ReadButtonReload()
-    {
-        if (OnRload != null)
-            OnRload.Invoke();
-    }
+    public void ReadButtonLight() => OnLight?.Invoke();
+
+    public void ReadNumWeapon(int _num) => OnSetNumWeapon?.Invoke(_num);
+
+    public void ReadOnCastBolt(Vector2 _vec) => OnCastBolt?.Invoke(Math.Abs(_vec.x) + Math.Abs(_vec.y));
+
+    public void ReadButtonReload() => OnRload?.Invoke();
 
     public void ReadStartInteraction(TypeInteraction _type, NPCBackpack _npc)
     {
@@ -58,24 +53,6 @@ public class MobileInput : IInput
             if (OnInteractionPack != null && _npc != null)
                 OnInteractionPack.Invoke(_npc);
         }
-    }
-
-    public void ReadPressMultiButton()
-    {
-        if (OnPressMultiButton != null)
-            OnPressMultiButton.Invoke();
-    }
-
-    public void ReadButtonLight()
-    {
-        if (OnLight != null)
-            OnLight.Invoke();
-    }
-
-    public void ReadNumWeapon(int _num)
-    {
-        if (OnSetNumWeapon != null)
-            OnSetNumWeapon.Invoke(_num);
     }
 
     public void ReadResetOutfit(Item[] _items)

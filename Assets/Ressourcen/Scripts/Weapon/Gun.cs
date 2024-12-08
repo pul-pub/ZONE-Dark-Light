@@ -10,6 +10,7 @@ public class Gun : Weapon
     public Sprite imgBoxGun;
     public bool isStorUp = true;
     public Sprite imgStor;
+    public Vector2 pointFire;
     [Header("Audio")]
     public AudioClip soundShoot;
     public AudioClip soundSpusk;
@@ -21,34 +22,33 @@ public class Gun : Weapon
 
     public int currentAmmos { private set; get; } = 0;
 
-    public bool Shoot(Object bullet, Transform parent, Transform _pointStart, int _flipX)
+    public bool Shoot(Object _bullet, Transform _parent, Transform _pointStart, int _flipX)
     {
         if (typeAmmo == TypeAmmo.Shotgun_12_20 ||
-            typeAmmo == TypeAmmo.Shotgun_12_10 ||
-            typeAmmo == TypeAmmo.Shotgun_12_1)
+            typeAmmo == TypeAmmo.Shotgun_12_10)
         {
             for (int i = 0; i < (typeAmmo == TypeAmmo.Shotgun_12_20 ? 20 : 10); i++)
             {
-                GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
-                obj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
+                GameObject _gObj = Object.Instantiate(_bullet, _pointStart.position, _pointStart.rotation, _parent) as GameObject;
+                _gObj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
 
-                Bullet _bullet = obj.GetComponent<Bullet>();
+                Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
-                _bullet.dm = dm;
-                _bullet.force = force;
+                _bulletScript.dm = dm;
+                _bulletScript.force = force;
 
-                obj.transform.eulerAngles = new Vector3(0, 0, obj.transform.eulerAngles.z + Random.Range(-8f, 8f));
+                _gObj.transform.eulerAngles = new Vector3(0, 0, _gObj.transform.eulerAngles.z + Random.Range(-8f, 8f));
             }
         }
         else
         {
-            GameObject obj = Object.Instantiate(bullet, _pointStart.position, _pointStart.rotation, parent) as GameObject;
-            obj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
+            GameObject _gObj = Object.Instantiate(_bullet, _pointStart.position, _pointStart.rotation, _parent) as GameObject;
+            _gObj.transform.eulerAngles = new Vector3(0, 0, _flipX > 0 ? 0 : 180);
 
-            Bullet _bullet = obj.GetComponent<Bullet>();
+            Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
-            _bullet.dm = dm;
-            _bullet.force = force;
+            _bulletScript.dm = dm;
+            _bulletScript.force = force;
         }
 
         currentAmmos -= 1;
@@ -88,6 +88,7 @@ public class Gun : Weapon
         _new.imgBoxGun = imgBoxGun;
         _new.isStorUp = isStorUp;
         _new.imgStor = imgStor;
+        _new.pointFire = pointFire;
 
         _new.soundShoot = soundShoot;
         _new.soundSpusk = soundSpusk;

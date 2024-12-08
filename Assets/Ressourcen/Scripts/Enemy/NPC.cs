@@ -9,12 +9,17 @@ public class NPC : NpcAI
 
     [SerializeField] private Movement movement;
     [SerializeField] private Health health;
+    [SerializeField] private Item[] weapons;
     [SerializeField] private WeaponManager weapon;
     [SerializeField] private int numberWeapon = 2;
     [SerializeField] private bool flagWeapon = false;
+    [SerializeField] private Vector3 dideAngel;
 
     private void Awake()
     {
+        if (numberWeapon != 2)
+            weapon.SetGunList(new Item[] { weapons[0].Clone(), null });
+
         if (weapon._flagWeapon != flagWeapon)
             weapon.SetNumberWeapon(numberWeapon);
     }
@@ -35,7 +40,7 @@ public class NPC : NpcAI
 
     private void OnDide()
     {
-        movement.Dide();
+        movement.Dide(dideAngel);
         backpack = backpackObject.Clone();
         backpack.OnNullBackpack += delegate { Destroy(gameObject); };
 

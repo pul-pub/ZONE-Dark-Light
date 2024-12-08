@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
-
-public enum TypeInventory { INVENTORY, STOR };
-public enum TypeReturn { TRUE, FALSE, DELETE };
 
 public class Inventory : MonoBehaviour
 {
@@ -19,6 +15,7 @@ public class Inventory : MonoBehaviour
 
     public List<ObjectItem> _items = new List<ObjectItem>();
     public List<ObjectItem> _itemsNPC = new List<ObjectItem>();
+    private NPC _npcPack;
     public List<ObjectCell> _cellObjs = new List<ObjectCell>();
 
     private List<ObjectItem> _ammo = new List<ObjectItem>();
@@ -106,7 +103,7 @@ public class Inventory : MonoBehaviour
                 {
                     bool _is = false;
 
-                    foreach (ObjectItem _item in _items)
+                    foreach (ObjectItem _item in (_npcBackpack ? _itemsNPC : _items))
                     {
                         for (int i = 0; i < _item.cellsId.Length; i++)
                             if (_item.cellsId[i] == _cell)
@@ -125,7 +122,7 @@ public class Inventory : MonoBehaviour
             {
                 bool _is = false;
 
-                foreach (ObjectItem _item in _items)
+                foreach (ObjectItem _item in (_npcBackpack ? _itemsNPC : _items))
                 {
                     for (int i = 0; i < _item.cellsId.Length; i++)
                         if (_item.cellsId[i] == _cell)
@@ -231,17 +228,27 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
-    public void OnBackpackNPC(NPCBackpack _npc)
+    public void SetActivOutfit(bool _activ)
+    {
+        for (int i = 0; i < _items.Count; i++)
+        {
+            if (_items[i].cellsId[0] >= 100)
+                _items[i].gameObject.SetActive(_activ);
+        }
+    }
+
+    public void OnBackpackNPC(NPC _npc)
     {
         for (int i = 0; i < _itemsNPC.Count; i++)
-            Destroy(_itemsNPC[i]);
+            Destroy(_itemsNPC[i].gameObject);
 
         _itemsNPC.Clear();
+        _npcPack = _npc;
 
-        for (int i = 0; i < _npc.items.Count; i++)
+        for (int i = 0; i < _npc.backpack.items.Count; i++)
         {
-            if (_npc.items[i] != null)
-                AddItem(_npc.items[i], _npc.count[i], _itemsNPC, true);
+            if (_npc.backpack.items[i] != null)
+                AddItem(_npc.backpack.items[i], _npc.backpack.count[i], _itemsNPC, true);
         }
     }
 
@@ -249,6 +256,35 @@ public class Inventory : MonoBehaviour
     {
         if (OnChangeOutfit != null)
             OnChangeOutfit.Invoke();
+    }
+
+    public void ChengeNPCBackpack()
+    {
+        for (int i = 0; i < _itemsNPC.Count; i++)
+        {
+            if (_itemsNPC[i] != null)
+            {
+                if (_itemsNPC[i].cellsId[0] < 500)
+                {
+                    _items.Add(_itemsNPC[i]);
+                    foreach (Item _ii in _npcPack.backpack.items)
+                    {
+                        if (_ii.id == _itemsNPC[i].item.id)
+                        {
+                            _npcPack.backpack.items.Remove(_ii);
+                            break;
+                        }
+                    }    
+                    _itemsNPC.Remove(_itemsNPC[i]);
+
+                    if (_npcPack.backpack.items.Count <= 0)
+                    {
+                        _npcPack.backpack.NullCountPack();
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private void CalculatedMass()
