@@ -17,5 +17,11 @@ MonoBehaviour:
   getMoney: -1
   getItem: {fileID: 0}
   countItem: 0
-  text: 
-  answers: []
+  text: "\u041A\u0442\u043E \u0442\u0430\u043A\u043E\u0432 \u0431\u0443\u0434\u0435\u0448\u044C?"
+  answers:
+  - text: "\u041C\u043E\u0451 \u0438\u043C\u044F \"---\""
+    nextDialog: {fileID: 0}
+    typeDescriptions: 0
+  - text: "\u0410 \u043A\u0442\u043E \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442?"
+    nextDialog: {fileID: 0}
+    typeDescriptions: 1

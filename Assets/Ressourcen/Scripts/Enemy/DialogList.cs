@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class DialogList : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string Name;
+    public string Group;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ArmorObject armor;
+    public BackpackObject backpack;
+    public LightObject lightObj;
+
+    public Dialog startDialog;
 }

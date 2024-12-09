@@ -9,6 +9,7 @@ public class ArmorObject : ScriptableObject
     public Sprite ImgHead;
     public Sprite ImgBody;
     public Sprite ImgHand;
+    public Sprite ImgLeg;
 
     public int massUp = 10;
 

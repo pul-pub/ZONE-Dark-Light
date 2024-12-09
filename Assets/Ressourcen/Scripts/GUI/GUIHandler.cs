@@ -24,6 +24,18 @@ public class GUIHandler : MonoBehaviour
     [Header("Energy")]
     [SerializeField] private TextMeshProUGUI textEnergy;
     [SerializeField] private Slider sliderEnergy;
+    [Header("Dialogs")]
+    [SerializeField] private GameObject screenDialogs;
+    [Space]
+    [SerializeField] private TextMeshProUGUI textGroup;
+    [SerializeField] private TextMeshProUGUI textName;
+    [SerializeField] private Image[] imgsPeopl;
+    [Space]
+    [SerializeField] private TextMeshProUGUI textDescription;
+    [Space]
+    [SerializeField] private Sprite[] spritsAnswer;
+    [SerializeField] private Image[] imgsAnswer;
+    [SerializeField] private TextMeshProUGUI[] textAnswer;
 
     public IInput input;
 
@@ -84,7 +96,59 @@ public class GUIHandler : MonoBehaviour
         otfitObject.SetActive(false);
         npcObject.SetActive(true);
     }
+    public void SetDialog(DialogList _list, Dialog _dialog)
+    {
+        if (!screenDialogs.activeSelf)
+        {
+            screenDialogs.SetActive(true);
 
+            textName.text = _list.Name;
+            textGroup.text = _list.Group;
+
+            imgsPeopl[0].sprite = _list.armor.ImgHead;
+            if (_list.lightObj != null) 
+                imgsPeopl[1].sprite = _list.lightObj.img;
+            //imgsPeopl[2].sprite = маска на лицо;
+            imgsPeopl[3].sprite = _list.armor.ImgBody;
+            //imgsPeopl[4].sprite = _list.armor.ImgBody;
+            if (_list.backpack != null)
+                imgsPeopl[5].sprite = _list.backpack.img;
+            imgsPeopl[6].sprite = _list.armor.ImgLeg;
+            //imgsPeopl[7].sprite = плащ/накидка;
+            imgsPeopl[8].sprite = _list.armor.ImgHand;
+            imgsPeopl[9].sprite = _list.armor.ImgHand;
+        }
+
+        textDescription.text = _dialog.text;
+
+        for (int i = 0; i < 3; i++) 
+        {
+            if (i < _dialog.answers.Count)
+            {
+                textAnswer[i].gameObject.SetActive(true);
+                textAnswer[i].text = _dialog.answers[i].text;
+
+                if (_dialog.answers[i].typeDescriptions != TypeDescription.NextDialog)
+                {
+                    imgsAnswer[i].gameObject.SetActive(true);
+
+                    if (_dialog.answers[i].typeDescriptions == TypeDescription.Quest)
+                        imgsAnswer[i].sprite = spritsAnswer[0];
+                    else if (_dialog.answers[i].typeDescriptions == TypeDescription.Buy)
+                        imgsAnswer[i].sprite = spritsAnswer[1];
+                    else if (_dialog.answers[i].typeDescriptions == TypeDescription.Sale)
+                        imgsAnswer[i].sprite = spritsAnswer[2];
+                    else
+                        imgsAnswer[i].sprite = spritsAnswer[3];
+                }
+            }
+            else
+            {
+                textAnswer[i].gameObject.SetActive(false);
+                imgsAnswer[i].gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void OnSetItemOutfit()
     {

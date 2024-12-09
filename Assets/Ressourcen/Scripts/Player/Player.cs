@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
             foreach (Collider2D col in _list)
             {
                 NPC _npc = col.gameObject.GetComponentInParent<NPC>();
+                DialogList _dialogList = col.gameObject.GetComponentInParent<DialogList>();
 
                 if (_npc != null)
                 {
@@ -118,6 +119,10 @@ public class Player : MonoBehaviour
                     {
                         handlerGUI.OpenNPCPack(null);
                         handlerGUI.inventory.OnBackpackNPC(_npc);
+                    }
+                    else if (_dialogList)
+                    {
+                        handlerGUI.SetDialog(_dialogList, _dialogList.startDialog);
                     }
                         
                         //handlerGUI.input.ReadStartInteraction(TypeInteraction.TackeBackpack, _npc.backpack);
