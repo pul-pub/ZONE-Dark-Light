@@ -509,9 +509,10 @@ MonoBehaviour:
   movement: {fileID: 8190379172797287547}
   health: {fileID: 3128481703533352914}
   weapons:
+  - {fileID: 0}
   - {fileID: 11400000, guid: 451af2da576ecfb41a09e05b14cd4da3, type: 2}
   weapon: {fileID: 7689342703570141193}
-  numberWeapon: 0
+  numberWeapon: 1
   flagWeapon: 1
   dideAngel: {x: 0, y: 0, z: 90}
 --- !u!114 &8190379172797287547

@@ -11,7 +11,7 @@ public class Dialog : ScriptableObject
     public Item getItem;
     public int countItem;
     [Header("Текст")]
-    public string text;
+    [TextArea]public string text;
     [Header("Ответы")]
     public List<Answer> answers = new List<Answer>(3);
 }

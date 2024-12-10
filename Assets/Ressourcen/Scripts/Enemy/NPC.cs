@@ -18,7 +18,7 @@ public class NPC : NpcAI
     private void Awake()
     {
         if (numberWeapon != 2)
-            weapon.SetGunList(new Item[] { weapons[0].Clone(), null });
+            weapon.SetGunList(new Item[] { weapons[0] ? weapons[0].Clone() : null, weapons[1] ? weapons[1].Clone() : null });
 
         if (weapon._flagWeapon != flagWeapon)
             weapon.SetNumberWeapon(numberWeapon);

@@ -251,6 +251,20 @@ public class Inventory : MonoBehaviour
                 AddItem(_npc.backpack.items[i], _npc.backpack.count[i], _itemsNPC, true);
         }
     }
+    public void GiveAllItem()
+    {
+        for (int i = 0; i < _npcPack.backpack.items.Count; i++)
+        {
+            if (_npcPack.backpack.items[i] != null)
+                AddItem(_npcPack.backpack.items[i], _npcPack.backpack.count[i], _items);
+        }
+
+        for (int i = 0; i < _itemsNPC.Count; i++)
+            Destroy(_itemsNPC[i].gameObject);
+
+        _itemsNPC.Clear();
+        _npcPack.backpack.NullCountPack();
+    }
 
     public void ChengeOutfit()
     {

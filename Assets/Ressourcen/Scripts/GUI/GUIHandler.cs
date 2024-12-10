@@ -39,6 +39,8 @@ public class GUIHandler : MonoBehaviour
 
     public IInput input;
 
+    private Dialog _dialogNow;
+
     private void OnEnable()
     {
         if (input != null)
@@ -81,6 +83,7 @@ public class GUIHandler : MonoBehaviour
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
     public void SetReload() => input.ReadButtonReload();
     public void SetLight() => input.ReadButtonLight();
+    public void GetAllBackpack() => inventory.GiveAllItem();
     public void SetNumWeapon(int _num) => input.ReadNumWeapon(_num);
     public void SetActivInv(bool _is)
     {
@@ -105,7 +108,7 @@ public class GUIHandler : MonoBehaviour
             textName.text = _list.Name;
             textGroup.text = _list.Group;
 
-            imgsPeopl[0].sprite = _list.armor.ImgHead;
+            imgsPeopl[0].sprite = _list.face;
             if (_list.lightObj != null) 
                 imgsPeopl[1].sprite = _list.lightObj.img;
             //imgsPeopl[2].sprite = маска на лицо;
@@ -120,6 +123,7 @@ public class GUIHandler : MonoBehaviour
         }
 
         textDescription.text = _dialog.text;
+        _dialogNow = _dialog;
 
         for (int i = 0; i < 3; i++) 
         {
@@ -141,12 +145,29 @@ public class GUIHandler : MonoBehaviour
                     else
                         imgsAnswer[i].sprite = spritsAnswer[3];
                 }
+                else
+                {
+                    imgsAnswer[i].gameObject.SetActive(false);
+                }
             }
             else
             {
                 textAnswer[i].gameObject.SetActive(false);
                 imgsAnswer[i].gameObject.SetActive(false);
             }
+        }
+    }
+    public void OnPressAnswer(int _num)
+    {
+        if (_dialogNow != null)
+        {
+            if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.NextDialog)
+                SetDialog(null, _dialogNow.answers[_num].nextDialog);
+            else
+            {
+                screenDialogs.SetActive(false);
+                _dialogNow = null;
+            } 
         }
     }
 
