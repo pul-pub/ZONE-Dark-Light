@@ -62,11 +62,11 @@ public class NpcAI : MonoBehaviour
     {
         while (true)
         {
-            _listMove = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckMove, 0.25f), 0f, Vector2.zero, 0f, Layer);
+            _listMove = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckMove, 2f), 0f, Vector2.zero, 0f, Layer);
             yield return new WaitForEndOfFrame();
             _listJump = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckObject, 2), 0f, Vector2.zero, 0f, LayerObject);
             yield return new WaitForEndOfFrame();
-            _listAttack = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckAttack, 0.25f), 0f, Vector2.zero, 0f, Layer);
+            _listAttack = Physics2D.BoxCast(transform.position, new Vector2(SizeCheckAttack, 2f), 0f, Vector2.zero, 0f, Layer);
 
             if (_listMove || _listAttack)
             {
@@ -81,8 +81,7 @@ public class NpcAI : MonoBehaviour
                     if (OnAttack != null)
                         OnAttack.Invoke();
 
-                    if (IsFreePerson && OnMove != null)
-                        OnMove.Invoke(new Vector2((_listMove.collider.transform.position - transform.position).x > 0 ? 0.0001f: -0.0001f, 0));
+                    OnMove.Invoke(new Vector2((_listAttack.collider.transform.position - transform.position).x > 0 ? 0.0001f : -0.0001f, 0));
                 }
                 else
                     if (IsFreePerson && OnMove != null)

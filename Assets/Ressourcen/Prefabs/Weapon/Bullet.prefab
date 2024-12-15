@@ -165,6 +165,6 @@ MonoBehaviour:
   dm: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 1664
+    m_Bits: 1920
   maxDistanc: 15
   sizeRay: {x: 0.1, y: 0.1}

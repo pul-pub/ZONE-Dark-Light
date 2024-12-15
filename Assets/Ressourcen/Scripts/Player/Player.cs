@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public void Initialization()
     {
         weaponManager.inv = handlerGUI.inventory;
-
+        /*
         if (handlerGUI.input != null)
         {
             handlerGUI.input.OnMove += movement.Move;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
 
             handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
-        }  
+        } */ 
     }
 
     private void OnEnable()

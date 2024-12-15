@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   location:
-  - ID: 0
-    Name: "\u0411\u043E\u043B\u043E\u0442\u0430"
+  - ID: 1
+    Name: "\u0417\u0430 \u041F\u0435\u0440\u0438\u043C\u0435\u0442\u0440\u043E\u043C"
     scene:
       m_Handle: 0
     entryList: []

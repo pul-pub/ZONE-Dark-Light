@@ -64,23 +64,23 @@ public class WorldTime : MonoBehaviour
 
     private void SetPosSky()
     {
-        if (((StaticValue.time[0] * 60) + StaticValue.time[1]) % 24 == 0)
+        if (((StaticValue.time[0] * 60) + StaticValue.time[1]) % 3 == 0)
         {
             if (StaticValue.time[0] >= 3 && StaticValue.time[0] < 12)
             {
-                sky.localPosition -= new Vector3(0, 1.3f, 0);
+                sky.localPosition -= new Vector3(0, 0.2f, 0);
             }
             else if (StaticValue.time[0] >= 12 && StaticValue.time[0] < 15)
             {
-                sky.localPosition = new Vector3(0, 0.5f, 0);
+                sky.localPosition = new Vector3(0, -16f, 0);
             }
             else if (StaticValue.time[0] >= 15 && StaticValue.time[0] < 24)
             {
-                sky.localPosition += new Vector3(0, 1.3f, 0);
+                sky.localPosition += new Vector3(0, 0.2f, 0);
             }
             else
             {
-                sky.localPosition = new Vector3(0, 29, 0);
+                sky.localPosition = new Vector3(0, 20, 0);
             }
         }
     }
@@ -89,19 +89,19 @@ public class WorldTime : MonoBehaviour
     {
         if (StaticValue.time[0] >= 3 && StaticValue.time[0] < 12)
         {
-            light2D.intensity += 0.0013f;
+            light2D.intensity += 0.0016f;
         }
         else if (StaticValue.time[0] >= 12 && StaticValue.time[0] < 15)
         {
-            light2D.intensity = 0.902f;
+            light2D.intensity = 0.964f;
         }
         else if (StaticValue.time[0] >= 15 && StaticValue.time[0] < 24)
         {
-            light2D.intensity -= 0.0013f;
+            light2D.intensity -= 0.0016f;
         }
         else
         {
-            light2D.intensity = 0.20f;
+            light2D.intensity = 0.1f;
         }
     }
 

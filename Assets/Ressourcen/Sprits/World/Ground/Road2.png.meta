@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c93ccd26cee90e49b79292e01457964
+guid: a05df05ae288d2941b832d1a8f0e718b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6405582830355974013
-    second: Road1_0
+      213: -1725544337070245680
+    second: Road2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Road1_0
+      name: Road2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 51
+        y: 0
         width: 256
-        height: 234
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3887a41aa5cca17a0800000000000000
-      internalID: -6405582830355974013
+      spriteID: 6db1c6fdd0281b2488ab8cd54557dde0
+      internalID: -705106841
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e1204548545bc2f42aae282710adda53
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Road1_0: -6405582830355974013
+      Road2_0: -705106841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

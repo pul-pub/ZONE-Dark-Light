@@ -133,6 +133,8 @@ public class WeaponManager : MonoBehaviour
 
     public void SetGunList(Item[] _items)
     {
+        Debug.Log(_items[0]);
+
         for (int i = 0; i < 2; i++)
         {
             if (_items[i] != null)

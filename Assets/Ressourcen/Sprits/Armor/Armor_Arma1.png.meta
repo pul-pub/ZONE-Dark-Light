@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1f47bbcc82f688740894334cb00a0424
+guid: 0baddbd2fe5d15a4f8400a8d3151435b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -62185345562738595
-    second: GROUND_0
+      213: -7537381207083622129
+    second: Armor_Arma1_0
+  - first:
+      213: 4143003153086642512
+    second: Armor_Arma1_1
+  - first:
+      213: -1818338441494946574
+    second: Armor_Arma1_2
+  - first:
+      213: 2321577540691053721
+    second: Armor_Arma1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +57,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GROUND_0
+      name: Armor_Arma1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1024
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 192
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.81}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d508f77f1c2132ff0800000000000000
-      internalID: -62185345562738595
+      spriteID: dac5f7adaa47b8246b9ebf0769d6d357
+      internalID: 1023708907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Arma1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17b5c5f9df85b3489ce7e12d35d9f46
+      internalID: -1019082328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Arma1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6e2db1ad30db24cb121b93de0a40a6
+      internalID: 2000383126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_Arma1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17be2db226e47c640b3ac37041647fdd
+      internalID: 864429587
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 66e971da70f5fd14fa20c2a8aef3b37f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GROUND_0: -62185345562738595
+      Armor_Arma1_0: 1023708907
+      Armor_Arma1_1: -1019082328
+      Armor_Arma1_2: 2000383126
+      Armor_Arma1_3: 864429587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
