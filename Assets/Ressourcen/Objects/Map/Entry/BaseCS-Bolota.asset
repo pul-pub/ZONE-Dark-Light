@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9949f892d15db5e48899bc7c2fe79cf5, type: 3}
-  m_Name: Map
+  m_Script: {fileID: 11500000, guid: a7f6e2cad5cdf6a409c842d050fb10b1, type: 3}
+  m_Name: BaseCS-Bolota
   m_EditorClassIdentifier: 
-  location:
-  - ID: 1
-    Name: "\u0417\u0430 \u041F\u0435\u0440\u0438\u043C\u0435\u0442\u0440\u043E\u043C"
-    scene:
-      m_Handle: 0
-    entryList: []
+  posFrom: {x: -202, y: 0, z: 0}
+  locationFromID: 3
+  sceneFrom:
+    m_Handle: 0
+  posTo: {x: -167, y: 0, z: 0}
+  locationToID: 2
+  sceneTo:
+    m_Handle: 0

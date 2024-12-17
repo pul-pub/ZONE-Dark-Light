@@ -976,7 +976,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6691266953706337183
@@ -1467,10 +1467,12 @@ MonoBehaviour:
   backpackObject: {fileID: 11400000, guid: 6574d339ce0e28445ae7449ca861d924, type: 2}
   movement: {fileID: 1539512306756900136}
   health: {fileID: 7356195351890514509}
-  weapons:
+  items:
+  - {fileID: 11400000, guid: 2ed680d3ab1d8e04c80fa4241c9e7598, type: 2}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 451af2da576ecfb41a09e05b14cd4da3, type: 2}
+  - {fileID: 11400000, guid: 4a98a2d2430d8ed4fb551cf906e46bc2, type: 2}
   weapon: {fileID: 3076272310334913394}
+  outfit: {fileID: 1302466006343979717}
   numberWeapon: 1
   flagWeapon: 0
   dideAngel: {x: 0, y: 0, z: 90}
@@ -1527,6 +1529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac52175d1cdb42f44b29dcfeb309a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseValueHealth: 0
+  isDamagebly: 0
 --- !u!114 &1694519355398766063
 MonoBehaviour:
   m_ObjectHideFlags: 0

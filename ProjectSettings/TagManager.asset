@@ -18,11 +18,11 @@ TagManager:
   - Player
   - Ground
   - Object
+  - InterectivObject
   - 
   - 
   - 
   - 
-  - Reflection
   - 
   - 
   - 

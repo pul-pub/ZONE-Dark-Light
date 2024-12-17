@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[Serializable]
-public class EntryMeta
+[CreateAssetMenu(fileName = "Null", menuName = "EntryMeta")]
+public class EntryMeta : ScriptableObject
 {
     public Vector3 posFrom;
     public int locationFromID;

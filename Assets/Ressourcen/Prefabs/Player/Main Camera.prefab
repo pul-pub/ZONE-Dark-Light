@@ -12894,6 +12894,9 @@ MonoBehaviour:
   - {fileID: 3149957155370985074}
   - {fileID: 1632462785525830965}
   - {fileID: 6289770261804825963}
+  maskForTouching:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &2704859324649013574
 MonoBehaviour:
   m_ObjectHideFlags: 0
