@@ -33,7 +33,8 @@ public class NPC : NpcAI
             }
         }
 
-        outfit.OnResetOutfit(new Item[4] { null, null, items[2] ? items[2].Clone() : null, null });
+        if (outfit)
+            outfit.OnResetOutfit(new Item[4] { null, null, items[2] ? items[2].Clone() : null, null });
     }
 
     private void OnEnable()

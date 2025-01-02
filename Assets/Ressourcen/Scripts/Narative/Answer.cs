@@ -8,6 +8,7 @@ public class Answer
 {
     [TextArea] public string text;
     public Dialog nextDialog;
-    //quest
+    public EntryMeta metaEntry;
+    public Quest quest;
     public TypeDescription typeDescriptions;
 }

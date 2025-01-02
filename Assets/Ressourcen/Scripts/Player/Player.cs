@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +16,9 @@ public class Player : MonoBehaviour
     [SerializeField] public OutFitManager outfit;
     [SerializeField] public Health health;
     [SerializeField] public Energy energy;
+
+    private bool _isInterecrion = false;
+    private Coroutine _coroutine;
 
     public void Initialization()
     {
@@ -32,10 +38,22 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
 
-            handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
-
             handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
         } */ 
+    }
+
+    private void Awake()
+    {
+        transform.position = new Vector2(SaveHeandler.SessionSave.pos.x,
+                                         SaveHeandler.SessionSave.pos.y);
+
+        if (SaveHeandler.SessionSave.pos.flipX < 0)
+        {
+            movement.toRight = false;
+            Vector3 scaler = transform.localScale;
+            scaler.x = scaler.x * -1;
+            transform.localScale = scaler;
+        }
     }
 
     private void OnEnable()
@@ -54,10 +72,10 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit += outfit.OnResetOutfit;
 
-            handlerGUI.input.OnPressMultiButton += OnTouchMultiButton;
-
             handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
-        }    
+        }
+
+        SaveHeandler.OnSaveSession += SaveSessinon;
     }
 
     private void OnDisable()
@@ -76,10 +94,10 @@ public class Player : MonoBehaviour
 
             handlerGUI.input.OnResetOutfit -= outfit.OnResetOutfit;
 
-            handlerGUI.input.OnPressMultiButton -= OnTouchMultiButton;
-
             handlerGUI.input.OnCastBolt -= weaponManager.OnCastBolt;
-        }    
+        }
+
+        SaveHeandler.OnSaveSession -= SaveSessinon;
     }
 
     private void Update()
@@ -100,6 +118,9 @@ public class Player : MonoBehaviour
 
         handlerGUI.UpdateHealth(health.health);
         handlerGUI.UpdateEnergy(energy.energy);
+
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(Check());
     }
 
     private void OnTouchMultiButton()
@@ -115,19 +136,64 @@ public class Player : MonoBehaviour
 
                 if (_npc != null)
                 {
-                    if (_npc.backpack != null)
+                    if (_npc.backpack)
                     {
-                        handlerGUI.OpenNPCPack(null);
+                        handlerGUI.OpenNPCPack();
                         handlerGUI.inventory.OnBackpackNPC(_npc);
                     }
                     else if (_dialogList)
                     {
                         handlerGUI.SetDialog(_dialogList, _dialogList.startDialog);
                     }
-                        
-                        //handlerGUI.input.ReadStartInteraction(TypeInteraction.TackeBackpack, _npc.backpack);
                 }
             }
         }
+    }
+
+    IEnumerator Check()
+    {
+        while (true)
+        {
+            RaycastHit2D _hit = Physics2D.BoxCast(transform.position, new Vector2(sizeCheck, 3f), 0f, Vector2.zero, 0f, layer);
+
+            if (_hit)
+            {
+                if (!_isInterecrion)
+                {
+                    Collider2D _col = _hit.collider;
+
+                    NPC _npc = _col.gameObject.GetComponentInParent<NPC>();
+                    DialogList _dialogList = _col.gameObject.GetComponentInParent<DialogList>();
+                    Entry _entry = _col.gameObject.GetComponent<Entry>();
+
+                    if (_entry)
+                        handlerGUI.ButtonInterection(null, null, null, _entry);
+                    else if (_npc)
+                    {
+                        if (_npc.backpack)
+                            handlerGUI.ButtonInterection(null, null, _npc);
+                        else if (_dialogList)
+                            handlerGUI.ButtonInterection(_dialogList, _dialogList.startDialog);
+                    }
+
+                    _isInterecrion = true;
+                }
+            }
+            else
+            {
+                handlerGUI.ButtonInterection();
+                _isInterecrion = false;
+            }
+                
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void SaveSessinon()
+    {
+        SaveHeandler.SessionSave.pos.y = 0.8f;
+
+        SaveHeandler.SessionSave.pos.flipX = (int)transform.localScale.x;
     }
 }

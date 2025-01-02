@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335847c5ffee2ea4a93a359049881e5e, type: 3}
+  m_Name: FromBaze
+  m_EditorClassIdentifier: 
+  Id: 1
+  NameNPC: "\u0422\u0440\u043E\u043F\u043D\u0438\u043A"
+  getMoney: -1
+  getItem: {fileID: 0}
+  countItem: 0
+  text: "\u0425\u0430\u0439, \u0441\u0442\u0430\u043B\u043A\u0435\u0440! \u0425\u043E\u0447\u0435\u0448\u044C
+    \u0434\u043E\u0431\u0440\u0430\u0442\u044C\u0441\u044F \u0434\u043E \u043A\u0443\u0434\u043E\u0432\u0430?"
+  answers:
+  - text: "\u041C\u0435\u043D, \u043D\u0430 \u0431\u043E\u043B\u043E\u0442\u0430
+      \u0431\u044B \u043F\u043E\u043F\u0430\u0441\u0442\u044C..."
+    nextDialog: {fileID: 0}
+    metaEntry: {fileID: 11400000, guid: 0ceea587173ff3746abbb359e1e2b3de, type: 2}
+    typeDescriptions: 5
+  - text: "\u0412 \u0446\u0435\u0440\u043A\u043E\u0432\u044C."
+    nextDialog: {fileID: 0}
+    metaEntry: {fileID: 11400000, guid: 0ceea587173ff3746abbb359e1e2b3de, type: 2}
+    typeDescriptions: 5
+  - text: "\u0414\u0430 \u043D\u0435..."
+    nextDialog: {fileID: 0}
+    metaEntry: {fileID: 0}
+    typeDescriptions: 4

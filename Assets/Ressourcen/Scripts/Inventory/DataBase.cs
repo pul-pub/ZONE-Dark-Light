@@ -7,6 +7,27 @@ public class DataBase : ScriptableObject
     public Gun[] guns = new Gun[] {};
     public LightObject[] lights = new LightObject[] {};
 
+    public Sprite[] faces = new Sprite[] { };
+    public Quest[] quests = new Quest[] { };
+
+    public Quest GetQuest(int _id)
+    {
+        foreach (Quest _q in quests)
+            if (_q.Id == _id)
+                return _q;
+
+        return null;
+    }
+
+    public Item GetItem(int _id)
+    {
+        foreach (Item _item in items)
+            if (_item.id == _id)
+                return _item;
+
+        return null;
+    }
+
     public Gun GetGun(int _id)
     {
         foreach (Gun _gun in guns)

@@ -1,10 +1,13 @@
 using NUnit.Framework;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-public enum TypeButton { Shoot, Reload, SetWeapon };
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class GUIHandler : MonoBehaviour
 {
@@ -37,17 +40,37 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private Sprite[] spritsAnswer;
     [SerializeField] private Image[] imgsAnswer;
     [SerializeField] private TextMeshProUGUI[] textAnswer;
+    [Header("Quest")]
+    [SerializeField] QuestManager questManager;
+    [Space]
+    [SerializeField] TextMeshProUGUI titleQuest;
+    [SerializeField] TextMeshProUGUI descriptionQuest;
+    [Space]
+    [SerializeField] RectTransform marker;
+    [SerializeField] MapObject map;
+    [Header("Button for Interection")]
+    [SerializeField] private RectTransform rectTrInterection;
+    [SerializeField] private TextMeshProUGUI textInterection;
 
     public IInput input;
 
+    private Vector3 _posQuest;
+    private Camera _cam;
+
     private Dialog _dialogNow;
+
+    private NPC _npcPack;
+    private DialogList _dialogList;
+    private Dialog _dialog;
+    private Entry _entry;
+
+    private Coroutine _animationUp;
 
     private void OnEnable()
     {
         if (input != null)
         {
             inventory.OnChangeOutfit += OnSetItemOutfit;
-            input.OnInteractionPack += OpenNPCPack;
 
             bolt.OnEndDown += input.ReadOnCastBolt;
         }
@@ -58,7 +81,6 @@ public class GUIHandler : MonoBehaviour
         if (input != null)
         {
             inventory.OnChangeOutfit -= OnSetItemOutfit;
-            input.OnInteractionPack -= OpenNPCPack;
 
             bolt.OnEndDown -= input.ReadOnCastBolt;
         }
@@ -69,11 +91,10 @@ public class GUIHandler : MonoBehaviour
         input = new MobileInput(fixedJoystick);
 
         inventory.OnChangeOutfit += OnSetItemOutfit;
-        input.OnInteractionPack += OpenNPCPack;
 
         bolt.OnEndDown += input.ReadOnCastBolt;
 
-        inventory.CreateList();
+        //inventory.CreateList();
     }
 
     private void Update()
@@ -93,8 +114,85 @@ public class GUIHandler : MonoBehaviour
         npcObject.SetActive(false);
         inventory.SetActivOutfit(_is);
     }
-    public void SetPressMultiButton() => input.ReadPressMultiButton();
-    public void OpenNPCPack(NPCBackpack _pack)
+
+    public void ButtonInterection(DialogList _list = null, Dialog _d = null, NPC _pack = null, Entry _entr = null)
+    {
+        if (_list || _dialog || _pack || _entr)
+        {
+            if (_animationUp != null)
+            {
+                StopCoroutine(_animationUp);
+                _animationUp = null;
+            }
+
+            //rectTrInterection.gameObject.SetActive(true);
+            _animationUp = StartCoroutine(AnimationMove(rectTrInterection, new Vector3(0, -200, 0), 15f));
+
+            if (_list)
+            {
+                _dialogList = _list;
+                _dialog = _d;
+                _npcPack = null;
+                _entry = null;
+
+                textInterection.text = "Говорить";
+            }
+            else if (_pack)
+            {
+                _dialogList = null;
+                _dialog = null;
+                _npcPack = _pack;
+                _entry = null;
+
+                textInterection.text = "Обыскать";
+            }
+            else
+            {
+                textInterection.text = "Перейти";
+
+                _dialogList = null;
+                _dialog = null;
+                _npcPack = null;
+                _entry = _entr;
+            }
+        }
+        else
+        {
+            if (_animationUp != null)
+            {
+                StopCoroutine(_animationUp);
+                _animationUp = null;
+            }
+
+            _dialogList = null;
+            _dialog = null;
+            _npcPack = null;
+            _entry = null;
+
+            //rectTrInterection.gameObject.SetActive(false);
+            _animationUp = StartCoroutine(AnimationMove(rectTrInterection, new Vector3(0, -800, 0), 10f));
+        }
+    }
+    public void OnPointDownInterection()
+    {
+        if (_dialogList)
+        {
+            SetDialog(_dialogList, _dialogList.startDialog);
+        }
+        else if (_npcPack)
+        {
+            OpenNPCPack();
+            inventory.OnBackpackNPC(_npcPack);
+        }
+        else
+        {
+            SaveHeandler.SaveSession();
+            SaveHeandler.SessionSave.pos.x = _entry.meta.posTo.x;
+            SceneManager.LoadScene(_entry.meta.locationToID, LoadSceneMode.Single);
+        }
+    }
+
+    public void OpenNPCPack()
     {
         inventoryObject.SetActive(true);
         otfitObject.SetActive(false);
@@ -143,8 +241,10 @@ public class GUIHandler : MonoBehaviour
                         imgsAnswer[i].sprite = spritsAnswer[1];
                     else if (_dialog.answers[i].typeDescriptions == TypeDescription.Sale)
                         imgsAnswer[i].sprite = spritsAnswer[2];
-                    else
+                    else if (_dialog.answers[i].typeDescriptions == TypeDescription.WalkTo)
                         imgsAnswer[i].sprite = spritsAnswer[3];
+                    else
+                        imgsAnswer[i].sprite = spritsAnswer[4];
                 }
                 else
                 {
@@ -164,11 +264,47 @@ public class GUIHandler : MonoBehaviour
         {
             if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.NextDialog)
                 SetDialog(null, _dialogNow.answers[_num].nextDialog);
+            else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.Quest)
+            {
+                questManager.SetNewQuest(_dialogNow.answers[_num].quest);
+                screenDialogs.SetActive(false);
+                _dialogNow = null;
+            }
+            else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.WalkTo)
+            {
+                SaveHeandler.SaveSession();
+                SaveHeandler.SessionSave.pos.x = _dialogNow.answers[_num].metaEntry.posTo.x;
+                SceneManager.LoadScene(_dialogNow.answers[_num].metaEntry.locationToID, LoadSceneMode.Single);
+            }
             else
             {
                 screenDialogs.SetActive(false);
                 _dialogNow = null;
             } 
+        }
+    }
+
+    public void UpdateQuest(Quest _quest)
+    {
+        if (_quest != null)
+        {
+            if (!descriptionQuest.gameObject.activeSelf)
+            {
+                descriptionQuest.gameObject.SetActive(true);
+                titleQuest.gameObject.SetActive(true);
+
+                descriptionQuest.text = _quest.textDiscription;
+                titleQuest.text = _quest.textTitell;
+            }
+
+            if (SceneManager.GetActiveScene().buildIndex == _quest.idScene)
+            {
+                _posQuest = new Vector3(_quest.position.x, 2.5f, 0);
+            }
+            else
+            {
+                
+            }
         }
     }
 
@@ -244,5 +380,37 @@ public class GUIHandler : MonoBehaviour
     {
         textEnergy.text = ((int)_energy).ToString();
         sliderEnergy.value = ((int)_energy);
+    }
+
+    IEnumerator AnimationMove(RectTransform _transform, Vector3 _target, float _speed)
+    {
+        while (IsTargetValue(_transform.localPosition, _target, true))
+        {
+            _transform.localPosition = Vector3.MoveTowards(_transform.localPosition, _target, _speed * Time.deltaTime * 100);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        _animationUp = null;
+    }
+
+    private bool IsTargetValue(Vector3 current, Vector3 target, bool invers = false, float range = 0.1f)
+    {
+        Vector3 _v = current - target;
+        
+        if (Math.Abs(_v.x) <= range &&
+            Math.Abs(_v.y) <= range &&
+            Math.Abs(_v.z) <= range)
+        {
+            if (!invers)
+                return true;
+
+            return false;
+        }
+
+        if (!invers)
+            return false;
+
+        return true;
     }
 }

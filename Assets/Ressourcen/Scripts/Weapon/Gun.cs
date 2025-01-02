@@ -20,7 +20,7 @@ public class Gun : Weapon
     public float force;
     public float verticalRecoil;
 
-    public int currentAmmos { private set; get; } = 0;
+    public int currentAmmos { set; get; } = 0;
 
     public bool Shoot(Object _bullet, Transform _parent, Transform _pointStart, int _flipX)
     {

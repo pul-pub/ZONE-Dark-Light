@@ -13,9 +13,6 @@ public interface IInput
 
     public event Action OnLight;
     public event Action<float> OnCastBolt;
-    public event Action OnPressMultiButton;
-
-    public event Action<NPCBackpack> OnInteractionPack;
 
     public event Action<Item[]> OnResetOutfit;
 
@@ -24,8 +21,6 @@ public interface IInput
     public void ReadButtonReload();
     public void ReadButtonLight();
     public void ReadNumWeapon(int _num);
-    public void ReadPressMultiButton();
-    public void ReadStartInteraction(TypeInteraction _type, NPCBackpack _npc);
     public void ReadResetOutfit(Item[] _items);
     public void ReadOnCastBolt(Vector2 _vec);
 }

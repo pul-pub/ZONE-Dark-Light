@@ -7,6 +7,7 @@ public class LocationMeta
 {
     public int ID;
     public string Name;
+    public bool isBidLocation = false;
     [Space]
     public Scene scene;
     [Space]

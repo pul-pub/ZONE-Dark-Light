@@ -1,85 +1,97 @@
+using MessagePack;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SaveHeandler
+public static class SaveHeandler
 {
-    public Dictionary<string, Character> characters = new Dictionary<string, Character>();
+    public static event Action OnSaveSession;
 
-    private Ids _ids;
+    public static Ids charecters;
+    public static Character SessionSave;
 
-    public SaveHeandler()
+    static SaveHeandler()
     {
-        if (File.Exists(Application.persistentDataPath + "/ids.json"))
-            ImportSeves();
-        else
-            FristOpen();
+        Debug.Log("Start work SaveHandler");
+
+        if (!File.Exists(Application.persistentDataPath + "/ListCharecters.json"))
+        {
+            charecters = new Ids();
+            ExportSeves();
+        }
+
+        ImportSeves();
     }
 
-    public void NewCharecter()
-    {
-        string _newId = GenerateUniqueId();
-        characters.Add(_newId, new Character());
 
-        string[] id_list = new string[_ids.ids.Length + 1];
-        if (_ids.ids[0] != null && _ids.ids[0] != "")
-        {
-            for (int i = 0; i < _ids.ids.Length; i++)
-            {
-                id_list[i] = _ids.ids[i];
-                id_list[_ids.ids.Length] = _newId;
-            }
-            _ids.ids = id_list;
-        }
-        else
-        {
-            _ids.ids[0] = _newId;
-        }
+    public static void StartSession()
+    {
+        SessionSave = charecters.keysCharecters[StaticValue.SessionToken];
+    }
+    public static void SaveSession() => OnSaveSession?.Invoke();
+
+
+    public static void NewCharecter(string _name, int _faceID, int[] _charecteristic)
+    {
+        Character _character = new Character();
+
+        _character.pos = new PlayerPos(1, -47, 0.8f);
+        _character.idScene = 1;
+
+        _character.name = _name;
+        _character.idFace = _faceID;
+        _character.characteristics.Add("Сила", _charecteristic[1]);
+        _character.characteristics.Add("Ловкость", _charecteristic[2]);
+        _character.characteristics.Add("Интелект", _charecteristic[0]);
+
+        _character.money = 0;
+
+        #region ADD_ITEM
+        SavesItem _si = new SavesItem();
+        _si.idItem = 140;
+        _si.count = 1;
+        _si.cellsId = new int[1] { 104 };
+        _si.conditionItem.Add("Armor", 80);
+        _character.items.Add(_si);
+
+        _si = new SavesItem();
+        _si.idItem = 110;
+        _si.count = 1;
+        _si.cellsId = new int[1] { 0 };
+        _si.customPropertyItem.Add("Light", 60);
+        _character.items.Add(_si);
+        #endregion
+
+        _character.idActivQuest = 0;
+        _character.idQuests.Add(0);
+
+        _character.switcherObject = StaticValue.baseSwitcherObject;
+
+        _character.time = new int[2] { 6, 0 };
+        _character.isRain = false;
+
+        _character.endTimeSession = DateTime.Now.ToString();
+
+        string _newId = GenerateUniqueId();
+        charecters.keysCharecters.Add(_newId, _character);
+        StaticValue.SessionToken = _newId;
 
         ExportSeves();
     }
 
-    private void ImportSeves()
+    private static void ImportSeves()
     {
-        string _json = File.ReadAllText(Application.persistentDataPath + "/ids.json");
-        _ids = JsonUtility.FromJson<Ids>(_json);
-
-        characters = new Dictionary<string, Character>();
-        foreach (string _key in _ids.ids)
-        {
-            if (_key != null && _key != "")
-            {
-                _json = File.ReadAllText(Application.persistentDataPath + "/" + _key + ".json");
-                characters.Add(_key, JsonUtility.FromJson<Character>(_json));
-            }
-        }
+        string _json = File.ReadAllText(Application.persistentDataPath + "/ListCharecters.json");
+        byte[] _bytes = MessagePackSerializer.ConvertFromJson(_json);
+        charecters = MessagePackSerializer.Deserialize<Ids>(_bytes);
     }
 
-    private void ExportSeves()
+    private static void ExportSeves()
     {
-        string _json = JsonUtility.ToJson(_ids, true);
-        File.WriteAllText(Application.persistentDataPath + "/ids.json", _json);
-
-        if (characters.Count > 0)
-        {
-            foreach (string _key in characters.Keys)
-            {
-                _json = JsonUtility.ToJson(characters[_key], true);
-                File.WriteAllText(Application.persistentDataPath + "/" + _key + ".json", _json);
-            }
-        }
-    }
-
-    private void FristOpen()
-    {
-        _ids = new Ids();
-        _ids.ids = new string[1] { null };
-
-        string _json = JsonUtility.ToJson(_ids, true);
-        File.WriteAllText(Application.persistentDataPath + "/ids.json", _json);
+        byte[] _bytes = MessagePackSerializer.Serialize(charecters);
+        string _json = MessagePackSerializer.ConvertToJson(_bytes);
+        File.WriteAllText(Application.persistentDataPath + "/ListCharecters.json", _json);
     }
 
     private static string GenerateUniqueId()

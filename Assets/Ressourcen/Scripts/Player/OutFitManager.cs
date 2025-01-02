@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class OutFitManager : MonoBehaviour
 {
+    public DataBase data;
+
     [SerializeField] private SpriteRenderer backpackSpRend;
     [SerializeField] private SpriteRenderer[] armorRenders;
+    [SerializeField] private SpriteRenderer face;
     [SerializeField] private ArmorObject nullArmor;
 
     public int MaxMass { get; private set; } = 20;
@@ -15,6 +18,9 @@ public class OutFitManager : MonoBehaviour
 
     public void Awake()
     {
+        if (face != null)
+            face.sprite = data.faces[SaveHeandler.SessionSave.idFace];
+
         if (armor == null)
             armor = nullArmor;
     }
@@ -25,7 +31,7 @@ public class OutFitManager : MonoBehaviour
             armor = _items[2].armorObject;
         else
             armor = nullArmor;
-
+        Debug.Log(armor);
         AntiBullet = armor.AntiBullet;
         AntiRadiation = armor.AntiRadiation;
 

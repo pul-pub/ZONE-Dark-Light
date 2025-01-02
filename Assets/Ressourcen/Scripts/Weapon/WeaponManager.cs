@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -30,6 +31,22 @@ public class WeaponManager : MonoBehaviour
     public int _numWeapon { private set; get; } = 0;
     public bool _flagWeapon { private set; get; } = false;
     public bool _isReload { private set; get; } = false;
+
+    private void OnEnable()
+    {
+        SaveHeandler.OnSaveSession += SaveSessino;
+    }
+
+    private void OnDisable()
+    {
+        SaveHeandler.OnSaveSession -= SaveSessino;
+    }
+
+    private void Start()
+    {
+        _numWeapon = SaveHeandler.SessionSave.numGun;
+        _flagWeapon = SaveHeandler.SessionSave.falgGun;
+    }
 
     private void Update()
     {
@@ -133,8 +150,6 @@ public class WeaponManager : MonoBehaviour
 
     public void SetGunList(Item[] _items)
     {
-        Debug.Log(_items[0]);
-
         for (int i = 0; i < 2; i++)
         {
             if (_items[i] != null)
@@ -208,5 +223,11 @@ public class WeaponManager : MonoBehaviour
 
         anim.SetBool("IsUp", _flagWeapon);
         anim.SetInteger("Type", _numWeapon);
+    }
+
+    private void SaveSessino()
+    {
+        SaveHeandler.SessionSave.numGun = _numWeapon;
+        SaveHeandler.SessionSave.falgGun = _flagWeapon;
     }
 }

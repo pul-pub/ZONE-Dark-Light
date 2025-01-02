@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 
 public class Inventory : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform[] parentObjectItem;
     [SerializeField] private Transform[] parentObjectItem_DRAG;
 
+    public int money = 0;
     public List<ObjectItem> _items = new List<ObjectItem>();
     public List<ObjectItem> _itemsNPC = new List<ObjectItem>();
     private NPC _npcPack;
@@ -21,11 +24,51 @@ public class Inventory : MonoBehaviour
     private List<ObjectItem> _ammo = new List<ObjectItem>();
     public float allMass = 0;
 
-    public void CreateList()
+    private void OnEnable()
     {
-        for (int i = 0; i < 20; i++)
+        SaveHeandler.OnSaveSession += SaveSessino;
+    }
+
+    private void OnDisable()
+    {
+        SaveHeandler.OnSaveSession -= SaveSessino;
+    }
+
+    private void Start()
+    {
+        money = SaveHeandler.SessionSave.money;
+        for (int i = 0; i < SaveHeandler.SessionSave.items.Count; i++)
         {
-            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)], Random.Range(1, 128), _items);
+            Item _i = inventoryData.GetItem(SaveHeandler.SessionSave.items[i].idItem).Clone();
+            Debug.Log(_i);
+            Debug.Log(_i.armorObject);
+            if (SaveHeandler.SessionSave.items[i].conditionItem.Count > 0 ||
+                SaveHeandler.SessionSave.items[i].customPropertyItem.Count > 0)
+            {
+                foreach (string _key in SaveHeandler.SessionSave.items[i].customPropertyItem.Keys)
+                {
+                    if (_key == "Gun")
+                        _i.gunObject.currentAmmos = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
+                    else if (_key == "Light")
+                        _i.lightObject.change = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
+                }
+                foreach (string _key in SaveHeandler.SessionSave.items[i].conditionItem.Keys)
+                {
+                    if (_key == "Gun")
+                        _i.gunObject.condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
+                    else if (_key == "Light")
+                        _i.lightObject.condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
+                    else if (_key == "Armor")
+                        _i.armorObject.Condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
+                }
+            }
+
+            AddItem(
+                _i,
+                SaveHeandler.SessionSave.items[i].count, 
+                _items, 
+                false,
+                SaveHeandler.SessionSave.items[i].cellsId);
         }
 
         ChengeOutfit();
@@ -47,16 +90,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private bool AddItem(Item _item, int _count, List<ObjectItem> _list, bool _npc = false)
+    private bool AddItem(Item _item, int _count, List<ObjectItem> _list, bool _npc = false, int[] _addCell = null)
     {
         if (_item.countCell == 1)
         {
             GameObject _gObj = Instantiate(objectItem, parentObjectItem[_npc ? 1 : 0]) as GameObject;
 
-            int[] _cells = new int[1] { FindNullCell(false, _npc) };
+            int[] _cells = _addCell == null ? new int[1] { FindNullCell(false, _npc) } : _addCell;
 
             _gObj.GetComponent<ObjectItem>().Initialization(
-                _item.Clone(),
+                _item,
                 _cells, FindCellPosition(_cells[0]),
                 this,
                 _count < _item.maxCount ? _count : _item.maxCount,
@@ -70,10 +113,10 @@ public class Inventory : MonoBehaviour
             GameObject _gObj = Instantiate(objectItem, parentObjectItem[_npc ? 1 : 0]) as GameObject;
 
             int _res = FindNullCell(true, _npc);
-            int[] _cells = new int[2] { _res, _res + 1 };
+            int[] _cells = _addCell == null ? new int[2] { _res, _res + 1 } : _addCell;
 
             _gObj.GetComponent<ObjectItem>().Initialization(
-                _item.Clone(),
+                _item,
                 _cells, FindCellPosition(_cells[0]),
                 this,
                 _count < _item.maxCount ? _count : _item.maxCount,
@@ -251,6 +294,7 @@ public class Inventory : MonoBehaviour
                 AddItem(_npc.backpack.items[i], _npc.backpack.count[i], _itemsNPC, true);
         }
     }
+
     public void GiveAllItem()
     {
         for (int i = 0; i < _npcPack.backpack.items.Count; i++)
@@ -308,5 +352,34 @@ public class Inventory : MonoBehaviour
         foreach (ObjectItem _itemObj in _items)
             if (_itemObj != null)
                 allMass += _itemObj.item.weight * _itemObj.count;
+    }
+
+    private void SaveSessino()
+    {
+        SaveHeandler.SessionSave.items.Clear();
+
+        SaveHeandler.SessionSave.money = money;
+        for (int i = 0; i < _items.Count; i++)
+        {
+            SavesItem _si = new SavesItem();
+            _si.idItem = _items[i].item.id;
+            _si.count = _items[i].count;
+            _si.cellsId = _items[i].cellsId;
+
+            if (_items[i].item.type == TypeItem.Weapon)
+            {
+                _si.conditionItem.Add("Gun", _items[i].item.gunObject.condition);
+                _si.customPropertyItem.Add("Gun", _items[i].item.gunObject.currentAmmos);
+            }
+            else if (_items[i].item.type == TypeItem.PNV)
+            {
+                _si.conditionItem.Add("Light", _items[i].item.lightObject.condition);
+                _si.customPropertyItem.Add("Light", _items[i].item.lightObject.change);
+            }   
+            else if (_items[i].item.type == TypeItem.Armor)
+                _si.conditionItem.Add("Armor", _items[i].item.armorObject.Condition);
+
+            SaveHeandler.SessionSave.items.Add(_si);
+        }
     }
 }

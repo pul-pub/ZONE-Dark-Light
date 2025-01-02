@@ -29,6 +29,7 @@ public class ArmorObject : ScriptableObject
         _new.ImgHead = ImgHead;
         _new.ImgBody = ImgBody;
         _new.ImgHand = ImgHand;
+        _new.ImgLeg = ImgLeg;
 
         _new.massUp = massUp;
 

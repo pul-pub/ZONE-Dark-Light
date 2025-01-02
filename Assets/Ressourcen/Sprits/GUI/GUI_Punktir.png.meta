@@ -1,0 +1,1794 @@
+fileFormatVersion: 2
+guid: 00106852734416349bc3db5001d9cc21
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1167184464719533350
+    second: GUI_Punktir_0
+  - first:
+      213: 4744590678046391515
+    second: GUI_Punktir_1
+  - first:
+      213: -1555408374146436319
+    second: GUI_Punktir_2
+  - first:
+      213: -4747426759168257644
+    second: GUI_Punktir_3
+  - first:
+      213: -5611665603698792493
+    second: GUI_Punktir_4
+  - first:
+      213: 3131690635940089718
+    second: GUI_Punktir_5
+  - first:
+      213: -5712834873666494733
+    second: GUI_Punktir_6
+  - first:
+      213: -6654793683991186201
+    second: GUI_Punktir_7
+  - first:
+      213: -4246358361820168957
+    second: GUI_Punktir_8
+  - first:
+      213: -2673785681608282287
+    second: GUI_Punktir_9
+  - first:
+      213: -5700475713170400048
+    second: GUI_Punktir_10
+  - first:
+      213: -1010654349429054809
+    second: GUI_Punktir_11
+  - first:
+      213: -7843699304981294738
+    second: GUI_Punktir_12
+  - first:
+      213: -2627435613881175940
+    second: GUI_Punktir_13
+  - first:
+      213: 6028202621544118978
+    second: GUI_Punktir_14
+  - first:
+      213: 482639548220406609
+    second: GUI_Punktir_15
+  - first:
+      213: -1298569354418378666
+    second: GUI_Punktir_16
+  - first:
+      213: -4273777154803063393
+    second: GUI_Punktir_17
+  - first:
+      213: 8905004157468864207
+    second: GUI_Punktir_18
+  - first:
+      213: 5081416966825852933
+    second: GUI_Punktir_19
+  - first:
+      213: -2702029815045299291
+    second: GUI_Punktir_20
+  - first:
+      213: -8081268792243864513
+    second: GUI_Punktir_21
+  - first:
+      213: -6252389782224216123
+    second: GUI_Punktir_22
+  - first:
+      213: -5165890608821131924
+    second: GUI_Punktir_23
+  - first:
+      213: 6373307430355222797
+    second: GUI_Punktir_24
+  - first:
+      213: -4447540088657311215
+    second: GUI_Punktir_25
+  - first:
+      213: -1668291721525021639
+    second: GUI_Punktir_26
+  - first:
+      213: 8154326764912723505
+    second: GUI_Punktir_27
+  - first:
+      213: -5453110954510111812
+    second: GUI_Punktir_28
+  - first:
+      213: -1388312993988741096
+    second: GUI_Punktir_29
+  - first:
+      213: -6356196473032075321
+    second: GUI_Punktir_30
+  - first:
+      213: 5752687574925335489
+    second: GUI_Punktir_31
+  - first:
+      213: 6656420810585173300
+    second: GUI_Punktir_32
+  - first:
+      213: -6552106458861827239
+    second: GUI_Punktir_33
+  - first:
+      213: -8821653242225512479
+    second: GUI_Punktir_34
+  - first:
+      213: 8481408932779831559
+    second: GUI_Punktir_35
+  - first:
+      213: 5692773532966572630
+    second: GUI_Punktir_36
+  - first:
+      213: 2814161739777351066
+    second: GUI_Punktir_37
+  - first:
+      213: 9012408229611813154
+    second: GUI_Punktir_38
+  - first:
+      213: -3680456021637488450
+    second: GUI_Punktir_39
+  - first:
+      213: -2918489071467058251
+    second: GUI_Punktir_40
+  - first:
+      213: 657477262026572305
+    second: GUI_Punktir_41
+  - first:
+      213: -8932053509403918781
+    second: GUI_Punktir_42
+  - first:
+      213: -123584857805370690
+    second: GUI_Punktir_43
+  - first:
+      213: -5072960852323969651
+    second: GUI_Punktir_44
+  - first:
+      213: -8785738139956714178
+    second: GUI_Punktir_45
+  - first:
+      213: 7931670456508021384
+    second: GUI_Punktir_46
+  - first:
+      213: 5797705981558380799
+    second: GUI_Punktir_47
+  - first:
+      213: 5710420799148011723
+    second: GUI_Punktir_48
+  - first:
+      213: 2462742974421515787
+    second: GUI_Punktir_49
+  - first:
+      213: -3133639407219879755
+    second: GUI_Punktir_50
+  - first:
+      213: -8304364956772486949
+    second: GUI_Punktir_51
+  - first:
+      213: 2870307647863386687
+    second: GUI_Punktir_52
+  - first:
+      213: -3908899936662361308
+    second: GUI_Punktir_53
+  - first:
+      213: -7859922213914360980
+    second: GUI_Punktir_54
+  - first:
+      213: -8382558486856411992
+    second: GUI_Punktir_55
+  - first:
+      213: 8944370826835675153
+    second: GUI_Punktir_56
+  - first:
+      213: -3453078241672725071
+    second: GUI_Punktir_57
+  - first:
+      213: -6089757619999886122
+    second: GUI_Punktir_58
+  - first:
+      213: 5752602048996767649
+    second: GUI_Punktir_59
+  - first:
+      213: -6200046197127270898
+    second: GUI_Punktir_60
+  - first:
+      213: -8875195444388373099
+    second: GUI_Punktir_61
+  - first:
+      213: -4953529589015940695
+    second: GUI_Punktir_62
+  - first:
+      213: 2899955364693366194
+    second: GUI_Punktir_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUI_Punktir_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adaa901d9e35dcfe0800000000000000
+      internalID: -1167184464719533350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdcb591751c28d140800000000000000
+      internalID: 4744590678046391515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 123755a13541a6ae0800000000000000
+      internalID: -1555408374146436319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_3
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4919796f380cd1eb0800000000000000
+      internalID: -4747426759168257644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_4
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d761458ddb5f12b0800000000000000
+      internalID: -5611665603698792493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_5
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f40ad7a00067b20800000000000000
+      internalID: 3131690635940089718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_6
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe15a643fee7b0b0800000000000000
+      internalID: -5712834873666494733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_7
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4313c276c65a3a0800000000000000
+      internalID: -6654793683991186201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_8
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30df2be6197e115c0800000000000000
+      internalID: -4246358361820168957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_9
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f6632c61ec4ead0800000000000000
+      internalID: -2673785681608282287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_10
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc9cb19a87d3e0b0800000000000000
+      internalID: -5700475713170400048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_11
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2e39f493f69f1f0800000000000000
+      internalID: -1010654349429054809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_12
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e619c913a05952390800000000000000
+      internalID: -7843699304981294738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_13
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70f66cda39798bd0800000000000000
+      internalID: -2627435613881175940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_14
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca3733785a78a350800000000000000
+      internalID: 6028202621544118978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_15
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b7b3aac1ea2b600800000000000000
+      internalID: 482639548220406609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_16
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6582fa16d0e8afde0800000000000000
+      internalID: -1298569354418378666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_17
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95a8c6325e70b4c0800000000000000
+      internalID: -4273777154803063393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_18
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fceee49b91ee49b70800000000000000
+      internalID: 8905004157468864207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_19
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5004c4f0fc1d48640800000000000000
+      internalID: 5081416966825852933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_20
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3e5bdf236708ad0800000000000000
+      internalID: -2702029815045299291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_21
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cbadf89d099df80800000000000000
+      internalID: -8081268792243864513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_22
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf5e31ae9c0b39a0800000000000000
+      internalID: -6252389782224216123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_23
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65a0b08cd11f48b0800000000000000
+      internalID: -5165890608821131924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_24
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d014ea63759827850800000000000000
+      internalID: 6373307430355222797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_25
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a854b7ad92742c0800000000000000
+      internalID: -4447540088657311215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_26
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 934b6cca48909d8e0800000000000000
+      internalID: -1668291721525021639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_27
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136451d3dfcf92170800000000000000
+      internalID: 8154326764912723505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_28
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb22ab8a78a254b0800000000000000
+      internalID: -5453110954510111812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_29
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818fd3400b8bbbce0800000000000000
+      internalID: -1388312993988741096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_30
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c7155efbf04ac7a0800000000000000
+      internalID: -6356196473032075321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_31
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb5a3fced6a5df40800000000000000
+      internalID: 5752687574925335489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_32
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d6272c57b506c50800000000000000
+      internalID: 6656420810585173300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_33
+      rect:
+        serializedVersion: 2
+        x: 2143
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95b8ff4e3ed3215a0800000000000000
+      internalID: -6552106458861827239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_34
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1efa9758d11339580800000000000000
+      internalID: -8821653242225512479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_35
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701ba29ec7404b570800000000000000
+      internalID: 8481408932779831559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_36
+      rect:
+        serializedVersion: 2
+        x: 2335
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652d73bdd5bc00f40800000000000000
+      internalID: 5692773532966572630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_37
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d9ce73139ed0720800000000000000
+      internalID: 2814161739777351066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_38
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229b1d8f881821d70800000000000000
+      internalID: 9012408229611813154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_39
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0a9da8fb46cecc0800000000000000
+      internalID: -3680456021637488450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_40
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bba85ef6a17f77d0800000000000000
+      internalID: -2918489071467058251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_41
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1128dfa1614df1900800000000000000
+      internalID: 657477262026572305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_42
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34eb23148a8fa0480800000000000000
+      internalID: -8932053509403918781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_43
+      rect:
+        serializedVersion: 2
+        x: 2783
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebac4e20a30f84ef0800000000000000
+      internalID: -123584857805370690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_44
+      rect:
+        serializedVersion: 2
+        x: 2847
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8554c58bf83999b0800000000000000
+      internalID: -5072960852323969651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_45
+      rect:
+        serializedVersion: 2
+        x: 2911
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e356746e5b9c21680800000000000000
+      internalID: -8785738139956714178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_46
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88afe93a144f21e60800000000000000
+      internalID: 7931670456508021384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_47
+      rect:
+        serializedVersion: 2
+        x: 3039
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8d1f66fd6957050800000000000000
+      internalID: 5797705981558380799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_48
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc03833367d7f3f40800000000000000
+      internalID: 5710420799148011723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_49
+      rect:
+        serializedVersion: 2
+        x: 3167
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ebb73efab6d2220800000000000000
+      internalID: 2462742974421515787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_50
+      rect:
+        serializedVersion: 2
+        x: 3231
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b05e76df831384d0800000000000000
+      internalID: -3133639407219879755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_51
+      rect:
+        serializedVersion: 2
+        x: 3295
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0bf5af118f0cc80800000000000000
+      internalID: -8304364956772486949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_52
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32fbf2299165d720800000000000000
+      internalID: 2870307647863386687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_53
+      rect:
+        serializedVersion: 2
+        x: 3423
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b61b4c73cc0c9c0800000000000000
+      internalID: -3908899936662361308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_54
+      rect:
+        serializedVersion: 2
+        x: 3487
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63ce6dd362fbe290800000000000000
+      internalID: -7859922213914360980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_55
+      rect:
+        serializedVersion: 2
+        x: 3551
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4dcf9087b2bab80800000000000000
+      internalID: -8382558486856411992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_56
+      rect:
+        serializedVersion: 2
+        x: 3615
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11848e0b0e9c02c70800000000000000
+      internalID: 8944370826835675153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_57
+      rect:
+        serializedVersion: 2
+        x: 3679
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd777762a33410d0800000000000000
+      internalID: -3453078241672725071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_58
+      rect:
+        serializedVersion: 2
+        x: 3743
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4bda3a5b5dc7ba0800000000000000
+      internalID: -6089757619999886122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_59
+      rect:
+        serializedVersion: 2
+        x: 3807
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7f2a0c51955df40800000000000000
+      internalID: 5752602048996767649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_60
+      rect:
+        serializedVersion: 2
+        x: 3871
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ea73d35d205f9a0800000000000000
+      internalID: -6200046197127270898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_61
+      rect:
+        serializedVersion: 2
+        x: 3935
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59dd01124c8f4d480800000000000000
+      internalID: -8875195444388373099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_62
+      rect:
+        serializedVersion: 2
+        x: 3999
+        y: 0
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1715e6517814bb0800000000000000
+      internalID: -4953529589015940695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_Punktir_63
+      rect:
+        serializedVersion: 2
+        x: 4063
+        y: 0
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b559012a06be3820800000000000000
+      internalID: 2899955364693366194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GUI_Punktir_0: -1167184464719533350
+      GUI_Punktir_1: 4744590678046391515
+      GUI_Punktir_10: -5700475713170400048
+      GUI_Punktir_11: -1010654349429054809
+      GUI_Punktir_12: -7843699304981294738
+      GUI_Punktir_13: -2627435613881175940
+      GUI_Punktir_14: 6028202621544118978
+      GUI_Punktir_15: 482639548220406609
+      GUI_Punktir_16: -1298569354418378666
+      GUI_Punktir_17: -4273777154803063393
+      GUI_Punktir_18: 8905004157468864207
+      GUI_Punktir_19: 5081416966825852933
+      GUI_Punktir_2: -1555408374146436319
+      GUI_Punktir_20: -2702029815045299291
+      GUI_Punktir_21: -8081268792243864513
+      GUI_Punktir_22: -6252389782224216123
+      GUI_Punktir_23: -5165890608821131924
+      GUI_Punktir_24: 6373307430355222797
+      GUI_Punktir_25: -4447540088657311215
+      GUI_Punktir_26: -1668291721525021639
+      GUI_Punktir_27: 8154326764912723505
+      GUI_Punktir_28: -5453110954510111812
+      GUI_Punktir_29: -1388312993988741096
+      GUI_Punktir_3: -4747426759168257644
+      GUI_Punktir_30: -6356196473032075321
+      GUI_Punktir_31: 5752687574925335489
+      GUI_Punktir_32: 6656420810585173300
+      GUI_Punktir_33: -6552106458861827239
+      GUI_Punktir_34: -8821653242225512479
+      GUI_Punktir_35: 8481408932779831559
+      GUI_Punktir_36: 5692773532966572630
+      GUI_Punktir_37: 2814161739777351066
+      GUI_Punktir_38: 9012408229611813154
+      GUI_Punktir_39: -3680456021637488450
+      GUI_Punktir_4: -5611665603698792493
+      GUI_Punktir_40: -2918489071467058251
+      GUI_Punktir_41: 657477262026572305
+      GUI_Punktir_42: -8932053509403918781
+      GUI_Punktir_43: -123584857805370690
+      GUI_Punktir_44: -5072960852323969651
+      GUI_Punktir_45: -8785738139956714178
+      GUI_Punktir_46: 7931670456508021384
+      GUI_Punktir_47: 5797705981558380799
+      GUI_Punktir_48: 5710420799148011723
+      GUI_Punktir_49: 2462742974421515787
+      GUI_Punktir_5: 3131690635940089718
+      GUI_Punktir_50: -3133639407219879755
+      GUI_Punktir_51: -8304364956772486949
+      GUI_Punktir_52: 2870307647863386687
+      GUI_Punktir_53: -3908899936662361308
+      GUI_Punktir_54: -7859922213914360980
+      GUI_Punktir_55: -8382558486856411992
+      GUI_Punktir_56: 8944370826835675153
+      GUI_Punktir_57: -3453078241672725071
+      GUI_Punktir_58: -6089757619999886122
+      GUI_Punktir_59: 5752602048996767649
+      GUI_Punktir_6: -5712834873666494733
+      GUI_Punktir_60: -6200046197127270898
+      GUI_Punktir_61: -8875195444388373099
+      GUI_Punktir_62: -4953529589015940695
+      GUI_Punktir_63: 2899955364693366194
+      GUI_Punktir_7: -6654793683991186201
+      GUI_Punktir_8: -4246358361820168957
+      GUI_Punktir_9: -2673785681608282287
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

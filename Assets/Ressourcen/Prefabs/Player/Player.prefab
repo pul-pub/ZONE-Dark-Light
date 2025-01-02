@@ -259,7 +259,7 @@ MonoBehaviour:
   sizeCheck: 2
   layer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   handlerGUI: {fileID: 0}
   movement: {fileID: 7711490262845710342}
   weaponManager: {fileID: 5092849555370519269}
@@ -320,12 +320,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0605c4b155bd4824f800899238743f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: cc8ef895fde72634f8bd6b95f769c2c1, type: 2}
   backpackSpRend: {fileID: 6536312398745274251}
   armorRenders:
   - {fileID: 4090358064456751018}
   - {fileID: 6868485088448102654}
   - {fileID: 6768174534171050596}
   - {fileID: 7226810887275702627}
+  face: {fileID: 4090358064456751018}
   nullArmor: {fileID: 11400000, guid: 3f00ca87b3e807d4389e70403e9580ea, type: 2}
 --- !u!114 &4820694159816303391
 MonoBehaviour:

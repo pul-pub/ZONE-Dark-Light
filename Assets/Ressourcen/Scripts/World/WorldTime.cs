@@ -12,9 +12,41 @@ public class WorldTime : MonoBehaviour
 
     private float timer;
 
+    private void OnEnable()
+    {
+        SaveHeandler.OnSaveSession += SaveSessino;
+    }
+
+    private void OnDisable()
+    {
+        SaveHeandler.OnSaveSession -= SaveSessino;
+    }
+
     void Awake()
     {
+        StaticValue.time = SaveHeandler.SessionSave.time;
         timer = speedTime;
+
+        if (StaticValue.time[0] >= 3 && StaticValue.time[0] < 12)
+        {
+            sky.localPosition = new Vector3(0, 20 - ((((StaticValue.time[0] - 3) * 60) + StaticValue.time[1]) / 3 * 0.2f), 0);
+            light2D.intensity = 0.1f + ((((StaticValue.time[0] - 3) * 60) + StaticValue.time[1]) / 2 * 0.0016f);
+        }
+        else if (StaticValue.time[0] >= 12 && StaticValue.time[0] < 15)
+        {
+            sky.localPosition = new Vector3(0, -16f, 0);
+            light2D.intensity = 0.964f;
+        }
+        else if (StaticValue.time[0] >= 15 && StaticValue.time[0] < 24)
+        {
+            sky.localPosition = new Vector3(0, -16 + ((((StaticValue.time[0] - 15) * 60) + StaticValue.time[1]) / 3 * 0.2f), 0);
+            light2D.intensity = 0.964f - ((((StaticValue.time[0] - 15) * 60) + StaticValue.time[1]) / 2 * 0.0016f);
+        }
+        else
+        {
+            sky.localPosition = new Vector3(0, 20, 0);
+            light2D.intensity = 0.1f;
+        }
 
         if (IsSetGragics)
         {
@@ -123,5 +155,10 @@ public class WorldTime : MonoBehaviour
         {
             StaticValue.lightLevel = 0.30f;
         }
+    }
+
+    private void SaveSessino()
+    {
+        SaveHeandler.SessionSave.time = StaticValue.time;
     }
 }

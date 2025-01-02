@@ -17,6 +17,8 @@ MonoBehaviour:
   ImgHead: {fileID: 0}
   ImgBody: {fileID: -896923093, guid: ceffa82dc13fbe341a7e836747d8bef5, type: 3}
   ImgHand: {fileID: 2137084798, guid: ceffa82dc13fbe341a7e836747d8bef5, type: 3}
+  ImgLeg: {fileID: 0}
+  massUp: 0
   AntiBullet: 0
   AntiRadiation: 0
   AntiBio: 0

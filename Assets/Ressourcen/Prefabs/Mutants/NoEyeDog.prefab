@@ -84,14 +84,15 @@ MonoBehaviour:
   LayerObject:
     serializedVersion: 2
     m_Bits: 1024
-  SizeCheckMove: 10
-  SizeCheckAttack: 1
-  SizeCheckObject: 1.5
+  SizeCheckMove: 23
+  SizeCheckAttack: 2
+  SizeCheckObject: 4
   backpackObject: {fileID: 11400000, guid: df99f17dcabc0bd43b6e6273c67a2e23, type: 2}
   movement: {fileID: 6071247897996710094}
   health: {fileID: 2347083287329202389}
-  weapons: []
+  items: []
   weapon: {fileID: 4379391845735089576}
+  outfit: {fileID: 0}
   numberWeapon: 2
   flagWeapon: 1
   dideAngel: {x: 0, y: 0, z: 180}
@@ -129,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac52175d1cdb42f44b29dcfeb309a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseValueHealth: 100
+  isDamagebly: 1
 --- !u!114 &4379391845735089576
 MonoBehaviour:
   m_ObjectHideFlags: 0

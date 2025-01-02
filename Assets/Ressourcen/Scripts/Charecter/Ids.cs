@@ -1,4 +1,10 @@
+using MessagePack;
+using System.Collections.Generic;
+
+
+[MessagePackObject]
 public class Ids 
 {
-    public string[] ids;
+    [Key(0)]
+    public Dictionary<string, Character> keysCharecters = new Dictionary<string, Character>();
 }
