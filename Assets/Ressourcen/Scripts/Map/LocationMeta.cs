@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,6 @@ public class LocationMeta
 {
     public int ID;
     public string Name;
-    public bool isBidLocation = false;
     [Space]
-    public Scene scene;
-    [Space]
-    public EntryMeta[] entryList;
+    public List<EntryMeta> Connections;
 }

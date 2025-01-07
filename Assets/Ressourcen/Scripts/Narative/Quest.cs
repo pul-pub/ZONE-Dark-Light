@@ -13,6 +13,7 @@ public class Quest : ScriptableObject
     [Header("Text")]
     public string textTitell;
     public string textDiscription;
+    public string textFullDiscription;
     [Space]
     public Dialog startDialog;
 }

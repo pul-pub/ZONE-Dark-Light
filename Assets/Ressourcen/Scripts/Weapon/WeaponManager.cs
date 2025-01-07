@@ -46,6 +46,8 @@ public class WeaponManager : MonoBehaviour
     {
         _numWeapon = SaveHeandler.SessionSave.numGun;
         _flagWeapon = SaveHeandler.SessionSave.falgGun;
+
+        UpdateWeapon();
     }
 
     private void Update()

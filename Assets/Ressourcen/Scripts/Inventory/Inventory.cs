@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public event System.Action OnChangeOutfit;
 
     [SerializeField] private DataBase inventoryData;
+    [SerializeField] private GUIDiscriptionItem disct;
     [SerializeField] private int coutCells = 49;
     [Header("Objects Item")]
     [SerializeField] private Object objectItem;
@@ -73,6 +74,16 @@ public class Inventory : MonoBehaviour
 
         ChengeOutfit();
     }
+
+    //-----------DELETE THIS-------------
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)].Clone(), 1, _items);
+        }
+    }
+    //-----------DELETE THIS-------------
 
     public int CalculatedCountItems(ObjectItem _currentItem, ObjectItem _targetItem)
     {
@@ -247,6 +258,8 @@ public class Inventory : MonoBehaviour
 
         return Vector3.zero;
     }
+
+    public void OpenDiscription(ObjectItem _item) => disct.SetDiscription(_item);
 
     public ObjectItem CheckCell(int _cellID)
     {

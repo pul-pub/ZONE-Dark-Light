@@ -8,6 +8,7 @@ public class Item : ScriptableObject
 {
     public int id;
     public string Name;
+    public string Discription;
     public TypeItem type;
     public TypeAmmo typeAmmo;
     public int price = 0;
@@ -38,6 +39,7 @@ public class Item : ScriptableObject
 
         _new.id = id;
         _new.Name = Name;
+        _new.Discription = Discription;
         _new.type = type;
         _new.typeAmmo = typeAmmo;
         _new.price = price;

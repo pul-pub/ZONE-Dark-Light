@@ -1,5 +1,6 @@
 using MessagePack;
 using System;
+using System.Collections;
 using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -30,6 +31,7 @@ public static class SaveHeandler
         SessionSave = charecters.keysCharecters[StaticValue.SessionToken];
     }
     public static void SaveSession() => OnSaveSession?.Invoke();
+    public static void SaveProgress(MonoBehaviour _parent) => _parent.StartCoroutine(Save());
 
 
     public static void NewCharecter(string _name, int _faceID, int[] _charecteristic)
@@ -92,6 +94,16 @@ public static class SaveHeandler
         byte[] _bytes = MessagePackSerializer.Serialize(charecters);
         string _json = MessagePackSerializer.ConvertToJson(_bytes);
         File.WriteAllText(Application.persistentDataPath + "/ListCharecters.json", _json);
+    }
+
+
+    private static IEnumerator Save()
+    {
+        SaveSession();
+        yield return new WaitForEndOfFrame();
+        charecters.keysCharecters[StaticValue.SessionToken] = SessionSave.Clone();
+        yield return new WaitForEndOfFrame();
+        ExportSeves();
     }
 
     private static string GenerateUniqueId()

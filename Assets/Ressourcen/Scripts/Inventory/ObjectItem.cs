@@ -21,6 +21,8 @@ public class ObjectItem : EventTrigger
     private GameObject _to;
     private int[] _currentCells = new int[2];
 
+    private int countClick = 0;
+
     public void Initialization(Item _item, int[] _cells, Vector3 _pos, Inventory _inv, int _count, Transform[] _base, Transform[] _drag)
     {
         _rt = GetComponent<RectTransform>();
@@ -67,6 +69,8 @@ public class ObjectItem : EventTrigger
 
     public override void OnEndDrag(PointerEventData data)
     {
+        countClick = 0;
+
         if (_to == null)
         {
             RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new Vector2(2, 2), 0f, Vector2.zero, 0f);
@@ -227,5 +231,16 @@ public class ObjectItem : EventTrigger
         cellsId = _currentCells;
         isDragging = false;
         _to = null;
+    }
+
+    public override void OnPointerClick(PointerEventData data)
+    {
+        if (countClick >= 1)
+        {
+            _inventory.OpenDiscription(this);
+            countClick = 0;
+        }
+        else
+            countClick++;
     }
 }

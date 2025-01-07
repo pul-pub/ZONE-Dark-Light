@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEditor.Progress;
 
@@ -121,6 +122,25 @@ public class Player : MonoBehaviour
 
         if (_coroutine == null)
             _coroutine = StartCoroutine(Check());
+        
+        if (weaponManager._flagWeapon)
+        {
+            if (weaponManager._numWeapon < 2)
+            {
+                handlerGUI.UpdateButtons(weaponManager._guns[weaponManager._numWeapon].currentAmmos > 0, 
+                    weaponManager._guns[weaponManager._numWeapon].currentAmmos < weaponManager._guns[weaponManager._numWeapon].ammo &&
+                    handlerGUI.inventory.GetCountAmmos(weaponManager._guns[weaponManager._numWeapon]) > 0,
+                    lightManager.HaveLight);
+            }
+            else
+            {
+                handlerGUI.UpdateButtons(true, false, lightManager.HaveLight);
+            }
+        }
+        else
+        {
+            handlerGUI.UpdateButtons(false, false, lightManager.HaveLight);
+        }
     }
 
     private void OnTouchMultiButton()
@@ -195,5 +215,6 @@ public class Player : MonoBehaviour
         SaveHeandler.SessionSave.pos.y = 0.8f;
 
         SaveHeandler.SessionSave.pos.flipX = (int)transform.localScale.x;
+        SaveHeandler.SessionSave.idScene = SceneManager.GetActiveScene().buildIndex;
     }
 }

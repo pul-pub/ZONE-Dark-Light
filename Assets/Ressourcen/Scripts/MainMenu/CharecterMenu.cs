@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class CharecterMenu : MonoBehaviour
 {
@@ -200,8 +198,7 @@ public class CharecterMenu : MonoBehaviour
     public void Create()
     {
         SaveHeandler.NewCharecter(_name, _faceID, _characteristic);
-        SaveHeandler.StartSession();
-        SceneManager.LoadScene(SaveHeandler.SessionSave.idScene, LoadSceneMode.Single);
+        Play();
     }
 
     public void Play()

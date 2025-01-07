@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class LightManager : MonoBehaviour
 {
+    public bool HaveLight => _lightObject != null;
+
     [SerializeField] private WorldTime worldTime;
 
     [SerializeField] private SpriteRenderer spRender;

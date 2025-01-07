@@ -47,10 +47,15 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI descriptionQuest;
     [Space]
     [SerializeField] RectTransform marker;
+    [SerializeField] RectTransform markerZone;
     [SerializeField] MapObject map;
     [Header("Button for Interection")]
     [SerializeField] private RectTransform rectTrInterection;
     [SerializeField] private TextMeshProUGUI textInterection;
+    [Header("Input Buttons")]
+    [SerializeField] private RectTransform buttonShoot;
+    [SerializeField] private RectTransform buttonReload;
+    [SerializeField] private RectTransform buttonLight;
 
     public IInput input;
 
@@ -65,6 +70,10 @@ public class GUIHandler : MonoBehaviour
     private Entry _entry;
 
     private Coroutine _animationUp;
+
+    private Coroutine[] _animButton = new Coroutine[3];
+
+    private bool[] _activButton = new bool[3] { false, false, false };
 
     private void OnEnable()
     {
@@ -93,13 +102,28 @@ public class GUIHandler : MonoBehaviour
         inventory.OnChangeOutfit += OnSetItemOutfit;
 
         bolt.OnEndDown += input.ReadOnCastBolt;
-
+        _cam = Camera.main;
         //inventory.CreateList();
     }
 
     private void Update()
     {
         input.ReadMovement();
+        Debug.Log(Screen.width);
+        if (marker.gameObject.activeSelf)
+        {
+            Vector2 _o = _cam.WorldToScreenPoint(_posQuest);
+
+            if (_o.x < Screen.width && _o.x > 0)
+                marker.position = new Vector3(_o.x, _o.y, 0);
+            else
+            {
+                if (_o.x > 0)
+                    marker.position = new Vector3(Screen.width, _o.y, 0);
+                else
+                    marker.position = new Vector3(0, _o.y, 0);
+            }
+        }
     }
 
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
@@ -177,7 +201,15 @@ public class GUIHandler : MonoBehaviour
     {
         if (_dialogList)
         {
-            SetDialog(_dialogList, _dialogList.startDialog);
+            Quest _q = questManager.FindActivQuest(_dialogList.Name);
+
+            if (_q != null)
+            {
+                SetDialog(_dialogList, _q.startDialog);
+                questManager.SetEndQuest(_q);
+            }
+            else
+                SetDialog(_dialogList, _dialogList.startDialog);
         }
         else if (_npcPack)
         {
@@ -288,7 +320,7 @@ public class GUIHandler : MonoBehaviour
     {
         if (_quest != null)
         {
-            if (!descriptionQuest.gameObject.activeSelf)
+            if (!descriptionQuest.gameObject.activeSelf || titleQuest.text != _quest.textTitell)
             {
                 descriptionQuest.gameObject.SetActive(true);
                 titleQuest.gameObject.SetActive(true);
@@ -298,13 +330,22 @@ public class GUIHandler : MonoBehaviour
             }
 
             if (SceneManager.GetActiveScene().buildIndex == _quest.idScene)
-            {
                 _posQuest = new Vector3(_quest.position.x, 2.5f, 0);
-            }
             else
             {
-                
+                EntryMeta _ent;
+
+                if (_ent = map.FindPath(SceneManager.GetActiveScene().buildIndex, _quest.idScene))
+                {
+                    _posQuest = new Vector3(_ent.posFrom.x, 2.5f, 0);
+                }
             }
+        }
+        else
+        {
+            descriptionQuest.gameObject.SetActive(false);
+            titleQuest.gameObject.SetActive(false);
+            marker.gameObject.SetActive(false);
         }
     }
 
@@ -338,6 +379,45 @@ public class GUIHandler : MonoBehaviour
         _items[5] = inventory.FindItemCell(107);
 
         input.ReadResetOutfit(_items);
+    }
+
+    public void UpdateButtons(bool _shoot, bool _reload, bool _light)
+    {
+        if (_shoot != _activButton[0])
+        {
+            if (_animButton[0] != null)
+            {
+                StopCoroutine(_animButton[0]);
+                _animButton[0] = null;
+            }
+
+            _animButton[0] = StartCoroutine(AnimationMove(buttonShoot, new Vector3(_shoot ? 75 : 550, _shoot ? -100: -550, 0), 15f));
+            _activButton[0] = _shoot;
+        }
+
+        if (_reload != _activButton[1])
+        {
+            if (_animButton[1] != null)
+            {
+                StopCoroutine(_animButton[1]);
+                _animButton[1] = null;
+            }
+
+            _animButton[1] = StartCoroutine(AnimationMove(buttonReload, new Vector3(_reload ? 225 : 500, 125, 0), 15f));
+            _activButton[1] = _reload;
+        }
+
+        if(_light != _activButton[2])
+        {
+            if (_animButton[2] != null)
+            {
+                StopCoroutine(_animButton[2]);
+                _animButton[2] = null;
+            }
+
+            _animButton[2] = StartCoroutine(AnimationMove(buttonLight, new Vector3(-120, _light ? 0 : 200, 0), 15f));
+            _activButton[2] = _light;
+        }
     }
 
     public void UpdateAmmos(int _allAmmos, int _ammo)

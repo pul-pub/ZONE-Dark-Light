@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f6e2cad5cdf6a409c842d050fb10b1, type: 3}
   m_Name: Perimetr-Bolota
   m_EditorClassIdentifier: 
-  posFrom: {x: -2, y: 0, z: 0}
+  posFrom: {x: -2, y: 2.5, z: 0}
   locationFromID: 1
-  sceneFrom:
-    m_Handle: 0
-  posTo: {x: -196, y: 0, z: 0}
+  posTo: {x: -196, y: 2.5, z: 0}
   locationToID: 2
-  sceneTo:
-    m_Handle: 0
