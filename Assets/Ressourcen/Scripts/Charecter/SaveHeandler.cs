@@ -28,7 +28,7 @@ public static class SaveHeandler
 
     public static void StartSession()
     {
-        SessionSave = charecters.keysCharecters[StaticValue.SessionToken];
+        SessionSave = charecters.keysCharecters[StaticValue.SessionToken].Clone();
     }
     public static void SaveSession() => OnSaveSession?.Invoke();
     public static void SaveProgress(MonoBehaviour _parent) => _parent.StartCoroutine(Save());

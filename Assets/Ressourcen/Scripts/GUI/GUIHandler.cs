@@ -1,18 +1,17 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class GUIHandler : MonoBehaviour
 {
-    [SerializeField] public Inventory inventory;
+    public Inventory inventory;
+    public GUIDetector Detector;
     [SerializeField] private GameObject inventoryObject;
+    [SerializeField] private GameObject inputUI;
+    [SerializeField] private GameObject diskriptObject;
     [SerializeField] private GameObject otfitObject;
     [SerializeField] private GameObject npcObject;
     [SerializeField] private FixedJoystick fixedJoystick;
@@ -25,6 +24,7 @@ public class GUIHandler : MonoBehaviour
     [Header("Health")]
     [SerializeField] private TextMeshProUGUI textHealth;
     [SerializeField] private Slider sliderHealth;
+    [SerializeField] private GUIDideScreen dideScreen;
     [Header("Energy")]
     [SerializeField] private TextMeshProUGUI textEnergy;
     [SerializeField] private Slider sliderEnergy;
@@ -80,16 +80,18 @@ public class GUIHandler : MonoBehaviour
         if (input != null)
         {
             inventory.OnChangeOutfit += OnSetItemOutfit;
+            inventory.Disct.OnUse += Use;
 
             bolt.OnEndDown += input.ReadOnCastBolt;
         }
     }
-
+    
     private void OnDisable()
     {
         if (input != null)
         {
             inventory.OnChangeOutfit -= OnSetItemOutfit;
+            inventory.Disct.OnUse -= Use;
 
             bolt.OnEndDown -= input.ReadOnCastBolt;
         }
@@ -109,7 +111,7 @@ public class GUIHandler : MonoBehaviour
     private void Update()
     {
         input.ReadMovement();
-        Debug.Log(Screen.width);
+        
         if (marker.gameObject.activeSelf)
         {
             Vector2 _o = _cam.WorldToScreenPoint(_posQuest);
@@ -124,6 +126,16 @@ public class GUIHandler : MonoBehaviour
                     marker.position = new Vector3(0, _o.y, 0);
             }
         }
+    }
+
+    private void Use(ObjectItem _item)
+    {
+        if (_item.item.detectorObject)
+            Detector.SetActiv(_item.item.detectorObject);
+
+        diskriptObject.SetActive(false);
+        inventoryObject.SetActive(false);
+        inputUI.SetActive(true);
     }
 
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
@@ -224,6 +236,7 @@ public class GUIHandler : MonoBehaviour
         }
     }
 
+    public void Dide(IMetaEnemy _meta) => dideScreen.OnDide(_meta);
     public void OpenNPCPack()
     {
         inventoryObject.SetActive(true);

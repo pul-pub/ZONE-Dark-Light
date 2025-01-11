@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Artifact : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public ArtifactObject ArtifactObject;
+    public bool IsFinded = false;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private GameObject[] objsOnChange;
+
+    public void SetFinded()
     {
-        
+        IsFinded = true;
+
+        for (int i = 0; i < objsOnChange.Length; i++)
+            objsOnChange[i].SetActive(true);
     }
 }

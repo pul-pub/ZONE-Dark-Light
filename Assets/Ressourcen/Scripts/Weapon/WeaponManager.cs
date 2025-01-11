@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class WeaponManager : MonoBehaviour
 {
     public Inventory inv;
+    public IMetaEnemy Meta;
 
     [Header("Weapon Grafics")]
     [SerializeField] private SpriteRenderer[] spRenderHead;
@@ -21,6 +20,8 @@ public class WeaponManager : MonoBehaviour
     [Space]
     [SerializeField] private LayerMask knifeLayer;
     [SerializeField] private KnifeObject knife;
+    [Space]
+    [SerializeField] private bool withSave = false;
 
     private float _timer = 0;
     public float ForceBolt { private set; get; } = 5f;
@@ -34,20 +35,25 @@ public class WeaponManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SaveHeandler.OnSaveSession += SaveSessino;
+        if (withSave)
+            SaveHeandler.OnSaveSession += SaveSessino;
     }
 
     private void OnDisable()
     {
-        SaveHeandler.OnSaveSession -= SaveSessino;
+        if (withSave)
+            SaveHeandler.OnSaveSession -= SaveSessino;
     }
 
     private void Start()
     {
-        _numWeapon = SaveHeandler.SessionSave.numGun;
-        _flagWeapon = SaveHeandler.SessionSave.falgGun;
+        if (withSave)
+        {
+            _numWeapon = SaveHeandler.SessionSave.numGun;
+            _flagWeapon = SaveHeandler.SessionSave.falgGun;
 
-        UpdateWeapon();
+            UpdateWeapon();
+        }
     }
 
     private void Update()
@@ -68,7 +74,7 @@ public class WeaponManager : MonoBehaviour
                 if (_flagWeapon && _guns[_numWeapon] != null && _guns[_numWeapon].currentAmmos >= 1 && !_isReload)
                 {
                     int _flipX = (int)transform.parent.localScale.x;
-                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet, _flipX))
+                    if (_guns[_numWeapon].Shoot(objBullet, parent, pointBullet, _flipX, Meta))
                     {
                         GameObject _gObj = Instantiate(objGilz, pointGilz.position, pointGilz.rotation, parent) as GameObject;
                         _gObj.GetComponent<Rigidbody2D>().AddForce(
@@ -92,7 +98,7 @@ public class WeaponManager : MonoBehaviour
 
                     if (_helath.Length > 0)
                     {
-                        _helath[0].ApplyDamage(knife.dm);
+                        _helath[0].ApplyDamage(knife.dm, Meta);
                     }
                 }
 

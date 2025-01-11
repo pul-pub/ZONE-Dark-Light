@@ -87,6 +87,8 @@ MonoBehaviour:
   SizeCheckMove: 23
   SizeCheckAttack: 2
   SizeCheckObject: 4
+  NameNPC: "\u0421\u043B\u0435\u043F\u0430\u044F \u0441\u043E\u0431\u0430\u043A\u0430"
+  Face: {fileID: 7231592100362329640}
   backpackObject: {fileID: 11400000, guid: df99f17dcabc0bd43b6e6273c67a2e23, type: 2}
   movement: {fileID: 6071247897996710094}
   health: {fileID: 2347083287329202389}

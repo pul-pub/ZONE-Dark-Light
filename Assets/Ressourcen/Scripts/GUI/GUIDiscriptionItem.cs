@@ -1,21 +1,27 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GUIDiscriptionItem : MonoBehaviour
 {
+    public event Action<ObjectItem> OnUse;
+
     [SerializeField] private GameObject screen;
     [Space]
     [SerializeField] private Image imgItem;
+    [SerializeField] private GameObject butUse;
     [SerializeField] private TextMeshProUGUI textCount;
     [SerializeField] private TextMeshProUGUI textCondition;
     [Space]
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textBaseCharecteristic;
     [Space]
-    [SerializeField] private Object objCharecterisctic;
-    [SerializeField] private Object objDiscription;
+    [SerializeField] private UnityEngine.Object objCharecterisctic;
+    [SerializeField] private UnityEngine.Object objDiscription;
     [SerializeField] private RectTransform parent;
+
+    private ObjectItem _curentItem;
 
     public void SetDiscription(ObjectItem _item)
     {
@@ -39,6 +45,13 @@ public class GUIDiscriptionItem : MonoBehaviour
             textCondition.text = _item.item.gunObject.condition + "%";
         else
             textCondition.text = "100%";
+
+        _curentItem = _item;
+
+        if (_item.item.detectorObject)
+            butUse.SetActive(true);
+        else
+            butUse.SetActive(false);
 
         textName.text = _item.item.Name;
         textBaseCharecteristic.text = _item.item.type.ToString() + "\n" + "Сталкер" + "\n" + _item.item.weight;
@@ -136,4 +149,6 @@ public class GUIDiscriptionItem : MonoBehaviour
         parent.sizeDelta += new Vector2(0, 250);
         _ggObj.GetComponent<RectTransform>().localPosition -= new Vector3(0, parent.sizeDelta.y - 125, 0);
     }
+
+    public void Use() => OnUse?.Invoke(_curentItem);
 }

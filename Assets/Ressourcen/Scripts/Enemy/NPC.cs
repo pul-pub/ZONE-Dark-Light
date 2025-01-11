@@ -1,12 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : NpcAI 
+public class NPC : NpcAI, IMetaEnemy
 {
     [Header("NPC")]
+    [SerializeField] string NameNPC;
+    [SerializeField] SpriteRenderer Face;
+    [Space]
     [NonSerialized] public NPCBackpack backpack;
     [SerializeField] private NPCBackpack backpackObject;
-
+    [Space]
     [SerializeField] private Movement movement;
     [SerializeField] private Health health;
     [SerializeField] private Item[] items;
@@ -16,8 +20,14 @@ public class NPC : NpcAI
     [SerializeField] private bool flagWeapon = false;
     [SerializeField] private Vector3 dideAngel;
 
+    public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
+    public string Name { get; set; }
+
     private void Awake()
     {
+        Name = NameNPC;
+        weapon.Meta = this;
+
         if (numberWeapon != 2)
             weapon.SetGunList(new Item[2] { items[0] ? items[0].Clone() : null, items[1] ? items[1].Clone() : null });
 
@@ -34,7 +44,18 @@ public class NPC : NpcAI
         }
 
         if (outfit)
+        {
+            visualEnemy.Add("Face", Face ? Face.sprite : null);
+            visualEnemy.Add("Body", items[2] ? items[2].Clone().armorObject.ImgBody : null);
+            visualEnemy.Add("Hand", items[2] ? items[2].Clone().armorObject.ImgHand : null);
+            visualEnemy.Add("Leg", items[2] ? items[2].Clone().armorObject.ImgLeg : null);
+
             outfit.OnResetOutfit(new Item[4] { null, null, items[2] ? items[2].Clone() : null, null });
+        }
+        else
+        {
+            visualEnemy.Add("Body", Face.sprite);
+        }
     }
 
     private void OnEnable()
@@ -51,7 +72,7 @@ public class NPC : NpcAI
         health.Deid -= OnDide;
     }
 
-    private void OnDide()
+    private void OnDide(IMetaEnemy _meta)
     {
         movement.Dide(dideAngel);
         backpack = backpackObject.Clone();

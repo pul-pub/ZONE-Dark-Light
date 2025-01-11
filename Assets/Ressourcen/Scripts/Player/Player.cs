@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -10,13 +8,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int sizeCheck;
     [SerializeField] private LayerMask layer;
     [Header("Inital")]
-    [SerializeField] public GUIHandler handlerGUI;
-    [SerializeField] public Movement movement;
-    [SerializeField] public WeaponManager weaponManager;
-    [SerializeField] public LightManager lightManager;
-    [SerializeField] public OutFitManager outfit;
-    [SerializeField] public Health health;
-    [SerializeField] public Energy energy;
+    public GUIHandler handlerGUI;
+    public Movement movement;
+    public WeaponManager weaponManager;
+    public LightManager lightManager;
+    public OutFitManager outfit;
+    public Detector detector;
+    public Health health;
+    public Energy energy;
 
     private bool _isInterecrion = false;
     private Coroutine _coroutine;
@@ -76,6 +75,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnCastBolt += weaponManager.OnCastBolt;
         }
 
+        handlerGUI.Detector.OnSetChecking += detector.Checking;
+        health.Deid += handlerGUI.Dide;
         SaveHeandler.OnSaveSession += SaveSessinon;
     }
 
@@ -98,6 +99,8 @@ public class Player : MonoBehaviour
             handlerGUI.input.OnCastBolt -= weaponManager.OnCastBolt;
         }
 
+        handlerGUI.Detector.OnSetChecking -= detector.Checking;
+        health.Deid -= handlerGUI.Dide;
         SaveHeandler.OnSaveSession -= SaveSessinon;
     }
 
@@ -216,5 +219,13 @@ public class Player : MonoBehaviour
 
         SaveHeandler.SessionSave.pos.flipX = (int)transform.localScale.x;
         SaveHeandler.SessionSave.idScene = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Use(ObjectItem _item)
+    {
+        if (_item.item.detectorObject)
+        {
+            
+        }
     }
 }

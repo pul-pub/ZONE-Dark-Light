@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853db6bcdc243814aba028e684bd6284, type: 3}
+  m_Name: NightSatr
+  m_EditorClassIdentifier: 
+  Id: 1
+  Condition: 100
+  Amplitude: 2.7
+  Period: 0.5
+  Chardge: 100
+  AntiDamage: 0
+  AntiRadiation: 0
+  AntiBio: 0
+  AntiChimical: 0
+  AntiPsi: 0
+  ChangeMussUp: 0
+  ChangeSpeed: 0
+  RecoveryHealth: 0
+  RecoveryEnergy: 0

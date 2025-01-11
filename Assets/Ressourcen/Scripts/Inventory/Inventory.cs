@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.TextCore.Text;
 
 public class Inventory : MonoBehaviour
 {
     public event System.Action OnChangeOutfit;
 
     [SerializeField] private DataBase inventoryData;
-    [SerializeField] private GUIDiscriptionItem disct;
+    [SerializeField] public GUIDiscriptionItem Disct;
     [SerializeField] private int coutCells = 49;
     [Header("Objects Item")]
     [SerializeField] private Object objectItem;
@@ -41,8 +39,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < SaveHeandler.SessionSave.items.Count; i++)
         {
             Item _i = inventoryData.GetItem(SaveHeandler.SessionSave.items[i].idItem).Clone();
-            Debug.Log(_i);
-            Debug.Log(_i.armorObject);
+            
             if (SaveHeandler.SessionSave.items[i].conditionItem.Count > 0 ||
                 SaveHeandler.SessionSave.items[i].customPropertyItem.Count > 0)
             {
@@ -52,6 +49,10 @@ public class Inventory : MonoBehaviour
                         _i.gunObject.currentAmmos = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
                     else if (_key == "Light")
                         _i.lightObject.change = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
+                    else if (_key == "Det")
+                        _i.detectorObject.Chardge = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
+                    else if (_key == "Art")
+                        _i.artifactObject.Chardge = SaveHeandler.SessionSave.items[i].customPropertyItem[_key];
                 }
                 foreach (string _key in SaveHeandler.SessionSave.items[i].conditionItem.Keys)
                 {
@@ -61,6 +62,10 @@ public class Inventory : MonoBehaviour
                         _i.lightObject.condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
                     else if (_key == "Armor")
                         _i.armorObject.Condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
+                    else if (_key == "Det")
+                        _i.detectorObject.Condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
+                    else if (_key == "Art")
+                        _i.artifactObject.Condition = SaveHeandler.SessionSave.items[i].conditionItem[_key];
                 }
             }
 
@@ -259,7 +264,7 @@ public class Inventory : MonoBehaviour
         return Vector3.zero;
     }
 
-    public void OpenDiscription(ObjectItem _item) => disct.SetDiscription(_item);
+    public void OpenDiscription(ObjectItem _item) => Disct.SetDiscription(_item);
 
     public ObjectItem CheckCell(int _cellID)
     {
@@ -379,17 +384,27 @@ public class Inventory : MonoBehaviour
             _si.count = _items[i].count;
             _si.cellsId = _items[i].cellsId;
 
-            if (_items[i].item.type == TypeItem.Weapon)
+            if (_items[i].item.gunObject)
             {
                 _si.conditionItem.Add("Gun", _items[i].item.gunObject.condition);
                 _si.customPropertyItem.Add("Gun", _items[i].item.gunObject.currentAmmos);
             }
-            else if (_items[i].item.type == TypeItem.PNV)
+            else if (_items[i].item.lightObject)
             {
                 _si.conditionItem.Add("Light", _items[i].item.lightObject.condition);
                 _si.customPropertyItem.Add("Light", _items[i].item.lightObject.change);
-            }   
-            else if (_items[i].item.type == TypeItem.Armor)
+            }
+            else if (_items[i].item.detectorObject)
+            {
+                _si.conditionItem.Add("Det", _items[i].item.detectorObject.Condition);
+                _si.customPropertyItem.Add("Det", _items[i].item.detectorObject.Chardge);
+            }
+            else if (_items[i].item.artifactObject)
+            {
+                _si.conditionItem.Add("Art", _items[i].item.artifactObject.Condition);
+                _si.customPropertyItem.Add("Art", _items[i].item.artifactObject.Chardge);
+            }
+            else if (_items[i].item.armorObject)
                 _si.conditionItem.Add("Armor", _items[i].item.armorObject.Condition);
 
             SaveHeandler.SessionSave.items.Add(_si);

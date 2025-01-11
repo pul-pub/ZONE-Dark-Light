@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Anomaly : MonoBehaviour
+public class Anomaly : MonoBehaviour, IMetaEnemy
 {
+    [SerializeField] private string NameAnomaly;
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spRender;
@@ -13,12 +15,22 @@ public class Anomaly : MonoBehaviour
     [Space]
     [SerializeField] private float dm = 10;
     [SerializeField] private float startTimeBtwShot = 3;
+    [Header("Artifacts")]
+    [SerializeField, Range(0.1f, 100)] private float chanceGiveArtifact;
+    [SerializeField] private Object objArtifact;
+    [SerializeField] private Transform parent;
 
     private float _timer = 0f;
     private RaycastHit2D _hit;
 
+    public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
+    public string Name { get; set; }
+
+
     private void Awake()
     {
+        Name = NameAnomaly;
+        visualEnemy.Add("Anomaly", spRender.sprite);
         StartCoroutine(Check());
     }
 
@@ -42,10 +54,17 @@ public class Anomaly : MonoBehaviour
             {
                 Health _health;
                 if (_health = _hit.collider.gameObject.GetComponentInParent<Health>())
-                    _health.ApplyDamage(dm);
+                    _health.ApplyDamage(dm, this);
 
                 animator.SetTrigger("Attack");
                 _timer = startTimeBtwShot;
+
+                int _chackChance = Random.Range(0, 100);
+
+                if (_chackChance >= chanceGiveArtifact)
+                {
+                    GameObject _gObj = Instantiate(objArtifact, parent) as GameObject;
+                }
             }
 
             while (_timer >= 0f)

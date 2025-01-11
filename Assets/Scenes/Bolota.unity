@@ -5487,6 +5487,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4923456926081222558, guid: 2cdbb3285c7055e4c84dedd79611fe18, type: 3}
+      propertyPath: Face
+      value: 
+      objectReference: {fileID: 637334668}
+    - target: {fileID: 4923456926081222558, guid: 2cdbb3285c7055e4c84dedd79611fe18, type: 3}
+      propertyPath: NameNPC
+      value: "\u0422\u0440\u043E\u043F\u043D\u0438\u043A"
+      objectReference: {fileID: 0}
     - target: {fileID: 7901733245115818312, guid: 2cdbb3285c7055e4c84dedd79611fe18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -167
@@ -5536,6 +5544,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cdbb3285c7055e4c84dedd79611fe18, type: 3}
+--- !u!212 &637334668 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4013576760169821627, guid: 2cdbb3285c7055e4c84dedd79611fe18, type: 3}
+  m_PrefabInstance: {fileID: 637334667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &638764029
 GameObject:
   m_ObjectHideFlags: 0

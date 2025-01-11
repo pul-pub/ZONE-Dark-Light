@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Bullet : MonoBehaviour
 {
     public float force;
     public float dm;
+
+    public IMetaEnemy meta;
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float maxDistanc = 15f;
@@ -22,7 +25,7 @@ public class Bullet : MonoBehaviour
 
             if (_helath.Length > 0)
             {
-                _helath[0].ApplyDamage(dm);
+                _helath[0].ApplyDamage(dm, meta);
                 Destroy(gameObject);
             }
         }

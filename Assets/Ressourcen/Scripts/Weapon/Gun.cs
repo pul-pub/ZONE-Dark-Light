@@ -22,7 +22,7 @@ public class Gun : Weapon
 
     public int currentAmmos { set; get; } = 0;
 
-    public bool Shoot(Object _bullet, Transform _parent, Transform _pointStart, int _flipX)
+    public bool Shoot(Object _bullet, Transform _parent, Transform _pointStart, int _flipX, IMetaEnemy _meta = null)
     {
         if (typeAmmo == TypeAmmo.Shotgun_12_20 ||
             typeAmmo == TypeAmmo.Shotgun_12_10)
@@ -36,6 +36,7 @@ public class Gun : Weapon
 
                 _bulletScript.dm = dm;
                 _bulletScript.force = force;
+                _bulletScript.meta = _meta;
 
                 _gObj.transform.eulerAngles = new Vector3(0, 0, _gObj.transform.eulerAngles.z + Random.Range(-8f, 8f));
             }
@@ -49,6 +50,7 @@ public class Gun : Weapon
 
             _bulletScript.dm = dm;
             _bulletScript.force = force;
+            _bulletScript.meta = _meta;
         }
 
         currentAmmos -= 1;

@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 3856123837955977173}
   - component: {fileID: 4820694159816303391}
   - component: {fileID: 4516177852703971667}
+  - component: {fileID: 4744622444447235794}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -265,6 +266,7 @@ MonoBehaviour:
   weaponManager: {fileID: 5092849555370519269}
   lightManager: {fileID: 7922840604369091627}
   outfit: {fileID: 3856123837955977173}
+  detector: {fileID: 4744622444447235794}
   health: {fileID: 4820694159816303391}
   energy: {fileID: 4516177852703971667}
 --- !u!114 &7711490262845710342
@@ -355,6 +357,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab4fa9f07af5046806a0191ffbd2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4744622444447235794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237653620540059504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c202f2cc6fe004db49f115e72fee60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceBody: {fileID: 2263790069854620765}
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &638875857113059955
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +919,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   knife: {fileID: 11400000, guid: 4eb7635a4173249499a70130c272b345, type: 2}
+  withSave: 1
 --- !u!1 &4457233519207808676
 GameObject:
   m_ObjectHideFlags: 0

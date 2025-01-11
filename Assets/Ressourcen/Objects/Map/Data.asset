@@ -48,6 +48,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 308d621ab6aa61b439a933bfd434b81f, type: 2}
   - {fileID: 11400000, guid: 0837247ea47a18f469498e85a78dee9a, type: 2}
   - {fileID: 11400000, guid: 7890012d46c56114f9c78735ba6f5c99, type: 2}
+  - {fileID: 11400000, guid: e02fc8b56a8296944900a3aaefa21aa8, type: 2}
+  - {fileID: 11400000, guid: eaf4079128df6ba42b0310c640358c6b, type: 2}
   guns: []
   lights: []
   faces:
