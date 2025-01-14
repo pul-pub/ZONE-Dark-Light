@@ -8,6 +8,12 @@ public class Health : MonoBehaviour
     public bool isDamagebly;
     public float health { get; private set; } = 100f;
 
+
+    private void Awake()
+    {
+        health = baseValueHealth;
+    }
+
     public void ApplyDamage(float damage, IMetaEnemy _meta = null)
     {
         if (health > 0 && isDamagebly)

@@ -27,6 +27,8 @@ public class GUISpinner : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         Value = startValue;
     }
 
+    
+
     public void OnBeginDrag(PointerEventData data) => currentPosTouch = data.position;
 
     public void OnDrag(PointerEventData data)

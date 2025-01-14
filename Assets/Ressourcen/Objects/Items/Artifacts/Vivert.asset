@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 220
   Name: "\u0412\u044B\u0432\u0435\u0440\u0442"
-  Discription: "\u041C\u0430\u043B\u043E\u0446\u0435\u043D\u0435\u043D"
-  type: 0
+  Discription: "\u041C\u0430\u043B\u043E\u0446\u0435\u043D\u0435\u043D, \u043C\u043E\u0436\u043D\u043E
+    \u043E\u0431\u043D\u043E\u0440\u0443\u0436\u0438\u0442\u044C \u0432 \u043C\u0435\u0441\u0442\u0430\u0445
+    \u0440\u0430\u0441\u043F\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F
+    \u0442\u0440\u0430\u043C\u043F\u043B\u0438\u043D\u043E\u0432"
+  type: 12
   typeAmmo: 0
-  price: 0
+  price: 500
   countCell: 1
   maxCount: 32
   weight: 0.1
@@ -27,4 +30,4 @@ MonoBehaviour:
   armor: {fileID: 0}
   detector: {fileID: 0}
   artifact: {fileID: 11400000, guid: f3ba16c2a5aa8bd41bf88c228c7d8aa1, type: 2}
-  img: {fileID: 1239415580, guid: 59da459cce458b745b105a97ecae6d56, type: 3}
+  img: {fileID: 970575727307096078, guid: e38a6de4578622d449f78dc4b1b4a4a6, type: 3}

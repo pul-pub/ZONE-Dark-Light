@@ -7929,6 +7929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anomaly_Voronka
       objectReference: {fileID: 0}
+    - target: {fileID: 7633174478856193611, guid: f2d3cdec565282449b80e0561ecbbc0a, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1631305815}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

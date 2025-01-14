@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 853db6bcdc243814aba028e684bd6284, type: 3}
-  m_Name: Vivert
+  m_Name: MoonLight
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 3
   Condition: 100
-  Amplitude: 2.35
-  Period: 0.8
+  Amplitude: 0.77
+  Period: 0.38
   Chardge: 100
-  AntiDamage: 5
-  AntiRadiation: 20
-  AntiBio: 0
+  AntiDamage: 0
+  AntiRadiation: 0
+  AntiBio: 5
   AntiChimical: 0
   AntiPsi: 0
-  ChangeMussUp: 4
-  ChangeSpeed: 0.2
+  ChangeMussUp: 0
+  ChangeSpeed: 0
   RecoveryHealth: 0
-  RecoveryEnergy: 0
+  RecoveryEnergy: 0.8

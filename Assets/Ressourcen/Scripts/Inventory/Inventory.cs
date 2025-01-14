@@ -87,6 +87,12 @@ public class Inventory : MonoBehaviour
         {
             AddItem(inventoryData.items[Random.Range(0, inventoryData.items.Length)].Clone(), 1, _items);
         }
+        else if (Input.GetKeyDown(KeyCode.V)) 
+        {
+            AddItem(inventoryData.GetItem(101).Clone(), 100, _items);
+            AddItem(inventoryData.GetItem(104).Clone(), 100, _items);
+            AddItem(inventoryData.GetItem(107).Clone(), 100, _items);
+        }
     }
     //-----------DELETE THIS-------------
 

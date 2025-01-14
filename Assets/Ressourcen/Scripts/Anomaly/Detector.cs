@@ -27,7 +27,7 @@ public class Detector : MonoBehaviour
             RaycastHit2D _hit = Physics2D.BoxCast(transform.position, new Vector2(_raduius, 3f), 0f, Vector2.zero, 0f, layer);
 
             yield return new WaitForEndOfFrame();
-            Debug.Log("f");
+            
             if (_hit)
             {
                 Collider2D _col = _hit.collider;
@@ -38,8 +38,8 @@ public class Detector : MonoBehaviour
                 {
                     if (!_art.IsFinded)
                     {
-                        if (Math.Round(_amplitude.Value, 4, MidpointRounding.ToEven) == _art.ArtifactObject.Amplitude &&
-                            Math.Round(_period.Value, 4, MidpointRounding.ToEven) == _art.ArtifactObject.Period)
+                        if ((float)Math.Round(_amplitude.Value, 4, MidpointRounding.ToEven) == _art.ArtifactObject.Amplitude &&
+                            (float)Math.Round(_period.Value, 4, MidpointRounding.ToEven) == _art.ArtifactObject.Period)
                         {
                             _art.SetFinded();
                             yield return new WaitForEndOfFrame();

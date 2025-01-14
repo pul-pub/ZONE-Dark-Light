@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588070275045632753}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -185, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,3 +133,6 @@ MonoBehaviour:
   sizeCheckShoot: 1
   dm: 10
   startTimeBtwShot: 3
+  chanceGiveArtifact: 95.4
+  objArtifact: {fileID: 7468271578544820397, guid: d66550bbfc7318c4dafdcdf250288c45, type: 3}
+  parent: {fileID: 0}
