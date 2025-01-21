@@ -76,7 +76,10 @@ public class Player : MonoBehaviour
         }
 
         handlerGUI.Detector.OnSetChecking += detector.Checking;
+        handlerGUI.inventory.Disct.OnUse += Use;
         health.Deid += handlerGUI.Dide;
+        health.OnChangeValueHealth += UpdateHealth;
+        health.SetDebaff += OnDebuff;
         SaveHeandler.OnSaveSession += SaveSessinon;
     }
 
@@ -100,7 +103,10 @@ public class Player : MonoBehaviour
         }
 
         handlerGUI.Detector.OnSetChecking -= detector.Checking;
+        handlerGUI.inventory.Disct.OnUse -= Use;
         health.Deid -= handlerGUI.Dide;
+        health.OnChangeValueHealth -= UpdateHealth;
+        health.SetDebaff -= OnDebuff;
         SaveHeandler.OnSaveSession -= SaveSessinon;
     }
 
@@ -120,7 +126,6 @@ public class Player : MonoBehaviour
         else
             movement.debufSpeed = 0;
 
-        handlerGUI.UpdateHealth(health.health);
         handlerGUI.UpdateEnergy(energy.energy);
 
         if (_coroutine == null)
@@ -196,7 +201,13 @@ public class Player : MonoBehaviour
                         if (_npc.backpack)
                             handlerGUI.ButtonInterection(null, null, _npc);
                         else if (_dialogList)
-                            handlerGUI.ButtonInterection(_dialogList, _dialogList.startDialog);
+                        {
+                            if (_dialogList.AutoOpenDialog)
+                                handlerGUI.SetDialog(_dialogList, _dialogList.startDialog);
+                            else
+                                handlerGUI.ButtonInterection(_dialogList, _dialogList.startDialog);
+                        }
+                            
                     }
 
                     _isInterecrion = true;
@@ -223,9 +234,20 @@ public class Player : MonoBehaviour
 
     private void Use(ObjectItem _item)
     {
-        if (_item.item.detectorObject)
-        {
-            
-        }
+        if (_item.item.medicObject)
+            handlerGUI.Health.SetMedicMenu(health.listBodyParths);
+    }
+
+    private void UpdateHealth()
+    {
+        handlerGUI.UpdateHealth(health.HealthAll);
+        handlerGUI.Health.SetOverlyBody(health.listBodyParths);
+        handlerGUI.Health.SetBodyMenu(health.listBodyParths);
+    }
+
+    private void OnDebuff(TypeBodyParth _type, float _value)
+    {
+        if (_type == TypeBodyParth.Leg)
+            movement.debufSpeed += _value;
     }
 }

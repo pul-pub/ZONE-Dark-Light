@@ -19,6 +19,7 @@ public class Gun : Weapon
     public int ammo;
     public float force;
     public float verticalRecoil;
+    public int scatterHorizontal;
 
     public int currentAmmos { set; get; } = 0;
 
@@ -35,6 +36,7 @@ public class Gun : Weapon
                 Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
                 _bulletScript.dm = dm;
+                _bulletScript.Layer = Random.Range(-scatterHorizontal, scatterHorizontal);
                 _bulletScript.force = force;
                 _bulletScript.meta = _meta;
 
@@ -49,6 +51,7 @@ public class Gun : Weapon
             Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
             _bulletScript.dm = dm;
+            _bulletScript.Layer = Random.Range(-scatterHorizontal, scatterHorizontal);
             _bulletScript.force = force;
             _bulletScript.meta = _meta;
         }
@@ -100,6 +103,7 @@ public class Gun : Weapon
         _new.force = force;
         _new.verticalRecoil = verticalRecoil;
         _new.currentAmmos = currentAmmos;
+        _new.scatterHorizontal = scatterHorizontal;
 
         return _new;
     }

@@ -48,7 +48,7 @@ public class GUIDiscriptionItem : MonoBehaviour
 
         _curentItem = _item;
 
-        if (_item.item.detectorObject)
+        if (_item.item.detectorObject || _item.item.medicObject)
             butUse.SetActive(true);
         else
             butUse.SetActive(false);

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
+  m_Name: AB_2
+  m_EditorClassIdentifier: 
+  id: 30
+  Name: "\u041F\u0435\u0440\u0435\u0432\u044F\u0437\u043E\u0447\u043D\u044B\u0439
+    \u043F\u0430\u043A\u0435\u0442"
+  Discription: "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u043A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u044F
+    \u0438 \u043B\u0435\u0447\u0435\u043D\u0438\u0435"
+  type: 4
+  typeAmmo: 0
+  price: 200
+  countCell: 1
+  maxCount: 32
+  weight: 0.1
+  gun: {fileID: 0}
+  light: {fileID: 0}
+  backpack: {fileID: 0}
+  armor: {fileID: 0}
+  detector: {fileID: 0}
+  artifact: {fileID: 0}
+  medic: {fileID: 11400000, guid: 2d448c600fdb4a74ebf0b3245531ceff, type: 2}
+  img: {fileID: -1084691695, guid: 237d46c2272e7ac4e84bf24eee7585b0, type: 3}

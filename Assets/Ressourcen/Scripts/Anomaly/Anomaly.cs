@@ -21,7 +21,7 @@ public class Anomaly : MonoBehaviour, IMetaEnemy
     [SerializeField] private Transform parent;
 
     private float _timer = 0f;
-    private RaycastHit2D _hit;
+    private RaycastHit2D[] _hit;
 
     public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
     public string Name { get; set; }
@@ -46,15 +46,18 @@ public class Anomaly : MonoBehaviour, IMetaEnemy
     {
         while (true)
         {
-            _hit = Physics2D.BoxCast(transform.position, new Vector2(sizeCheckShoot, 2f), 0f, offset.normalized, offset.magnitude, layer);
+            _hit = Physics2D.BoxCastAll(transform.position, new Vector2(sizeCheckShoot, 2f), 0f, offset.normalized, offset.magnitude, layer);
 
             yield return new WaitForEndOfFrame();
             
-            if (_hit)
+            if (_hit.Length > 0)
             {
-                Health _health;
-                if (_health = _hit.collider.gameObject.GetComponentInParent<Health>())
-                    _health.ApplyDamage(dm, this);
+                foreach (RaycastHit2D _h in _hit)
+                {
+                    BodyParthColider _parth;
+                    if (_parth = _h.collider.gameObject.GetComponent<BodyParthColider>())
+                        _parth.ApplyDamage(dm, this);
+                }
 
                 animator.SetTrigger("Attack");
                 _timer = startTimeBtwShot;

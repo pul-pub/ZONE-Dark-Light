@@ -23,12 +23,14 @@ public class Item : ScriptableObject
     [SerializeField] private ArmorObject armor;
     [SerializeField] private DetectorObject detector;
     [SerializeField] private ArtifactObject artifact;
+    [SerializeField] private MedicObject medic;
     [NonSerialized] public Gun gunObject;
     [NonSerialized] public LightObject lightObject;
     [NonSerialized] public BackpackObject backpackObject;
     [NonSerialized] public ArmorObject armorObject;
     [NonSerialized] public DetectorObject detectorObject;
     [NonSerialized] public ArtifactObject artifactObject;
+    [NonSerialized] public MedicObject medicObject;
     [Space]
     public Sprite img;
 
@@ -40,6 +42,7 @@ public class Item : ScriptableObject
         armorObject = armor != null ? armor.Clone() : null;
         detectorObject = detector != null ? detector.Clone() : null;
         artifactObject = artifact != null ? artifact.Clone() : null;
+        medicObject = medic != null ? medic.Clone() : null;
         
         Item _new = new Item();
 
@@ -59,6 +62,7 @@ public class Item : ScriptableObject
         _new.armorObject = armorObject;
         _new.detectorObject = detectorObject;
         _new.artifactObject = artifactObject;
+        _new.medicObject = medicObject;
 
         _new.img = img;
 

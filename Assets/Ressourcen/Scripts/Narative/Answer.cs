@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum TypeDescription { NextDialog, Quest, Buy, Sale, Exit, WalkTo };
+public enum TypeDescription { NextDialog, Quest, Buy, Sale, Exit, WalkTo, Dide };
 
 [Serializable]
 public class Answer

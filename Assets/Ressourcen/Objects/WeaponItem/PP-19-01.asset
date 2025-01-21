@@ -27,3 +27,4 @@ MonoBehaviour:
   ammo: 25
   force: 35
   verticalRecoil: 0.5
+  scatterHorizontal: 3

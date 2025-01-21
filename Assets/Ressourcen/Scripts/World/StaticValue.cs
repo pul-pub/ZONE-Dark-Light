@@ -9,4 +9,9 @@ public static class StaticValue
     public static float lightLevel = 0.69f;
 
     public static Dictionary<string, bool> baseSwitcherObject = new();
+
+    static StaticValue()
+    {
+        baseSwitcherObject.Add("Karatel", true);
+    }
 }

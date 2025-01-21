@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     public float force;
     public float dm;
+    public int Layer;
 
     public IMetaEnemy meta;
 
@@ -18,15 +19,18 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, sizeRay, 0f, Vector2.zero, 0f, layerMask);
-        if (hitInfo.collider != null)
+        RaycastHit2D[] _hit = Physics2D.BoxCastAll(transform.position, sizeRay, 0f, Vector2.zero, 0f, layerMask);
+        if (_hit.Length > 0)
         {
-            Health[] _helath = hitInfo.collider.gameObject.GetComponentsInParent<Health>();
-
-            if (_helath.Length > 0)
+            foreach (RaycastHit2D _h in _hit)
             {
-                _helath[0].ApplyDamage(dm, meta);
-                Destroy(gameObject);
+                BodyParthColider _parth = _h.collider.gameObject.GetComponent<BodyParthColider>();
+
+                if (_parth && _parth.Layer == Layer)
+                {
+                    _parth.ApplyDamage(dm, meta);
+                    Destroy(gameObject);
+                }
             }
         }
         transform.Translate(Vector2.right * force * Time.deltaTime);

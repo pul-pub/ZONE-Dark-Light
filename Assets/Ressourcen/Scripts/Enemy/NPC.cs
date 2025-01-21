@@ -63,6 +63,7 @@ public class NPC : NpcAI, IMetaEnemy
         OnMove += movement.Move;
         OnAttack += Shoot;
         health.Deid += OnDide;
+        health.SetDebaff += OnDebuff;
     }
 
     private void OnDisable()
@@ -70,6 +71,7 @@ public class NPC : NpcAI, IMetaEnemy
         OnMove -= movement.Move;
         OnAttack -= Shoot;
         health.Deid -= OnDide;
+        health.SetDebaff -= OnDebuff;
     }
 
     private void OnDide(IMetaEnemy _meta)
@@ -83,4 +85,10 @@ public class NPC : NpcAI, IMetaEnemy
     }
 
     private void Shoot() => weapon.Shoot();
+
+    private void OnDebuff(TypeBodyParth _type, float _value)
+    {
+        if (_type == TypeBodyParth.Leg)
+            movement.debufSpeed += _value;
+    }
 }

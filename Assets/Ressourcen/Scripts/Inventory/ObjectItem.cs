@@ -243,4 +243,10 @@ public class ObjectItem : EventTrigger
         else
             countClick++;
     }
+
+    public void Delete()
+    {
+        _inventory._items.Remove(this);
+        Destroy(gameObject);
+    }
 }

@@ -94,12 +94,10 @@ public class WeaponManager : MonoBehaviour
                 RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, knife.distantAttack, 0f, Vector2.zero, 0f, knifeLayer);
                 if (hitInfo.collider != null)
                 {
-                    Health[] _helath = hitInfo.collider.gameObject.GetComponentsInParent<Health>();
+                    BodyParthColider _parth = hitInfo.collider.gameObject.GetComponent<BodyParthColider>();
 
-                    if (_helath.Length > 0)
-                    {
-                        _helath[0].ApplyDamage(knife.dm, Meta);
-                    }
+                    if (_parth)
+                        _parth.ApplyDamage(knife.dm, Meta);
                 }
 
                 _timer = knife.startTimeBtwShot;

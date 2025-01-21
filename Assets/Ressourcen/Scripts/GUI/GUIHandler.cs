@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,12 @@ public class GUIHandler : MonoBehaviour
 {
     public Inventory inventory;
     public GUIDetector Detector;
+    public GUIHealth Health;
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private GameObject inputUI;
     [SerializeField] private GameObject diskriptObject;
     [SerializeField] private GameObject otfitObject;
+    [SerializeField] private GameObject otfitObj;
     [SerializeField] private GameObject npcObject;
     [SerializeField] private FixedJoystick fixedJoystick;
     [SerializeField] private FixedJoystick bolt;
@@ -23,7 +26,6 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] textMass;
     [Header("Health")]
     [SerializeField] private TextMeshProUGUI textHealth;
-    [SerializeField] private Slider sliderHealth;
     [SerializeField] private GUIDideScreen dideScreen;
     [Header("Energy")]
     [SerializeField] private TextMeshProUGUI textEnergy;
@@ -56,6 +58,8 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private RectTransform buttonShoot;
     [SerializeField] private RectTransform buttonReload;
     [SerializeField] private RectTransform buttonLight;
+    [Header("Entry Screen")]
+    [SerializeField] private Image entryScreen;
 
     public IInput input;
 
@@ -81,6 +85,7 @@ public class GUIHandler : MonoBehaviour
         {
             inventory.OnChangeOutfit += OnSetItemOutfit;
             inventory.Disct.OnUse += Use;
+            inventory.Disct.OnUse += Health.Use;
 
             bolt.OnEndDown += input.ReadOnCastBolt;
         }
@@ -92,6 +97,7 @@ public class GUIHandler : MonoBehaviour
         {
             inventory.OnChangeOutfit -= OnSetItemOutfit;
             inventory.Disct.OnUse -= Use;
+            inventory.Disct.OnUse -= Health.Use;
 
             bolt.OnEndDown -= input.ReadOnCastBolt;
         }
@@ -131,11 +137,13 @@ public class GUIHandler : MonoBehaviour
     private void Use(ObjectItem _item)
     {
         if (_item.item.detectorObject)
+        {
             Detector.SetActiv(_item.item.detectorObject);
 
-        diskriptObject.SetActive(false);
-        inventoryObject.SetActive(false);
-        inputUI.SetActive(true);
+            diskriptObject.SetActive(false);
+            inventoryObject.SetActive(false);
+            inputUI.SetActive(true);
+        }    
     }
 
     public void SetIsShoot(bool _isActiv) => input.ReadButtonShoot(_isActiv);
@@ -147,6 +155,7 @@ public class GUIHandler : MonoBehaviour
     {
         inventoryObject.SetActive(_is);
         otfitObject.SetActive(_is);
+        otfitObj.SetActive(_is);
         npcObject.SetActive(false);
         inventory.SetActivOutfit(_is);
     }
@@ -319,7 +328,15 @@ public class GUIHandler : MonoBehaviour
             {
                 SaveHeandler.SaveSession();
                 SaveHeandler.SessionSave.pos.x = _dialogNow.answers[_num].metaEntry.posTo.x;
-                SceneManager.LoadScene(_dialogNow.answers[_num].metaEntry.locationToID, LoadSceneMode.Single);
+
+                if (_dialogNow.NameNPC == "Каратель")
+                    SaveHeandler.SessionSave.SetSwitchObject("Karatel", false);
+
+                StartCoroutine(AnimationEntryed(_dialogNow.answers[_num].metaEntry.locationToID));
+            }
+            else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.Dide)
+            {
+                Dide(_dialogList.npc);
             }
             else
             {
@@ -449,30 +466,29 @@ public class GUIHandler : MonoBehaviour
 
     public void UpdateMass(int _maxMass, float _mass)
     {
-        string _massOld = _mass.ToString();
-        string _massNew;
-
-        if (_massOld.Length > 5)
-        {
-            _massNew = _massOld[0].ToString() + _massOld[1].ToString() + _massOld[2].ToString() + _massOld[3].ToString() + _massOld[4].ToString();
-        }
-        else
-            _massNew = _massOld;
-
-        textMass[0].text = _massNew;
+        textMass[0].text = Math.Round(_mass, 4, MidpointRounding.AwayFromZero).ToString();
         textMass[1].text = "/ " + _maxMass.ToString();
     }
 
-    public void UpdateHealth(float _health)
-    {
-        textHealth.text = ((int)_health).ToString();
-        sliderHealth.value = ((int)_health);
-    }
+    public void UpdateHealth(float _health) => textHealth.text = ((int)_health).ToString();
 
     public void UpdateEnergy(float _energy)
     {
         textEnergy.text = ((int)_energy).ToString();
         sliderEnergy.value = ((int)_energy);
+    }
+
+    IEnumerator AnimationEntryed(int _locationToID)
+    {
+        entryScreen.gameObject.SetActive(true);
+        byte _alfa = 0;
+        while (entryScreen.color.a < 1)
+        {
+            entryScreen.color = new Color32(0, 0, 0, _alfa);
+            _alfa++;
+            yield return new WaitForEndOfFrame();
+        }
+        SceneManager.LoadScene(_locationToID, LoadSceneMode.Single);
     }
 
     IEnumerator AnimationMove(RectTransform _transform, Vector3 _target, float _speed)

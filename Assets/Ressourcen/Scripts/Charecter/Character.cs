@@ -1,10 +1,13 @@
 using MessagePack;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [MessagePackObject]
 public class Character
 {
+    public event Action<Dictionary<string, bool>> OnResetSwitchObject;
+
     #region PLAYER
     [Key(0)]
     public PlayerPos pos;
@@ -87,6 +90,19 @@ public class Character
         _new.endTimeSession = endTimeSession;
 
         return _new;
+    }
+
+    public void SetSwitchObject(string _name, bool _value)
+    {
+        foreach (string _key in switcherObject.Keys)
+        {
+            if (_key == _name)
+            {
+                switcherObject[_key] = _value;
+                OnResetSwitchObject?.Invoke(switcherObject);
+                return;
+            }
+        }        
     }
 }
 
