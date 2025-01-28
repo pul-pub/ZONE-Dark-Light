@@ -1,5 +1,7 @@
 using MessagePack;
+using MessagePack.Unity;
 using System.Collections.Generic;
+using UnityEngine;
 
 
 [MessagePackObject]

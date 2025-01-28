@@ -1,4 +1,6 @@
 using MessagePack;
+using MessagePack.Resolvers;
+using MessagePack.Unity;
 using System;
 using System.Collections;
 using System.IO;
@@ -14,6 +16,13 @@ public static class SaveHeandler
 
     static SaveHeandler()
     {
+        var resolver = CompositeResolver.Create(
+            DynamicGenericResolver.Instance, // Для Dictionary, List и других универсальных типов
+            StandardResolver.Instance        // Стандартные типы (int, float, string и т.д.)
+        );
+        var options = MessagePackSerializerOptions.Standard.WithResolver(resolver);
+        MessagePackSerializer.DefaultOptions = options;
+
         Debug.Log("Start work SaveHandler");
 
         if (!File.Exists(Application.persistentDataPath + "/ListCharecters.json"))
@@ -62,6 +71,13 @@ public static class SaveHeandler
         _si.count = 1;
         _si.cellsId = new int[1] { 0 };
         _si.customPropertyItem.Add("Light", 60);
+        _character.items.Add(_si);
+
+        _si = new SavesItem();
+        _si.idItem = 151;
+        _si.count = 1;
+        _si.cellsId = new int[2] { 2, 3 };
+        _si.customPropertyItem.Add("Gun", 25);
         _character.items.Add(_si);
         #endregion
 

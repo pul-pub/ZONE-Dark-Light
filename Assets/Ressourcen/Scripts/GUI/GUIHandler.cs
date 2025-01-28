@@ -89,6 +89,8 @@ public class GUIHandler : MonoBehaviour
 
             bolt.OnEndDown += input.ReadOnCastBolt;
         }
+
+
     }
     
     private void OnDisable()
@@ -103,9 +105,10 @@ public class GUIHandler : MonoBehaviour
         }
     }
 
-    public void Initialization()
+    public void Awake()
     {
         input = new MobileInput(fixedJoystick);
+        //input = new DesctopInput();
 
         inventory.OnChangeOutfit += OnSetItemOutfit;
 
@@ -277,6 +280,7 @@ public class GUIHandler : MonoBehaviour
 
         textDescription.text = _dialog.text;
         _dialogNow = _dialog;
+        _dialogList = _list;
 
         for (int i = 0; i < 3; i++) 
         {
@@ -328,6 +332,7 @@ public class GUIHandler : MonoBehaviour
             {
                 SaveHeandler.SaveSession();
                 SaveHeandler.SessionSave.pos.x = _dialogNow.answers[_num].metaEntry.posTo.x;
+                SaveHeandler.SessionSave.idScene = _dialogNow.answers[_num].metaEntry.locationToID;
 
                 if (_dialogNow.NameNPC == "Каратель")
                     SaveHeandler.SessionSave.SetSwitchObject("Karatel", false);
@@ -336,6 +341,7 @@ public class GUIHandler : MonoBehaviour
             }
             else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.Dide)
             {
+                Debug.Log(_dialogList);
                 Dide(_dialogList.npc);
             }
             else
@@ -485,7 +491,7 @@ public class GUIHandler : MonoBehaviour
         while (entryScreen.color.a < 1)
         {
             entryScreen.color = new Color32(0, 0, 0, _alfa);
-            _alfa++;
+            _alfa += 2;
             yield return new WaitForEndOfFrame();
         }
         SceneManager.LoadScene(_locationToID, LoadSceneMode.Single);

@@ -66,7 +66,7 @@ public class GUIHealth : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             sliderHPMedic[i].value = _body[i].BodyParth.Hp;
-            textHpMedic[i].text = _body[i].BodyParth.baseHp + "/" + _body[i].BodyParth.Hp;
+            textHpMedic[i].text = _body[i].BodyParth.Hp + "/" + _body[i].BodyParth.baseHp;
 
             if (_body[i].BodyParth.Hp < _body[i].BodyParth.baseHp)
                 textHpMedic[i].transform.parent.parent.gameObject.SetActive(true);
@@ -99,7 +99,7 @@ public class GUIHealth : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             sliderHP[i].value = _body[i].BodyParth.Hp;
-            textHp[i].text = _body[i].BodyParth.baseHp + "/" + _body[i].BodyParth.Hp;
+            textHp[i].text = _body[i].BodyParth.Hp + "/" + _body[i].BodyParth.baseHp;
         }
     }
 

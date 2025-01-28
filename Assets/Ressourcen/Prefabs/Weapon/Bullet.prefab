@@ -163,8 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 5
   dm: 5
+  Layer: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 1920
+  trailRenderer: {fileID: 1703390762083649501}
   maxDistanc: 15
   sizeRay: {x: 0.1, y: 0.1}

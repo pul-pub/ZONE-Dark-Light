@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -228,8 +229,13 @@ public class Player : MonoBehaviour
     {
         SaveHeandler.SessionSave.pos.y = 0.8f;
 
-        SaveHeandler.SessionSave.pos.flipX = (int)transform.localScale.x;
-        SaveHeandler.SessionSave.idScene = SceneManager.GetActiveScene().buildIndex;
+        if (!_isInterecrion)
+        {
+            SaveHeandler.SessionSave.pos.x = transform.position.x;
+
+            SaveHeandler.SessionSave.pos.flipX = (int)transform.localScale.x;
+            SaveHeandler.SessionSave.idScene = SceneManager.GetActiveScene().buildIndex;
+        }
     }
 
     private void Use(ObjectItem _item)

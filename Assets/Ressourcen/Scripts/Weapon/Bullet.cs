@@ -10,12 +10,23 @@ public class Bullet : MonoBehaviour
     public IMetaEnemy meta;
 
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private SortingLayer layerMask1;
+    [SerializeField] private SortingLayer layerMask2;
+    [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private float maxDistanc = 15f;
     [SerializeField] private Vector2 sizeRay;
 
     private Vector2 _stratPosition;
 
-    private void Awake() => _stratPosition = transform.position;
+    private void Awake()
+    {
+        _stratPosition = transform.position;
+
+        if (Layer > 1)
+            trailRenderer.sortingLayerID = 4;
+        else if (Layer < -1)
+            trailRenderer.sortingLayerID = 7;
+    } 
 
     void Update()
     {

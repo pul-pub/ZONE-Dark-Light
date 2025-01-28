@@ -7,8 +7,8 @@ public class Initializer : MonoBehaviour
 
     private void Awake()
     {
-        handlerGUI.Initialization();
-        player.Initialization();
+        //handlerGUI.Initialization();
+        //player.Initialization();
 
         Destroy(gameObject);
     }

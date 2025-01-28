@@ -91,13 +91,18 @@ public class WeaponManager : MonoBehaviour
             {
                 anim.SetTrigger("Attack");
 
-                RaycastHit2D hitInfo = Physics2D.BoxCast(transform.position, knife.distantAttack, 0f, Vector2.zero, 0f, knifeLayer);
-                if (hitInfo.collider != null)
+                RaycastHit2D[] _hit = Physics2D.BoxCastAll(transform.position, knife.distantAttack, 0f, Vector2.zero, 0f, knifeLayer);
+                if (_hit.Length > 0)
                 {
-                    BodyParthColider _parth = hitInfo.collider.gameObject.GetComponent<BodyParthColider>();
+                    foreach (RaycastHit2D _h in _hit)
+                    {
+                        BodyParthColider _parth = _h.collider.gameObject.GetComponent<BodyParthColider>();
 
-                    if (_parth)
-                        _parth.ApplyDamage(knife.dm, Meta);
+                        if (_parth && _parth.Layer == Random.Range(-1, 1))
+                        {
+                            _parth.ApplyDamage(knife.dm, Meta);
+                        }
+                    }
                 }
 
                 _timer = knife.startTimeBtwShot;

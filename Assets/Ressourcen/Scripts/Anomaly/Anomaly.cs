@@ -46,24 +46,27 @@ public class Anomaly : MonoBehaviour, IMetaEnemy
     {
         while (true)
         {
-            _hit = Physics2D.BoxCastAll(transform.position, new Vector2(sizeCheckShoot, 2f), 0f, offset.normalized, offset.magnitude, layer);
+            _hit = Physics2D.BoxCastAll(transform.position, new Vector2(sizeCheckShoot, 4f), 0f, offset.normalized, offset.magnitude, layer);
 
             yield return new WaitForEndOfFrame();
             
             if (_hit.Length > 0)
             {
-                foreach (RaycastHit2D _h in _hit)
-                {
-                    BodyParthColider _parth;
-                    if (_parth = _h.collider.gameObject.GetComponent<BodyParthColider>())
-                        _parth.ApplyDamage(dm, this);
-                }
-
                 animator.SetTrigger("Attack");
                 _timer = startTimeBtwShot;
 
-                int _chackChance = Random.Range(0, 100);
+                yield return new WaitForSeconds(0.2f);
 
+                _hit = Physics2D.BoxCastAll(transform.position, new Vector2(sizeCheckShoot, 4f), 0f, offset.normalized, offset.magnitude, layer);
+
+                foreach (RaycastHit2D _h in _hit)
+                {
+                    BodyParthColider _parth;
+                    if (_parth = _h.collider.GetComponent<BodyParthColider>())
+                        _parth.ApplyDamage(dm, this);
+                }
+
+                int _chackChance = Random.Range(0, 100);
                 if (_chackChance >= chanceGiveArtifact)
                 {
                     GameObject _gObj = Instantiate(objArtifact, parent) as GameObject;

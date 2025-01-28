@@ -130,8 +130,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2432
   offset: {x: 0, y: 0, z: 0}
-  sizeCheckShoot: 1
-  dm: 10
+  sizeCheckShoot: 1.5
+  dm: 20
   startTimeBtwShot: 3
   chanceGiveArtifact: 95.4
   objArtifact: {fileID: 7468271578544820397, guid: d66550bbfc7318c4dafdcdf250288c45, type: 3}

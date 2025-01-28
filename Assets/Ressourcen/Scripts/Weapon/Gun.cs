@@ -35,8 +35,8 @@ public class Gun : Weapon
 
                 Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
-                _bulletScript.dm = dm;
-                _bulletScript.Layer = Random.Range(-scatterHorizontal, scatterHorizontal);
+                _bulletScript.dm = dm / (typeAmmo == TypeAmmo.Shotgun_12_20 ? 20 : 10);
+                _bulletScript.Layer = Random.Range(-1, 1);
                 _bulletScript.force = force;
                 _bulletScript.meta = _meta;
 
@@ -51,7 +51,7 @@ public class Gun : Weapon
             Bullet _bulletScript = _gObj.GetComponent<Bullet>();
 
             _bulletScript.dm = dm;
-            _bulletScript.Layer = Random.Range(-scatterHorizontal, scatterHorizontal);
+            _bulletScript.Layer = Random.Range(-1, 1);
             _bulletScript.force = force;
             _bulletScript.meta = _meta;
         }
