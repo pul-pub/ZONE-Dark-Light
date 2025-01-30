@@ -330,12 +330,13 @@ public class GUIHandler : MonoBehaviour
             }
             else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.WalkTo)
             {
-                SaveHeandler.SaveSession();
                 SaveHeandler.SessionSave.pos.x = _dialogNow.answers[_num].metaEntry.posTo.x;
                 SaveHeandler.SessionSave.idScene = _dialogNow.answers[_num].metaEntry.locationToID;
-
+               
                 if (_dialogNow.NameNPC == "Каратель")
                     SaveHeandler.SessionSave.SetSwitchObject("Karatel", false);
+
+                SaveHeandler.SaveSession();
 
                 StartCoroutine(AnimationEntryed(_dialogNow.answers[_num].metaEntry.locationToID));
             }
@@ -488,12 +489,14 @@ public class GUIHandler : MonoBehaviour
     {
         entryScreen.gameObject.SetActive(true);
         byte _alfa = 0;
-        while (entryScreen.color.a < 1)
+        while (entryScreen.color.a < 0.94f)
         {
             entryScreen.color = new Color32(0, 0, 0, _alfa);
-            _alfa += 2;
+            _alfa += 4;
             yield return new WaitForEndOfFrame();
+            Debug.Log(entryScreen.color.a);
         }
+        Debug.Log(_locationToID);
         SceneManager.LoadScene(_locationToID, LoadSceneMode.Single);
     }
 

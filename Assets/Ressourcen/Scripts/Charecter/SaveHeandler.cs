@@ -1,18 +1,22 @@
 using MessagePack;
 using MessagePack.Resolvers;
-using MessagePack.Unity;
 using System;
 using System.Collections;
 using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
+using System.Text;
+using System.Collections.Generic;
+using Struct;
 
 public static class SaveHeandler
 {
     public static event Action OnSaveSession;
+    public static event Action OnEndInit;
 
     public static Ids charecters;
     public static Character SessionSave;
+
 
     static SaveHeandler()
     {
@@ -23,15 +27,18 @@ public static class SaveHeandler
         var options = MessagePackSerializerOptions.Standard.WithResolver(resolver);
         MessagePackSerializer.DefaultOptions = options;
 
-        Debug.Log("Start work SaveHandler");
+        Debug.Log("Start import parameters");
 
-        if (!File.Exists(Application.persistentDataPath + "/ListCharecters.json"))
+        if (!File.Exists(Application.persistentDataPath + "/ListCharecters"))
         {
             charecters = new Ids();
             ExportSeves();
         }
 
         ImportSeves();
+        OnEndInit?.Invoke();
+
+        Debug.Log("Start work SaveHandler");
     }
 
 
@@ -100,16 +107,14 @@ public static class SaveHeandler
 
     private static void ImportSeves()
     {
-        string _json = File.ReadAllText(Application.persistentDataPath + "/ListCharecters.json");
-        byte[] _bytes = MessagePackSerializer.ConvertFromJson(_json);
-        charecters = MessagePackSerializer.Deserialize<Ids>(_bytes);
+        byte[] _data = File.ReadAllBytes(Application.persistentDataPath + "/ListCharecters");
+        charecters = MessagePackSerializer.Deserialize<Ids>(DecryptData(_data));
     }
 
     private static void ExportSeves()
     {
-        byte[] _bytes = MessagePackSerializer.Serialize(charecters);
-        string _json = MessagePackSerializer.ConvertToJson(_bytes);
-        File.WriteAllText(Application.persistentDataPath + "/ListCharecters.json", _json);
+        byte[] _data = MessagePackSerializer.Serialize(charecters);
+        File.WriteAllBytes(Application.persistentDataPath + "/ListCharecters", EncryptData(_data));
     }
 
 
@@ -122,9 +127,9 @@ public static class SaveHeandler
         ExportSeves();
     }
 
-    private static string GenerateUniqueId()
+    private static string GenerateUniqueId(int _leg = 32)
     {
-        byte[] randomBytes = new byte[32];
+        byte[] randomBytes = new byte[_leg];
 
         using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
         {
@@ -136,5 +141,91 @@ public static class SaveHeandler
         uniqueId = uniqueId.TrimEnd('=');
 
         return uniqueId;
+    }
+    private static byte[] EncryptData(byte[] dataToEncrypt)
+    {
+        byte[] _data;
+
+        using (Aes aesAlg = Aes.Create())
+        {
+            aesAlg.GenerateKey();
+            aesAlg.GenerateIV();
+
+            ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+            using (MemoryStream msEncrypt = new MemoryStream())
+            {
+                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                {
+                    csEncrypt.Write(dataToEncrypt, 0, dataToEncrypt.Length);
+                    csEncrypt.FlushFinalBlock();
+                    
+                    _data = msEncrypt.ToArray();
+                }
+            }
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] _byts = sha256.ComputeHash(_data);
+                string _hash = BitConverter.ToString(_byts);
+                AesCryptoParametrsStructure _aes = new AesCryptoParametrsStructure
+                {
+                    key = aesAlg.Key,
+                    iv = aesAlg.IV
+                };
+
+                SaveEncryptParam(_aes, _hash);
+            }
+        }
+
+        return _data;
+    }
+    private static byte[] DecryptData(byte[] dataToDecrypt) 
+    {
+        AesCryptoParametrsStructure _param = LoadEncryptParam(dataToDecrypt);
+
+        using (Aes aesAlg = Aes.Create())
+        {
+            aesAlg.Key = _param.key;
+            aesAlg.IV = _param.iv;
+
+            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+            using (MemoryStream msDecrypt = new MemoryStream(dataToDecrypt))
+            {
+                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                {
+                    using (MemoryStream msOutput = new MemoryStream())
+                    {
+                        csDecrypt.CopyTo(msOutput);
+                        return msOutput.ToArray();
+                    }
+                }
+            }
+        }
+    }
+
+    private static void SaveEncryptParam(AesCryptoParametrsStructure _param, string _key)
+    {
+        string _json = JsonUtility.ToJson(_param);
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString(_key, _json);
+    }
+
+    private static AesCryptoParametrsStructure LoadEncryptParam(byte[] dataToDecrypt)
+    {
+        string _key;
+
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] _byts = sha256.ComputeHash(dataToDecrypt);
+            _key = BitConverter.ToString(_byts);
+        }
+
+        if (_key == null)
+            return null;
+
+        string _json = PlayerPrefs.GetString(_key);
+        return JsonUtility.FromJson<AesCryptoParametrsStructure>(_json);
     }
 }

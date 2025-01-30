@@ -35,7 +35,7 @@ public class CharecterMenu : MonoBehaviour
 
     private int _score = 7;
 
-    private void Awake()
+    private void Start()
     {
         if (SaveHeandler.charecters.keysCharecters.Count > 0)
         {
