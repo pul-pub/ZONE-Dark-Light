@@ -102,30 +102,6 @@ public class Movement : MonoBehaviour
         return false;
     }
 
-    private void Animation(string _name, float _speed)
-    {
-        if (_name == "Jump")
-        {
-            animator.SetTrigger("Jump");
-            animator.speed = 1;
-        }
-        else if (name == "Go")
-        {
-            
-            Debug.Log("GO ---- " + _speed);
-        }
-        else if (_name == "Squat")
-        {
-            animator.SetInteger("Move", 2);
-            animator.speed = _speed;
-            Debug.Log("SQUAT ---- " + _speed);
-        }
-        else
-        {
-            
-        }
-    }
-
     private void Flip()
     {
         toRight = !toRight;

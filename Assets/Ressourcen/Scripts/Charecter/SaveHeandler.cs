@@ -21,8 +21,8 @@ public static class SaveHeandler
     static SaveHeandler()
     {
         var resolver = CompositeResolver.Create(
-            DynamicGenericResolver.Instance, // Для Dictionary, List и других универсальных типов
-            StandardResolver.Instance        // Стандартные типы (int, float, string и т.д.)
+            DynamicGenericResolver.Instance, 
+            StandardResolver.Instance        
         );
         var options = MessagePackSerializerOptions.Standard.WithResolver(resolver);
         MessagePackSerializer.DefaultOptions = options;

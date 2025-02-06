@@ -59,10 +59,8 @@ public class GUIDetector : MonoBehaviour
 
     private Sprite GenerateSinWaveSprite(float _amplitude, float _period)
     {
-        // Создаем текстуру
         Texture2D texture = new Texture2D(textureWidth, textureHeight);
 
-        // Заполняем текстуру прозрачным цветом
         Color[] clearPixels = new Color[textureWidth * textureHeight];
         for (int i = 0; i < clearPixels.Length; i++)
         {
@@ -70,22 +68,16 @@ public class GUIDetector : MonoBehaviour
         }
         texture.SetPixels(clearPixels);
 
-        // Середина текстуры по вертикали
         float middleY = textureHeight / 2f;
 
-        // Рисуем синусоиду
         for (int x = 0; x < textureWidth; x++)
         {
-            // Вычисляем значение y для текущего x
             float normalizedX = (float)x / textureWidth;
-            //float y = _amplitude * Mathf.Sin(2 * Mathf.PI * normalizedX * (1.0f / _period));
             float y =  Mathf.Sin(2 * Mathf.PI * normalizedX * (1.0f / _period));
 
-            // Масштабируем y и смещаем его относительно середины текстуры
             float scaledY = y * 0.5f;
             int textureY = Mathf.RoundToInt(middleY + scaledY * middleY / _amplitude);
 
-            // Рисуем линию с заданной толщиной
             for (int i = -lineThickness / 2; i <= lineThickness / 2; i++)
             {
                 int currentY = textureY + i;
@@ -96,10 +88,8 @@ public class GUIDetector : MonoBehaviour
             }
         }
 
-        // Применяем изменения в текстуре
         texture.Apply();
 
-        // Создаем спрайт из текстуры
         Sprite sprite = Sprite.Create(texture, new Rect(0, 0, textureWidth, textureHeight), new Vector2(0.5f, 0.5f));
 
         return sprite;

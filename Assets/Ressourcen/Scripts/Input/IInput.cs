@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 
-public enum TypeInteraction { TackeBackpack, Dialog };
-
 public interface IInput
 {
     public event Action<Vector2> OnMove;

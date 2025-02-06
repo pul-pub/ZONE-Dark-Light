@@ -1,5 +1,4 @@
 using MessagePack;
-using MessagePack.Unity;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

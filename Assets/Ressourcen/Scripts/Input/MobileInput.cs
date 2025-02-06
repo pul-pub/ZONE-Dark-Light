@@ -36,9 +36,5 @@ public class MobileInput : IInput
     public void ReadNumWeapon(int _num) => OnSetNumWeapon?.Invoke(_num);
     public void ReadOnCastBolt(Vector2 _vec) => OnCastBolt?.Invoke(Math.Abs(_vec.x) + Math.Abs(_vec.y));
     public void ReadButtonReload() => OnRload?.Invoke();
-    public void ReadResetOutfit(Item[] _items)
-    {
-        if (OnResetOutfit != null)
-            OnResetOutfit.Invoke(_items);
-    }
+    public void ReadResetOutfit(Item[] _items) => OnResetOutfit?.Invoke(_items);
 }
