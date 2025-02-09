@@ -7,9 +7,9 @@ public class Dialog : ScriptableObject
     public int Id;
     public string NameNPC;
     [Header("Награда за квест")]
-    public int getMoney = -1;
-    public Item getItem;
-    public int countItem;
+    public int GiveMoney = -1;
+    public Item GiveItem;
+    public int GiveCountItem;
     [Header("Текст")]
     [TextArea]public string text;
     [Header("Ответы")]

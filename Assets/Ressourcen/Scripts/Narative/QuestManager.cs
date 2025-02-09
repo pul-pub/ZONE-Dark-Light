@@ -67,8 +67,8 @@ public class QuestManager : MonoBehaviour
     {
         if (_nowQuest == _q)
         {
-            handler.UpdateQuest(_nowQuest);
             _nowQuest = null;
+            handler.UpdateQuest(_nowQuest);
         }  
 
         _quests.Remove(_q);

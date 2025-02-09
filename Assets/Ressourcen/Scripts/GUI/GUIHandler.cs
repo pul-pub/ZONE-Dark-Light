@@ -11,6 +11,7 @@ public class GUIHandler : MonoBehaviour
     public Inventory inventory;
     public GUIDetector Detector;
     public GUIHealth Health;
+    public GUICall Call;
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private GameObject inputUI;
     [SerializeField] private GameObject diskriptObject;
@@ -194,7 +195,7 @@ public class GUIHandler : MonoBehaviour
 
                 textInterection.text = "Обыскать";
             }
-            else
+            else if (_entr)
             {
                 textInterection.text = "Перейти";
 
@@ -202,6 +203,15 @@ public class GUIHandler : MonoBehaviour
                 _dialog = null;
                 _npcPack = null;
                 _entry = _entr;
+            }
+            else
+            {
+                textInterection.text = "";
+
+                _dialogList = null;
+                _dialog = null;
+                _npcPack = null;
+                _entry = null;
             }
         }
         else
@@ -257,6 +267,11 @@ public class GUIHandler : MonoBehaviour
     }
     public void SetDialog(DialogList _list, Dialog _dialog)
     {
+        if (_dialog.GiveMoney > 0)
+            inventory.money += _dialog.GiveMoney;
+        if (_dialog.GiveItem)
+            inventory.SetItem(_dialog.GiveItem, _dialog.GiveCountItem);
+
         if (!screenDialogs.activeSelf)
         {
             screenDialogs.SetActive(true);
@@ -324,6 +339,9 @@ public class GUIHandler : MonoBehaviour
                 SetDialog(null, _dialogNow.answers[_num].nextDialog);
             else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.Quest)
             {
+                if (_dialogNow.NameNPC == "Лебедев" && _dialogNow.Id == 3)
+                    SaveHeandler.SessionSave.SetSwitchObject("InScene", false);
+
                 questManager.SetNewQuest(_dialogNow.answers[_num].quest);
                 screenDialogs.SetActive(false);
                 _dialogNow = null;
@@ -347,6 +365,12 @@ public class GUIHandler : MonoBehaviour
             }
             else
             {
+                if (_dialogNow.NameNPC == "Сварог" && _dialogNow.Id == 0)
+                {
+                    SaveHeandler.SessionSave.SetSwitchObject("SvarogS", false);
+                    SaveHeandler.SessionSave.SetSwitchObject("InScene", true);
+                }
+
                 screenDialogs.SetActive(false);
                 _dialogNow = null;
             } 
@@ -367,15 +391,13 @@ public class GUIHandler : MonoBehaviour
             }
 
             if (SceneManager.GetActiveScene().buildIndex == _quest.idScene)
-                _posQuest = new Vector3(_quest.position.x, 2.5f, 0);
+                _posQuest = new Vector3(_quest.position.x, (_quest.position.y == 0 ? 2.5f : _quest.position.y), 0);
             else
             {
                 EntryMeta _ent;
 
                 if (_ent = map.FindPath(SceneManager.GetActiveScene().buildIndex, _quest.idScene))
-                {
                     _posQuest = new Vector3(_ent.posFrom.x, 2.5f, 0);
-                }
             }
         }
         else

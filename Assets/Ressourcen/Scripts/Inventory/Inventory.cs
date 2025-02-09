@@ -112,6 +112,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool SetItem(Item _item, int _count) => AddItem(_item.Clone(), _count, _items);
+
     private bool AddItem(Item _item, int _count, List<ObjectItem> _list, bool _npc = false, int[] _addCell = null)
     {
         if (_item.countCell == 1)

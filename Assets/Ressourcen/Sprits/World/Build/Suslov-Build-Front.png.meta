@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 81a499659d72e224b92aee7123a2a63a
+labels:
+- Building
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -37,7 +39,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -160,7 +162,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Suslov-Build-Front_0: 8365111252615974467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

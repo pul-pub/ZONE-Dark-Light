@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildObject : MonoBehaviour
@@ -7,9 +7,9 @@ public class BuildObject : MonoBehaviour
     [SerializeField] private LayerMask layer;
     [SerializeField] private Vector2 sizeCheck;
     [Space]
-    [SerializeField] private SpriteRenderer spRender;
+    [SerializeField] private List<SpriteRenderer> spRender;
 
-    private Coroutine _anim;
+    private Dictionary<SpriteRenderer, Coroutine> _anims = new();
 
     private void Awake()
     {
@@ -22,25 +22,16 @@ public class BuildObject : MonoBehaviour
         {
             RaycastHit2D _hit = Physics2D.BoxCast(transform.position, sizeCheck, 0f, Vector2.zero, 0f, layer);
 
-            if (_hit && spRender.color.a == 1)
+            foreach (SpriteRenderer _render in spRender)
             {
-                if (_anim != null)
+                if (_render.color.a == (_hit ? 1 : 0))
                 {
-                    StopCoroutine(_anim);
-                    _anim = null;
-                }
+                    if (!_anims.TryAdd(_render, null))
+                        if (_anims[_render] != null)
+                            StopCoroutine(_anims[_render]);
 
-                _anim = StartCoroutine(SetAlfa(spRender, -4));
-            }
-            else if (!_hit && spRender.color.a == 0)
-            {
-                if (_anim != null)
-                {
-                    StopCoroutine(_anim);
-                    _anim = null;
+                    _anims[_render] = StartCoroutine(SetAlfa(_render, (short)(_hit ? -4 : 4)));
                 }
-
-                _anim = StartCoroutine(SetAlfa(spRender));
             }
 
             yield return new WaitForEndOfFrame();

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
+  m_Name: ClearSky-2
+  m_EditorClassIdentifier: 
+  id: 141
+  Name: 
+  Discription: 
+  type: 2
+  typeAmmo: 0
+  price: 500
+  countCell: 1
+  maxCount: 1
+  weight: 12
+  gun: {fileID: 0}
+  light: {fileID: 0}
+  backpack: {fileID: 0}
+  armor: {fileID: 11400000, guid: 862ca888c08185c4c9d88a00bdf7ae4b, type: 2}
+  detector: {fileID: 0}
+  artifact: {fileID: 0}
+  medic: {fileID: 0}
+  img: {fileID: -873043707, guid: aec64689a51cb834c8d48099dca03a27, type: 3}

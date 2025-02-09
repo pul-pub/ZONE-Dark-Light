@@ -12,6 +12,9 @@ public static class StaticValue
 
     static StaticValue()
     {
-        baseSwitcherObject.Add("Karatel", true);
+        baseSwitcherObject.Add("Karatel", true); //первый чистонебовац на болтотах
+        baseSwitcherObject.Add("StartCall", true); // Начальный разговор по рации
+        baseSwitcherObject.Add("InScene", false); //анимация ухода Крота и Сварога
+        baseSwitcherObject.Add("SvarogS", true); //первый разговор со Сварогом
     }
 }

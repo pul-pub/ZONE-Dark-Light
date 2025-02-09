@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   NameFrom: "\u041B\u0435\u0431\u0435\u0434\u0435\u0432"
-  NameTo: "\u0421\u0442\u0443\u0441\u043B\u043E\u0432"
-  position: {x: -160, y: 2.5}
+  NameTo: "\u0421\u0443\u0441\u043B\u043E\u0432"
+  position: {x: -146.8, y: 0}
   idScene: 3
-  textTitell: "\u0421\u043D\u0430\u0440\u044F\u043A\u0430"
+  textTitell: "\u0421\u043D\u0430\u0440\u044F\u0433\u0430"
   textDiscription: "\u0412\u0437\u044F\u0442\u044C \u0441\u043D\u0430\u0440\u044F\u0433\u0443
     \u0443 \u0421\u0442\u0443\u0441\u043B\u043E\u0432\u0430"
-  startDialog: {fileID: 11400000, guid: 77a3f4a335cc1d94f98fac854bb1c36a, type: 2}
+  textFullDiscription: 
+  startDialog: {fileID: 11400000, guid: 5103dc346bb49354f9be1e9a6f5f06ac, type: 2}

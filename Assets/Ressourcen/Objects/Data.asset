@@ -51,6 +51,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e02fc8b56a8296944900a3aaefa21aa8, type: 2}
   - {fileID: 11400000, guid: eaf4079128df6ba42b0310c640358c6b, type: 2}
   - {fileID: 11400000, guid: 1c815724f5d55994db8df55121e531de, type: 2}
+  - {fileID: 11400000, guid: bae452618bca8404e979a7188cfa1ced, type: 2}
+  - {fileID: 11400000, guid: b84b640e6464623449bb3d4a36236da9, type: 2}
+  - {fileID: 11400000, guid: 97a4eca2c3865ba47b300239c2a8c938, type: 2}
+  - {fileID: 11400000, guid: 4a98a2d2430d8ed4fb551cf906e46bc2, type: 2}
   guns: []
   lights: []
   faces:
@@ -61,3 +65,5 @@ MonoBehaviour:
   - {fileID: 1014202478, guid: dd65a836cea4653459014f8adee7610c, type: 3}
   quests:
   - {fileID: 11400000, guid: 83bad5671ad6835458653883b7426e79, type: 2}
+  - {fileID: 11400000, guid: f940758f021787843ab1521bec669845, type: 2}
+  - {fileID: 11400000, guid: 4c4acc68df7fa16499af9986f0f45cf8, type: 2}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 141
   Name: 
+  Discription: 
   type: 2
   typeAmmo: 0
   price: 500
@@ -24,4 +25,7 @@ MonoBehaviour:
   light: {fileID: 0}
   backpack: {fileID: 0}
   armor: {fileID: 11400000, guid: 98ee9d62a997b534d8b9eddd70204fc7, type: 2}
-  img: {fileID: -770730594, guid: 59da459cce458b745b105a97ecae6d56, type: 3}
+  detector: {fileID: 0}
+  artifact: {fileID: 0}
+  medic: {fileID: 0}
+  img: {fileID: 1875577057, guid: c6aaed85897ae87469a316ed09e5247d, type: 3}

@@ -269,6 +269,7 @@ MonoBehaviour:
   detector: {fileID: 4744622444447235794}
   health: {fileID: 4820694159816303391}
   energy: {fileID: 4516177852703971667}
+  start: {fileID: 11400000, guid: 6c01ceb5b19c0fd498925c15c2719152, type: 2}
 --- !u!114 &7711490262845710342
 MonoBehaviour:
   m_ObjectHideFlags: 0

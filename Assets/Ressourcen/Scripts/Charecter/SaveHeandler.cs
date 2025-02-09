@@ -5,8 +5,6 @@ using System.Collections;
 using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
-using System.Text;
-using System.Collections.Generic;
 using Struct;
 
 public static class SaveHeandler
@@ -91,7 +89,9 @@ public static class SaveHeandler
         _character.idActivQuest = 0;
         _character.idQuests.Add(0);
 
-        _character.switcherObject = StaticValue.baseSwitcherObject;
+        _character.switcherObject = new();
+        foreach (string k in StaticValue.baseSwitcherObject.Keys)
+            _character.switcherObject.Add(k, StaticValue.baseSwitcherObject[k]);
 
         _character.time = new int[2] { 6, 0 };
         _character.isRain = false;

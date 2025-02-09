@@ -9,6 +9,7 @@ public class NpcAI : MonoBehaviour
 
     [Header("AI")]
     public bool IsFreePerson = false;
+    public float FreeSpeed = 0.25f;
     public Vector2 freeArea;
     [Space]
     public LayerMask Layer;
@@ -47,7 +48,7 @@ public class NpcAI : MonoBehaviour
         while (IsTargetValue(transform.position, _target, true))
         {
             OnMove.Invoke(new Vector2(
-                        0.25f * _vec.normalized.x,
+                        FreeSpeed * _vec.normalized.x,
                         _listJump ? 1 : 0));
 
             yield return new WaitForSeconds(0.1f);

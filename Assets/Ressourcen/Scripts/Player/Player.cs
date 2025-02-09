@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public Detector detector;
     public Health health;
     public Energy energy;
+    [Space]
+    [SerializeField] private DialogCall start;
 
     private bool _isInterecrion = false;
     private Coroutine _coroutine;
@@ -55,6 +57,12 @@ public class Player : MonoBehaviour
             scaler.x = scaler.x * -1;
             transform.localScale = scaler;
         }
+
+        if (SaveHeandler.SessionSave.switcherObject["StartCall"] && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            handlerGUI.Call.OpenDialog(start);
+            SaveHeandler.SessionSave.SetSwitchObject("StartCall", false);
+        } 
     }
 
     private void OnEnable()
