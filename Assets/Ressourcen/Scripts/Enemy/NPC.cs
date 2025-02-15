@@ -76,6 +76,9 @@ public class NPC : NpcAI, IMetaEnemy
 
     private void OnDide(IMetaEnemy _meta)
     {
+        if (gameObject.name == "MninBoss-1")
+            SaveHeandler.SessionSave.SetSwitchObject("MninBoss-1", false);
+
         movement.Dide(dideAngel);
         backpack = backpackObject.Clone();
         backpack.OnNullBackpack += delegate { Destroy(gameObject); };

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public Health health;
     public Energy energy;
     [Space]
-    [SerializeField] private DialogCall start;
+    [SerializeField] private DialogCall[] calls;
 
     private bool _isInterecrion = false;
     private Coroutine _coroutine;
@@ -60,9 +60,14 @@ public class Player : MonoBehaviour
 
         if (SaveHeandler.SessionSave.switcherObject["StartCall"] && SceneManager.GetActiveScene().buildIndex == 3)
         {
-            handlerGUI.Call.OpenDialog(start);
+            handlerGUI.Call.OpenDialog(calls[0]);
             SaveHeandler.SessionSave.SetSwitchObject("StartCall", false);
-        } 
+        }
+        if (SaveHeandler.SessionSave.switcherObject["ProvodnikCall-Cerkov"] && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            handlerGUI.Call.OpenDialog(calls[1]);
+            SaveHeandler.SessionSave.SetSwitchObject("ProvodnikCall-Cerkov", false);
+        }
     }
 
     private void OnEnable()

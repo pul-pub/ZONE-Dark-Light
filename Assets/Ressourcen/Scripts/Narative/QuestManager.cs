@@ -49,12 +49,10 @@ public class QuestManager : MonoBehaviour
         return _quests.Find(q => q.NameTo == _nameTo);
     }
 
-    public void SetNewQuest(Quest _q)
+    public void AddQuest(Quest _q)
     {
-        _nowQuest = _q;
         _quests.Add(_q);
-        UpdateMarkers();
-        handler.UpdateQuest(_nowQuest);
+        SetNowQuest(_q);
     }
     public void SetNowQuest(Quest _q)
     {

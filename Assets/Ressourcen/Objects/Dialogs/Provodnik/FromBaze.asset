@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   NameNPC: "\u0422\u0440\u043E\u043F\u043D\u0438\u043A"
-  getMoney: -1
-  getItem: {fileID: 0}
-  countItem: 0
+  GiveMoney: -1
+  GiveItem: {fileID: 0}
+  GiveCountItem: 0
   text: "\u0425\u0430\u0439, \u0441\u0442\u0430\u043B\u043A\u0435\u0440! \u0425\u043E\u0447\u0435\u0448\u044C
     \u0434\u043E\u0431\u0440\u0430\u0442\u044C\u0441\u044F \u0434\u043E \u043A\u0443\u0434\u043E\u0432\u0430?"
   answers:
@@ -24,12 +24,15 @@ MonoBehaviour:
       \u0431\u044B \u043F\u043E\u043F\u0430\u0441\u0442\u044C..."
     nextDialog: {fileID: 0}
     metaEntry: {fileID: 11400000, guid: 0ceea587173ff3746abbb359e1e2b3de, type: 2}
+    quest: {fileID: 0}
     typeDescriptions: 5
   - text: "\u0412 \u0446\u0435\u0440\u043A\u043E\u0432\u044C."
     nextDialog: {fileID: 0}
-    metaEntry: {fileID: 11400000, guid: 0ceea587173ff3746abbb359e1e2b3de, type: 2}
+    metaEntry: {fileID: 11400000, guid: fdf35826ebcaee6488227a292a7af276, type: 2}
+    quest: {fileID: 0}
     typeDescriptions: 5
   - text: "\u0414\u0430 \u043D\u0435..."
     nextDialog: {fileID: 0}
     metaEntry: {fileID: 0}
+    quest: {fileID: 0}
     typeDescriptions: 4

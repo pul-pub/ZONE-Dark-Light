@@ -2,6 +2,7 @@ using MessagePack;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 [MessagePackObject]
 public class Character
@@ -78,7 +79,9 @@ public class Character
         _new.idQuests = idQuests;
         _new .idEndingQuests = idEndingQuests;
 
-        _new.switcherObject = switcherObject;
+        _new.switcherObject = new();
+        foreach (string k in switcherObject.Keys)
+            _new.switcherObject.Add(k, switcherObject[k]);
         _new.time = time;
         _new.isRain = isRain;
 

@@ -25,3 +25,8 @@ MonoBehaviour:
     Name: "\u0411\u0430\u0437\u0430 \u0427\u0438\u0441\u0442\u043E\u0433\u043E \u041D\u0435\u0431\u0430"
     Connections:
     - {fileID: 11400000, guid: 0ceea587173ff3746abbb359e1e2b3de, type: 2}
+    - {fileID: 11400000, guid: fdf35826ebcaee6488227a292a7af276, type: 2}
+  - ID: 4
+    Name: "\u0426\u0435\u0440\u043A\u043E\u0432\u044C"
+    Connections:
+    - {fileID: 11400000, guid: 8c05074a36883f149894a4a2023d05d5, type: 2}

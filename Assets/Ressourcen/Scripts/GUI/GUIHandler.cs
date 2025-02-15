@@ -61,6 +61,8 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private RectTransform buttonLight;
     [Header("Entry Screen")]
     [SerializeField] private Image entryScreen;
+    [Space]
+    [SerializeField] private Quest endCercov;
 
     public IInput input;
 
@@ -131,10 +133,18 @@ public class GUIHandler : MonoBehaviour
             else
             {
                 if (_o.x > 0)
-                    marker.position = new Vector3(Screen.width, _o.y, 0);
+                    marker.position = new Vector3(Screen.width, 1000, 0);
                 else
-                    marker.position = new Vector3(0, _o.y, 0);
+                    marker.position = new Vector3(0, 1000, 0);
             }
+        }
+
+        if (!SaveHeandler.SessionSave.switcherObject["MninBoss-1"] &&
+            SaveHeandler.SessionSave.switcherObject["MninBoss-1-End"])
+        {
+            questManager.SetEndQuest(questManager.GetNowQuests());
+            questManager.AddQuest(endCercov);
+            SaveHeandler.SessionSave.SetSwitchObject("MninBoss-1-End", false);
         }
     }
 
@@ -342,7 +352,7 @@ public class GUIHandler : MonoBehaviour
                 if (_dialogNow.NameNPC == "Лебедев" && _dialogNow.Id == 3)
                     SaveHeandler.SessionSave.SetSwitchObject("InScene", false);
 
-                questManager.SetNewQuest(_dialogNow.answers[_num].quest);
+                questManager.AddQuest(_dialogNow.answers[_num].quest);
                 screenDialogs.SetActive(false);
                 _dialogNow = null;
             }
@@ -385,6 +395,7 @@ public class GUIHandler : MonoBehaviour
             {
                 descriptionQuest.gameObject.SetActive(true);
                 titleQuest.gameObject.SetActive(true);
+                marker.gameObject.SetActive(true);
 
                 descriptionQuest.text = _quest.textDiscription;
                 titleQuest.text = _quest.textTitell;

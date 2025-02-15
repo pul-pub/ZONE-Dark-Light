@@ -19809,6 +19809,7 @@ MonoBehaviour:
   buttonReload: {fileID: 7290751811182582250}
   buttonLight: {fileID: 6320495030351098151}
   entryScreen: {fileID: 3822629867438988990}
+  endCercov: {fileID: 11400000, guid: 4c4acc68df7fa16499af9986f0f45cf8, type: 2}
 --- !u!114 &2704859324649013574
 MonoBehaviour:
   m_ObjectHideFlags: 0
