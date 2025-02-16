@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class OutFitManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class OutFitManager : MonoBehaviour
     [SerializeField] private SpriteRenderer backpackSpRend;
     [SerializeField] private SpriteRenderer[] armorRenders;
     [SerializeField] private SpriteRenderer face;
+    [SerializeField] private Animator animLeg;
     [SerializeField] private ArmorObject nullArmor;
 
     public int MaxMass { get; private set; } = 20;
@@ -31,7 +33,7 @@ public class OutFitManager : MonoBehaviour
             armor = _items[2].armorObject;
         else
             armor = nullArmor;
-        Debug.Log(armor);
+        
         AntiBullet = armor.AntiBullet;
         AntiRadiation = armor.AntiRadiation;
 
@@ -40,6 +42,9 @@ public class OutFitManager : MonoBehaviour
         armorRenders[1].sprite = armor.ImgBody;
         armorRenders[2].sprite = armor.ImgHand;
         armorRenders[3].sprite = armor.ImgHand;
+
+        if (animLeg != null)
+            animLeg.runtimeAnimatorController = armor.animLeg;
 
         if (_items[3] != null)
         {

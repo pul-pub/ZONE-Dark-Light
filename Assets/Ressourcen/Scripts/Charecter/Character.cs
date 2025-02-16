@@ -14,6 +14,8 @@ public class Character
     public PlayerPos pos;
     [Key(1)]
     public int idScene = 1;
+    [Key(19)]
+    public bool onLight;
     #endregion
 
     #region INVENTORY
@@ -57,9 +59,11 @@ public class Character
     public int idFace = 0;
     [Key(16)]
     public Dictionary<string, int> characteristics = new Dictionary<string, int>();
+    [Key(17)]
+    public Dictionary<string, float> hpBodyParth = new Dictionary<string, float>();
     #endregion
 
-    [Key(17)]
+    [Key(18)]
     public string endTimeSession;
 
     public Character Clone()
@@ -82,6 +86,7 @@ public class Character
         _new.switcherObject = new();
         foreach (string k in switcherObject.Keys)
             _new.switcherObject.Add(k, switcherObject[k]);
+        _new.hpBodyParth = new();
         _new.time = time;
         _new.isRain = isRain;
 
@@ -89,6 +94,8 @@ public class Character
         _new.name = name;
         _new.idFace = idFace;
         _new.characteristics = characteristics;
+        foreach (string k in hpBodyParth.Keys)
+            _new.hpBodyParth.Add(k, hpBodyParth[k]);
 
         _new.endTimeSession = endTimeSession;
 

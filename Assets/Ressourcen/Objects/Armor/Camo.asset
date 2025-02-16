@@ -18,6 +18,7 @@ MonoBehaviour:
   ImgBody: {fileID: -770730594, guid: 59da459cce458b745b105a97ecae6d56, type: 3}
   ImgHand: {fileID: -66581045, guid: 59da459cce458b745b105a97ecae6d56, type: 3}
   ImgLeg: {fileID: 860788177, guid: 59da459cce458b745b105a97ecae6d56, type: 3}
+  animLeg: {fileID: 9100000, guid: 0aa986fd45192664f841accded35f7c6, type: 2}
   massUp: 5
   AntiBullet: 5
   AntiRadiation: 5

@@ -333,6 +333,7 @@ MonoBehaviour:
   - {fileID: 6768174534171050596}
   - {fileID: 7226810887275702627}
   face: {fileID: 4090358064456751018}
+  animLeg: {fileID: 7864175797496108711}
   nullArmor: {fileID: 11400000, guid: 3f00ca87b3e807d4389e70403e9580ea, type: 2}
 --- !u!114 &4820694159816303391
 MonoBehaviour:
@@ -346,7 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac52175d1cdb42f44b29dcfeb309a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseValueHealth: 100
   isDamagebly: 1
   listBodyParths:
   - {fileID: 2453624208100004168}
@@ -354,6 +354,7 @@ MonoBehaviour:
   - {fileID: 3225646258304370326}
   - {fileID: 2533667078891136544}
   - {fileID: 318435980378344092}
+  baseValueHealth: 100
 --- !u!114 &4516177852703971667
 MonoBehaviour:
   m_ObjectHideFlags: 0

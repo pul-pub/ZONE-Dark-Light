@@ -61,9 +61,17 @@ public static class SaveHeandler
         _character.characteristics.Add("Ловкость", _charecteristic[2]);
         _character.characteristics.Add("Интелект", _charecteristic[0]);
 
+        #region BODY PARTH
+        _character.hpBodyParth.Add("body", 155);
+        _character.hpBodyParth.Add("head", 35);
+        _character.hpBodyParth.Add("armL", 60);
+        _character.hpBodyParth.Add("armR", 60);
+        _character.hpBodyParth.Add("leg", 130);
+        #endregion
+
         _character.money = 0;
 
-        #region ADD_ITEM
+        #region ADD ITEM
         SavesItem _si = new SavesItem();
         _si.idItem = 140;
         _si.count = 1;
@@ -121,6 +129,7 @@ public static class SaveHeandler
     private static IEnumerator Save()
     {
         SaveSession();
+        SessionSave.endTimeSession = DateTime.Now.ToString();
         yield return new WaitForEndOfFrame();
         charecters.keysCharecters[StaticValue.SessionToken] = SessionSave.Clone();
         yield return new WaitForEndOfFrame();

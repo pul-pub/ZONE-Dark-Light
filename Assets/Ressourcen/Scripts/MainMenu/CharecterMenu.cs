@@ -249,7 +249,7 @@ public class CharecterMenu : MonoBehaviour
     private bool IsTargetValue(Vector3 current, Vector3 target, bool invers = false, float range = 0.1f)
     {
         Vector3 _v = current - target;
-        Debug.Log(Math.Abs(_v.y));
+
         if (Math.Abs(_v.x) <= range &&
             Math.Abs(_v.y) <= range &&
             Math.Abs(_v.z) <= range)

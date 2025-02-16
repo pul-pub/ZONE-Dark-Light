@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
         health.Deid += handlerGUI.Dide;
         health.OnChangeValueHealth += UpdateHealth;
         health.SetDebaff += OnDebuff;
+        health.OnEndInitilization += UpdateHealth;
         SaveHeandler.OnSaveSession += SaveSessinon;
     }
 
@@ -121,6 +122,7 @@ public class Player : MonoBehaviour
         health.Deid -= handlerGUI.Dide;
         health.OnChangeValueHealth -= UpdateHealth;
         health.SetDebaff -= OnDebuff;
+        health.OnEndInitilization -= UpdateHealth;
         SaveHeandler.OnSaveSession -= SaveSessinon;
     }
 
