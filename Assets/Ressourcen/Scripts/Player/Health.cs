@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public event Action<IMetaEnemy> Deid;
+    public event Action<IMetaEssence> Deid;
     public event Action<TypeBodyParth, float> SetDebaff;
     public event Action OnChangeValueHealth;
     public event Action OnEndInitilization;
@@ -54,14 +55,13 @@ public class Health : MonoBehaviour
             listBodyParths[2].BodyParth.Hp = SaveHeandler.SessionSave.hpBodyParth["armL"];
             listBodyParths[3].BodyParth.Hp = SaveHeandler.SessionSave.hpBodyParth["armR"];
             listBodyParths[4].BodyParth.Hp = SaveHeandler.SessionSave.hpBodyParth["leg"];
-            Debug.Log(SaveHeandler.SessionSave.hpBodyParth["leg"]);
 
             OnEndInitilization?.Invoke();
         }
     }
 
 
-    public void OnTakeDamage(BodyParthMeta _parth, IMetaEnemy _meta)
+    public void OnTakeDamage(BodyParthMeta _parth, IMetaEssence _meta)
     {
         if ((_parth.TypeBodyParths == TypeBodyParth.Head && _parth.Hp <= 5) ||
             (_parth.TypeBodyParths == TypeBodyParth.Body && _parth.Hp <= 5))
@@ -79,7 +79,5 @@ public class Health : MonoBehaviour
         SaveHeandler.SessionSave.hpBodyParth["armL"] = listBodyParths[2].BodyParth.Hp;
         SaveHeandler.SessionSave.hpBodyParth["armR"] = listBodyParths[3].BodyParth.Hp;
         SaveHeandler.SessionSave.hpBodyParth["leg"] = listBodyParths[4].BodyParth.Hp;
-
-        Debug.Log(SaveHeandler.SessionSave.hpBodyParth["leg"]);
     }
 }

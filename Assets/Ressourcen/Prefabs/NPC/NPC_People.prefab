@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFreePerson: 1
+  FreeSpeed: 0.25
   freeArea: {x: 15, y: 40}
   Layer:
     serializedVersion: 2
@@ -630,6 +631,7 @@ MonoBehaviour:
   SizeCheckAttack: 10
   SizeCheckObject: 4
   NameNPC: 
+  TypeBaseG: 4
   Face: {fileID: 0}
   backpackObject: {fileID: 11400000, guid: 6574d339ce0e28445ae7449ca861d924, type: 2}
   movement: {fileID: 8190379172797287547}
@@ -685,6 +687,7 @@ MonoBehaviour:
   - {fileID: 8943240543348500166}
   - {fileID: 5818085850842388317}
   face: {fileID: 0}
+  animLeg: {fileID: 0}
   nullArmor: {fileID: 11400000, guid: 3f00ca87b3e807d4389e70403e9580ea, type: 2}
 --- !u!114 &3128481703533352914
 MonoBehaviour:
@@ -698,7 +701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac52175d1cdb42f44b29dcfeb309a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseValueHealth: 100
   isDamagebly: 1
   listBodyParths:
   - {fileID: 4252626164222926691}
@@ -706,6 +708,7 @@ MonoBehaviour:
   - {fileID: 9083667028558611838}
   - {fileID: 7372425061031536422}
   - {fileID: 8169566787909441382}
+  baseValueHealth: 100
 --- !u!1 &5141742874398459547
 GameObject:
   m_ObjectHideFlags: 0

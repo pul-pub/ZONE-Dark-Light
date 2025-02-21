@@ -1811,7 +1811,7 @@ MonoBehaviour:
   - {fileID: 1321728284}
   - {fileID: 1552145107}
   buttonPlayNew: {fileID: 1584577103}
-  nullArmor: {fileID: 0}
+  nullArmor: {fileID: 11400000, guid: 3f00ca87b3e807d4389e70403e9580ea, type: 2}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0

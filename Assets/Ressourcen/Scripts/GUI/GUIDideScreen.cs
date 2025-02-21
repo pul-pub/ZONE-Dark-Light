@@ -19,7 +19,7 @@ public class GUIDideScreen : MonoBehaviour
         SceneManager.LoadScene(SaveHeandler.SessionSave.idScene, LoadSceneMode.Single);
     }
 
-    public void OnDide(IMetaEnemy _meta)
+    public void OnDide(IMetaEssence _meta)
     {
         screen.SetActive(true);
 

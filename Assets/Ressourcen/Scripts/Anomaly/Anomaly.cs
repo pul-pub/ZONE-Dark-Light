@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Anomaly : MonoBehaviour, IMetaEnemy
+public class Anomaly : MonoBehaviour, IMetaEssence
 {
     [SerializeField] private string NameAnomaly;
+    [SerializeField] private TypeGroup TypeBaseG;
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spRender;
@@ -25,10 +26,11 @@ public class Anomaly : MonoBehaviour, IMetaEnemy
 
     public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
     public string Name { get; set; }
-
+    public TypeGroup TypeG { get; set; }
 
     private void Awake()
     {
+        TypeG = TypeBaseG;
         Name = NameAnomaly;
         visualEnemy.Add("Anomaly", spRender.sprite);
         StartCoroutine(Check());

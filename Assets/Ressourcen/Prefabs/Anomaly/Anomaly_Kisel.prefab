@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameAnomaly: "\u0412\u043E\u0440\u043E\u043D\u043A\u0430"
+  TypeBaseG: 8
   animator: {fileID: 5216027352396993823}
   spRender: {fileID: 8887519079431019717}
   layer:

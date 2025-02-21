@@ -8,6 +8,9 @@ public static class StaticValue
     public static int[] time = new int[2] { 6, 0 };
     public static float lightLevel = 0.69f;
 
+    public static int countKills = 0;
+    public static float countDm = 0;
+
     public static Dictionary<string, bool> baseSwitcherObject = new();
 
     static StaticValue()
@@ -19,5 +22,10 @@ public static class StaticValue
         baseSwitcherObject.Add("SvarogS", true); //первый разговор со Сварогом
         baseSwitcherObject.Add("MninBoss-1", true); //мини босс в церкви
         baseSwitcherObject.Add("MninBoss-1-End", true); //коней иследований
+        baseSwitcherObject.Add("NewQuest-Lebed", false); //новое задание после церкви
+        baseSwitcherObject.Add("BaseNarciss", true); //группа нарцисса - стоит
+        baseSwitcherObject.Add("FightNarciss", false); //группа нарцисса - атакует
+        baseSwitcherObject.Add("PriceNasos", false); //call с наградой за зачистку насосной санции
+        baseSwitcherObject.Add("PriceNasos-End", false); //call с наградой за зачистку насосной санции - END
     }
 }

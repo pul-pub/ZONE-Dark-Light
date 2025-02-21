@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : NpcAI, IMetaEnemy
+public enum TypeGroup { Millitary, Scientist, Stalker, ClearSky, Bandut, Dolg, Svoboda, Monolith, Mutant };
+
+public class NPC : NpcAI, IMetaEssence
 {
     [Header("NPC")]
     [SerializeField] string NameNPC;
+    [SerializeField] private TypeGroup TypeBaseG;
     [SerializeField] SpriteRenderer Face;
     [Space]
     [NonSerialized] public NPCBackpack backpack;
@@ -22,11 +25,14 @@ public class NPC : NpcAI, IMetaEnemy
 
     public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
     public string Name { get; set; }
+    public TypeGroup TypeG { get; set; }
 
     private void Awake()
     {
         Name = NameNPC;
         weapon.Meta = this;
+        typeGroup = TypeBaseG;
+        TypeG = TypeBaseG;
 
         if (numberWeapon != 2)
             weapon.SetGunList(new Item[2] { items[0] ? items[0].Clone() : null, items[1] ? items[1].Clone() : null });
@@ -74,8 +80,11 @@ public class NPC : NpcAI, IMetaEnemy
         health.SetDebaff -= OnDebuff;
     }
 
-    private void OnDide(IMetaEnemy _meta)
+    private void OnDide(IMetaEssence _meta)
     {
+        if (_meta == null)
+            StaticValue.countKills++;
+
         if (gameObject.name == "MninBoss-1")
             SaveHeandler.SessionSave.SetSwitchObject("MninBoss-1", false);
 

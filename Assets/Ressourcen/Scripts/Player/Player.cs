@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IMetaEssence
 {
     [Header("Button F")]
     [SerializeField] private int sizeCheck;
@@ -19,9 +20,14 @@ public class Player : MonoBehaviour
     public Energy energy;
     [Space]
     [SerializeField] private DialogCall[] calls;
+    [SerializeField] private Quest[] quests;
 
     private bool _isInterecrion = false;
     private Coroutine _coroutine;
+
+    public Dictionary<string, Sprite> visualEnemy { get; set; } = new ();
+    public string Name { get; set; }
+    public TypeGroup TypeG { get; set; }
 
     public void Initialization()
     {
@@ -47,6 +53,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        TypeG = TypeGroup.Stalker;
+        weaponManager.Meta = this;
+
         transform.position = new Vector2(SaveHeandler.SessionSave.pos.x,
                                          SaveHeandler.SessionSave.pos.y);
 
@@ -58,12 +67,12 @@ public class Player : MonoBehaviour
             transform.localScale = scaler;
         }
 
-        if (SaveHeandler.SessionSave.switcherObject["StartCall"] && SceneManager.GetActiveScene().buildIndex == 3)
+        if (SaveHeandler.SessionSave.GetSwitchObject("StartCall") && SceneManager.GetActiveScene().buildIndex == 3)
         {
             handlerGUI.Call.OpenDialog(calls[0]);
             SaveHeandler.SessionSave.SetSwitchObject("StartCall", false);
         }
-        if (SaveHeandler.SessionSave.switcherObject["ProvodnikCall-Cerkov"] && SceneManager.GetActiveScene().buildIndex == 4)
+        if (SaveHeandler.SessionSave.GetSwitchObject("ProvodnikCall-Cerkov") && SceneManager.GetActiveScene().buildIndex == 4)
         {
             handlerGUI.Call.OpenDialog(calls[1]);
             SaveHeandler.SessionSave.SetSwitchObject("ProvodnikCall-Cerkov", false);
@@ -165,6 +174,13 @@ public class Player : MonoBehaviour
         {
             handlerGUI.UpdateButtons(false, false, lightManager.HaveLight);
         }
+
+        if (SaveHeandler.SessionSave.GetSwitchObject("PriceNasos") && !SaveHeandler.SessionSave.GetSwitchObject("PriceNasos-End"))
+        {
+            handlerGUI.Call.OpenDialog(calls[2]);
+            handlerGUI.questManager.AddQuest(quests[2]);
+            SaveHeandler.SessionSave.SetSwitchObject("PriceNasos-End", true);
+        } 
     }
 
     private void OnTouchMultiButton()

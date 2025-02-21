@@ -1374,6 +1374,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   knife: {fileID: 11400000, guid: 4eb7635a4173249499a70130c272b345, type: 2}
+  withSave: 0
 --- !u!1 &8080701191720107577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFreePerson: 0
+  FreeSpeed: 0.25
   freeArea: {x: 15, y: 40}
   Layer:
     serializedVersion: 2
@@ -1464,6 +1466,9 @@ MonoBehaviour:
   SizeCheckMove: 23
   SizeCheckAttack: 10
   SizeCheckObject: 4
+  NameNPC: 
+  TypeBaseG: 3
+  Face: {fileID: 0}
   backpackObject: {fileID: 11400000, guid: 6574d339ce0e28445ae7449ca861d924, type: 2}
   movement: {fileID: 1539512306756900136}
   health: {fileID: 7356195351890514509}
@@ -1510,12 +1515,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0605c4b155bd4824f800899238743f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
   backpackSpRend: {fileID: 2743478664631049096}
   armorRenders:
   - {fileID: 4013576760169821627}
   - {fileID: 8734729115066479919}
   - {fileID: 7965035600440228378}
   - {fileID: 8644049547338472134}
+  face: {fileID: 0}
+  animLeg: {fileID: 0}
   nullArmor: {fileID: 11400000, guid: 3f00ca87b3e807d4389e70403e9580ea, type: 2}
 --- !u!114 &7356195351890514509
 MonoBehaviour:
@@ -1529,8 +1537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac52175d1cdb42f44b29dcfeb309a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseValueHealth: 0
   isDamagebly: 0
+  listBodyParths: []
+  baseValueHealth: 0
 --- !u!114 &1694519355398766063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,6 +1554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u041B\u0435\u0431\u0435\u0434\u0435\u0432"
   Group: "\u0427\u0438\u0441\u0442\u043E\u0435 \u041D\u0435\u0431\u043E"
+  npc: {fileID: 0}
+  AutoOpenDialog: 0
   face: {fileID: -1675984752, guid: dd65a836cea4653459014f8adee7610c, type: 3}
   armor: {fileID: 11400000, guid: 98ee9d62a997b534d8b9eddd70204fc7, type: 2}
   backpack: {fileID: 0}

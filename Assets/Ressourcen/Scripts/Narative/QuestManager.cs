@@ -43,10 +43,15 @@ public class QuestManager : MonoBehaviour
 
     public Quest FindActivQuest(string _nameTo)
     {
-        if (_nowQuest.NameTo == _nameTo)
-            return _nowQuest;
+        if (_nowQuest)
+        {
+            if (_nowQuest.NameTo == _nameTo)
+                return _nowQuest;
 
-        return _quests.Find(q => q.NameTo == _nameTo);
+            return _quests.Find(q => q.NameTo == _nameTo);
+        }
+
+        return null;
     }
 
     public void AddQuest(Quest _q)
@@ -67,8 +72,8 @@ public class QuestManager : MonoBehaviour
         {
             _nowQuest = null;
             handler.UpdateQuest(_nowQuest);
-        }  
-
+        }
+        Debug.Log(_q.Id);
         _quests.Remove(_q);
         _endedQuests.Add(_q);
         UpdateMarkers();

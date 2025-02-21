@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class LightManager : MonoBehaviour
 {
     public bool HaveLight => _lightObject != null;
+    public bool OnLight = false;
 
     [SerializeField] private WorldTime worldTime;
 
@@ -16,6 +17,17 @@ public class LightManager : MonoBehaviour
     [SerializeField] private bool baseIsGrafic;
 
     private LightObject _lightObject;
+    private bool isLoaged = false;
+
+    private void OnEnable()
+    {
+        SaveHeandler.OnSaveSession += Save;
+    }
+
+    private void OnDisable()
+    {
+        SaveHeandler.OnSaveSession -= Save;
+    }
 
     public void OnResetOutfit(Item[] _items)
     {
@@ -44,6 +56,13 @@ public class LightManager : MonoBehaviour
 
             spRender.gameObject.SetActive(false);
         }
+
+        Debug.Log(SaveHeandler.SessionSave.onLight);
+        if (SaveHeandler.SessionSave.onLight && !isLoaged)
+        {
+            isLoaged = true;
+            OnSetLight();
+        }   
     }
 
     public void OnSetLight()
@@ -60,6 +79,8 @@ public class LightManager : MonoBehaviour
                     worldTime.IsSetGragics = baseIsGrafic;
                     light2D.intensity = StaticValue.lightLevel;
                 }
+
+                OnLight = false;
             }
             else
             {
@@ -71,7 +92,11 @@ public class LightManager : MonoBehaviour
                 }
                 else
                     lightFanric.SetActive(true);
+
+                OnLight = true;
             }
         } 
     }
+
+    private void Save() => SaveHeandler.SessionSave.onLight = OnLight;
 }

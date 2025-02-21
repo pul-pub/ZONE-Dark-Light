@@ -21,6 +21,7 @@ MonoBehaviour:
     Name: "\u0411\u043E\u043B\u043E\u0442\u0430"
     Connections:
     - {fileID: 11400000, guid: 78d261d52c2fdaa47ac4b94a7b3a5e55, type: 2}
+    - {fileID: 11400000, guid: 00e4c221bba632e429c7107ed83b4b26, type: 2}
   - ID: 3
     Name: "\u0411\u0430\u0437\u0430 \u0427\u0438\u0441\u0442\u043E\u0433\u043E \u041D\u0435\u0431\u0430"
     Connections:
@@ -30,3 +31,7 @@ MonoBehaviour:
     Name: "\u0426\u0435\u0440\u043A\u043E\u0432\u044C"
     Connections:
     - {fileID: 11400000, guid: 8c05074a36883f149894a4a2023d05d5, type: 2}
+  - ID: 5
+    Name: "\u041D\u0430\u0441\u043E\u0441\u043D\u0430\u044F \u0441\u0442\u0430\u043D\u0446\u0438\u044F"
+    Connections:
+    - {fileID: 11400000, guid: 5fbb60eee3b44074ab9c2167bfac06f1, type: 2}

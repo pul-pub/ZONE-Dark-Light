@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -7,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float dm;
     public int Layer;
 
-    public IMetaEnemy meta;
+    public IMetaEssence meta;
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private SortingLayer layerMask1;
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private float maxDistanc = 15f;
     [SerializeField] private Vector2 sizeRay;
+    [SerializeField] private Object objHit;
 
     private Vector2 _stratPosition;
 
@@ -30,16 +32,26 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D[] _hit = Physics2D.BoxCastAll(transform.position, sizeRay, 0f, Vector2.zero, 0f, layerMask);
-        if (_hit.Length > 0)
+        RaycastHit2D[] _hits = Physics2D.BoxCastAll(transform.position, sizeRay, 0f, Vector2.zero, 0f, layerMask);
+        if (_hits.Length > 0)
         {
-            foreach (RaycastHit2D _h in _hit)
+            foreach (RaycastHit2D _hit in _hits)
             {
-                BodyParthColider _parth = _h.collider.gameObject.GetComponent<BodyParthColider>();
-
-                if (_parth && _parth.Layer == Layer)
+                if (_hit.collider.gameObject.GetComponentInParent<IMetaEssence>() != null)
                 {
-                    _parth.ApplyDamage(dm, meta);
+                    TypeGroup _t = _hit.collider.gameObject.GetComponentInParent<IMetaEssence>().TypeG;
+                    if (_t != meta.TypeG)
+                    {
+                        if ((meta.TypeG == TypeGroup.Stalker || meta.TypeG == TypeGroup.ClearSky) &&
+                            (_t == TypeGroup.Stalker || _t == TypeGroup.ClearSky))
+                            continue;
+                        else
+                            TakeDamage(_hit);
+                    }
+                }
+                else
+                {
+                    Instantiate(objHit, transform.position, transform.rotation, transform.parent);
                     Destroy(gameObject);
                 }
             }
@@ -48,6 +60,17 @@ public class Bullet : MonoBehaviour
 
         if (transform.position.x - _stratPosition.x < maxDistanc * -1 || transform.position.x - _stratPosition.x > maxDistanc)
             Destroy(gameObject);
+    }
+
+    private void TakeDamage(RaycastHit2D _hit)
+    {
+        BodyParthColider _parth = _hit.collider.gameObject.GetComponent<BodyParthColider>();
+
+        if (_parth && _parth.Layer == Layer)
+            _parth.ApplyDamage(dm, meta);
+
+        Instantiate(objHit, transform.position, transform.rotation, transform.parent);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()

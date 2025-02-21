@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603e595bd6fcc1a4882dc3b81b979442, type: 3}
   m_Name: Stalker-Standard
   m_EditorClassIdentifier: 
-  id: 141
+  id: 146
   Name: 
   Discription: 
   type: 2

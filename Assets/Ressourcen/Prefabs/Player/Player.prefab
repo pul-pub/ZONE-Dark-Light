@@ -272,6 +272,11 @@ MonoBehaviour:
   calls:
   - {fileID: 11400000, guid: 6c01ceb5b19c0fd498925c15c2719152, type: 2}
   - {fileID: 11400000, guid: 4f961193385eeda418c474d86cd77362, type: 2}
+  - {fileID: 11400000, guid: ce74143fcb2ac4f49999178d8e48066a, type: 2}
+  quests:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 1b061c7bc98043b4d9eebf85d9aa7bef, type: 2}
 --- !u!114 &7711490262845710342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f9ccc8808f1b84293960fe381af5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLight: 0
   worldTime: {fileID: 0}
   spRender: {fileID: 5338521933790245960}
   light2D: {fileID: 0}

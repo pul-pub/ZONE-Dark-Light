@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BodyParthColider : MonoBehaviour
 {
-    public event Action<BodyParthMeta, IMetaEnemy> OnTakeDamade;
+    public event Action<BodyParthMeta, IMetaEssence> OnTakeDamade;
 
     [NonSerialized] public BodyParthMeta BodyParth;
     public int Layer = 0;
@@ -16,8 +16,11 @@ public class BodyParthColider : MonoBehaviour
         BodyParth = parth.Clone();
     }
 
-    public void ApplyDamage(float damage, IMetaEnemy _meta = null)
+    public void ApplyDamage(float damage, IMetaEssence _meta = null)
     {
+        if (_meta == null)
+            StaticValue.countDm += damage;
+
         if (BodyParth.Hp > 0)
             BodyParth.Hp -= damage;
 

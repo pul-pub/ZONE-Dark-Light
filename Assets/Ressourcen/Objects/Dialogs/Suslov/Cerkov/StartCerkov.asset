@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 0
   NameNPC: "\u0421\u0443\u0441\u043B\u043E\u0432"
   GiveMoney: -1
-  GiveItem: {fileID: 11400000, guid: b84b640e6464623449bb3d4a36236da9, type: 2}
+  GiveItem: {fileID: 11400000, guid: 4a98a2d2430d8ed4fb551cf906e46bc2, type: 2}
   GiveCountItem: 1
   text: "\u041D\u0443 \u0437\u0434\u0430\u0440\u043E\u0432\u0430, \u0441\u0442\u0430\u043B\u043A\u0435\u0440,
     \u0442\u0435\u0431\u0435 \u0447\u0435\u0433\u043E? "

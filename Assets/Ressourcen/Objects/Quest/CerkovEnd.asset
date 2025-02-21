@@ -19,5 +19,5 @@ MonoBehaviour:
   idScene: 3
   textTitell: "\u0426\u0435\u0440\u043A\u043E\u0432\u044C"
   textDiscription: "\u0414\u043E\u043B\u043E\u0436\u0438\u0442\u044C \u0433\u043B\u0430\u0432\u043D\u043E\u043C\u0443"
-  textFullDiscription: 
-  startDialog: {fileID: 0}
+  textFullDiscription: 5
+  startDialog: {fileID: 11400000, guid: f42a8e950234efe4697f01ee49ca25de, type: 2}

@@ -12,6 +12,7 @@ public class GUIHandler : MonoBehaviour
     public GUIDetector Detector;
     public GUIHealth Health;
     public GUICall Call;
+    public QuestManager questManager;
     [SerializeField] private GameObject inventoryObject;
     [SerializeField] private GameObject inputUI;
     [SerializeField] private GameObject diskriptObject;
@@ -44,8 +45,6 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private Image[] imgsAnswer;
     [SerializeField] private TextMeshProUGUI[] textAnswer;
     [Header("Quest")]
-    [SerializeField] QuestManager questManager;
-    [Space]
     [SerializeField] TextMeshProUGUI titleQuest;
     [SerializeField] TextMeshProUGUI descriptionQuest;
     [Space]
@@ -63,6 +62,8 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private Image entryScreen;
     [Space]
     [SerializeField] private Quest endCercov;
+    [Header("Q")]
+    [SerializeField] private RectTransform ammosRT;
 
     public IInput input;
 
@@ -139,8 +140,8 @@ public class GUIHandler : MonoBehaviour
             }
         }
 
-        if (!SaveHeandler.SessionSave.switcherObject["MninBoss-1"] &&
-            SaveHeandler.SessionSave.switcherObject["MninBoss-1-End"])
+        if (!SaveHeandler.SessionSave.GetSwitchObject("MninBoss-1") &&
+            SaveHeandler.SessionSave.GetSwitchObject("MninBoss-1-End"))
         {
             questManager.SetEndQuest(questManager.GetNowQuests());
             questManager.AddQuest(endCercov);
@@ -264,11 +265,12 @@ public class GUIHandler : MonoBehaviour
         {
             SaveHeandler.SaveSession();
             SaveHeandler.SessionSave.pos.x = _entry.meta.posTo.x;
+            //SaveHeandler.SessionSave.idScene = _entry.meta.locationToID;
             SceneManager.LoadScene(_entry.meta.locationToID, LoadSceneMode.Single);
         }
     }
 
-    public void Dide(IMetaEnemy _meta) => dideScreen.OnDide(_meta);
+    public void Dide(IMetaEssence _meta) => dideScreen.OnDide(_meta);
     public void OpenNPCPack()
     {
         inventoryObject.SetActive(true);
@@ -351,6 +353,11 @@ public class GUIHandler : MonoBehaviour
             {
                 if (_dialogNow.NameNPC == "Лебедев" && _dialogNow.Id == 3)
                     SaveHeandler.SessionSave.SetSwitchObject("InScene", false);
+                if (_dialogNow.NameNPC == "Нарцисс" && _dialogNow.Id == 3)
+                {
+                    SaveHeandler.SessionSave.SetSwitchObject("BaseNarciss", false);
+                    SaveHeandler.SessionSave.SetSwitchObject("FightNarciss", true);
+                }
 
                 questManager.AddQuest(_dialogNow.answers[_num].quest);
                 screenDialogs.SetActive(false);
@@ -358,13 +365,12 @@ public class GUIHandler : MonoBehaviour
             }
             else if (_dialogNow.answers[_num].typeDescriptions == TypeDescription.WalkTo)
             {
+                SaveHeandler.SaveSession();
                 SaveHeandler.SessionSave.pos.x = _dialogNow.answers[_num].metaEntry.posTo.x;
-                SaveHeandler.SessionSave.idScene = _dialogNow.answers[_num].metaEntry.locationToID;
+                //SaveHeandler.SessionSave.idScene = _dialogNow.answers[_num].metaEntry.locationToID;
                
                 if (_dialogNow.NameNPC == "Каратель")
                     SaveHeandler.SessionSave.SetSwitchObject("Karatel", false);
-
-                SaveHeandler.SaveSession();
 
                 StartCoroutine(AnimationEntryed(_dialogNow.answers[_num].metaEntry.locationToID));
             }
@@ -391,6 +397,8 @@ public class GUIHandler : MonoBehaviour
     {
         if (_quest != null)
         {
+            ammosRT.localPosition = new Vector3(125, -50, 0);
+
             if (!descriptionQuest.gameObject.activeSelf || titleQuest.text != _quest.textTitell)
             {
                 descriptionQuest.gameObject.SetActive(true);
@@ -416,6 +424,8 @@ public class GUIHandler : MonoBehaviour
             descriptionQuest.gameObject.SetActive(false);
             titleQuest.gameObject.SetActive(false);
             marker.gameObject.SetActive(false);
+
+            ammosRT.localPosition = new Vector3(125, 60, 0);
         }
     }
 
@@ -512,11 +522,7 @@ public class GUIHandler : MonoBehaviour
 
     public void UpdateHealth(float _health) => textHealth.text = ((int)_health).ToString();
 
-    public void UpdateEnergy(float _energy)
-    {
-        textEnergy.text = ((int)_energy).ToString();
-        sliderEnergy.value = ((int)_energy);
-    }
+    public void UpdateEnergy(float _energy) => textEnergy.text = ((int)_energy).ToString();
 
     IEnumerator AnimationEntryed(int _locationToID)
     {
@@ -527,9 +533,7 @@ public class GUIHandler : MonoBehaviour
             entryScreen.color = new Color32(0, 0, 0, _alfa);
             _alfa += 4;
             yield return new WaitForEndOfFrame();
-            Debug.Log(entryScreen.color.a);
         }
-        Debug.Log(_locationToID);
         SceneManager.LoadScene(_locationToID, LoadSceneMode.Single);
     }
 

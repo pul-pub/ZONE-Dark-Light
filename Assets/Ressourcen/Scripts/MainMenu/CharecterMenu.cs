@@ -148,15 +148,15 @@ public class CharecterMenu : MonoBehaviour
         if (_light != null)
            imgsPeopl[1].sprite = _light.img;
         //imgsPeopl[2].sprite = маска на лицо;
-        imgsPeopl[3].sprite = _armor.ImgBody;
+        imgsPeopl[3].sprite = _armor != null ? _armor.ImgBody : nullArmor.ImgBody;
         //imgsPeopl[4].sprite = _list.armor.ImgBody;
         if (_backpack != null)
             imgsPeopl[5].sprite = _backpack.img;
-        imgsPeopl[6].sprite = _armor.ImgLeg;
+        imgsPeopl[6].sprite = _armor != null ? _armor.ImgLeg : nullArmor.ImgLeg; ;
         if (_gun != null)
             imgsPeopl[7].sprite = _gun.img;
-        imgsPeopl[8].sprite = _armor.ImgHand;
-        imgsPeopl[9].sprite = _armor.ImgHand;
+        imgsPeopl[8].sprite = _armor != null ? _armor.ImgHand : nullArmor.ImgHand;
+        imgsPeopl[9].sprite = _armor != null ? _armor.ImgHand : nullArmor.ImgHand;
     }
 
     public void InputCharecteristic(string _char)

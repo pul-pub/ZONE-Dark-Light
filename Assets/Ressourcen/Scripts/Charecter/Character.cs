@@ -1,8 +1,11 @@
 using MessagePack;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
+using static UnityEngine.Rendering.DebugUI;
 
 [MessagePackObject]
 public class Character
@@ -14,8 +17,6 @@ public class Character
     public PlayerPos pos;
     [Key(1)]
     public int idScene = 1;
-    [Key(19)]
-    public bool onLight;
     #endregion
 
     #region INVENTORY
@@ -61,6 +62,8 @@ public class Character
     public Dictionary<string, int> characteristics = new Dictionary<string, int>();
     [Key(17)]
     public Dictionary<string, float> hpBodyParth = new Dictionary<string, float>();
+    [Key(19)]
+    public bool onLight = false;
     #endregion
 
     [Key(18)]
@@ -70,18 +73,20 @@ public class Character
     {
         Character _new = new Character();
 
-        _new.pos = pos;
+        _new.pos = new(pos.flipX, pos.x, pos.y);
         _new.idScene = idScene;
 
         _new.money = money;
-        _new.items = items;
+        _new.items = new();
+        foreach (SavesItem si in items)
+            _new.items.Add(si.Clone());
 
         _new.numGun = numGun;
         _new.falgGun = falgGun;
 
         _new.idActivQuest = idActivQuest;
         _new.idQuests = idQuests;
-        _new .idEndingQuests = idEndingQuests;
+        _new.idEndingQuests = idEndingQuests;
 
         _new.switcherObject = new();
         foreach (string k in switcherObject.Keys)
@@ -102,17 +107,37 @@ public class Character
         return _new;
     }
 
+    public bool GetSwitchObject(string _name)
+    {
+        foreach (string k in StaticValue.baseSwitcherObject.Keys)
+            if (k == _name)
+                switcherObject.TryAdd(k, StaticValue.baseSwitcherObject[k]);
+
+        return switcherObject[_name];
+    }
+
     public void SetSwitchObject(string _name, bool _value)
     {
-        foreach (string _key in switcherObject.Keys)
+        foreach (string k in switcherObject.Keys)
         {
-            if (_key == _name)
+            if (k == _name)
             {
-                switcherObject[_key] = _value;
+                switcherObject[k] = _value;
                 OnResetSwitchObject?.Invoke(switcherObject);
                 return;
             }
-        }        
+        }
+        
+        foreach (string k in StaticValue.baseSwitcherObject.Keys)
+        {
+            if (k == _name)
+            {
+                switcherObject.Add(k, StaticValue.baseSwitcherObject[k]);
+                switcherObject[k] = _value;
+                OnResetSwitchObject?.Invoke(switcherObject);
+                return;
+            }
+        }
     }
 }
 
@@ -129,6 +154,21 @@ public class SavesItem
     public Dictionary<string, int> customPropertyItem = new Dictionary<string, int>(5);
     [Key(4)]
     public int[] cellsId = new int[2];
+
+    public SavesItem Clone()
+    {
+        SavesItem _new = new();
+
+        _new.idItem = idItem;
+        _new.count = count;
+        foreach (string k in conditionItem.Keys)
+            _new.conditionItem.Add(k, conditionItem[k]);
+        foreach (string k in customPropertyItem.Keys)
+            _new.customPropertyItem.Add(k, customPropertyItem[k]);
+        _new.cellsId = cellsId;
+
+        return _new;
+    }
 } 
 
 [MessagePackObject]

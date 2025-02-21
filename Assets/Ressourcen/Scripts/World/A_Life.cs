@@ -5,6 +5,8 @@ public class A_Life : MonoBehaviour
 {
     [Header("Switch Object")]
     [SerializeField] private List<GameObject> listSwitchObject = new();
+    [Header("Spot Objects")]
+    [SerializeField] private List<NPC> listSpotObjects = new();
 
     private void Awake()
     {
@@ -19,6 +21,21 @@ public class A_Life : MonoBehaviour
     private void OnDisable()
     {
         SaveHeandler.SessionSave.OnResetSwitchObject -= OnChangeObject;
+    }
+
+    private void Update()
+    {
+        if (listSpotObjects.Count > 0 && !CheckStateSpot())
+            SaveHeandler.SessionSave.SetSwitchObject("PriceNasos", true);
+    }
+
+    public bool CheckStateSpot()
+    {
+        foreach (NPC npc in listSpotObjects)
+            if (npc != null && npc.backpack == null)
+                return true;
+        Debug.Log("f");
+        return false;
     }
 
     public void OnChangeObject(Dictionary<string, bool> _objects)

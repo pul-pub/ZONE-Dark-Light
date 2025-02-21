@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public Inventory inv;
-    public IMetaEnemy Meta;
+    public IMetaEssence Meta;
 
     [Header("Weapon Grafics")]
     [SerializeField] private SpriteRenderer[] spRenderHead;
