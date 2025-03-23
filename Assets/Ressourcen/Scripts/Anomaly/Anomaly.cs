@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class Anomaly : MonoBehaviour, IMetaEssence
 {
-    [SerializeField] private string NameAnomaly;
-    [SerializeField] private TypeGroup TypeBaseG;
+    public string Name { get => nameEssence; }
+    public TypeGroup Group { get => group; }
+    public bool IsDide { get => false; }
+    public ViewEssence Visual
+    {
+        get
+        {
+            ViewEssence viw = new ViewEssence();
+
+            viw.Body = spRender.sprite;
+
+            return viw;
+        }
+    }
+
+    [Header("-----------  Base  -----------")]
+    [SerializeField] private string nameEssence;
+    [SerializeField] private TypeGroup group;
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spRender;
@@ -24,15 +40,8 @@ public class Anomaly : MonoBehaviour, IMetaEssence
     private float _timer = 0f;
     private RaycastHit2D[] _hit;
 
-    public Dictionary<string, Sprite> visualEnemy { get; set; } = new Dictionary<string, Sprite>();
-    public string Name { get; set; }
-    public TypeGroup TypeG { get; set; }
-
     private void Awake()
     {
-        TypeG = TypeBaseG;
-        Name = NameAnomaly;
-        visualEnemy.Add("Anomaly", spRender.sprite);
         StartCoroutine(Check());
     }
 
@@ -70,9 +79,7 @@ public class Anomaly : MonoBehaviour, IMetaEssence
 
                 int _chackChance = Random.Range(0, 100);
                 if (_chackChance >= chanceGiveArtifact)
-                {
-                    GameObject _gObj = Instantiate(objArtifact, parent) as GameObject;
-                }
+                    Instantiate(objArtifact);
             }
 
             while (_timer >= 0f)

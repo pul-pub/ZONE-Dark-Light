@@ -132,11 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5621342553bdd1947aec1c3d6fc8ed86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedTime: 1.5
-  IsSetGragics: 1
+  IsGlobalLight: 1
   sky: {fileID: 8450584720906349910}
   rain: {fileID: 6037998897660170995}
   light2D: {fileID: 3331084624200117797}
+  SpeedTime: 1.5
+  minLightValue: 0.1
+  maxLightValue: 0.95
+  minSkyY: 20
+  maxSkyY: -10
+  chanceSartRain: 20
 --- !u!1 &6037998897660170995
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 6715657418267239613}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

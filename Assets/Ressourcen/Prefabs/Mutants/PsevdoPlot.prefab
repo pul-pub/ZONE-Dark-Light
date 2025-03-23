@@ -196,10 +196,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2296671883284995393}
   - component: {fileID: 5965833980820441480}
-  - component: {fileID: 5453154027622178003}
+  - component: {fileID: 5317289735060539189}
+  - component: {fileID: 791597372151289647}
+  - component: {fileID: 3717167376582235552}
   - component: {fileID: 3752955641362722758}
   - component: {fileID: 3837501455031801538}
   - component: {fileID: 5896747947383465959}
+  - component: {fileID: 3729552236188807687}
   m_Layer: 7
   m_Name: PsevdoPlot
   m_TagString: Untagged
@@ -250,7 +253,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5453154027622178003
+--- !u!114 &5317289735060539189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,33 +262,81 @@ MonoBehaviour:
   m_GameObject: {fileID: 3005136847936285543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca5eb3ae86cd4c96c287084a66fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 77deaacf26da79048b2dd6fd19abbf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsFreePerson: 1
-  FreeSpeed: 0.25
-  freeArea: {x: 15, y: 40}
-  Layer:
+  IsFree: 1
+  speedFreeMove: 1
+  freeArea: {x: 0, y: 0}
+  layer:
     serializedVersion: 2
-    m_Bits: 256
-  LayerObject:
+    m_Bits: 384
+  layerObject:
     serializedVersion: 2
     m_Bits: 1024
-  SizeCheckMove: 23
-  SizeCheckAttack: 2
-  SizeCheckObject: 4
-  NameNPC: "\u041F\u0441\u0435\u0432\u0434\u043E\u043F\u043B\u043E\u0442\u044C"
-  TypeBaseG: 8
-  Face: {fileID: 637759898300951273}
-  backpackObject: {fileID: 11400000, guid: 2b7e51dc0d6c75f488f69e75f2cfc933, type: 2}
+  sizeCheckMove: 23
+  sizeCheckAttack: 3
+  sizeCheckObject: 3
+  AutoReload: 0
+  weapon: {fileID: 0}
+  handR: {fileID: 2296671883284995393}
+--- !u!114 &791597372151289647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005136847936285543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e646bdc9531507488651aa364ba0522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: cc8ef895fde72634f8bd6b95f769c2c1, type: 2}
+  itemsRandom:
+  - id: AMO001
+    value: 0
+    chance: 90
+    countMax: 2
+    countMin: 1
+    condMax: 90
+    condMin: 60
+  itemsStatic: []
+--- !u!114 &3717167376582235552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005136847936285543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9265ef129951d14e917e20cffdb383e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameEssence: "\u041F\u0441\u0435\u0432\u0434\u043E\u043F\u043B\u043E\u0442\u044C"
+  group: 8
+  isDide: 0
+  AutoSetViwe: 1
+  sprBody: {fileID: 396714705661196398, guid: ae31cc0dd800b894c8bb9fed85f12dd8, type: 3}
+  parentInput: {fileID: 3005136847936285543}
+  parentPack: {fileID: 3005136847936285543}
   movement: {fileID: 3752955641362722758}
+  viwe: {fileID: 3729552236188807687}
   health: {fileID: 3837501455031801538}
-  items: []
-  weapon: {fileID: 5896747947383465959}
-  outfit: {fileID: 0}
-  numberWeapon: 2
-  flagWeapon: 1
-  dideAngel: {x: 0, y: 0, z: 180}
+  energy: {fileID: 0}
+  outFitManager: {fileID: 0}
+  weaponManager: {fileID: 5896747947383465959}
+  handlerHands: {fileID: 0}
+  lightManager: {fileID: 0}
+  detector: {fileID: 0}
+  bolt: {fileID: 0}
+  isOptionsWeapon: 1
+  upWeapon: 1
+  numWeapon: 2
+  isOptionsDeath: 1
+  rootationDeath: {x: 0, y: 0, z: 90}
+  offsetColiderDeath: {x: 0, y: 0.3}
 --- !u!114 &3752955641362722758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,16 +349,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82d1cb093e63b54699a5c0818dba52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mass: 0
+  _massMax: 20
+  _hpLeg: 100
+  _hpLegMax: 100
   Speed: 2
   ForceJamp: 4
-  toRight: 0
-  debufSpeed: 0
-  layerMask:
+  animatorLeg: {fileID: 5413292119863607750}
+  colLeg: {fileID: 2906754946172423616}
+  rb: {fileID: 5965833980820441480}
+  energy: {fileID: 0}
+  layerGround:
     serializedVersion: 2
     m_Bits: 512
-  animator: {fileID: 5413292119863607750}
-  col: {fileID: 3174221915980849735}
-  energy: {fileID: 0}
+  objMoveEffect: {fileID: 0}
+  posMoveEffect: {fileID: 0}
 --- !u!114 &3837501455031801538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +383,6 @@ MonoBehaviour:
   - {fileID: 5978853377949387456}
   - {fileID: 1712719926872279219}
   - {fileID: 7146564112152814557}
-  baseValueHealth: 550
 --- !u!114 &5896747947383465959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,21 +395,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3e53d72f8c4f344b8287795855a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inv: {fileID: 0}
-  spRenderHead: []
-  spRenderBack: []
+  data: {fileID: 0}
+  objWeapon: {fileID: 0}
   anim: {fileID: 5413292119863607750}
-  pointBullet: {fileID: 0}
-  pointGilz: {fileID: 0}
-  objBullet: {fileID: 0}
-  objGilz: {fileID: 0}
-  objFire: {fileID: 0}
-  parent: {fileID: 0}
+  stor: {fileID: 0}
+  pointGunDown: {fileID: 0}
+  pointPistolDown: {fileID: 0}
+  pointWeaponUp: {fileID: 0}
+  pointWeaponReload: {fileID: 0}
   knifeLayer:
     serializedVersion: 2
-    m_Bits: 256
-  knife: {fileID: 11400000, guid: 7a11865eab8452d4a8d02e4a3f3c13cd, type: 2}
-  withSave: 0
+    m_Bits: 384
+  knife: {fileID: 11400000, guid: 897bfb2ef0f9a9646b3a9798e71bb072, type: 2}
+--- !u!114 &3729552236188807687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005136847936285543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f11141e39f49ab4e8bb0639af99dda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 0}
+  handR: {fileID: 0}
+  handL: {fileID: 0}
+  handAnim: {fileID: 0}
+  toRight: 0
+  targetHandL: {fileID: 0}
+  weapon: {fileID: 5896747947383465959}
 --- !u!1 &3778340870199888969
 GameObject:
   m_ObjectHideFlags: 0

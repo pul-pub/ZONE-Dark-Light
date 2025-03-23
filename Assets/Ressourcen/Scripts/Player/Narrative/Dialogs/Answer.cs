@@ -1,0 +1,16 @@
+using System;
+using UnityEngine;
+
+public enum TypeDescription { NextDialog, Quest, Buy, Sale, Exit, WalkTo, Dide };
+
+[Serializable]
+public class Answer
+{
+    [TextArea] public string text;
+    public TypeDescription typeDescriptions;
+
+    public Dialog nextDialog;
+    public EntryMeta metaEntry;
+    public Quest quest;
+    public ShopObject Shop;
+}

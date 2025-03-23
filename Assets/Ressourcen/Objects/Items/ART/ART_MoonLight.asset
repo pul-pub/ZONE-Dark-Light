@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853db6bcdc243814aba028e684bd6284, type: 3}
+  m_Name: ART_MoonLight
+  m_EditorClassIdentifier: 
+  id: ART001
+  nameItem: "\u041B\u0443\u043D\u043D\u044B\u0439 \u0441\u0432\u0435\u0442"
+  discription: 
+  price: 8000
+  countCell: 1
+  maxCount: 8
+  weight: 0.2
+  condition: 100
+  value: 100
+  img: {fileID: 3657023540709438545, guid: e38a6de4578622d449f78dc4b1b4a4a6, type: 3}
+  Amplitude: 0.77
+  Period: 0.38
+  AntiDamage: 0
+  AntiRadiation: 0
+  AntiBio: 5
+  AntiChimical: 0
+  AntiPsi: 0
+  ChangeMussUp: 0
+  ChangeSpeed: 0
+  RecoveryEnergy: 0.8

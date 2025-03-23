@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public event Action<Vector2> OnEndDown;
+    public event Action<Vector2> EndPress;
+    public event Action<Vector2> Pressing;
 
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
@@ -44,6 +45,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     private Camera cam;
 
     private Vector2 input = Vector2.zero;
+    private bool onZero = true;
+    private bool onPress = false;
 
     protected virtual void Start()
     {
@@ -62,9 +65,24 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchoredPosition = Vector2.zero;
     }
 
+    private void Update()
+    {
+        if (input == Vector2.zero)
+        {
+            Pressing?.Invoke(Vector2.zero);
+            onZero = false;
+        }
+        else
+            onZero = true;
+
+        if (onPress)
+            Pressing?.Invoke(Direction);
+    }
+
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
+        onPress = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -136,7 +154,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-        OnEndDown?.Invoke(input);
+        EndPress?.Invoke(input);
+        onPress = false;
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
     }

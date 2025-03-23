@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: c6aaed85897ae87469a316ed09e5247d
-labels:
-- Armor
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -16,6 +14,66 @@ TextureImporter:
   - first:
       213: -2233365974467470936
     second: Armor_ClearSky_3
+  - first:
+      213: 306990622766092820
+    second: Armor_ClearSky_4
+  - first:
+      213: -4256597372445712773
+    second: Armor_ClearSky_5
+  - first:
+      213: 1647421203965455259
+    second: Armor_ClearSky_6
+  - first:
+      213: -8721770745028429225
+    second: Armor_ClearSky_7
+  - first:
+      213: 5442360075656486890
+    second: Armor_ClearSky_8
+  - first:
+      213: -2612025715805549579
+    second: Armor_ClearSky_9
+  - first:
+      213: 5187577125102878878
+    second: Armor_ClearSky_10
+  - first:
+      213: 2302462495426867562
+    second: Armor_ClearSky_11
+  - first:
+      213: -1329712891188973964
+    second: Armor_ClearSky_12
+  - first:
+      213: 8958046042619262114
+    second: Armor_ClearSky_13
+  - first:
+      213: 8094375725853001466
+    second: Armor_ClearSky_14
+  - first:
+      213: -8478430390810001664
+    second: Armor_ClearSky_15
+  - first:
+      213: 8699139585719866431
+    second: Armor_ClearSky_16
+  - first:
+      213: -2061940785222147402
+    second: Armor_ClearSky_17
+  - first:
+      213: -5412284591156054637
+    second: Armor_ClearSky_18
+  - first:
+      213: 7065198058406479904
+    second: Armor_ClearSky_19
+  - first:
+      213: -6465270117220194293
+    second: Armor_ClearSky_20
+  - first:
+      213: -7867273568034253256
+    second: Armor_ClearSky_21
+  - first:
+      213: -4128518600548433586
+    second: Armor_ClearSky_22
+  - first:
+      213: -1885604366421107874
+    second: Armor_ClearSky_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -150,10 +208,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ab312dd7ceefb6545ba2733278ff2ef9
-      internalID: -612922864
+      spriteID: 8b99075ac3396af90800000000000000
+      internalID: -6942699886862100040
       vertices: []
       indices: 
       edges: []
@@ -172,10 +230,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 66f50b6655c3a194195baaf264796288
-      internalID: 781690384
+      spriteID: 9d1e3200bf31624e0800000000000000
+      internalID: -2006894615186906663
       vertices: []
       indices: 
       edges: []
@@ -194,10 +252,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d34329c2dba408844b55da2510e9678b
-      internalID: 1875577057
+      spriteID: 17e391cc94bad3010800000000000000
+      internalID: 1170279811631365745
       vertices: []
       indices: 
       edges: []
@@ -216,10 +274,450 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ff5d4e845ff5d91469828b5849e7ce48
-      internalID: -1891782420
+      spriteID: 8a91c66aa7d7101e0800000000000000
+      internalID: -2233365974467470936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412595b4856a24400800000000000000
+      internalID: 306990622766092820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e138ffd378de4c0800000000000000
+      internalID: -4256597372445712773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9baec94bd0dcd610800000000000000
+      internalID: 1647421203965455259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75abf22a7bb06f680800000000000000
+      internalID: -8721770745028429225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aefd54967a5278b40800000000000000
+      internalID: 5442360075656486890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb8939537830cbd0800000000000000
+      internalID: -2612025715805549579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9003ba09e9fdf740800000000000000
+      internalID: 5187577125102878878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61f39cc07df3ff10800000000000000
+      internalID: 2302462495426867562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e6c6bab29eb8de0800000000000000
+      internalID: -1329712891188973964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a43aebf96f515c70800000000000000
+      internalID: 8958046042619262114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af6430a36dff45070800000000000000
+      internalID: 8094375725853001466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fb4eeea70965a80800000000000000
+      internalID: -8478430390810001664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_16
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f341f5afc5d89b870800000000000000
+      internalID: 8699139585719866431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2a1fcc7c38263e0800000000000000
+      internalID: -2061940785222147402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395b2d007d3b3e4b0800000000000000
+      internalID: -5412284591156054637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 028091b7330ac0260800000000000000
+      internalID: 7065198058406479904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b086426351fb646a0800000000000000
+      internalID: -6465270117220194293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8369f7a5f54d1d290800000000000000
+      internalID: -7867273568034253256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41c7b5e43e84b6c0800000000000000
+      internalID: -4128518600548433586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_ClearSky_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b5b80b1dcf4d5e0800000000000000
+      internalID: -1885604366421107874
       vertices: []
       indices: 
       edges: []
@@ -228,7 +726,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a2ebfb95da367f34f93603e648eb6b3f
+    spriteID: ddd57a402f1f857439688bdcb15375b4
     internalID: 0
     vertices: []
     indices: 
@@ -238,10 +736,30 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Armor_ClearSky_0: -612922864
-      Armor_ClearSky_1: 781690384
-      Armor_ClearSky_2: 1875577057
-      Armor_ClearSky_3: -1891782420
+      Armor_ClearSky_0: -6942699886862100040
+      Armor_ClearSky_1: -2006894615186906663
+      Armor_ClearSky_10: 5187577125102878878
+      Armor_ClearSky_11: 2302462495426867562
+      Armor_ClearSky_12: -1329712891188973964
+      Armor_ClearSky_13: 8958046042619262114
+      Armor_ClearSky_14: 8094375725853001466
+      Armor_ClearSky_15: -8478430390810001664
+      Armor_ClearSky_16: 8699139585719866431
+      Armor_ClearSky_17: -2061940785222147402
+      Armor_ClearSky_18: -5412284591156054637
+      Armor_ClearSky_19: 7065198058406479904
+      Armor_ClearSky_2: 1170279811631365745
+      Armor_ClearSky_20: -6465270117220194293
+      Armor_ClearSky_21: -7867273568034253256
+      Armor_ClearSky_22: -4128518600548433586
+      Armor_ClearSky_23: -1885604366421107874
+      Armor_ClearSky_3: -2233365974467470936
+      Armor_ClearSky_4: 306990622766092820
+      Armor_ClearSky_5: -4256597372445712773
+      Armor_ClearSky_6: 1647421203965455259
+      Armor_ClearSky_7: -8721770745028429225
+      Armor_ClearSky_8: 5442360075656486890
+      Armor_ClearSky_9: -2612025715805549579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

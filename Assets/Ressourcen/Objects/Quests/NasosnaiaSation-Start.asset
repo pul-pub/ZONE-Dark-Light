@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479e0e2e005b58845867c41fef669fc5, type: 3}
+  m_Name: NasosnaiaSation-Start
+  m_EditorClassIdentifier: 
+  Id: 6
+  NameFrom: "\u041B\u0435\u0431\u0435\u0434\u0435\u0432"
+  NameTo: "\u041D\u0430\u0440\u0446\u0438\u0441\u0441"
+  position: {x: -185.7, y: 0}
+  idScene: 5
+  textTitell: "\u041D\u0430\u0441\u043E\u0441\u043D\u0430\u044F \u0441\u0442\u0430\u043D\u0446\u0438\u044F"
+  textDiscription: "\u041F\u0440\u0438\u0434\u0442\u0438 \u043D\u0430 \u043C\u0435\u0441\u0442\u043E
+    \u0432\u0441\u0442\u0440\u0435\u0447\u0438"
+  textFullDiscription: 2
+  startDialog: {fileID: 11400000, guid: 3da3d0be6961d824d98c1867e11d34db, type: 2}

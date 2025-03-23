@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e176f0bd381953f48ae9ac5ae7f14201, type: 3}
+  m_Name: GUN_PM
+  m_EditorClassIdentifier: 
+  Dm: 29
+  StartTimeBtwShot: 0.2
+  id: GUN004
+  nameItem: "\u041F\u041C"
+  discription: 
+  price: 0
+  countCell: 1
+  maxCount: 1
+  weight: 1.9
+  condition: 100
+  value: 0
+  img: {fileID: 722975880, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
+  ImgBoxGun: {fileID: 6879118450950661895, guid: 903b8687658953f46aa850495715249f, type: 3}
+  ImgStor: {fileID: 667543371971535990, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
+  PointOutBullet: {x: 0.33, y: 0.115}
+  PointFire: {x: 0.33, y: 0.115}
+  PointOutGilz: {x: 0.06, y: 0.115}
+  ObjFire: {fileID: 5623187429919911869, guid: 10c491170b0833d4f982855968355439, type: 3}
+  SoundShoot: {fileID: 0}
+  SoundNullShoot: {fileID: 0}
+  TypeAmmo: AMO003
+  MaxAmmo: 8
+  StorAmmoTakes: 1
+  StorGrffics: 0

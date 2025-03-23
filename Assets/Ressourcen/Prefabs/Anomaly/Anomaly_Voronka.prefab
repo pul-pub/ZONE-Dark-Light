@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45bc5be8746432449e9ade91828e777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameAnomaly: "\u0412\u043E\u0440\u043E\u043D\u043A\u0430"
-  TypeBaseG: 8
+  nameEssence: "\u0412\u043E\u0440\u043E\u043D\u043A\u0430"
+  group: 8
   animator: {fileID: 5427211922857214080}
   spRender: {fileID: 8603017426618411771}
   layer:

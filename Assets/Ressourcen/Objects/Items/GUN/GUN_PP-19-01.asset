@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e176f0bd381953f48ae9ac5ae7f14201, type: 3}
+  m_Name: GUN_PP-19-01
+  m_EditorClassIdentifier: 
+  Dm: 20
+  StartTimeBtwShot: 0.09
+  id: GUN005
+  nameItem: "\u041F\u041F-19-01"
+  discription: 
+  price: 0
+  countCell: 2
+  maxCount: 1
+  weight: 2.6
+  condition: 100
+  value: 0
+  img: {fileID: 460368407, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
+  ImgBoxGun: {fileID: -1898065178660533048, guid: 903b8687658953f46aa850495715249f, type: 3}
+  ImgStor: {fileID: 2953913038379304728, guid: f87a48618d0149243b81e05eb34c3858, type: 3}
+  PointOutBullet: {x: 0.65, y: 0.075}
+  PointFire: {x: 0.65, y: 0.075}
+  PointOutGilz: {x: 0.18, y: 0.11}
+  ObjFire: {fileID: 5623187429919911869, guid: 10c491170b0833d4f982855968355439, type: 3}
+  SoundShoot: {fileID: 0}
+  SoundNullShoot: {fileID: 0}
+  TypeAmmo: AMO003
+  MaxAmmo: 25
+  StorAmmoTakes: 1
+  StorGrffics: 1

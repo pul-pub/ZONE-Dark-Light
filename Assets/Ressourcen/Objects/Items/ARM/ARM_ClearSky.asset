@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40568a42197cdc43bcbe8d2d790a6fb, type: 3}
+  m_Name: ARM_ClearSky
+  m_EditorClassIdentifier: 
+  id: ARM002
+  nameItem: "\u0411\u0440\u043E\u043D\u044F \"\u0427\u041D-2\""
+  discription: 
+  price: 1800
+  countCell: 1
+  maxCount: 1
+  weight: 5
+  condition: 100
+  value: 0
+  img: {fileID: 1170279811631365745, guid: c6aaed85897ae87469a316ed09e5247d, type: 3}
+  ImgHead: {fileID: 0}
+  ImgBody: {fileID: 1170279811631365745, guid: c6aaed85897ae87469a316ed09e5247d, type: 3}
+  ImgHand: {fileID: -6942699886862100040, guid: c6aaed85897ae87469a316ed09e5247d, type: 3}
+  ImgLeg: {fileID: -2233365974467470936, guid: c6aaed85897ae87469a316ed09e5247d, type: 3}
+  animLeg: {fileID: 9100000, guid: 464e74ee81e55084ebf92bd7d5c203de, type: 2}
+  massUp: 8
+  AntiBullet: 15
+  AntiRadiation: 45
+  AntiBio: 40
+  AntiChimical: 20
+  AntiPsi: 0
