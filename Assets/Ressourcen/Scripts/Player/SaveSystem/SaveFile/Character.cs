@@ -1,8 +1,6 @@
 using MessagePack;
-using MessagePack.Unity;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 [MessagePackObject]
@@ -52,6 +50,8 @@ public class Character
     #region CHARECTER
     [Key(13)]
     public float health = 100;
+    [Key(20)]
+    public float energy = 100;
     [Key(14)]
     public string name = "--NONE--";
     [Key(15)]
@@ -83,8 +83,10 @@ public class Character
         _new.falgGun = falgGun;
 
         _new.idActivQuest = idActivQuest;
-        _new.idQuests = idQuests;
-        _new.idEndingQuests = idEndingQuests;
+        foreach (int id in idQuests)
+            _new.idQuests.Add(id);
+        foreach (int id in idEndingQuests)
+            _new.idEndingQuests.Add(id);
 
         _new.switcherObject = new();
         foreach (string k in switcherObject.Keys)
@@ -94,9 +96,11 @@ public class Character
         _new.isRain = isRain;
 
         _new.health = health;
+        _new.energy = energy;
         _new.name = name;
         _new.idFace = idFace;
-        _new.characteristics = characteristics;
+        foreach (string k in characteristics.Keys)
+            _new.characteristics.Add(k, characteristics[k]);
         foreach (string k in hpBodyParth.Keys)
             _new.hpBodyParth.Add(k, hpBodyParth[k]);
 

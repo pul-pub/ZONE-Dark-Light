@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +9,7 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] public MobileInput input;
     [SerializeField] private GUIInventory inventory;
     [SerializeField] private GUIHealth Health;
-    [SerializeField] private GUIDialogs dialogSystem;
+    [SerializeField] public GUIDialogs dialogSystem;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private GUIDideScreen dideScreen;
     [SerializeField] private GUICall call;
@@ -28,6 +27,8 @@ public class GUIHandler : MonoBehaviour
     [SerializeField] private DialogCall[] callObjs;
     [SerializeField] private Quest[] startQuest;
     [SerializeField] private Quest[] endQuest;
+    [Header("----------  Screen  -----------")]
+    [SerializeField] private GameObject screenEntry;
 
     private Camera _cam;
     private Vector3 _questPoint;
@@ -154,4 +155,5 @@ public class GUIHandler : MonoBehaviour
             dialogSystem.SetDialog(core, _list.startDialog);
     }
     public void OnDeath(IMetaEssence _essence) => dideScreen.OnDeath(_essence);
+    public void OnEentry(Entry entry) => screenEntry.SetActive(true);
 }

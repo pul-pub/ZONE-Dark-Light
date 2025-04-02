@@ -8,7 +8,7 @@ public class Save
     [Key(1)]
     public float alfaUi = 75;
     [Key(2)]
-    public bool vSync = false;
+    public int vSync = 0;
     [Key(3)]
     public bool travsAnim = true;
     [Key(4)]

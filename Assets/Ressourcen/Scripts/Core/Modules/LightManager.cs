@@ -21,11 +21,12 @@ public class LightManager : MonoBehaviour
 
     private LightObject _light;
 
-    public void Initialization(bool _onLight = false)
+    public void Awake()
     {
-        _isGlobalLight = worldTime.IsGlobalLight;
-        _baseVolume = volume.profile;
-        OnLight = _onLight;
+        if (worldTime)
+            _isGlobalLight = worldTime.IsGlobalLight;
+        if (volume)
+            _baseVolume = volume.profile;
     }
 
     public Sprite GetImages() => _light?.ImgLight;
@@ -46,8 +47,9 @@ public class LightManager : MonoBehaviour
         {
             OnLight = !OnLight;
             volume.profile = OnLight && _light.TypeLight == TypeLight.PNV ? _light.Profile : _baseVolume;
+            if (OnLight && _light.TypeLight == TypeLight.PNV)
+                light2D.intensity = 0.5f;
             worldTime.IsGlobalLight = OnLight && _light.TypeLight == TypeLight.PNV ? false : _isGlobalLight;
-            light2D.intensity = OnLight && _light.TypeLight == TypeLight.PNV ? 0.5f : StaticValue.lightLevel;
             lightFanric.SetActive(OnLight && _light.TypeLight != TypeLight.PNV);
         }
     }
@@ -60,8 +62,9 @@ public class LightManager : MonoBehaviour
         if (_light)
         {
             volume.profile = OnLight && _light.TypeLight == TypeLight.PNV ? _light.Profile : _baseVolume;
+            if (OnLight && _light.TypeLight == TypeLight.PNV)
+                light2D.intensity = 0.5f;
             worldTime.IsGlobalLight = OnLight && _light.TypeLight == TypeLight.PNV ? false : _isGlobalLight;
-            light2D.intensity = OnLight && _light.TypeLight == TypeLight.PNV ? 0.5f : StaticValue.lightLevel;
             lightFanric.SetActive(OnLight && _light.TypeLight != TypeLight.PNV);
         }
     }

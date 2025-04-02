@@ -27,11 +27,13 @@ public static class SaveHeandler
 
         Debug.Log("Start import parameters");
 
-        if (!File.Exists(Application.persistentDataPath + "/ListCharecters"))
+        if (!File.Exists(Application.persistentDataPath + "/ListCharecters") ||
+            !File.Exists(Application.persistentDataPath + "/Save"))
         {
             ListCharecters = new Ids();
             Settings = new Save();
             ExportSeves();
+            ExportSettings();
         }
 
         ImportSeves();

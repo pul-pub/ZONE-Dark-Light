@@ -7,20 +7,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data", fileName = "Data")]
 public class DataBase : ScriptableObject
 {
-    [SerializeField] private List<IItem> Items = new();
+    [SerializeField] private List<IItem> Items;
 
-    [SerializeField] private List<Gun> Guns = new();
-    [SerializeField] private List<KnifeObject> Knifes = new();
-    [SerializeField] private List<DetectorObject> Detectors = new();
-    [SerializeField] private List<ArmorObject> Armors = new();
-    [SerializeField] private List<ArtifactObject> Artifacts = new();
-    [SerializeField] private List<BackpackObject> Backpacks = new();
-    [SerializeField] private List<LightObject> Lights = new();
-    [SerializeField] private List<MedicObject> Medics = new();
-    [SerializeField] private List<AmmoObject> Ammos = new();
+    [SerializeField] private List<Gun> Guns;
+    [SerializeField] private List<KnifeObject> Knifes;
+    [SerializeField] private List<DetectorObject> Detectors;
+    [SerializeField] private List<ArmorObject> Armors;
+    [SerializeField] private List<ArtifactObject> Artifacts;
+    [SerializeField] private List<BackpackObject> Backpacks;
+    [SerializeField] private List<LightObject> Lights;
+    [SerializeField] private List<MedicObject> Medics;
+    [SerializeField] private List<AmmoObject> Ammos;
 
     [SerializeField] private List<Sprite> Faces = new();
-    [SerializeField] private List<Quest> Quests = new();
+    [SerializeField] private List<Quest> Quests;
 
 #if UNITY_EDITOR
     private void OnEnable()
@@ -41,19 +41,19 @@ public class DataBase : ScriptableObject
             "LightObject", "MedicObject", "AmmoObject", "Quest", "ScriptableObject"
         };
 
-        Items.Clear();
+        Items = new();
 
-        Guns.Clear();
-        Knifes.Clear();
-        Detectors.Clear();
-        Armors.Clear();
-        Artifacts.Clear();
-        Backpacks.Clear();
-        Lights.Clear();
-        Medics.Clear();
-        Ammos.Clear();
+        Guns = new();
+        Knifes = new();
+        Detectors = new();
+        Armors = new();
+        Artifacts = new();
+        Backpacks = new();
+        Lights = new();
+        Medics = new();
+        Ammos = new();
 
-        Quests.Clear();
+        Quests = new();
 
         foreach (string name in classNames)
         {

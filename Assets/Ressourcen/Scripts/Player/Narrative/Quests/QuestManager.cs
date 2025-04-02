@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -16,7 +15,7 @@ public class QuestManager : MonoBehaviour
     private List<Quest> _quests = new();
     private List<Quest> _endedQuests = new();
 
-    private List<RectTransform> _questMarkers = new();
+    private List<GameObject> _questMarkers = new();
 
     public List<Quest> GetActivQuests() => _quests;
     public Quest GetNowQuests() => NowQuest;
@@ -62,20 +61,19 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest _q in _quests)
         {
-            RectTransform _rt;
-
-            if (!(_rt = _questMarkers.Find(__rt => __rt.position.x == _q.position.x)) && _q != NowQuest)
+            GameObject _gObj;
+            if (!_questMarkers.Find(_obj => _obj.name == _q.Id.ToString()) && _q != NowQuest)
             {
-                GameObject _gObj = Instantiate(markeObject, parent) as GameObject;
+                _gObj = Instantiate(markeObject, parent) as GameObject;
+                _gObj.name = _q.Id.ToString();
 
-                RectTransform _rTrans = _gObj.GetComponent<RectTransform>();
-                _rTrans.localPosition = new Vector3(_q.position.x, 2.5f);
-                _questMarkers.Add(_rTrans);
+                _gObj.GetComponent<RectTransform>().localPosition = new Vector3(_q.position.x, (_q.position.y == 0 ? 2.5f : _q.position.y), 0);
+                _questMarkers.Add(_gObj);
             }
-            else if (_q == NowQuest || _rt || _endedQuests.Find(__endedQuests => __endedQuests == _q))
+            else if (_q == NowQuest && (_gObj = _questMarkers.Find(_obj => _obj.name == _q.Id.ToString())))
             {
-                _questMarkers.Remove(_rt);
-                Destroy(_rt);
+                _questMarkers.Remove(_gObj);
+                Destroy(_gObj);
             }
         }
     }

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class OutFitManager : MonoBehaviour
 {
-    public int MaxMass { get => backpack == null ? 20 : 20 + backpack.MassUp + armor.MassUp; }
+    public int MaxMass { get => 20 + (backpack == null ? 0 : backpack.MassUp + armor.MassUp) + _buffForce; }
     public int FaceID { set => face.sprite = data.GetFace(value); }
 
     [SerializeField] private DataBase data;
@@ -16,6 +15,7 @@ public class OutFitManager : MonoBehaviour
 
     private BackpackObject backpack;
     private ArmorObject armor;
+    private int _buffForce = 0;
 
     public Dictionary<string, Sprite> GetImages()
     {
@@ -65,5 +65,6 @@ public class OutFitManager : MonoBehaviour
     public void Load()
     {
         face.sprite = data.GetFace(SaveHeandler.SessionNow.idFace);
+        _buffForce = SaveHeandler.SessionNow.characteristics["Сила"] * 2;
     }
 }

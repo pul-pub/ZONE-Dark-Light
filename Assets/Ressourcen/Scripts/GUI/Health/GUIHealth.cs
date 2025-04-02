@@ -21,11 +21,18 @@ public class GUIHealth : MonoBehaviour
     [SerializeField] private List<GUIButton> guiMedButtons;
     [SerializeField] private RectTransform medicMenu;
     [Header("---------  Value  ----------")]
+    [SerializeField] private TextMeshProUGUI textMassMax;
     [SerializeField] private TextMeshProUGUI textHealthAll;
     [SerializeField] private TextMeshProUGUI textEnergyAll;
     [SerializeField] private Image vinHealth;
 
     private ObjectItem _medic;
+    private OutFitManager _outFitManager;
+
+    private void Awake()
+    {
+        _outFitManager = health.gameObject.GetComponent<OutFitManager>();
+    }
 
     private void OnEnable()
     {
@@ -56,6 +63,7 @@ public class GUIHealth : MonoBehaviour
     {
         textHealthAll.text = health.HealthAll.ToString();
         textEnergyAll.text = Math.Round(energy.Value, 2, MidpointRounding.ToEven).ToString();
+        textMassMax.text = "/ " + _outFitManager.MaxMass.ToString();
 
         vinHealth.color = new Color(0.5f, 0, 0, 1 - health.HealthAll / 440);
     }

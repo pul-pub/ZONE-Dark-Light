@@ -349,14 +349,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82d1cb093e63b54699a5c0818dba52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: 0
-  _massMax: 20
-  _hpLeg: 100
-  _hpLegMax: 100
   Speed: 2
   ForceJamp: 4
   animatorLeg: {fileID: 5413292119863607750}
   colLeg: {fileID: 2906754946172423616}
+  pathLeg: {fileID: 273312926815256817}
   rb: {fileID: 5965833980820441480}
   energy: {fileID: 0}
   layerGround:

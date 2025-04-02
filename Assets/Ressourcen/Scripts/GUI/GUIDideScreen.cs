@@ -11,29 +11,17 @@ public class GUIDideScreen : MonoBehaviour
     [Space]
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private TextMeshProUGUI textGroup;
-    [SerializeField] private bool showImageEssence;
     #region IMGS ESSENCE
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgLight;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgMask;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgFace;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBody;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBody2;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBackpack;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgGun;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgPistol;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgHandR;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgHandL;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgLeg;
     #endregion
 
@@ -49,7 +37,33 @@ public class GUIDideScreen : MonoBehaviour
         screen.SetActive(true);
 
         textName.text = _meta.Name;
-        textGroup.text = _meta.Group.ToString();
+        switch (_meta.Group)
+        {
+            case TypeGroup.millitary:
+                textGroup.text = "Военные";
+                break;
+            case TypeGroup.scientist:
+                textGroup.text = "Учёные";
+                break;
+            case TypeGroup.Mutant:
+                textGroup.text = "Мутанты";
+                break;
+            case TypeGroup.bandut:
+                textGroup.text = "Бандиты";
+                break;
+            case TypeGroup.clearSky:
+                textGroup.text = "Чистое Небо";
+                break;
+            case TypeGroup.svoboda:
+                textGroup.text = "Свобода";
+                break;
+            case TypeGroup.dolg:
+                textGroup.text = "Долг";
+                break;
+            case TypeGroup.stalker:
+                textGroup.text = "Сталкеры";
+                break;
+        }
 
         ViewEssence viv = _meta.Visual;
 

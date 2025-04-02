@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -11,8 +9,7 @@ public class Health : MonoBehaviour
     public event Action OnChangeValueHealth;
 
     [SerializeField] private bool isDamagebly;
-    [ConditionallyVisible(nameof(isDamagebly))]
-    public List<BodyParthColider> listBodyParths;
+    public List<BodyParthColider> listBodyParths = new();
 
     public float HealthAll 
     { 

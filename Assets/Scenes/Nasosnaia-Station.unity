@@ -2082,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoOpenDialog: 0
+  ShowFaceNPC: 1
   startDialog: {fileID: 11400000, guid: 402de1481368f8144a9c1c9a9c0adab2, type: 2}
 --- !u!1 &221368855
 GameObject:
@@ -2468,7 +2469,7 @@ PolygonCollider2D:
       - {x: -12.048987, y: -3.7671602}
       - {x: 0.71584946, y: -4.0765834}
       - {x: 19.893127, y: -3.973676}
-      - {x: 48.545784, y: -3.5949595}
+      - {x: 48.556717, y: -3.8956406}
       - {x: 39.455925, y: -2.5314062}
       - {x: 31.951698, y: -2.5907607}
       - {x: 24.68431, y: -1.5850444}
@@ -7684,7 +7685,7 @@ GameObject:
   - component: {fileID: 860087231}
   - component: {fileID: 860087233}
   - component: {fileID: 860087232}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7700,7 +7701,7 @@ Transform:
   m_GameObject: {fileID: 860087230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -207, y: 0, z: 0}
+  m_LocalPosition: {x: -204.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7719,6 +7720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meta: {fileID: 11400000, guid: 5fbb60eee3b44074ab9c2167bfac06f1, type: 2}
+  openAd: 1
 --- !u!61 &860087233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7753,7 +7755,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.44978333, y: 0.6619406}
+  m_Offset: {x: -1.7380524, y: 0.6619406}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7763,7 +7765,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8995667, y: 4.2587843}
+  m_Size: {x: 2.463379, y: 4.2587843}
   m_EdgeRadius: 0
 --- !u!1 &860129852
 GameObject:

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Null", menuName = "ArmorObject")]
@@ -37,7 +36,7 @@ public class ArmorObject : ScriptableObject, IItem
     public Sprite ImgHand;
     public Sprite ImgLeg;
     [Space]
-    public AnimatorController animLeg;
+    public RuntimeAnimatorController animLeg;
     [Header("——-——  Characteristic  —————")]
     public int MassUp = 10;
     [Space]

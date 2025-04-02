@@ -870,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 162465677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -157.58, y: 1.67, z: 0}
+  m_LocalPosition: {x: -170.13, y: 0.55, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,7 +941,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1604371903
   m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingOrder: 8
   m_Sprite: {fileID: 542973016, guid: 7dd86f6c3cb938541835206e2d74c82a, type: 3}
   m_Color: {r: 0.85049933, g: 0.8584906, b: 0.64386797, a: 1}
   m_FlipX: 0
@@ -2253,7 +2253,7 @@ Transform:
   m_GameObject: {fileID: 381996526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -201.41, y: 1.65, z: 0}
+  m_LocalPosition: {x: -200.825, y: 1.65, z: 0}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2324,7 +2324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1604371903
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 542973016, guid: 7dd86f6c3cb938541835206e2d74c82a, type: 3}
   m_Color: {r: 0.85049933, g: 0.8584906, b: 0.64386797, a: 1}
   m_FlipX: 0
@@ -5304,6 +5304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoOpenDialog: 0
+  ShowFaceNPC: 1
   startDialog: {fileID: 11400000, guid: 5796189fe62d6b946b23cdfb0bcefce8, type: 2}
 --- !u!1 &776061769
 GameObject:
@@ -7081,11 +7082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: freeArea.x
-      value: -210
+      value: -310
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: freeArea.y
-      value: -200
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: sizeCheckMove
@@ -7093,7 +7094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: speedFreeMove
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4820136128682332206, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: m_Name
@@ -7150,35 +7151,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4820136128682332206, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1020409002}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
 --- !u!4 &1020409000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109737220113870533, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
   m_PrefabInstance: {fileID: 1020408999}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1020409001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4820136128682332206, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
-  m_PrefabInstance: {fileID: 1020408999}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1020409002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020409001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5f43b173988494483129a99190fff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AutoOpenDialog: 1
-  startDialog: {fileID: 11400000, guid: ca729fe9080b4eb45a7d9146371b105f, type: 2}
 --- !u!1 &1033856504
 GameObject:
   m_ObjectHideFlags: 0
@@ -8115,6 +8094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoOpenDialog: 0
+  ShowFaceNPC: 1
   startDialog: {fileID: 11400000, guid: 0246a6772edddc447b32912aada433eb, type: 2}
 --- !u!1 &1193293771
 GameObject:
@@ -9630,6 +9610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoOpenDialog: 1
+  ShowFaceNPC: 1
   startDialog: {fileID: 11400000, guid: ca729fe9080b4eb45a7d9146371b105f, type: 2}
 --- !u!1 &1336742230
 GameObject:
@@ -11101,6 +11082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoOpenDialog: 0
+  ShowFaceNPC: 1
   startDialog: {fileID: 11400000, guid: 402de1481368f8144a9c1c9a9c0adab2, type: 2}
 --- !u!1 &1528958615
 GameObject:
@@ -13153,11 +13135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: freeArea.x
-      value: -210
+      value: -310
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: freeArea.y
-      value: -200
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: sizeCheckMove
@@ -13165,7 +13147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187265129964294051, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: speedFreeMove
-      value: 1.4
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4820136128682332206, guid: fc5894455ba91754b832cbb65b6f248b, type: 3}
       propertyPath: m_Name

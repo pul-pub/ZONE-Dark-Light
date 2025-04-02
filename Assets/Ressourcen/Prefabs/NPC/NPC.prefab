@@ -688,14 +688,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82d1cb093e63b54699a5c0818dba52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: 0
-  _massMax: 20
-  _hpLeg: 130
-  _hpLegMax: 130
   Speed: 3
   ForceJamp: 5
   animatorLeg: {fileID: 7270628606616933436}
   colLeg: {fileID: 2807475497238894106}
+  pathLeg: {fileID: 8169566787909441382}
   rb: {fileID: 8144305588334735014}
   energy: {fileID: 0}
   layerGround:
@@ -736,7 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cc8ef895fde72634f8bd6b95f769c2c1, type: 2}
   armorRenders:
-  - {fileID: 6378604133043885040}
+  - {fileID: 2617201475808148271}
   - {fileID: 8156291739940447970}
   - {fileID: 8943240543348500166}
   - {fileID: 5818085850842388317}

@@ -1,13 +1,26 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class NPCBackpack : MonoBehaviour, IPack
 {
     public event System.Action<Dictionary<string, IItem>> ChangeOutfit;
+    public event System.Action OnUpdateInventory;
 
     public List<ObjectItem> DeathPack { get; set; } = new();
+    public float WeightInventory
+    {
+        get
+        {
+            float weight = 0;
+
+            foreach (ObjectItem i in _main)
+                if (i)
+                    weight += i.Item.Weight * i.Count;
+
+            return weight;
+        }
+    }
 
     [SerializeField] private DataBase data;
     [Header("---------  Random  ----------")]
@@ -42,6 +55,8 @@ public class NPCBackpack : MonoBehaviour, IPack
 
         if (_outFit.Count > 0)
             ChangeOutfit?.Invoke(_outFit);
+
+        OnUpdateInventory?.Invoke();
     }
 
     public void CreateDeathPack(IMetaEssence _meta)

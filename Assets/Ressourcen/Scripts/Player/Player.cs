@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LightManager lightManager;
     [SerializeField] private OutFitManager outFitManager;
     [SerializeField] private ModuleDirectionHands moduleDirection;
+    [SerializeField] private Movement movement;
     [Header("----  Interaction Button  ----")]
     [SerializeField] private int sizeCheck;
     [SerializeField] private LayerMask layer;
@@ -33,7 +33,13 @@ public class Player : MonoBehaviour
     private NPCBackpack _targetPack;
     private DialogList _targetDialogList;
     private Entry _targetEntry;
-    
+    private AdsManager adsManager;
+
+    private void Awake()
+    {
+        adsManager = FindAnyObjectByType<AdsManager>();
+    }
+
     private void OnEnable()
     {
         SaveHeandler.SaveSession += health.Save;
@@ -50,8 +56,13 @@ public class Player : MonoBehaviour
         SaveHeandler.LoadSession += outFitManager.Load;
         SaveHeandler.LoadSession += Load;
         SaveHeandler.LoadSession += moduleDirection.Load;
+        SaveHeandler.LoadSession += movement.Load;
 
-        StartEntrying += OnEntry;
+        StartEntrying += OnSartEntry;
+        StartEntrying += gui.OnEentry;
+        if (adsManager)
+            adsManager.CloseAd += OnEndEntry;
+        gui.dialogSystem.Entrying += OnSartEntry;
 
         ShowInteractionButton += gui.OnSetIntButton;
         OpenDialog += gui.OnOpenDialog;
@@ -78,7 +89,11 @@ public class Player : MonoBehaviour
         SaveHeandler.LoadSession -= Load;
         SaveHeandler.LoadSession -= moduleDirection.Load;
 
-        StartEntrying -= OnEntry;
+        StartEntrying -= OnSartEntry;
+        StartEntrying -= gui.OnEentry;
+        if (adsManager)
+            adsManager.CloseAd -= OnEndEntry;
+        gui.dialogSystem.Entrying -= OnSartEntry;
 
         ShowInteractionButton -= gui.OnSetIntButton;
         OpenDialog -= gui.OnOpenDialog;
@@ -173,11 +188,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnEntry(Entry _ent)
+    private void OnSartEntry(Entry _ent)
     {
         SaveHeandler.Save();
         SaveHeandler.SessionNow.pos.x = _ent.meta.posTo.x;
         SaveHeandler.SessionNow.idScene = _ent.meta.locationToID;
+        adsManager.ShowInterstitial(_ent);
+    }
+
+    private void OnEndEntry(Entry _ent)
+    {
         SceneManager.LoadScene(_ent.meta.locationToID, LoadSceneMode.Single);
     }
 

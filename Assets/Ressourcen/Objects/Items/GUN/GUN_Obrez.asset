@@ -26,12 +26,13 @@ MonoBehaviour:
   img: {fileID: -516981115, guid: d17e1aed67e85ee4093a3a83542ba267, type: 3}
   ImgBoxGun: {fileID: 6214890466697876401, guid: 903b8687658953f46aa850495715249f, type: 3}
   ImgStor: {fileID: 0}
-  PointOutBullet: {x: 0, y: 0}
-  PointFire: {x: 0, y: 0}
-  PointOutGilz: {x: 0, y: 0}
+  PointOutBullet: {x: 0.39, y: 0.13}
+  PointFire: {x: 0.39, y: 0.13}
+  PointOutGilz: {x: 0, y: 0.135}
   ObjFire: {fileID: 5623187429919911869, guid: 10c491170b0833d4f982855968355439, type: 3}
   SoundShoot: {fileID: 0}
   SoundNullShoot: {fileID: 0}
   TypeAmmo: AMO006
   MaxAmmo: 2
   StorAmmoTakes: 0
+  StorGrffics: 0

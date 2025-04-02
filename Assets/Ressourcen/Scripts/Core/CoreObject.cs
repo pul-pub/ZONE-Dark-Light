@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -64,15 +63,11 @@ public class CoreObject : MonoBehaviour, IMetaEssence
     [SerializeField] private BoltManager bolt;
     [Header("---------  Weapon  ---------")]
     [SerializeField] private bool isOptionsWeapon = false;
-    [ConditionallyVisible(nameof(isOptionsWeapon))]
     [SerializeField] private bool upWeapon = false;
-    [ConditionallyVisible(nameof(isOptionsWeapon))]
     [SerializeField] private int numWeapon = 0;
     [Header("----------  Death  ---------")]
     [SerializeField] private bool isOptionsDeath = false;
-    [ConditionallyVisible(nameof(isOptionsDeath))]
     [SerializeField] private Vector3 rootationDeath;
-    [ConditionallyVisible(nameof(isOptionsDeath))]
     [SerializeField] private Vector2 offsetColiderDeath;
 
     private IInput input;
@@ -88,6 +83,7 @@ public class CoreObject : MonoBehaviour, IMetaEssence
 
     private void OnEnable()
     {
+        pack.OnUpdateInventory += OnUpdateMovementParam;
         if (movement)
             input.Move += movement.Move;
         if (viwe)
@@ -127,6 +123,7 @@ public class CoreObject : MonoBehaviour, IMetaEssence
 
     private void OnDisable()
     {
+        pack.OnUpdateInventory -= OnUpdateMovementParam;
         if (movement)
             input.Move -= movement.Move;
         if (viwe)
@@ -227,46 +224,14 @@ public class CoreObject : MonoBehaviour, IMetaEssence
                 handlerHands.TakeBolt -= bolt.OnCastelBolt;
         }
     }
-}
 
-#if UNITY_EDITOR
-[Serializable]
-public class ConditionallyVisibleAttribute : PropertyAttribute
-{
-    public string ConditionPropertyName { get; private set; }
-
-    public ConditionallyVisibleAttribute(string conditionPropertyName)
+    private void OnUpdateMovementParam()
     {
-        ConditionPropertyName = conditionPropertyName;
-    }
-}
-
-[Serializable]
-[CustomPropertyDrawer(typeof(ConditionallyVisibleAttribute))]
-public class ConditionallyVisibleDrawer : PropertyDrawer
-{
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    {
-        var condAttr = (ConditionallyVisibleAttribute)attribute;
-        var conditionProperty = property.serializedObject.FindProperty(condAttr.ConditionPropertyName);
-
-        if (conditionProperty != null && conditionProperty.boolValue)
+        if (movement)
         {
-            EditorGUI.PropertyField(position, property, label);
+            movement.OnUpdateMass(pack.WeightInventory);
+            if (outFitManager)
+                movement.OnUpdateMaxMass(outFitManager.MaxMass);
         }
     }
-
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-    {
-        var condAttr = (ConditionallyVisibleAttribute)attribute;
-        var conditionProperty = property.serializedObject.FindProperty(condAttr.ConditionPropertyName);
-
-        if (conditionProperty != null && conditionProperty.boolValue)
-        {
-            return EditorGUI.GetPropertyHeight(property, label);
-        }
-
-        return 0;
-    }
 }
-#endif

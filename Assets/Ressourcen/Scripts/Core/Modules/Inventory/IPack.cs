@@ -4,8 +4,10 @@ using System.Collections.Generic;
 public interface IPack
 {
     event Action<Dictionary<string, IItem>> ChangeOutfit;
+    event Action OnUpdateInventory;
 
     List<ObjectItem> DeathPack { get; set; }
+    float WeightInventory { get; }
 
     void Initialization();
     List<ObjectItem> GetItems(string _id);

@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.CoreUtils;
 
 public class CharecterMenu : MonoBehaviour
 {
@@ -19,29 +17,17 @@ public class CharecterMenu : MonoBehaviour
     [Space]
     [SerializeField] private GameObject buttonPlay;
     [SerializeField] private TextMeshProUGUI textName;
-    [SerializeField] private bool showImageEssence;
     #region IMGS ESSENCE
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgLight;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgMask;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgFace;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBody;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBody2;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgBackpack;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgGun;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgPistol;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgHandR;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgHandL;
-    [ConditionallyVisible(nameof(showImageEssence))]
     [SerializeField] private Image imgLeg;
     #endregion
     [Header("Create")]

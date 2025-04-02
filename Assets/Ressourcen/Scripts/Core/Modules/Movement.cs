@@ -2,17 +2,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float _mass;
-    public float _massMax;
-    public float _hpLeg;
-    public float _hpLegMax;
-
     [Header("----------  Base  -----------")]
     [SerializeField] private float Speed = 5f;
     [SerializeField] private float ForceJamp = 5f;
     [Header("---------  Modules  ---------")]
     [SerializeField] private Animator animatorLeg;
     [SerializeField] private BoxCollider2D colLeg;
+    [SerializeField] private BodyParthColider pathLeg;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Energy energy;
     [Header("---------  Grafic  ----------")]
@@ -21,7 +17,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private Object objMoveEffect;
     [SerializeField] private Transform posMoveEffect;
 
-    private float _debuf { get => (energy ? 1 - energy.Value / 100 : 0) + (1 - _mass / _massMax) + (1 - _hpLeg / _hpLegMax); }
+    private float _mass = 0;
+    private float _massMax = 20;
+    private float _buffLovkost = 0;
+
+    private float _debuf { get => (energy ? 1 - energy.Value / 100 : 0) + (1 - _mass / _massMax) +
+            (pathLeg ? 1 - pathLeg.BodyParth.Hp / pathLeg.BodyParth.baseHp : 0) - _buffLovkost; }
     private float _timer = 1f;
 
     private void Update()
@@ -51,7 +52,7 @@ public class Movement : MonoBehaviour
             }
 
             if (_vec.x != 0 && energy)
-                energy.SetDownEnergy(System.Math.Abs(_vec.x) / 100);
+                energy.SetDownEnergy(System.Math.Abs(_vec.x) / 20);
 
             rb.linearVelocityX = (_vec.x != 0 ? _vec.x * (Speed - _debuf) : 0);
         }
@@ -66,12 +67,8 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Dide(Vector3 _dideAngel)
-    {
-        Move(Vector2.zero);
-        transform.eulerAngles = _dideAngel;
-        colLeg.offset = new Vector2(0, -1f);
-    }
+    public void OnUpdateMass(float _m) => _mass = _m;
+    public void OnUpdateMaxMass(float _mm) => _massMax = _mm;
 
     private bool Jamp()
     {
@@ -81,4 +78,6 @@ public class Movement : MonoBehaviour
 
         return isGrounded;
     }
+
+    public void Load() => _buffLovkost = SaveHeandler.SessionNow.characteristics["Ловкость"] * 0.2f;
 }

@@ -202,16 +202,13 @@ public class WeaponManager : MonoBehaviour
 
     private void UpdateWeapon()
     {
-        if (NumWeapon <= 1)
+        for (int i = 0; i < 2; i++)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (_guns[i])
-                    _guns[i].SetPointWeapon(
-                        i == NumWeapon && FlagWeapon,
-                        FlagWeapon && i == NumWeapon ? pointWeaponUp : (i == 0 ? pointGunDown : pointPistolDown),
-                        i == 0 ? (NumWeapon == 0 ? !FlagWeapon : true) : false);
-            }
+            if (_guns[i])
+                _guns[i].SetPointWeapon(
+                    i == NumWeapon && FlagWeapon,
+                    FlagWeapon && i == NumWeapon ? pointWeaponUp : (i == 0 ? pointGunDown : pointPistolDown),
+                    i == 0 ? (NumWeapon == 0 ? !FlagWeapon : true) : false);
         }
 
         anim.SetBool("IsUp", FlagWeapon);

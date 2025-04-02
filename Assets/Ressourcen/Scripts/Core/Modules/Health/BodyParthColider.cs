@@ -10,9 +10,13 @@ public class BodyParthColider : MonoBehaviour
 
     [SerializeField] private BodyParthMeta parth;
 
-    public void Start()
+    public void Awake()
     {
         BodyParth = parth.Clone();
+    }
+
+    public void Start()
+    {
         OnTakeDamade?.Invoke(BodyParth, null);
     }
 

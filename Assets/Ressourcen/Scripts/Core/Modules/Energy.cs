@@ -35,11 +35,11 @@ public class Energy : MonoBehaviour
 
     public void Save()
     {
-        
+        SaveHeandler.SessionNow.energy = Value;
     }
 
     public void Load()
     {
-
+        Value = SaveHeandler.SessionNow.energy;
     }
 }

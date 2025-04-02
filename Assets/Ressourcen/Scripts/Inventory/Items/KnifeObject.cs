@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 [CreateAssetMenu(fileName = "Null", menuName = "KnifeObject")]
 public class KnifeObject : Weapon, IItem

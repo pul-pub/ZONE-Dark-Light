@@ -3,16 +3,10 @@ using UnityEngine.Rendering.Universal;
 
 public class WorldTime : MonoBehaviour
 {
-    
-    
-
     [Header("—————----—  Grafics  ————----——")]
     public bool IsGlobalLight = true;
-    [ConditionallyVisible(nameof(IsGlobalLight))]
     [SerializeField] private Transform sky;
-    [ConditionallyVisible(nameof(IsGlobalLight))]
     [SerializeField] private GameObject rain;
-    [ConditionallyVisible(nameof(IsGlobalLight))]
     [SerializeField] private Light2D light2D;
     [Header("—————----—  Settings  ————----——")]
     [SerializeField] private float SpeedTime = 1.5f;

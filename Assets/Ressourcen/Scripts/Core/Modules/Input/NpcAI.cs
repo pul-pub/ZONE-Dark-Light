@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEditor;
 
 public class NpcAI : MonoBehaviour, IInput
 {
@@ -16,23 +15,14 @@ public class NpcAI : MonoBehaviour, IInput
 
     [Header("-----------  AI  ------------")]
     [SerializeField] private bool IsFree = false;
-    [ConditionallyVisible(nameof(IsFree))] 
     [SerializeField] private float speedFreeMove;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private Vector2 freeArea;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private LayerMask layer;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private LayerMask layerObject;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private float sizeCheckMove;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private float sizeCheckAttack;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private float sizeCheckObject;
-    [ConditionallyVisible(nameof(IsFree))]
     [SerializeField] private bool AutoReload = false;
-    [ConditionallyVisible(nameof(AutoReload))]
     [SerializeField] private WeaponManager weapon;
     [SerializeField] private Transform handR;
 

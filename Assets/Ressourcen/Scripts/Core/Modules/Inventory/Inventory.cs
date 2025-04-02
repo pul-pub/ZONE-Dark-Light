@@ -4,8 +4,8 @@ using UnityEngine;
 public abstract class Inventory : MonoBehaviour, IPack
 {
     public event System.Action<Dictionary<string, IItem>> ChangeOutfit;
-    public event System.Action<ObjectItem, ObjectItem> OnEndCheckCell;
     public event System.Action OnUpdateInventory;
+    public event System.Action<ObjectItem, ObjectItem> OnEndCheckCell;
     public event System.Action<ObjectItem> OpenDiscription;
 
     public int Money { get; private set; }
@@ -144,13 +144,16 @@ public abstract class Inventory : MonoBehaviour, IPack
     protected bool AddNPCItem(IItem _item, int _count) => AddItem(_item, _count, _items, 500);
     protected void UpdateStatusItems(string _screen)
     {
-        for (int i = 0; i < _items.Count; i++)
+        foreach (ObjectItem oi in _items)
         {
-            if (_items[i].CellsId[0] >= 500)
+            Debug.Log(oi.CellsId[0]);
+            if (oi.CellsId[0] >= 100)
+                oi.gameObject.SetActive(_screen == "OTF");
+
+            if (oi.CellsId[0] >= 500)
             {
-                ObjectItem ii = _items[i];
-                _items.Remove(ii);
-                Destroy(ii.gameObject);
+                _items.Remove(oi);
+                Destroy(oi.gameObject);
             }
         }
     }
