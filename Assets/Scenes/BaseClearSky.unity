@@ -4569,7 +4569,7 @@ GameObject:
   - component: {fileID: 667125420}
   - component: {fileID: 667125421}
   - component: {fileID: 667125422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Suslov-Build-Back_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6757,7 +6757,7 @@ Transform:
   m_GameObject: {fileID: 967197224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -157.7, y: 1.8, z: 0}
+  m_LocalPosition: {x: -157.7, y: 1.56, z: 0}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6828,7 +6828,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1604371903
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 542973016, guid: 7dd86f6c3cb938541835206e2d74c82a, type: 3}
   m_Color: {r: 0.85049933, g: 0.8584906, b: 0.64386797, a: 1}
   m_FlipX: 0

@@ -4722,11 +4722,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2296671883284995393, guid: 2742890826847ed4b842fd100e511c11, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2296671883284995393, guid: 2742890826847ed4b842fd100e511c11, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2296671883284995393, guid: 2742890826847ed4b842fd100e511c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4778,7 +4778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3752955641362722758, guid: 2742890826847ed4b842fd100e511c11, type: 3}
       propertyPath: Speed
-      value: 1.5
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752955641362722758, guid: 2742890826847ed4b842fd100e511c11, type: 3}
+      propertyPath: ForceJamp
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3837501455031801538, guid: 2742890826847ed4b842fd100e511c11, type: 3}
       propertyPath: baseValueHealth

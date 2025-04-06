@@ -146,7 +146,6 @@ public abstract class Inventory : MonoBehaviour, IPack
     {
         foreach (ObjectItem oi in _items)
         {
-            Debug.Log(oi.CellsId[0]);
             if (oi.CellsId[0] >= 100)
                 oi.gameObject.SetActive(_screen == "OTF");
 

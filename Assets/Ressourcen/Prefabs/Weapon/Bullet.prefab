@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1806931175304885889}
   - component: {fileID: 1703390762083649501}
   - component: {fileID: 7912392444068018358}
-  m_Layer: 0
+  - component: {fileID: 8947340689261041443}
+  m_Layer: 12
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5019531332896721877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.759, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,11 +79,11 @@ TrailRenderer:
   m_SortingLayerID: 1321242855
   m_SortingLayer: 6
   m_SortingOrder: 10
-  m_Time: 0.1
+  m_Time: 0.05
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.27396205
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -171,3 +172,40 @@ MonoBehaviour:
   maxDistanc: 15
   sizeRay: {x: 0.1, y: 0.1}
   objHit: {fileID: 8028850468442236811, guid: 4c114d9e606c778459fa339f11407039, type: 3}
+  objHitDamage: {fileID: 8028850468442236811, guid: d26d0e4f5ac00d2468bd97f842ce56e2, type: 3}
+--- !u!58 &8947340689261041443
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019531332896721877}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1921
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 6144
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.05

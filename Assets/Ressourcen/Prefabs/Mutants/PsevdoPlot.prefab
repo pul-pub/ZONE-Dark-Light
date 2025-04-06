@@ -46,10 +46,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -139,10 +139,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFree: 1
-  speedFreeMove: 1
+  speedFreeMove: 2
   freeArea: {x: 0, y: 0}
   layer:
     serializedVersion: 2
@@ -317,7 +317,7 @@ MonoBehaviour:
   nameEssence: "\u041F\u0441\u0435\u0432\u0434\u043E\u043F\u043B\u043E\u0442\u044C"
   group: 8
   isDide: 0
-  AutoSetViwe: 1
+  AutoSetViwe: 0
   sprBody: {fileID: 396714705661196398, guid: ae31cc0dd800b894c8bb9fed85f12dd8, type: 3}
   parentInput: {fileID: 3005136847936285543}
   parentPack: {fileID: 3005136847936285543}
@@ -335,8 +335,8 @@ MonoBehaviour:
   upWeapon: 1
   numWeapon: 2
   isOptionsDeath: 1
-  rootationDeath: {x: 0, y: 0, z: 90}
-  offsetColiderDeath: {x: 0, y: 0.3}
+  rootationDeath: {x: 0, y: 0, z: 180}
+  offsetColiderDeath: {x: 0, y: -0.5}
 --- !u!114 &3752955641362722758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82d1cb093e63b54699a5c0818dba52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 2.75
   ForceJamp: 4
   animatorLeg: {fileID: 5413292119863607750}
   colLeg: {fileID: 2906754946172423616}
@@ -402,7 +402,7 @@ MonoBehaviour:
   pointWeaponReload: {fileID: 0}
   knifeLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256
   knife: {fileID: 11400000, guid: 897bfb2ef0f9a9646b3a9798e71bb072, type: 2}
 --- !u!114 &3729552236188807687
 MonoBehaviour:
@@ -584,10 +584,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -677,10 +677,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -770,10 +770,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

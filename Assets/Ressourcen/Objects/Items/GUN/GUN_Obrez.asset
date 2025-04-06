@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e176f0bd381953f48ae9ac5ae7f14201, type: 3}
   m_Name: GUN_Obrez
   m_EditorClassIdentifier: 
-  Dm: 105
+  Dm: 90
   StartTimeBtwShot: 0.1
   id: GUN002
   nameItem: "\u041E\u0431\u0440\u0435\u0437"

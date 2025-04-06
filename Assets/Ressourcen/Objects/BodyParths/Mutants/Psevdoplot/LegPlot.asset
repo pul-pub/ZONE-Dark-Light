@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb090214708544ca4c3409d87dcc2c, type: 3}
   m_Name: LegPlot
   m_EditorClassIdentifier: 
-  baseHp: 80
+  baseHp: 250
   TypeBodyParths: 3
-  MaxDebuff: 1.5
+  MaxDebuff: 1

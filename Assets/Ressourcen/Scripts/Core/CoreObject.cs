@@ -79,6 +79,9 @@ public class CoreObject : MonoBehaviour, IMetaEssence
             input = parentInput.GetComponentInChildren<IInput>();
         if ((pack = parentPack.GetComponent<IPack>()) == null)
             pack = parentPack.GetComponentInChildren<IPack>();
+
+        if (weaponManager)
+            weaponManager.Meta = this;
     }
 
     private void OnEnable()
@@ -163,9 +166,6 @@ public class CoreObject : MonoBehaviour, IMetaEssence
 
     private void Start()
     {
-        if (weaponManager)
-            weaponManager.Meta = this;
-
         input.Initialization(Group);
         pack.Initialization();
 

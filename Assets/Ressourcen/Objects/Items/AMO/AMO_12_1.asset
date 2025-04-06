@@ -22,7 +22,7 @@ MonoBehaviour:
   condition: 100
   value: 0
   img: {fileID: 4319713486055868290, guid: a5cd92b88c3f84b42aedc132f4a093a4, type: 3}
-  ForceBullet: 20
+  ForceBullet: 35
   CountIn: 1
   ObjBullet: {fileID: 5019531332896721877, guid: 1d4ecc95a5cdde543a1f4482bbd2ba6c, type: 3}
   ObjGilz: {fileID: 6975002870307967550, guid: 907544296387151408cf03a1bb473bff, type: 3}

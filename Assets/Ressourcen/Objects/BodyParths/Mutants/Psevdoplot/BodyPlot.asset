@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb090214708544ca4c3409d87dcc2c, type: 3}
   m_Name: BodyPlot
   m_EditorClassIdentifier: 
-  baseHp: 150
+  baseHp: 400
   TypeBodyParths: 1
   MaxDebuff: 1

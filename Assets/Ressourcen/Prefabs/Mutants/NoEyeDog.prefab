@@ -131,7 +131,7 @@ MonoBehaviour:
   nameEssence: "\u0421\u043B\u0435\u043F\u043E\u0439 \u043F\u0451\u0441"
   group: 8
   isDide: 0
-  AutoSetViwe: 1
+  AutoSetViwe: 0
   sprBody: {fileID: 7177923181054240881, guid: 48f80f2015fb7b042bdf1e4b1d6899da, type: 3}
   parentInput: {fileID: 352661062216462611}
   parentPack: {fileID: 352661062216462611}
@@ -149,8 +149,8 @@ MonoBehaviour:
   upWeapon: 1
   numWeapon: 2
   isOptionsDeath: 1
-  rootationDeath: {x: 0, y: 0, z: 0}
-  offsetColiderDeath: {x: 0, y: 0.2}
+  rootationDeath: {x: 0, y: 0, z: 180}
+  offsetColiderDeath: {x: 0, y: -0.2}
 --- !u!114 &6071247897996710094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,10 +282,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -375,10 +375,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -582,10 +582,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -675,10 +675,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1590
+    m_Bits: 5632
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 2432
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

@@ -104,7 +104,6 @@ public class GUIDideScreen : MonoBehaviour
         {
             a += 4;
             screenUp.color += new Color32(0, 0, 0, 4);
-            Debug.Log(a );
             yield return new WaitForSeconds(a / 100);
         }
     }

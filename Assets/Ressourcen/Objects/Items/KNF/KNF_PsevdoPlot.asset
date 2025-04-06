@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76241ed1146a252498c844d438c94dae, type: 3}
   m_Name: KNF_PsevdoPlot
   m_EditorClassIdentifier: 
-  Dm: 20
+  Dm: 75
   StartTimeBtwShot: 1
   id: KNF002
   nameItem: 
@@ -24,4 +24,4 @@ MonoBehaviour:
   condition: 100
   value: 0
   img: {fileID: 0}
-  DistantAttack: {x: 4, y: 0.5}
+  DistantAttack: {x: 7, y: 0.5}
