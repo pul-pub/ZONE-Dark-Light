@@ -99,8 +99,8 @@ public class MainMenu : MonoBehaviour
         valueMusic.text = SaveHeandler.Settings.volMusic.ToString() + "%";
         sliderSound.value = SaveHeandler.Settings.volSound;
         valueSound.text = SaveHeandler.Settings.volSound.ToString() + "%";
-        sliderTargetFPS.value = SaveHeandler.Settings.FPSMode;
-        valueTargetFPS.text = ((int)SaveHeandler.Settings.FPSMode).ToString();
+        sliderTargetFPS.value = SaveHeandler.Settings.FPSMode == -1 ? sliderTargetFPS.maxValue : SaveHeandler.Settings.FPSMode;
+        valueTargetFPS.text = SaveHeandler.Settings.FPSMode == -1 ? "MAX" : SaveHeandler.Settings.FPSMode.ToString();
         sliderVSync.value = SaveHeandler.Settings.vSync;
         valueVSync.text = SaveHeandler.Settings.vSync.ToString();
         valueAnimTrava.isOn = SaveHeandler.Settings.travsAnim;

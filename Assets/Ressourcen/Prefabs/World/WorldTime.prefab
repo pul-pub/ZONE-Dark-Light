@@ -137,8 +137,8 @@ MonoBehaviour:
   rain: {fileID: 6037998897660170995}
   light2D: {fileID: 3331084624200117797}
   SpeedTime: 1.5
-  minLightValue: 0.1
-  maxLightValue: 0.95
+  minLightValue: 0.05
+  maxLightValue: 0.6
   minSkyY: 20
   maxSkyY: -10
   chanceSartRain: 20
