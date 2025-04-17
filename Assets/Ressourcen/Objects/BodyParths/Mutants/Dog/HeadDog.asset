@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb090214708544ca4c3409d87dcc2c, type: 3}
   m_Name: HeadDog
   m_EditorClassIdentifier: 
-  baseHp: 30
+  baseHp: 100
   TypeBodyParths: 0
   MaxDebuff: 1

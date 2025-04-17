@@ -69,7 +69,7 @@ public static class SaveHeandler
         _character.hpBodyParth.Add("leg", 130);
         #endregion
 
-        _character.money = 0;
+        _character.money = 1000;
 
         #region ADD ITEM
         SavesItem _si = new SavesItem();
@@ -109,13 +109,20 @@ public static class SaveHeandler
     private static void ImportSeves()
     {
         byte[] _byteList = File.ReadAllBytes(Application.persistentDataPath + "/ListCharecters");
-        ListCharecters = MessagePackSerializer.Deserialize<Ids>(DecryptData(_byteList));
+        try
+        {
+            ListCharecters = MessagePackSerializer.Deserialize<Ids>(_byteList);
+        }
+        catch
+        {
+            ListCharecters = MessagePackSerializer.Deserialize<Ids>(DecryptData(_byteList));
+        }
     }
 
     private static void ExportSeves()
     {
         byte[] _byteList = MessagePackSerializer.Serialize(ListCharecters);
-        File.WriteAllBytes(Application.persistentDataPath + "/ListCharecters", EncryptData(_byteList));
+        File.WriteAllBytes(Application.persistentDataPath + "/ListCharecters", _byteList);
     }
 
     public static void ImportSettings()

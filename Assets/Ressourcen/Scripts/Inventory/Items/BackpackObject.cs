@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Null", menuName = "Backpack")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Backpack")]
 public class BackpackObject : ScriptableObject, IItem
 {
     #region BASE

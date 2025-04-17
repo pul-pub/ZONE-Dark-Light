@@ -34,12 +34,18 @@ public class BodyParthColider : MonoBehaviour
         OnTakeDamade?.Invoke(BodyParth, _meta);
     }
 
-    public void ApplyMedic(float _medic)
+    public bool ApplyMedic(float _medic)
     {
+        if (BodyParth.Hp == BodyParth.baseHp)
+            return false;
+
         if (BodyParth.Hp + _medic <= BodyParth.baseHp)
             BodyParth.Hp += _medic;
         else
             BodyParth.Hp = BodyParth.baseHp;
+
+        OnTakeDamade?.Invoke(BodyParth, null);
+        return true;
     }
 }
     

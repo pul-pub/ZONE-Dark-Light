@@ -108,9 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cc8ef895fde72634f8bd6b95f769c2c1, type: 2}
   itemsRandom:
-  - id: AMO001
+  - id: HBR001
     value: 0
-    chance: 90
+    chance: 100
     countMax: 3
     countMin: 1
     condMax: 60

@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 public enum TypeLight { Light, PNV }
 
-[CreateAssetMenu(fileName = "Null", menuName = "LightObject")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Light")]
 public class LightObject : ScriptableObject, IItem
 {
     #region BASE

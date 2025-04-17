@@ -7,6 +7,7 @@ public class GUIInventory : Inventory
     [SerializeField] private DataBase data;
     [SerializeField] private GUIDiscriptionItem discriptionItem;
     [SerializeField] private MobileInput input;
+    [SerializeField] private GUIBuyDialogScreen buy;
     [Header("---------  Parents  ----------")]
     [SerializeField] private Transform[] parentCells;
     [SerializeField] private List<ObjectCell> cells = new();
@@ -18,12 +19,14 @@ public class GUIInventory : Inventory
     [SerializeField] private GameObject outfitScreen;
     [SerializeField] private GameObject npcScreen;
     [SerializeField] private GameObject boadyParthsScreen;
+    [SerializeField] private GameObject ScreenBuy;
     [Header("----------  Items  -----------")]
     [SerializeField] private UnityEngine.Object objectItem;
     [Space]
     [SerializeField] private Transform parentDrag;
     [Header("----------  Value  -----------")]
     [SerializeField] private TextMeshProUGUI mass;
+    [SerializeField] private TextMeshProUGUI money;
 
     private void Awake()
     {
@@ -45,6 +48,8 @@ public class GUIInventory : Inventory
         SaveHeandler.LoadSession += Load;
         OpenDiscription += discriptionItem.OnOpenDiscription;
         ChangeOutfit += input.OnUpdateOutFit;
+        OpenStoreDialogScreen += buy.SetDialogScreen;
+        buy.AddItem += EndNPCStor;
 
         foreach (GUIButton but in buttons)
             but.Click += OnOpenIventory;
@@ -56,6 +61,8 @@ public class GUIInventory : Inventory
         SaveHeandler.LoadSession -= Load;
         OpenDiscription -= discriptionItem.OnOpenDiscription;
         ChangeOutfit -= input.OnUpdateOutFit;
+        OpenStoreDialogScreen -= buy.SetDialogScreen;
+        buy.AddItem -= EndNPCStor;
 
         foreach (GUIButton but in buttons)
             but.Click -= OnOpenIventory;
@@ -70,32 +77,22 @@ public class GUIInventory : Inventory
     private void Update()
     {
         mass.text = System.Math.Round(WeightInventory, 3, System.MidpointRounding.ToEven).ToString();
+        money.text = Money.ToString();
     }
 
-    public void AddPackToInv(NPCBackpack _pack)
+    public void AddPackToInv(List<ObjectItem> _pack, string _conf = "")
     {
-        foreach (ObjectItem item in _pack.DeathPack)
-            AddNPCItem(item.Item, item.Count);
+        foreach (ObjectItem item in _pack)
+            AddNPCItem(item.Item, item.Count, _conf);
     }
 
     public void OnOpenIventory(string _screen)
     {
-        if (_screen != "")
-        {
-            mainScreen.SetActive(true);
-            leftScreen.SetActive(_screen != "PAK");
-            outfitScreen.SetActive(_screen == "OTF");
-            npcScreen.SetActive(_screen == "PAK");
-            boadyParthsScreen.SetActive(_screen == "PRT");
-        }
-        else
-        {
-            mainScreen.SetActive(false);
-            leftScreen.SetActive(false);
-            outfitScreen.SetActive(false);
-            npcScreen.SetActive(false);
-            boadyParthsScreen.SetActive(false);
-        }
+        mainScreen.SetActive(_screen != "");
+        leftScreen.SetActive(_screen == "OTF" || _screen == "PRT");
+        outfitScreen.SetActive(_screen == "OTF");
+        npcScreen.SetActive(_screen == "PAK" || _screen == "STR");
+        boadyParthsScreen.SetActive(_screen == "PRT");
 
         UpdateStatusItems(_screen);
     }

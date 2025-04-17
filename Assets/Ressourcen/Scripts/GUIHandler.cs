@@ -8,6 +8,7 @@ public class GUIHandler : MonoBehaviour
     [Header("---------  Modules  ---------")]
     [SerializeField] public MobileInput input;
     [SerializeField] private GUIInventory inventory;
+    [SerializeField] private GUIDiscriptionItem disct;
     [SerializeField] private GUIHealth Health;
     [SerializeField] public GUIDialogs dialogSystem;
     [SerializeField] private QuestManager questManager;
@@ -42,6 +43,8 @@ public class GUIHandler : MonoBehaviour
         dialogSystem.AddNewQuest += questManager.AddQuest;
         dialogSystem.AddItems += inventory.OnGiveItems;
         dialogSystem.GiveMoney += inventory.OnGiveMoney;
+        dialogSystem.OpenStor += OnOpenStor;
+        disct.OnUse += Health.Use;
     }
 
     private void OnDisable()
@@ -53,6 +56,8 @@ public class GUIHandler : MonoBehaviour
         dialogSystem.AddNewQuest -= questManager.AddQuest;
         dialogSystem.AddItems -= inventory.OnGiveItems;
         dialogSystem.GiveMoney -= inventory.OnGiveMoney;
+        dialogSystem.OpenStor -= OnOpenStor;
+        disct.OnUse -= Health.Use;
     }
 
     private void Start()
@@ -139,7 +144,12 @@ public class GUIHandler : MonoBehaviour
     public void OnOpenNPCPack(NPCBackpack _pack)
     {
         inventory.OnOpenIventory("PAK");
-        inventory.AddPackToInv(_pack);
+        inventory.AddPackToInv(_pack.DeathPack, "PAK");
+    }
+    public void OnOpenStor(ShopObject _pack)
+    {
+        inventory.OnOpenIventory("STR");
+        inventory.AddPackToInv(_pack.GetListItems(), "STR");
     }
     public void OnOpenDialog(DialogList _list)
     {

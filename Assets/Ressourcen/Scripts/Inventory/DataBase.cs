@@ -18,6 +18,7 @@ public class DataBase : ScriptableObject
     [SerializeField] private List<LightObject> Lights;
     [SerializeField] private List<MedicObject> Medics;
     [SerializeField] private List<AmmoObject> Ammos;
+    [SerializeField] private List<Habar> Habars;
 
     [SerializeField] private List<Sprite> Faces = new();
     [SerializeField] private List<Quest> Quests;
@@ -35,10 +36,10 @@ public class DataBase : ScriptableObject
 
     private void OnChenge()
     {
-        string[] classNames = new string[11]
+        string[] classNames = new string[12]
         {
             "Gun", "KnifeObject", "DetectorObject", "ArmorObject", "ArtifactObject", "BackpackObject",
-            "LightObject", "MedicObject", "AmmoObject", "Quest", "ScriptableObject"
+            "LightObject", "MedicObject", "AmmoObject", "Quest", "ScriptableObject", "Habar"
         };
 
         Items = new();
@@ -52,6 +53,7 @@ public class DataBase : ScriptableObject
         Lights = new();
         Medics = new();
         Ammos = new();
+        Habars = new();
 
         Quests = new();
 
@@ -139,6 +141,13 @@ public class DataBase : ScriptableObject
                                 Quests.Add(_q);
                             break;
                         }
+                    case "Habar":
+                        {
+                            Habar _h = AssetDatabase.LoadAssetAtPath<Habar>(AssetDatabase.GUIDToAssetPath(guid));
+                            if (_h)
+                                Habars.Add(_h);
+                            break;
+                        }
                 }
             }
         }
@@ -183,6 +192,8 @@ public class DataBase : ScriptableObject
                 return GetMedics(_id);
             case "AMO":
                 return GetAmmos(_id);
+            case "HBR":
+                return GetHabars(_id);
         }
 
         return null;
@@ -199,6 +210,7 @@ public class DataBase : ScriptableObject
     public LightObject GetLight(string _id) => Lights.Find(l => l.Id == _id);
     public MedicObject GetMedics(string _id) => Medics.Find(m => m.Id == _id);
     public AmmoObject GetAmmos(string _id) => Ammos.Find(a => a.Id == _id);
+    public Habar GetHabars(string _id) => Habars.Find(h => h.Id == _id);
 
     public Sprite GetFace(int _id) => Faces[_id];
     public int GetFaceLen() => Faces.Count;

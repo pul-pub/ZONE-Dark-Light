@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Null", menuName = "KnifeObject")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Knife")]
 public class KnifeObject : Weapon, IItem
 {
     #region BASE

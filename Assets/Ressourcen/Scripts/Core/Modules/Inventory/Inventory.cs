@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Inventory : MonoBehaviour, IPack
 {
     public event System.Action<Dictionary<string, IItem>> ChangeOutfit;
     public event System.Action OnUpdateInventory;
+    public event System.Action<ObjectItem, int[]> OpenStoreDialogScreen;
     public event System.Action<ObjectItem, ObjectItem> OnEndCheckCell;
     public event System.Action<ObjectItem> OpenDiscription;
 
@@ -32,6 +34,8 @@ public abstract class Inventory : MonoBehaviour, IPack
 
     private List<ObjectItem> _items = new List<ObjectItem>();
     protected List<ObjectCell> _cellObjs = new List<ObjectCell>();
+
+    private string _nowScreen;
 
     private int _coutCellsPlayer 
     {
@@ -141,11 +145,42 @@ public abstract class Inventory : MonoBehaviour, IPack
 
 
     protected bool AppItem(IItem _item, int _count) => AddItem(_item, _count, _items);
-    protected bool AddNPCItem(IItem _item, int _count) => AddItem(_item, _count, _items, 500);
+    protected void EndNPCStor(ObjectItem _item, int[] _target)
+    {
+        if (_target[0] >= 500)
+        {
+            if (_item.Count < _item.Item.MaxCount)
+                _item.gameObject.GetComponent<ObjectItem>().Count -= _item.Count;
+            else
+                Destroy(_item.gameObject);
+
+            Money += _item.Item.Price * _item.Count;
+        }
+        else
+        {
+            if (_item.Item.Price * _item.Count <= Money)
+            {
+                AddItem(_item.Item, _item.Count, _items, 0, _target);
+                Money -= _item.Item.Price * _item.Count;
+            }
+        }
+
+        UpdateAllItems();
+    }
+    protected bool AddNPCItem(IItem _item, int _count, string _conf = "") => AddItem(_item, _count, _items, 500, null, _conf);
     protected void UpdateStatusItems(string _screen)
     {
+        UpdateAllItems();
+        _nowScreen = _screen;
         foreach (ObjectItem oi in _items)
         {
+            if (oi.CellsId[0] < 100 && !CheckItemID(oi.Item, "HBR"))
+            {
+                oi.enabled = _screen != "STR";
+                oi.gameObject.GetComponentsInChildren<Image>()[1].color = 
+                    _screen != "STR" ? Color.white : new Color32(100, 100, 100, 255);
+            }
+
             if (oi.CellsId[0] >= 100)
                 oi.gameObject.SetActive(_screen == "OTF");
 
@@ -157,7 +192,7 @@ public abstract class Inventory : MonoBehaviour, IPack
         }
     }
 
-    private bool AddItem(IItem _item, int _count, List<ObjectItem> _list, int _startCell = 0, int[] _addCell = null)
+    private bool AddItem(IItem _item, int _count, List<ObjectItem> _list, int _startCell = 0, int[] _addCell = null, string _conf = "")
     {
         GameObject _gObj = Instantiate(_objectItem, _parentBase[0]) as GameObject;
 
@@ -166,6 +201,7 @@ public abstract class Inventory : MonoBehaviour, IPack
         ObjectItem ii = _gObj.GetComponent<ObjectItem>();
 
         ii.OnStartDraging += DragingStart;
+        ii.OpenStoreDialogScreen += OnOpenBuy;
         ii.OnEndDraging += DragingEnd;
         ii.OnCheckCell += CheckCell;
         ii.OnUpdateAll += UpdateAllItems;
@@ -174,6 +210,7 @@ public abstract class Inventory : MonoBehaviour, IPack
         OnEndCheckCell += ii.OnDrop;
         
         ii.Initialization(_item.CloneItem(), _cells, FindCellPosition(_cells[0]), _count < _item.MaxCount ? _count : _item.MaxCount);
+        ii.SpeshialType = _conf;
         _list.Add(_gObj.GetComponent<ObjectItem>());
 
         OnUpdateInventory?.Invoke();
@@ -224,13 +261,13 @@ public abstract class Inventory : MonoBehaviour, IPack
     {
         char[] _listID = _ii.Id.ToCharArray();
 
-        string _typeItem = (_listID[0] + _listID[1] + _listID[2]).ToString();
+        string _typeItem = _listID[0].ToString() + _listID[1].ToString() + _listID[2].ToString();
         string _numItem = "";
 
         for (int i = 3; i < _listID.Length; i++)
             _numItem += _listID[i];
 
-        if (_typeItem == _targetType && _targetID != "" ? _targetID == _ii.Id : true)
+        if (_typeItem == _targetType && (_targetID != "" ? _targetID == _ii.Id : true))
             return true;
 
         return false;
@@ -271,6 +308,7 @@ public abstract class Inventory : MonoBehaviour, IPack
     }
 
     private void DragingStart(Transform _tr) => _tr.parent = _parentDrag;
+    private void OnOpenBuy(ObjectItem _ii, int[] _traget) => OpenStoreDialogScreen?.Invoke(_ii, _traget);
 
     private void DragingEnd(Transform _tr, int _id) => _tr.parent = (_id >= 100 ? (_id >= 500 ? _parentBase[2] : _parentBase[1]) : _parentBase[0]);
 

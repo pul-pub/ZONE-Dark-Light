@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Null", menuName = "Detector")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Detector")]
 public class DetectorObject : ScriptableObject, IItem
 {
     #region BASE

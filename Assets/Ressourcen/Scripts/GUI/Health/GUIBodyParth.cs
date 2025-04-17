@@ -5,12 +5,27 @@ using UnityEngine.UI;
 
 public class GUIBodyParth : MonoBehaviour
 {
+    public event Action<BodyParthColider> OnUse;
+
     public GUIButton button;
+    public BodyParthColider col;
 
     [SerializeField] private Image img;
     [SerializeField] private Image sliderImg;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI text;
+
+    private void OnEnable()
+    {
+        if (button)
+            button.Click += OnSetMedicals;
+    }
+
+    private void OnDisable()
+    {
+        if (button)
+            button.Click -= OnSetMedicals;
+    }
 
     public void OnChengeHP(BodyParthMeta _parth, IMetaEssence _mata)
     {
@@ -49,4 +64,6 @@ public class GUIBodyParth : MonoBehaviour
         if (text)
             text.text = _parth.Hp + "/" + _parth.baseHp;
     }
+
+    private void OnSetMedicals(string str) => OnUse?.Invoke(col);
 }

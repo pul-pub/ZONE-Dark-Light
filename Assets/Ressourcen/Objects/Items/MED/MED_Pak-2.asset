@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62379a61d605091438d3d662873853f4, type: 3}
+  m_Name: MED_Pak-2
+  m_EditorClassIdentifier: 
+  id: MED001
+  nameItem: "\u041F\u0435\u0440\u0435\u0432\u044F\u0437\u043E\u0447\u043D\u044B\u0439
+    \u043F\u0430\u043A\u0435\u0442"
+  discription: 
+  price: 100
+  countCell: 1
+  maxCount: 5
+  weight: 0.5
+  condition: 100
+  value: 0
+  img: {fileID: 1819647254, guid: a36b89d7b442760459213c12f79a70b6, type: 3}
+  RecoveryHP: 5
+  StoppingBleeding: 5

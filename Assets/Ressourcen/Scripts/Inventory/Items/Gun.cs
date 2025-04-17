@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gun", fileName = "Null")]
+[CreateAssetMenu(menuName = "Inventory/Gun", fileName = "Null")]
 public class Gun : Weapon, IItem
 {
     #region Base IItem

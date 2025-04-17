@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ObjectItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public event Action<ObjectItem> OpenDescription;
+    public event Action<ObjectItem, int[]> OpenStoreDialogScreen;
     public event Action OnUpdateAll;
     public event Action OnUpdateOutFit;
     public event Action<Transform> OnStartDraging;
@@ -16,6 +17,8 @@ public class ObjectItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     public IItem Item { get; set; }
     public int Count = 0;
     public int[] CellsId = new int[2];
+
+    public string SpeshialType = "";
     
     private Vector2 _startPos;
     private bool _isDragging = false;
@@ -134,7 +137,18 @@ public class ObjectItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
                     transform.position = Item.CountCell > 1 ? _targetCell.transform.position + new Vector3(75, 0) : _targetCell.transform.position;
 
                     OnUpdateAll.Invoke();
-                    OnEndDraging.Invoke(transform, _targetCell.cellID);
+                    if (SpeshialType == "")
+                        OnEndDraging.Invoke(transform, _targetCell.cellID);
+                    else if (SpeshialType == "STR")
+                    {
+                        transform.position = _startPos;
+                        CellsId = _currentCells;
+                        ObjectItem item = new ObjectItem();
+                        item.Item = Item.CloneItem();
+                        OpenStoreDialogScreen.Invoke(item, Item.CountCell > 1 ? 
+                            new int[2] { _targetCell.cellID, _targetCell.cellID + 1 } : new int[1] { _targetCell.cellID });
+                        OnEndDraging.Invoke(transform, _currentCells[0]);
+                    }
                 }
                 else if (_ii.Item.Id == Item.Id)
                 {
@@ -148,7 +162,17 @@ public class ObjectItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
                     transform.position = _startPos;
 
                     OnUpdateAll.Invoke();
-                    OnEndDraging.Invoke(transform, _targetCell.cellID);
+                    if (SpeshialType == "")
+                        OnEndDraging.Invoke(transform, _targetCell.cellID);
+                    else if (SpeshialType == "STR")
+                    {
+                        transform.position = _startPos;
+                        CellsId = _currentCells;
+                        ObjectItem item = new ObjectItem();
+                        item.Item = Item.CloneItem();
+                        OpenStoreDialogScreen.Invoke(item, Item.CountCell > 1 ? new int[2] { _currentCells[0], _currentCells[1] } : new int[1] { _currentCells[0] });
+                        OnEndDraging.Invoke(transform, _currentCells[0]);
+                    }
                 }
                 else
                 {
@@ -165,13 +189,26 @@ public class ObjectItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
                     else
                     {
                         transform.position = _startPos;
+                        CellsId = _currentCells;
                         OnEndDraging.Invoke(transform, _currentCells[0]);
                     }
                 } 
             }
+            else if (_targetCell.targetItemType == "NPC" && CheckItemType(Item, "HBR"))
+            {
+                transform.position = _startPos;
+                CellsId = _currentCells;
+                ObjectItem item = this.MemberwiseClone() as ObjectItem;
+                item.Item = Item.CloneItem();
+                item.Item.MaxCount = Count;
+                OpenStoreDialogScreen.Invoke(item, Item.CountCell > 1 ?
+                    new int[2] { _targetCell.cellID, _targetCell.cellID + 1 } : new int[1] { _targetCell.cellID });
+                OnEndDraging.Invoke(transform, _currentCells[0]);
+            }
             else
             {
                 transform.position = _startPos;
+                CellsId = _currentCells;
                 OnEndDraging.Invoke(transform, _currentCells[0]);
             }
 

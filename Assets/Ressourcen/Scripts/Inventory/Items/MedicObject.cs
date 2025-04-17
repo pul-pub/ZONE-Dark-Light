@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Null", menuName = "Medic")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Medic")]
 public class MedicObject : ScriptableObject, IItem
 {
     #region BASE

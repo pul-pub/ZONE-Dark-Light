@@ -10,7 +10,7 @@ public class AdsManager : MonoBehaviour
     private InterstitialAdLoader interstitialAdLoader;
     private Interstitial interstitial;
     private string adUnitId = "R-M-14715736-1";
-    private float delayShow = 120;
+    private float delayShow = 75;
     private float timer = 0;
     private Entry _entry;
 

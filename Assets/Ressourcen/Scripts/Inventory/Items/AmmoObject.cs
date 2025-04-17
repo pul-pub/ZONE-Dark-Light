@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Null", menuName = "Ammo")]
+[CreateAssetMenu(fileName = "Null", menuName = "Inventory/Ammo")]
 public class AmmoObject : ScriptableObject, IItem
 {
     #region BASE
